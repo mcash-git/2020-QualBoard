@@ -1,0 +1,30 @@
+<template>
+  <button class="btn btn-primary" click.delegate="download()" disabled.bind="!isSelecting">
+    ${downloadExportButtonText}
+  </button>
+  <div class="action-bar-section" assets.bind="selectedAssets">
+    <a href="#"
+       class="action-bar-link"
+       tooltip="text: Delete"
+       click.trigger="delete()"
+       class.bind="isSelecting ? '' : 'disabled'">
+      <i class="icon-delete"></i>
+    </a>
+    <a class="action-bar-link" click.delegate="toggleFiltersClick()">
+      <i class="filter-toggle-icon"
+         class.bind="showFilters ? 'icon-arrow_forward' : 'icon-filter_list'"></i>
+      <span class="badge"
+            if.bind="filterModel.totalFilterCount > 0 && !showFilters">
+      ${filterModel.totalFilterCount}
+    </span>
+    </a>
+
+  </div>
+  <!-- SEARCH IS NOT YET IMPLEMENTED: -->
+  <!--<div class="search-notifications">-->
+  <!--<form action="">-->
+  <!--<i class="icon-search"></i>-->
+  <!--<input class="form-control form-control-sm" type="search" value="Search" id="example-search-input">-->
+  <!--</form>-->
+  <!--</div>-->
+</template>

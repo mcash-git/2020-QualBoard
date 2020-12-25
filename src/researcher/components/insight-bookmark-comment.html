@@ -1,0 +1,10 @@
+<template>
+  <div class="insight-comment-head">
+    <div class="creator-name">${comment.projectUser.displayName}</div>
+    <div class="created-date" if.bind="comment.createdOn">${comment.createdOn | momentFormat:currentUser.timeZone}</div>
+    <div class="clear"></div>
+  </div>
+  <div class="text-body">
+    <div class="annotation-body">${comment.text}</div>
+  </div>
+</template>

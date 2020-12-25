@@ -1,0 +1,35 @@
+<template>
+  <require from="./moderator-media-actions"></require>
+  <!--Left section of the gallery action bar-->
+  <div class="media-action-bar-content">
+    <div with.bind="model" class="action-bar-container" click.delegate="selectAllLabelClick()">
+      <div class="num-media-selected">
+        <span class="badge selected">${numSelectedAssets}</span>
+        <span class="badge-description">selected</span>
+      </div>
+      <div class="select-all${isSelectAllDisabled ? ' disabled' : ''}">
+        <div class="checker">
+          <label class="custom-control custom-checkbox">
+            <input
+              class="custom-control-input"
+              type="checkbox"
+              change.delegate="selectAllChecked($event)"
+              checked.bind="selectAll"
+              disabled.bind="isSelectAllDisabled"
+            />
+            <span class="custom-control-indicator"></span>
+          </label>
+        </div>
+        &nbsp;
+        <span class="select-all-label">${selectAll ? 'Deselect' : 'Select'} All</span>
+      </div>
+    </div>
+
+    <!--Right side the the gallery action bar-->
+    <moderator-media-actions
+      assets.bind="model.selectedAssets"
+      class="action-bar-container action-bar-right"
+      upload-click.delegate="model.mediaUploadArea.openFileDialog($event)"
+    ></moderator-media-actions>
+  </div>
+</template>

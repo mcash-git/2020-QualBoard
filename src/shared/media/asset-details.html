@@ -1,0 +1,66 @@
+<template>
+  <div class="media-thumb-grid" class.bind="isSelected ? 'media-selected' : ''" click.trigger="assetClick($event)">
+    <!--The actual image thumb-->
+    <div class="media-thumb">
+      <!--Image Select Checker-->
+      <div class="checker">
+        <label class="custom-control custom-checkbox">
+          <input class="custom-control-input" type="checkbox" checked.bind="selectedAssets" model.bind="asset">
+          <span class="custom-control-indicator"></span>
+        </label>
+      </div>
+      <!--asset-thumbnail-->
+      <div>
+        <asset-thumbnail asset.bind="asset" height="110"></asset-thumbnail>
+      </div>
+    </div>
+    <!--Info and Actions section for a media thumbnail-->
+    <div class="media-detail">
+      <!--Progress Bar-->
+      <div class="media-thumb-progress" if.bind="asset.uploadProgress < 1">
+        <div class="progress-fill" css="width:${asset.uploadProgress.toFixed(2) * 100}%"></div>
+      </div>
+      <div class="media-detail-row top-row">
+        <h6 class="media-detail-filename truncate-ellipsis" tooltip="text.bind: name"><span>${name}</span>
+        </h6>
+        <div class="video-duration" if.bind="isVideo">
+          <i class="icon-ion-android-film"></i>
+          <span>${(asset.durationMs / 1000) | formatSeconds}</span>
+        </div>
+      </div>
+      <div class="media-detail-row bottom-row">
+        <div class="media-detail-metadata">
+          <div class="media-metadata truncate-ellipsis"><span><span class="date-created" tooltip="text.bind: asset.dateCreated | dateFormat">${asset.dateCreated | dateTimeFormat:'M/D/YY'}</span></span></div>
+          <div class="media-metadata truncate-ellipsis"><span>${asset.fileSize | bytesToHuman}</span></div>
+          <div class="media-metadata truncate-ellipsis"><span>${asset.ownerDisplayName}</span>
+          </div>
+        </div>
+        <div class="media-detail-action-container">
+          <!--Rotate Image Buttons-->
+          <!--<span class="media-detail-action-icon">-->
+          <!--<i class="icon-rotate_left"></i>-->
+          <!--</span>-->
+          <!--<span class="media-detail-action-icon">-->
+          <!--<i class="icon-rotate_right"></i>-->
+          <!--</span>-->
+          <span show.bind="asset.uploadProgress < 1" class="media-detail-action-icon">
+            <i class="icon-ion-android-cancel"></i>
+          </span>
+          <div class="custom-popover media-detail-action-icon"
+                show.bind="asset.uploadProgress === 1 || (asset.uploadProgress !== 0 && !asset.uploadProgress)"
+                drop.bind="{ position: 'top center' }">
+            <span class="drop-target">
+              <i class="icon-ion-more"></i>
+            </span>
+
+            <div class="drop-body">
+              <a class="drop-link" href="#" click.trigger="download($event)"><i class="dropdown-item-icon icon-get_app"></i>Download</a>
+              <a class="drop-link" href="#" click.trigger="confirmDelete($event)"><i class="dropdown-item-icon icon-delete"></i>Delete</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

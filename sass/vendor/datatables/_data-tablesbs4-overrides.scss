@@ -1,0 +1,64 @@
+.dataTables_wrapper {
+  background-color: #fff;
+  border-radius: 0;
+  font-size: .75rem;
+  width: 100%;
+  overflow-x: auto;
+  border-color: #eee;
+
+  table.dataTable.no-footer {
+    //border-bottom: 1px solid $table-border-color;
+  }
+
+  table.dataTable thead th {
+    background-color: #eff8fb;
+    color: #73797a;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-width: 1px;
+    border-color: #eee;
+  }
+
+  table.dataTable tbody tr {
+    color: #73797a;
+  }
+
+  table.dataTable tbody tr td {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: solid 1px #eeeeee;
+  }
+
+
+  // Overrides select styles for table length select
+  .dataTables_length {
+    select {
+      @extend .form-control;
+      @extend .form-control-sm;
+    }
+  }
+
+  // Overrides styles for the table search box
+  .dataTables_filter {
+    input {
+      @extend .form-control;
+      @extend .form-control-sm;
+    }
+  }
+
+  tr {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.table-bordered {
+  border-color: #eee;
+}
+
+.center-column {
+  text-align: center;
+}

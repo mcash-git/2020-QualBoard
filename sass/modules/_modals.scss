@@ -1,0 +1,874 @@
+@mixin fs-modal {
+  position: absolute!important;
+  top: 0!important;
+  left: 0!important;
+  width: 100vw!important;
+  min-height: 100vh!important;
+
+  .modal-close {
+    top: 10px!important;
+    right: 10px!important;
+  }
+
+  .c-modal-body {
+    justify-content: flex-start;
+  }
+}
+
+@mixin shrink-modal-fs($width) {
+  width: $width;
+
+  @media only screen and (max-width: $width) {
+    @include fs-modal;
+  }
+}
+
+%fs-modal {
+  @include fs-modal;
+}
+
+.modal {
+  bottom: 0;
+  display: none;
+  left: 0;
+  overflow: hidden;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: $zindex-modal;
+  //transform: scale(1);
+  // Prevent Chrome on Windows from adding a focus outline. For details, see
+  // https://github.com/twbs/bootstrap/pull/10951.
+
+
+  // When fading in the modal, animate it to slide down
+  &.fade .modal-dialog {
+    transition: transform .1s ease-out;
+    transition: transform .2s ease-in;
+    transform: translate(0, 0);
+    transform: scale(0.95);
+  }
+
+  &.in .modal-dialog {
+    transform: translate(0, 10%);
+    transform: scale(1);
+  }
+}
+.modal-dialog {
+  box-shadow: 0 16px 28px 0 rgba(0,0,0,0.22),0 25px 55px 0 rgba(0,0,0,0.21);
+  transform: scaleX(1);
+}
+.modal-content {
+  border-radius: 0;
+}
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  h1,h2,h3,h4,h5 {
+    font-weight: 300;
+    flex: 1;
+    align-self: center;
+  }
+  .close {
+    font-size: 2.5rem;
+  }
+}
+
+.ux-dialog-open ux-dialog-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &.active[style] {
+    .custom-modal {
+      transform: scale(1);
+    }
+  }
+}
+
+ux-dialog-container>div {
+  padding: 0 !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+body.ux-dialog-open {
+  ux-dialog-overlay {
+    &.active {
+      background-color: #2a2b2d;
+      opacity: 0.95;
+    }
+
+    &.active.full-screen-modal {
+      background-color: transparent;
+    }
+  }
+}
+
+.full-screen-modal {
+  color: $gray-light;
+
+  .modal-container {
+    // Fade transition for the full screen modal
+    animation: fullScreenFadeIn ease 1;
+    animation-name: fullScreenFadeIn;
+    animation-timing-function: ease;
+    animation-delay: initial;
+    animation-iteration-count: 1;
+    animation-direction: initial;
+    animation-play-state: initial;
+    animation-fill-mode: forwards;
+    animation-duration: 175ms;
+    overflow: hidden;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+
+    @keyframes fullScreenFadeIn {
+      0% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+
+    &.logic {
+      .modal-subview {
+        width: 90%;
+
+        &.logic {
+          .c-modal-body {
+            justify-content: flex-start;
+          }
+
+          .c-modal-title {
+            i {
+              color: $accent-4;
+            }
+          }
+        }
+
+        &.confirm {
+
+          .bulk-import-button-row {
+            justify-content: center;
+          }
+        }
+
+        &.processing {
+          .c-modal-body {
+            align-items: center;
+          }
+        }
+
+        .c-modal-body {
+          justify-content: center;
+
+        }
+      }
+    }
+
+    &.add-users {
+      .modal-subview {
+        width: 70%;
+        max-width: 70%;
+
+        @include media-breakpoint-down(lg) {
+          width: 80%;
+          max-width: 80%;
+        }
+
+        @include media-breakpoint-down(md) {
+          width: 100%;
+          max-width: 100%;
+        }
+
+      }
+    }
+
+    &.create-report {
+      align-items: center;
+
+      .c-modal-title, .c-modal-footer, .c-modal-body {
+        width: $main-content-max-width;
+        flex-direction: row;
+
+        @media only screen and (max-width: #{$main-content-max-width}) {
+          width: 100%;
+        }
+      }
+
+      .c-modal-title {
+        border-bottom: 1px solid $separator-color;
+        padding-bottom: $spacer;
+        margin-bottom: $spacer;
+      }
+
+      .c-modal-footer {
+        padding-top: $spacer;
+        border-top: 1px solid $separator-color;
+        margin-top: 12px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .btn-primary {
+          min-width: 300px;
+        }
+      }
+    }
+
+    .c-modal-title {
+      font-size: 1.875rem;
+    }
+    .c-modal-body {
+      justify-content: flex-start;
+      overflow: auto;
+    }
+  }
+  .c-modal-title {
+    width: 100%;
+
+    &.bordered {
+      border-bottom: 1px solid $separator-color;
+      padding-bottom: .5rem;
+    }
+
+    h5 {
+      display: flex;
+      align-items: center;
+      font-size: 1.875rem;
+
+      i {
+        font-size: 2.1rem;
+        margin-right: .5rem;
+      }
+    }
+  }
+
+  .c-modal-instructions {
+    font-size: .875rem;
+    margin-bottom: 1rem;
+  }
+
+  .c-modal-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1 auto;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  .c-modal-footer {
+    width: 100%;
+  }
+
+  .c-modal-btn-row-fullscreen {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 1rem;
+    border-top: 1px solid $separator-color;
+
+    button {
+      margin-right: 1rem;
+      min-width: 150px;
+      min-height: 45px;
+      font-size: .875rem;
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+  }
+
+
+  .modal-close {
+    height: 45px;
+    width: 45px;
+    font-size: 2rem;
+  }
+}
+
+.modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  overflow: scroll;
+  background-color: #fff;
+  opacity: 0;
+  padding: 1rem;
+
+
+  form {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+  }
+
+  // Panel for each of the subviews inside a full screen modal
+  .modal-subview {
+    display: flex;
+    flex: 1 auto;
+    align-items: center;
+    //justify-content: center;
+    flex-direction: column;
+    position: relative;
+
+    // Color text orange
+    &.warning {
+      .modal-title-text, .bulk-import-title-text {
+        color: $brand-warning;
+      }
+      i {
+        color: $brand-warning;
+      }
+    }
+    // Color text green
+    &.success {
+      color: $brand-success;
+
+      .status-icon-container {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 1rem;
+
+        i {
+          font-size: 6rem;
+        }
+      }
+
+      .status-title-text {
+        h5 {
+          font-size: 2.5rem;
+        }
+        h6 {
+          font-size: 1rem;
+        }
+      }
+    }
+
+    .action-icon-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      i {
+        font-size: 8rem;
+      }
+    }
+
+    .status-icon-container {
+      display: flex;
+      justify-content: center;
+
+      i {
+        font-size: 8rem;
+      }
+      margin-bottom: 1rem;
+    }
+
+
+
+    button {
+      min-width: 250px;
+      min-height: 45px;
+      font-size: .875rem;
+    }
+  }
+
+  .modal-subview-wrapper {
+    flex: 1 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .status-title-text {
+    @extend .modal-title-text;
+    opacity: 1;
+    margin-bottom: 0;
+  }
+
+  .modal-subview-button-row, .bulk-import-button-row {
+    display: flex;
+    margin-top: 2rem;
+
+    button {
+      margin-right: 1rem;
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+  }
+
+  .bulk-selection-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:center;
+    // Sets the some responsive styles so that the tiles wrap on smaller views
+    @include media-breakpoint-down(sm) {
+      .bulk-import-tile {
+        &:first-of-type {
+          margin-right: 0;
+          margin-bottom: 1rem;
+        }
+      }
+    }
+  }
+  // Containers for the bulk import choices on the first subview of the bulk import modal
+  .bulk-import-tile {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 320px;
+    height: auto;
+    padding: 1rem;
+    border: 3px solid transparent;
+
+    &:hover {
+
+      .bulk-icon {
+        transform: scale(1.03);
+        color: darken($new-brand-primary, 10%);
+        border-color: darken($new-brand-primary, 10%);
+      }
+    }
+
+    & > * {
+      margin-bottom: 1rem;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    &:first-of-type {
+      margin-right: 4rem;
+    }
+  }
+
+  .bulk-import-tile-link {
+    display: flex;
+    align-items: center;
+    font-size: .875rem;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  // Animation class to slide in an element (within the full screen modal)
+  .modal-object-slidein {
+    transform: translateY(146px);
+    animation: modalObjectSlideIn 0ms ease 0ms 1;
+    animation-fill-mode: forwards;
+    animation-duration: 175ms;
+
+    @keyframes modalObjectSlideIn {
+      0% {
+        opacity: 0;
+        transform: translateY(60px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  }
+
+  .modal-object-slideout {
+    transform: translateY(0px);
+    animation: modalObjectSlideOut 0ms ease 0ms 1;
+    animation-fill-mode: forwards;
+    animation-duration: 175ms;
+
+    @keyframes modalObjectSlideOut {
+      0% {
+        opacity: 1;
+        transform: translateY(0px);
+      }
+
+      100% {
+        opacity: 0;
+        transform: translateY(60px);
+      }
+    }
+  }
+
+  .bulk-icon {
+    transition: all .2s ease-in-out;
+    transition-property: transform,color,border-color;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    border: 3px solid $new-brand-primary;
+    border-radius: 1000px;
+    justify-content: center;
+    align-items: center;
+    color: $new-brand-primary;
+
+    i {
+      font-size: 6rem;
+    }
+  }
+
+  .bulk-tile-title {
+    font-size: 1rem;
+    text-transform: uppercase;
+  }
+
+  .bulk-tile-description {
+    font-size: .875rem;
+    text-align: center;
+  }
+
+  .template-download-link {
+    color: #53afd3;
+    text-align: center;
+    margin-right: 4rem;
+    .icon-Download {
+      vertical-align: middle;
+      padding-right: 2px;
+    }
+  }
+}
+
+.modal-title-text, .bulk-import-title-text {
+  transition: all .2s ease;
+  text-align: center;
+  margin-bottom: 2rem;
+
+  h5 {
+    font-size: 1.875rem;
+  }
+  h6 {
+    font-size: .875rem;
+  }
+}
+
+.modal-subtitle-text {
+  margin-top: .5rem;
+
+  h6 {
+    font-size: 1.125rem;
+    margin-bottom: 0;
+  }
+}
+
+.custom-modal {
+  position: relative;
+  transition: transform .2s,opacity .2s;
+  background-color: #fff;
+  border-radius: 0;
+  z-index: 1060;
+  display: flex;
+  flex-direction: column;
+  max-height: 99vh;
+
+  &.modal-large {
+    width: 30rem;
+  }
+
+  &.reorder-tasks {
+    @include shrink-modal-fs(760px);
+
+    .c-modal-title {
+      border-bottom: $border-gray-light;
+      margin-bottom: -1px;
+    }
+
+    .c-modal-footer {
+      margin: 0 1.5rem;
+      margin-top: -1px;
+      border-top: $border-gray-light;
+    }
+    .c-modal-body {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+  }
+
+  &.modal-responsive {
+    width: 80vw;
+    height: 80vh;
+  }
+
+  &.modal-view-media {
+    width: 80vw;
+    height: auto;
+    max-height: 80vh;
+
+    .c-modal-footer {
+      justify-content: center;
+      border-top: 1px solid $separator-color;
+      margin: 0 1rem;
+      padding: 1rem 0;
+    }
+  }
+
+  &.modal-profile {
+    @include shrink-modal-fs(738px);
+    position: initial;
+  }
+
+  &.create-individual-activity {
+    min-height: initial;
+    align-items: center;
+    @include shrink-modal-fs(555px);
+
+    .btn {
+      min-width: 240px;
+    }
+
+    .c-modal-body {
+      align-items: stretch;
+    }
+
+    @include media-breakpoint-down(xs) {
+      .settings-frequency .settings-frequency-section .form-group {
+        &:first-child, &:last-child {
+          padding-right: 0;
+          padding-left: 0;
+        }
+      }
+    }
+  }
+
+  &.create-project {
+    @extend .create-individual-activity;
+
+    .c-modal-footer {
+      padding-top: 0;
+    }
+  }
+
+  &.create-account {
+    @extend .modal-large;
+    @include shrink-modal-fs(480px);
+
+    .btn {
+      min-width: 240px;
+    }
+  }
+
+  &.create-project-user {
+    @include shrink-modal-fs(450px);
+
+    .c-modal-body {
+      overflow: visible;
+    }
+
+    .tag-input-search-results {
+      max-height: 200px;
+    }
+  }
+
+  &.media-item-modal, &.clip-modal {
+    media-item-thumbnail, asset-thumbnail {
+      min-height: 80vh;
+
+      img {
+        max-height: 80vh;
+        max-width: 100%;
+      }
+    }
+
+    .video-player {
+      flex: 1;
+    }
+
+    .video-js {
+      height: 80vh;
+    }
+
+    .c-modal-title {
+      padding: 1.75rem 0;
+      background-color: transparent;
+      color: $gray-dark;
+      justify-content: flex-start;
+      font-size: 1.5rem;
+    }
+
+    .c-modal-body {
+      background-color: transparent;
+      padding-top: 0;
+    }
+  }
+
+  &.message-modal {
+    @include shrink-modal-fs(840px);
+  }
+
+  &.fs {
+    @extend %fs-modal;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    flex: 1 auto;
+    height: 100%;
+  }
+
+  .c-modal-title {
+    display: flex;
+    flex-direction: column;
+    box-sizing: content-box;
+    padding: 1rem 0;
+    margin: 0 1.5rem;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    color: $gray;
+
+    h1,h2,h3,h4,h5 {
+      margin-bottom: 0;
+      font-weight: 400;
+      font-size: 1.5rem;
+    }
+
+    .modal-title-text, .bulk-import-title-text {
+      display: flex;
+      align-items: center;
+      font-size: 1.5rem;
+      margin-bottom: 0;
+
+      i {
+        padding-right: .5rem;
+        font-size: 2rem;
+      }
+    }
+  }
+
+  .c-modal-body {
+    @extend.flex-column;
+    padding: 0.9375rem 1.5rem;
+    flex: 1 auto;
+    overflow: auto;
+
+    .form-section {
+      display: flex;
+      //flex: 1;
+      flex-direction: column;
+      margin-bottom: .5rem;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    // Derived from .default-content
+    .modal-error-content {
+      font-size: 1.5rem;
+      font-weight: 300;
+      min-width: 0;
+      min-height: 0;
+      margin: 0 auto;
+      text-align: center;
+    }
+  }
+
+  .c-modal-footer {
+    @extend.flex-row;
+    padding: 0.9375rem 1.5rem;
+    justify-content: center;
+    flex: 0 0 auto;
+
+    button {
+      &:not(:last-child) {
+        margin-right: 0.75rem;
+      }
+    }
+  }
+
+  .c-modal-btn-row {
+    @extend.flex-row;
+    justify-content: center;
+
+    button {
+      min-width: 150px;
+      padding: .875rem 1rem;
+    }
+  }
+
+
+  //  Make the last row of date time picker form groups have not bottom margin
+  #accordion {
+    .card-block {
+      .form-inline-custom {
+        &:last-of-type {
+          .input-group {
+            margin-bottom: 0;
+
+            @include media-breakpoint-down(xs) {
+              margin-bottom: 1rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.media-picker-wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  flex: 1 auto;
+}
+
+time-zone-picker {
+  .c-select {
+    width: 100%;
+  }
+}
+
+.modal-close {
+  transition: background-color .2s ease-in-out;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100px;
+  height: 35px;
+  width: 35px;
+  background-color: rgba(0,0,0,.2);
+  border: 0;
+  outline: none;
+  padding: 0;
+  right: 10px;
+  top: 10px;
+  color: #fff;
+  cursor: pointer;
+  z-index: 1;
+
+  &:hover {
+    background-color: rgba(0,0,0,.3);
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  i {
+    font-size: 1.8rem;
+  }
+}
+
+.c-modal-footer {
+  .btn {
+    @extend .btn-lg;
+    min-width: 150px;
+  }
+}

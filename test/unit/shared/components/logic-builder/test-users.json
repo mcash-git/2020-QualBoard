@@ -1,0 +1,77 @@
+[
+  {
+    "projectId": "50338a64-e2c8-4055-bbeb-859f88cacfec",
+    "userId": "c335ad2f-f808-4843-a62a-2af62159ca8a",
+    "firstName": "Herbert",
+    "lastName": "Peruvi",
+    "email": "asdfoijasdfpoiafd@asdf.asdf",
+    "displayName": "Herb-the-Peruvian",
+    "groupTags": [],
+    "role": 3,
+    "isActive": true,
+    "past24HourResponseCount": 0,
+    "totalFollowupCount": 0,
+    "unansweredProbeCount": 0,
+    "completionPercentage": 0,
+    "lastPost": null,
+    "lastLogin": null
+  },
+  {
+    "projectId": "50238a64-e2c8-4055-bbeb-859f88cacfec",
+    "userId": "bcf961fb-7cd0-45a2-fa96-08d41e21a1a3",
+    "firstName": "John",
+    "lastName": "Daker",
+    "email": "j.daker@asdf.asdf",
+    "displayName": "andrew-albright-participant",
+    "groupTags": [],
+    "role": 3,
+    "isActive": true,
+    "past24HourResponseCount": 0,
+    "totalFollowupCount": 0,
+    "unansweredProbeCount": 0,
+    "completionPercentage": 0,
+    "lastPost": null,
+    "lastLogin": null
+  },
+  {
+    "projectId": "50338a64-e2c8-4055-bbeb-859f88cacfec",
+    "userId": "812c4918-88e5-4eb1-9fa8-1eda84f03fd0",
+    "firstName": "Tommy",
+    "lastName": "Callahan",
+    "email": "tommy@callahan-motors.asdf",
+    "displayName": "jim-joe",
+    "groupTags": [
+      "e0e95fa5-9423-42d4-b075-574c9ce952ad"
+    ],
+    "role": 3,
+    "isActive": true,
+    "past24HourResponseCount": 0,
+    "totalFollowupCount": 0,
+    "unansweredProbeCount": 0,
+    "completionPercentage": 0,
+    "lastPost": null,
+    "lastLogin": "2017-05-19T17:18:22.275954Z"
+  },
+  {
+    "projectId": "50338a64-e2c8-4055-bbeb-859f88cacfec",
+    "userId": "6bd918c1-b5f7-4a4f-6b5f-08d41f672922",
+    "firstName": "Not",
+    "lastName": "Sure",
+    "email": "secretary.interior@brawndo.asdf",
+    "displayName": "Party-Cipant",
+    "groupTags": [
+      "e0e95fa5-9423-42d4-b075-574c9ce952ad",
+      "437ef08d-2c8a-4025-b599-b05c97e211b4",
+      "efaada38-3e94-4b8c-813f-5183f58eafc2",
+      "2700db1a-1756-4f69-af4e-f9bd9e52be29"
+    ],
+    "role": 3,
+    "isActive": true,
+    "past24HourResponseCount": 0,
+    "totalFollowupCount": 9,
+    "unansweredProbeCount": 2,
+    "completionPercentage": 8,
+    "lastPost": "2017-06-01T11:54:01.594021Z",
+    "lastLogin": "2017-06-05T13:01:23.518355Z"
+  }
+]

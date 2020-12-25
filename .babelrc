@@ -1,0 +1,83 @@
+{
+  "env": {
+    "webpack": {
+      "presets": ["es2015"]
+    },
+    "test": {
+      "plugins": [
+        "transform-decorators-legacy",
+        "transform-object-rest-spread"
+      ],
+      "presets": [
+        [
+          "env",
+          {
+            "whitelist": [
+              "transform-es2015-literals",
+              "transform-es2015-template-literals"
+            ],
+            "loose": true,
+            "modules": "commonjs"
+          }
+        ],
+        "stage-0"
+      ]
+    },
+    "dev": {
+      "plugins": [
+        "transform-decorators-legacy",
+        "transform-object-rest-spread"
+      ],
+      "presets": [
+        [
+          "env",
+          {
+            "targets": {
+              "node": 7,
+              "browsers": [
+                "last 2 versions",
+                "not ie <= 11"
+              ]
+            },
+            "whitelist": [
+              "transform-es2015-literals",
+              "transform-es2015-template-literals"
+            ],
+            "loose": false,
+            "modules": false
+          }
+        ],
+        "stage-0",
+        "react"
+      ]
+    },
+    "prod": {
+      "plugins": [
+        "transform-decorators-legacy",
+        "transform-object-rest-spread"
+      ],
+      "presets": [
+        [
+          "env",
+          {
+            "targets": {
+              "node": 7,
+              "browsers": [
+                "last 2 versions",
+                "not ie <= 11"
+              ]
+            },
+            "whitelist": [
+              "transform-es2015-literals",
+              "transform-es2015-template-literals"
+            ],
+            "loose": false,
+            "modules": false
+          }
+        ],
+        "stage-0",
+        "react"
+      ]
+    }
+  }
+}

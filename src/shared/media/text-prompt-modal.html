@@ -1,0 +1,35 @@
+<template>
+  <form>
+    <div class="custom-modal modal-large">
+      <div class="c-modal-title">
+        <h3 class="modal-title-text">${title}</h3>
+        <div
+          class="modal-close"
+          click.delegate="cancelButtonClick()"
+        >
+          <i class="icon-close"></i>
+        </div>
+      </div>
+      <div class="c-modal-body">
+        <div class="form-section">
+          <h5>${body}</h5>
+          <div class="form-group">
+            <input
+              class="form-control"
+              value.bind="userInput"
+              attach-focus="true"
+              autocomplete="off"
+              ref="inputElement"
+              keydown.trigger="keydown($event)"
+              placeholder.bind="placeholderText"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="c-modal-footer">
+        <button type="button" class="btn btn-lg btn-outline-secondary" click.delegate="cancelButtonClick()">Cancel</button>
+        <button type="button" class="btn btn-lg btn-primary" click.delegate="okButtonClick()">Ok</button>
+      </div>
+    </div>
+  </form>
+</template>

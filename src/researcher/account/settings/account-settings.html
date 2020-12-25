@@ -1,0 +1,15 @@
+<template>
+  <require from="./account-settings-name"></require>
+  <div class="tt_qb_content-padding">
+    <div id="project-settings-view" class="settings">
+      <div class="settings-column">
+        <account-settings-name
+          class="settings-card"
+          account.bind="account"
+          editing.bind="editing"
+        ></account-settings-name>
+      </div>
+      <div class="settings-column"></div>
+    </div>
+  </div>
+</template>

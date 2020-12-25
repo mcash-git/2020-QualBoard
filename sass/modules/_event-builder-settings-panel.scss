@@ -1,0 +1,271 @@
+
+
+// Describes the basic styles for each section in the settings sidebar
+.eb-settings-section {
+  padding: 10px;
+  background-color: rgba(255,255,255,.9);
+  border: 1px solid rgba(0,0,0,.2);
+  border-radius: 3px;
+  margin: .5rem;
+  font-size: .75rem;
+  display: block;
+
+  .eb-settings-text {
+
+  }
+
+  // Styles for the task title since this is the only header that has an icon
+  .eb-settings-task-title {
+    @extend.flex-row;
+    align-items: center;
+    font-size: .875rem;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+
+    .event-item-icon {
+      height: 1.5rem;
+      margin-right: 5px;
+      width: 1.5rem;
+
+      i {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  // Describes each section title
+  .eb-settings-section-title {
+    @extend.flex-row;
+    align-items: center;
+    font-size: .75rem;
+    font-weight: 600;
+    justify-content: space-between;
+    margin: 0 0 .5rem 0;
+    text-transform: uppercase;
+  }
+
+  // Styles for flex columns and rows within the sidebar
+  .eb-settings-row {
+    @extend.flex-row;
+    margin-bottom: .5rem;
+
+
+    .checkbox {
+      margin-bottom: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .settings-row-label {
+    display: flex;
+    align-items: center;
+  }
+
+  .help-hover {
+    font-size: 1rem;
+    margin-left: .5rem;
+    color: rgba(0,0,0,.35);
+  }
+
+  .eb-settings-btn-row {
+    display: flex;
+    padding-top: .5rem;
+    justify-content: flex-end;
+  }
+
+  .eb-settings-column {
+    @extend.flex-column;
+    margin-bottom: 1rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.logic-summary {
+  position: relative;
+
+  .badge {
+    position: absolute;
+    top: -6px;
+    left: -6px;
+  }
+}
+
+// Drop down used to select tasks and questions
+.eb-task-type-selector {
+  @extend.btn-group;
+  cursor: pointer;
+  width: 100%;
+
+  .btn {
+    border-radius: $border-radius;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+    width: 100%;
+    font-size: .75rem;
+    //@include gradient-vertical($gray-lighter, $gray-lighter, 0%, 100%);
+
+    &:after {
+      align-self: center;
+    }
+
+    i {
+      font-size: 1.125rem;
+      padding-right: 10px;
+    }
+  }
+
+  .eb-task-type-selector-label {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    font-size: .75rem;
+    color: $brand-primary;
+
+    i {
+      font-size: 1.125rem;
+      padding-right: 10px;
+    }
+    .icon-matrix-multiple-answer, .icon-matrix-multiple-choice, .icon-class, .icon-priority_high {
+      font-size: 1.5rem;
+    }
+  }
+
+  .dropdown-menu {
+    width: 100%;
+    font-size: .875rem;
+    box-shadow: 0 0 1px rgba(76,86,103,.25),0 2px 18px rgba(31,37,50,.32);
+
+    a {
+      text-decoration: none;
+    }
+  }
+
+  .dropdown-item {
+    align-items: center;
+    display: flex;
+
+    i {
+      font-size: 1.125rem;
+      margin-right: .5rem;
+      width: 1.5rem;
+      text-align: center;
+    }
+
+    .icon-matrix-multiple-answer, .icon-matrix-multiple-choice, .icon-class, .icon-priority_high {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+// Styles for the Limit Users section
+.limit-list {
+  margin: 0;
+  padding: 0;
+}
+
+.limit-item {
+  align-items: center;
+  border-bottom: 1px solid rgba(0,0,0,.18);
+  display: flex;
+  font-size: .75rem;
+  justify-content: space-between;
+  padding: 5px;
+  //background-color: rgba(0,0,0,.06);
+  //margin-bottom: 2px;
+  transition: all .2s ease-in-out;
+
+  &:hover {
+    .remove {
+      opacity: 1;
+    }
+  }
+
+  &:first-child {
+    margin-top: 10px;
+  }
+
+  &:last-child {
+    border-bottom: 0;
+    margin-bottom: 0;
+  }
+
+  .remove {
+    color: rgba(0,0,0,.6);
+    cursor: pointer;
+    font-size: 1.3rem;
+    opacity: 0;
+    text-decoration: none;
+    transition: all .2s ease-in-out;
+  }
+}
+
+.limit-user {
+  align-items: center;
+  display: flex;
+  max-width: 90%;
+
+  span {
+    padding-left: 5px;
+  }
+
+  i {
+    font-size: 1.5rem;
+    padding-right: 5px;
+  }
+}
+
+logic-engine-rule {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  .options-control-col {
+    margin-bottom: 0.25rem;
+
+    .options-controls {
+      justify-content: flex-end;
+
+      .options-button {
+        padding: 0 0 0.5rem 0;
+        cursor: pointer;
+
+        &.disabled {
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+
+  .logic-engine-rule-options {
+    display: flex;
+    margin-bottom: 0.5rem;
+
+    > span {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+    }
+  }
+
+  .custom-select {
+    margin: 0 0.25rem;
+    height: 1.25rem;
+    padding: 0 1rem 0 0.25rem;
+    background-position: right 0.25rem center;
+  }
+}
+
+.tt_qb_sidebar-wrapper {
+  .conditional-set-connector {
+    margin-top: 9px;
+  }
+}

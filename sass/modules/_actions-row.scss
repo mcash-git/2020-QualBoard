@@ -1,0 +1,179 @@
+// Sets up basic row for action buttons icons and legends within a content area
+.actions-row {
+  align-items: center;
+  display: flex;
+  flex: 0 0 auto;
+  justify-content: flex-end;
+  padding: .5rem 1rem;
+  color: $action-row-color;
+  font-size: $action-row-font-size;
+
+  &.no-top-border {
+    border-top: 0;
+  }
+
+  &.no-margin {
+    margin-left: -15px;
+    margin-right: -15px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+}
+
+.actions-row-solid {
+  align-items: center;
+  display: flex;
+  flex: 0 0 auto;
+  justify-content: flex-end;
+  padding: .5rem 1rem;
+  color: $action-row-color;
+  font-size: $action-row-font-size;
+  background-color: rgba(0,0,0,.05);
+  border-top: $border-gray-light;
+  border-bottom: $border-gray-light;
+  //@include linearGradient(transparent, rgba(0,0,0,.06));
+
+  &.no-top-border {
+    border-top: 0;
+  }
+
+  &.no-margin {
+    margin-left: -15px;
+    margin-right: -15px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  a {
+    text-decoration: none;
+  }
+  .actions-row-section {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.actions-row-container {
+  display: flex;
+  align-items: center;
+}
+
+.actions-row-section {
+  display: flex;
+  align-items: center;
+  padding-right: .5rem;
+}
+
+
+.action-row-buttons {
+  display: flex;
+
+  button, .dropdown {
+    margin-right: .5rem;
+    &:first-child {
+      margin-right: .5rem;
+    }
+    &:last-of-type {
+      margin-right: 0;
+    }
+  }
+}
+
+.actions-row-gutter {
+  @extend .actions-row;
+  margin: 0 ($grid-gutter-width / 2);
+}
+
+.actions-row-icon-only {
+  @extend.actions-row;
+  padding: 5px;
+}
+
+.row-flip {
+  flex-direction: row-reverse;
+}
+
+
+// A container for action items in the actions row
+.action-container {
+  display: flex;
+  align-items: center;
+   //> * {
+   //  padding: 0 5px;
+   //}
+
+  button {
+    margin-right: .5rem;
+  }
+
+  .btn-group {
+    button {
+      margin-right: 0;
+    }
+
+    .sort-toggle {
+      border-radius: 0 3px 3px 0 !important;
+    }
+  }
+
+  .action-drop-link {
+    &:last-child {
+      padding-right: 0rem;
+    }
+  }
+
+  .clear-filters-link {
+    font-size: .7rem;
+    padding: 0 .5rem;
+    border-radius: 100px;
+    color: $link-color;
+
+  }
+}
+
+.event-navigator {
+  @extend.actions-row;
+  // Sets up a basic style for sections within the event navigator
+  .event-navigator-section {
+    align-items: center;
+    border-right: 1px solid darken($app-bg, 10%);
+    display: flex;
+    min-height: 1.5rem;
+    padding: 0 1rem;
+
+    &:first-child {
+      padding-left: 0;
+    }
+
+    &:last-child {
+      border-right: 0;
+      padding-right: 0;
+    }
+
+    .progress {
+      width: 100%;
+    }
+
+    i {
+      font-size: 1.5rem;
+    }
+  }
+  .event-navigator-progress {
+    @extend.event-navigator-section;
+    flex: 1;
+  }
+  .event-navigator-tasks {
+    @extend .event-navigator-section;
+    align-items: center;
+    i {
+      padding-right: 5px;
+    }
+  }
+}
+
+

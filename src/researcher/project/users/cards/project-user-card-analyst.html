@@ -1,0 +1,83 @@
+<!-- NOTICE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+Right now in user-card-model.js, we are specifically just using the moderator card module.  You will have
+ to properly map up to use this module when the designs diverge. -->
+<template>
+  <div class="card-user-row">
+    <!--Card Header-->
+    <div class="card-header">
+      <div class="user">
+        <div class="disabled-icon" title="User has been deactivated.">
+          <i class="icon-ion-locked"></i>
+        </div>
+        <div class="avatar">
+          <avatar user-id.bind="user.userId" size.bind="50"></avatar>
+        </div>
+      </div>
+      <div class="proj-user-info">
+        <div class="user-name">${user.firstName} ${user.lastName}</div>
+        <div class="user-display-name">
+          <strong class="proj-user-info-title">Display Name:</strong>
+          <span>${user.displayName}</span>
+        </div>
+        <div class="user-email">
+          <strong class="proj-user-info-title">Email:</strong>
+          <span>${user.email}</span>
+        </div>
+
+      </div>
+
+    </div>
+    <!--Stats about the users engagement in the project or event-->
+    <div class="user-stats">
+      <div class="user-stats-container">
+        <!--Last Login-->
+        <div class="proj-user-stat">
+          <div class="user-stat-row">
+            <h5 class="user-stat-title">
+              Last Login
+            </h5>
+          </div>
+          <div class="user-stat-row">
+            <div class="stat-text">
+              <span>${user.lastLoginText & throttle:10000}</span>
+            </div>
+          </div>
+          <div class="user-stat-row footer">
+            &nbsp;
+          </div>
+        </div>
+        <!--Followups Last 24 hrs-->
+        <div class="proj-user-stat">
+          <div class="user-stat-row">
+            <h5 class="user-stat-title">
+              Followups</h5>
+          </div>
+          <div class="user-stat-row">
+            <div class="stat-text">
+              ${3}
+            </div>
+          </div>
+          <div class="user-stat-row footer">
+            Last 24 hrs
+          </div>
+        </div>
+        <!--Followups-->
+        <div class="proj-user-stat">
+          <div class="user-stat-row">
+            <h5 class="user-stat-title">
+              <!--<i class="icon-ion-android-alert"></i> -->
+              Followups
+            </h5>
+          </div>
+          <div class="user-stat-row">
+            <div class="stat-text">${user.engagement.followups || '-'}</div>
+          </div>
+          <div class="user-stat-row footer">
+            Total
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

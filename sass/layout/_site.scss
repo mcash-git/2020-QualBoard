@@ -1,0 +1,16 @@
+.tt_qb_sidebar-wrapper.left {
+  background: #FFFFFF;
+}
+
+.shadow-box {
+  box-shadow: $card-shadow;
+  background-color: #fff;
+  padding: 1rem;
+  width: 100%;
+  overflow-x: auto;
+
+  .header {
+    color: #6a6d6e;
+    padding-left: 15px;
+  }
+}

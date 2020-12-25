@@ -1,0 +1,46 @@
+.users-select-user {
+  @extend .group-tag;
+  position: relative;
+  padding-left: 24px;
+
+  .avatar img {
+    border: none;
+    position: absolute;
+    top: 1px;
+    left: 1px;
+  }
+}
+
+@-moz-document url-prefix() {
+  .users-select-user {
+    padding-bottom: 3px;
+  }
+}
+
+.users-select-display-name {
+  @extend .group-tag-name;
+}
+
+.icon-btn.users-select-remove-button {
+  padding-right: 0;
+  padding-left: 0;
+
+  .icon-close {
+    color: $gray;
+    border-left: 1px solid rgba(0,0,0,.3);
+    padding-left: 3px;
+    position: relative;
+    top: 2px;
+  }
+}
+
+.Select-option.users-select-option:not(:first-child) {
+  border-top: 1px solid rgba(0,0,0,0.1);
+}
+
+.Select-option.users-select-option {
+  @extend %unbutton;
+  display: flex;
+  width: 100%;
+  text-align: left;
+}

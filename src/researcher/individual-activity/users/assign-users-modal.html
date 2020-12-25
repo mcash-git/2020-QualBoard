@@ -1,0 +1,73 @@
+<template>
+  <require from="./activity-user-card-participant"></require>
+  <div class="modal-container add-users">
+    <form submit.delegate="submit()">
+      <div class="modal-close" click.delegate="modalController.cancel()">
+        <i class="icon-close"></i>
+      </div>
+      <!--Select Users Subview-->
+      <div class="modal-subview">
+        <div class="c-modal-title">
+          <h5 class="modal-title-text">
+            <i class="icon-person"></i>
+            Invite from project users
+          </h5>
+        </div>
+        <div class="c-modal-action-bar">
+          <!--Select All-->
+          <div>
+            <div class="select-all${isSelectAllDisabled ? ' disabled' : ''}">
+              <div class="checker" click.delegate="selectAllLabelClick()">
+                <label class="custom-control custom-checkbox">
+                  <input class="custom-control-input"
+                         type="checkbox"
+                         change.delegate="selectAllChecked($event)"
+                         disabled.bind="isSelectAllDisabled"
+                         checked.bind="selectAll">
+                  <span class="custom-control-indicator"></span>
+
+                </label>
+              </div>
+              <span click.delegate="selectAllLabelClick()"
+                    class="select-all-label">${selectAll ? 'Deselect' : 'Select'} All</span>
+              &nbsp;
+            </div>
+          </div>
+        </div>
+        <div class="c-modal-body">
+          <!--<h5>Project Users:</h5>-->
+          <!-- TODO: use a totally different view/viewmodel rather than doing this: -->
+          <activity-user-card-participant class="card-grid-user group-user"
+                                          repeat.for="user of projectUsers"
+                                          user.bind="user"
+                                          fade-in="duration: 0.15s; delay.bind: ($index * 0.025) + 's'"
+                                          selected-users.bind="selectedUsers">
+          </activity-user-card-participant>
+
+        </div>
+        <div class="c-modal-footer">
+          <div class="c-modal-btn-row ">
+            <button type="button" class="btn btn-lg btn-secondary" click.delegate="modalController.cancel()">
+              Cancel
+            </button>
+            <button type="submit" class="btn btn-lg btn-primary">Ok</button>
+          </div>
+        </div>
+      </div>
+
+      <!--Success Subview-->
+      <!--<div class="modal-subview success">-->
+        <!--<div class="status-icon-container">-->
+          <!--<i class="icon-check_circle"></i>-->
+        <!--</div>-->
+        <!--<div class="status-title-text">-->
+          <!--<h5>Success!</h5>-->
+          <!--<h6>The selected users have been imported.</h6>-->
+        <!--</div>-->
+        <!--<div class="bulk-import-button-row">-->
+          <!--<button class="btn btn-success">Done</button>-->
+        <!--</div>-->
+      <!--</div>-->
+    </form>
+  </div>
+</template>

@@ -1,0 +1,282 @@
+
+.card-row {
+  display: block;
+  width: 100%;
+  float: left;
+}
+
+.card {
+  border: 1px solid rgba(0,0,0,0.19);
+  font-size: .75rem;
+
+  .card-body {
+    padding: 0;
+  }
+}
+
+.card-block {
+  padding: 1rem;
+}
+
+// Video Section for welome and project instructions
+.instruction-video {
+  display: flex;
+  max-width: 120px;
+  min-width: 120px;
+  padding-top: .5rem;
+  align-items: center;
+  justify-content: center;
+  //background-color: gray;
+  //border: 1px solid darken(gray, 5%);
+
+  @include media-breakpoint-down(xs) {
+    padding-top: 1rem;
+    max-width: 100%;
+    justify-content: center;
+  }
+
+  .video {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 94px;
+
+    i {
+      color: rgba(255,255,255, .3);
+      font-size: 3.5rem;
+    }
+
+  }
+}
+
+// Grid for participant and event cards
+.card-grid {
+  flex: 0 0 33.33333%;
+  max-width: 33.33333%;
+  display: flex;
+  flex-direction: column;
+  padding: $grid-gutter-width/4;
+  float: left;
+
+  @include media-breakpoint-down(md) {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+
+  @include media-breakpoint-down(sm) {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  &:last-of-type {
+    margin-bottom: 150px;
+  }
+
+
+  card {
+    display: flex;
+    flex-direction: column;
+    flex: 1 auto;
+  }
+
+  .card {
+    //border-radius: 6px;
+    display: flex;
+    flex: 1 0 auto;
+    flex-direction: column;
+    min-height: 0px;
+    margin-bottom: 0;
+    @extend .card-shadow;
+    //@extend .card-hover;
+
+  }
+
+  .card-block {
+    display: flex;
+    flex: 1 0 auto;
+    flex-direction: column;
+    padding-top: .75rem;
+    position: relative;
+  }
+
+}
+
+
+//This is for a router-view in accounts that wraps project cards.
+.card-project-wrapper {
+  flex-flow: column;
+  display: flex;
+  flex: 1;
+  min-height: 0px;
+  min-width: 0;
+}
+
+
+.card-container {
+  @extend .flex-column;
+  transition: all .2s ease-in-out;
+  z-index: 2;
+  &.loading {
+    opacity: .2;
+  }
+}
+
+.card-header {
+  transition: all .2s ease-in-out;
+  position: relative;
+  background-color: $brand-primary;
+  color: #fff;
+  display: flex;
+  flex-shrink: 0;
+  border-bottom: 1px solid $separator-color;
+  height: 50px;
+
+  .card-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: .5rem 1rem;
+    font-size: 1rem;
+    margin-bottom: 0;
+
+    .card-title-main {
+      font-size: .875rem;
+      margin-bottom: 5px;
+    }
+
+    .card-title-sub {
+      font-size: .75rem;
+      margin: 0;
+    }
+  }
+
+  .card-header-btn-container {
+    .header-btn {
+      transition: all .2s ease-in-out;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      padding: .5rem 1.2rem;
+      cursor: pointer;
+    }
+  }
+
+  .card-header-dropdown {
+    @extend .dropdown;
+    height: 20px;
+  }
+}
+
+
+// Most of the below styles relate to the cells of content within participant and event cards
+// This should be reviewed after we implement the design changes to see if they are all still used.
+
+
+//Styles related to the display of card schedules on project and event cards
+.card-schedule-row {
+  display: flex;
+  //border-bottom: 1px solid $card-border-color;
+  padding-bottom: .5rem;
+  font-size: .75rem;
+
+  .stat-title {
+    padding-bottom: .5rem;
+  }
+
+  @include media-breakpoint-down(xs) {
+
+  }
+
+}
+
+.schedule-container {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  font-size: .75rem;
+
+  @include media-breakpoint-down(xs) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+}
+
+.schedule-module {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+
+}
+
+
+
+// Defines the text for a particular stat
+.stat-title {
+  display: flex;
+  align-items: center;
+  font-size: .75rem;
+  margin: 0;
+  padding-bottom: .2rem;
+  text-transform: uppercase;
+
+  i {
+    font-size: 1.2rem;
+    padding-right: .2rem;
+  }
+}
+// Base styles for stats inside projet and event cards
+
+.schedule-card-stats-row {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: row;
+  padding: .3rem 0;
+  list-style: none;
+  border-bottom: 1px solid;
+}
+.card-stats-row {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: row;
+  padding: .3rem 0;
+  list-style: none;
+  margin: 0;
+  border-bottom: 1px solid $card-border-color;
+
+  .card-row-cell {
+    flex: 1;
+
+  }
+
+
+  .stat-row {
+    display: flex;
+    flex: 1 1 auto;
+    justify-content: space-between;
+  }
+
+  .stat-col {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &.last-row {
+    padding-bottom: 0;
+    border-bottom: 0;
+  }
+
+}
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,7 @@
+next-version: 4.0.0
+branches:
+  develop:
+    tag: dev
+  releases?[/-]:
+    tag: release
+    mode: ContinuousDeployment

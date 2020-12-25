@@ -1,0 +1,19 @@
+<template>
+  <require from="shared/components/list-card"></require>
+  <require from="shared/components/project-instructions/project-instructions"></require>
+
+  <div class="list-cards">
+    <project-instructions
+      project-instructions.bind="project.instructions"
+      if.bind="project.instructions.title"
+    ></project-instructions>
+    <list-card card-model.bind="card" repeat.for="card of filtered">
+    </list-card>
+  </div>
+  <div if.bind="!eventCards || eventCards.length === 0" class="default-content">
+    <span>This project has no events.</span>
+  </div>
+  <div if.bind="eventCards && eventCards.length > 0 && filtered.length === 0" class="default-content">
+    <span>Your search yielded no results. &nbsp;<a href click.delegate="searchText = ''">Clear search</a></span>
+  </div>
+</template>

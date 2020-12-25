@@ -1,0 +1,101 @@
+@mixin no-sidebar-content {
+  .tt_qb_application-wrapper
+    .left-sidebar-inactive
+    .right-sidebar-inactive
+  {
+    .tt_qb_content-wrapper { @content; }
+  }
+}
+
+@mixin one-sidebar-content {
+  .tt_qb_application-wrapper
+    .left-sidebar-active
+    .right-sidebar-inactive
+  {
+    .tt_qb_content-wrapper { @content; }
+  }
+
+  .tt_qb_application-wrapper
+    .left-sidebar-inactive
+    .right-sidebar-active
+  {
+    .tt_qb_content-wrapper { @content; }
+  }
+}
+
+@mixin two-sidebar-content {
+  .tt_qb_application-wrapper
+    .left-sidebar-active
+    .right-sidebar-active
+  {
+    .tt_qb_content-wrapper { @content; }
+  }
+}
+
+@mixin content-max-xs {
+  @media(max-width: $screen-max-xs) {
+    .tt_qb_application-wrapper .tt_qb_content-wrapper {
+      @content;
+    }
+  }
+}
+
+@mixin content-max-sm {
+  @media(max-width: $screen-max-xs) {
+    .tt_qb_application-wrapper .tt_qb_content-wrapper {
+      @content;
+    }
+  }
+
+  @media(max-width: $screen-max-sm) {
+    @include no-sidebar-content { @content; }
+  }
+
+  @media(max-width: $screen-max-lg) {
+    @include one-sidebar-content { @content; }
+  }
+
+  @media(max-width: $screen-max-xl) {
+    @include two-sidebar-content { @content; }
+  }
+}
+
+@mixin content-max-md {
+  @media(max-width: $screen-max-xs) {
+    .tt_qb_application-wrapper .tt_qb_content-wrapper {
+      @content;
+    }
+  }
+
+  @media(max-width: $screen-max-md) {
+    @include no-sidebar-content { @content; }
+  }
+
+  @media(max-width: $screen-max-lg) {
+    @include one-sidebar-content { @content; }
+  }
+
+  @media(max-width: $screen-max-xl) {
+    @include two-sidebar-content { @content; }
+  }
+}
+
+@mixin content-max-lg {
+  @media(max-width: $screen-max-xs) {
+    .tt_qb_application-wrapper .tt_qb_content-wrapper {
+      @content;
+    }
+  }
+
+  @media(max-width: $screen-max-lg) {
+    @include no-sidebar-content { @content; }
+  }
+
+  @media(max-width: $screen-max-xl) {
+    @include one-sidebar-content { @content; }
+  }
+
+  @media(max-width: 1800px) {
+    @include two-sidebar-content { @content; }
+  }
+}

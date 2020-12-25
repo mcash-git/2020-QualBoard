@@ -1,0 +1,25 @@
+<template>
+  <require from="./saved-buttons"></require>
+  <require from="shared/media/media-grid"></require>
+  <div class="eb-item-saved">
+    <div class="item-header">
+      <div class="item-title-container">
+        <div class="event-item-icon">
+          <i class.bind="task.iconClass"></i>
+        </div>
+        <h5 class="event-item-title eb-saved">${task.title}</h5>
+      </div>
+      <saved-buttons if.bind="task.canEdit" task.bind="task"></saved-buttons>
+    </div>
+    <div class="item-content">
+      <div class="eb-content-section">
+        <div class="item-content-row">
+          <p class="event-item-text" innerHTML.bind="task.text | sanitize"></p>
+        </div>
+          <compose model.bind="{task: task}" view-model.bind="viewModel"></compose>
+      </div>
+      <!--<h6 class="item-content-label" if.bind="task.media.length > 0">Attached Media:</h6>-->
+      <media-grid class="media-grid " media-items.bind="task.media" if.bind="task.media.length > 0"></media-grid>
+    </div>
+  </div>
+</template>

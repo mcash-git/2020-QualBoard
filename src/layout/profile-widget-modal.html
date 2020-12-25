@@ -1,0 +1,11 @@
+<template>
+  <require from="./profile-widget"></require>
+  <form id="profile-widget-modal">
+    <div class="custom-modal modal-profile">
+      <div class="modal-close" click.delegate="dialogController.close()"><i class="icon-close"></i></div>
+      <div class="c-modal-body">
+        <profile-widget></profile-widget>
+      </div>
+    </div>
+  </form>
+</template>

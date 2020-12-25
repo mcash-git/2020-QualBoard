@@ -1,0 +1,52 @@
+<template>
+  <div class="item-content-col">
+    <div class="item-content-section">
+      <h6 class="item-content-label">${optionsHeader}</h6>
+      <div>
+        <div class="mcma-options-col-1" ref="dragContainer">
+          <div class="eb-options-row" repeat.for="option of task.options" index.bind="$index">
+            <div class="options-col">
+              <input value.bind="option.text"
+                     validation-state="validator.bind: task.validator; property: options; collection-property: text; index.bind: $index"
+                     validate="validator.bind: task.validator; property: options; collection-property: text; index.bind: $index"
+                     focus.one-time="(task.title && task.text) || option.focus"
+                     class="form-control form-control-sm"
+                     type="text"
+                     placeholder="Option"
+                     keyup.delegate="keyUp($event, $index)">
+            </div>
+            <div class="options-col">
+              <input value.bind="option.reportingAlias"
+                     class="form-control form-control-sm"
+                     type="text"
+                     placeholder="Reporting Alias (Optional)"
+                     keyup.delegate="keyUp($event, $index)">
+            </div>
+            <div class="options-col">
+              <tag-input
+                source-items.bind="availableGroupTags"
+                display-property="name"
+                autocomplete-search-fields.one-way="['name']"
+                autocomplete-sort-field="name"
+                autocomplete-min-chars="0"
+                autocomplete-sort-direction="asc"
+                should-allow-add="true"
+                placeholder-text="Group Tags"
+                value.bind="option.groupTagObjects"
+                mini.bind="true"
+              ></tag-input>
+            </div>
+            <div class="options-control-col">
+              <div class="options-controls">
+                <i class="options-button icon-ion-android-add-circle${task.canEdit ? '' : ' disabled'}" click.delegate="addOptionAfterIndex($index)"></i>
+                <i class="options-button icon-ion-android-remove-circle${task.canEdit ? '' : ' disabled'}" click.delegate="deleteOptionAtIndex($index)">
+                </i>
+                <i class="options-button icon-ion-arrow-move handle${task.canEdit ? '' : ' disabled'}"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

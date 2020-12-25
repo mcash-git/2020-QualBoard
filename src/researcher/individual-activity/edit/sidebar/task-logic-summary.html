@@ -1,0 +1,28 @@
+<template>
+  <span class="badge" if.bind="hasRules">${ruleCount}</span>
+  <h6 class="eb-settings-section-title">
+    <span>Task-Answer Display Logic</span>
+  </h6>
+  <span class="eb-settings-text">
+    Display this task based off of previous answers. &nbsp;
+  </span>
+  <span class="eb-settings-text" if.bind="hasRules">
+    Click to edit your logic rule(s).
+  </span>
+  <span class="eb-settings-text" if.bind="!hasRules">
+    Click to add your first logic rule.
+  </span>
+  <div class="eb-settings-btn-row">
+    <button
+      class="btn btn-sm btn-secondary"
+      class.bind="!isEnabled ? 'disabled' : ''"
+      click.trigger="openModal()"
+      tooltip="text.bind: tooltipText; placement: left;"
+    >
+      <span class="btn-flex-wrapper">
+        <!--<i class="icon-call_split"></i>-->
+        ${hasRules ? 'Edit' : 'Add'}
+      </span>
+    </button>
+  </div>
+</template>

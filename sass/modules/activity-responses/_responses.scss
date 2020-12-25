@@ -1,0 +1,117 @@
+$header-border: #cfcfcf;
+$entry-selected-color: #4e92df;
+
+%main-content {
+  padding-top:10px;
+  overflow: auto;
+  height: 100%;
+}
+
+%sidebar {
+  z-index: 1;
+  height: 100%;
+  overflow-y: scroll;
+  width: $responses-sidebar-width;
+  background-color: #fff;
+  border-right: 1px solid #eee;
+}
+
+%sidebar-item {
+  height: 50px;
+  width: 100%;
+  border-radius: 0;
+  background-color: #fff;
+  transition: background-color .2s ease-in-out;
+  cursor: pointer;
+  padding: .125rem;
+  border: 1px solid rgba(0,0,0,.19);
+  border-right: none;
+  border-top: none;
+  color: $gray;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+}
+
+%sidebar-item-icon {
+  font-size: 30px;
+  margin: 0 10px;
+}
+
+%sidebar-item-title {
+  font-weight: 600;
+}
+
+.response-buttons {
+  display: flex;
+  justify-content: space-between;
+
+  .secondary {
+    .response-button {
+      @include hoverDarkenColor($gray);
+    }
+  }
+
+  .response-button {
+    text-transform: none;
+    font-weight: 600;
+    color: $link-color;
+    border-radius: 0;
+    padding: 0;
+    font-size: .75rem;
+    display: flex;
+    align-items: center;
+
+    i {
+      font-size: 1.125rem;
+      padding-right: .3rem;
+    }
+
+    &,
+    &:active,
+    &.active,
+    &:disabled {
+      background-color: transparent;
+      @include box-shadow(none);
+      text-decoration: none;
+    }
+    &,
+    &:focus,
+    &:active {
+      border-color: transparent;
+    }
+    @include hover {
+      border-color: transparent;
+      text-decoration: none;
+    }
+    @include hover-focus {
+      color: $link-hover-color;
+      text-decoration: $link-hover-decoration;
+      background-color: transparent;
+      text-decoration: none;
+    }
+    &:disabled {
+      @include hover-focus {
+        color: $btn-link-disabled-color;
+        text-decoration: none;
+        border-radius: 69px;
+      }
+    }
+
+    &:focus {
+      box-shadow: none;
+    }
+  }
+}
+
+.top-level-comment-wrapper {
+  margin-bottom: 12px;
+}
+
+.response-comment {
+  margin-bottom: 6px;
+
+  .response-button {
+    margin-top: 2px;
+  }
+}

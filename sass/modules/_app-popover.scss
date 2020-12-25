@@ -1,0 +1,15 @@
+// Custom Popover Styles
+.custom-popover {
+  align-items: baseline;
+  display: inline-flex;
+  justify-content: center;
+
+  a {
+    //color: $gray-dark;
+    //font-size: 1.125rem;
+    line-height: 1.125rem;
+    padding: 0 5px;
+    text-decoration: none;
+  }
+}
+

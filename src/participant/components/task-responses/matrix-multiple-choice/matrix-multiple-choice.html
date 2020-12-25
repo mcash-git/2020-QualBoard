@@ -1,0 +1,29 @@
+<template>
+  <div class="table-wrapper matrix">
+    <table class="table table-striped table-bordered grid-table">
+      <thead>
+      <tr>
+        <th></th>
+        <th repeat.for="col of task.matrixColumns">${col.text}</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr repeat.for="row of task.matrixRows">
+        <td data-label.bind="row.text" class="row-hidden">
+          <div class="row-value">${row.text}</div>
+        </td>
+        <td repeat.for="col of task.matrixColumns" data-label.bind="col.text">
+          <label class="custom-control custom-radio grid-input"
+                 class.bind="selectedOptions[row.rowId] === col.columnId ? 'grid-checked' : ''">
+            <input class="custom-control-input"
+                   model.bind="{rowId: row.rowId, columnId: col.columnId}"
+                   type="radio"
+                   checked.bind="selectedOptions[row.rowId]"
+                   change.delegate="handleChange(row, col)">
+            <span class="custom-control-indicator"></span>
+          </label>
+        </td>
+      </tbody>
+    </table>
+  </div>
+</template>

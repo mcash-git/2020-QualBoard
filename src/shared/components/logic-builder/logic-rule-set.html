@@ -1,0 +1,43 @@
+<template>
+  <require from="./logic-rule"></require>
+  <!--Each conditional-row is a condition within a set-->
+  <a click.delegate="remove()" class="remove-set">
+    <i class="icon-remove"></i>
+    Remove Set
+  </a>
+  <div class="conditional-row" repeat.for="rule of ruleSet.rules">
+    <div class="conditional-cell condition-connector" class.bind="operatorClass">
+      <span if.bind="$index === 0">When</span>
+      <select
+        if.bind="$index === 1"
+        class="form-control form-control-sm"
+        value.bind="ruleSet.operator"
+      >
+        <option
+          repeat.for="operator of allowedOperators"
+          model.bind="operator"
+        >
+          ${operator.friendly}
+        </option>
+      </select>
+      <div class="connector-text" if.bind="$index > 1">${ruleSet.operator.friendly}</div>
+    </div>
+    <logic-rule
+      containerless
+      rule.bind="rule"
+      available-subject-groups.one-time="subjectGroupFactory.getSubjectGroups()"
+    ></logic-rule>
+    <div class="conditional-cell conditional-remove">
+      <a click.delegate="removeRuleByIndex($index)"><i class="icon-remove_circle_outline"></i></a>
+    </div>
+  </div>
+  <div class="conditional-row">
+    <div class="conditional-cell condition-connector"></div>
+    <div class="conditional-cell add-condition">
+      <a class="btn add-condition-button" click.delegate="addRule()">
+        <i class="icon-add"></i> Add Condition
+      </a>
+    </div>
+    <div class="conditional-cell conditional-remove"></div>
+  </div>
+</template>

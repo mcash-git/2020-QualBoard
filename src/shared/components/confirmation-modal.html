@@ -1,0 +1,15 @@
+<template>
+  <div class="custom-modal modal">
+    <div class="c-modal-title">
+      <h3 class="modal-title-text">${title}</h3>
+      <div class="modal-close" click.delegate="cancel()"><i class="icon-close"></i></div>
+    </div>
+    <div class="c-modal-body">
+      ${text}
+    </div>
+    <div class="c-modal-footer">
+      <button type="button" class="btn btn-lg" class.bind="cancelButtonClass" click.delegate="cancel()">${cancelButtonText}</button>
+      <button type="button" class="btn btn-lg" class.bind="confirmButtonClass" click.delegate="ok()">${confirmButtonText}</button>
+    </div>
+  </div>
+</template>

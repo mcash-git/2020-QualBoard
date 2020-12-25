@@ -1,0 +1,13 @@
+<template>
+  <div class="item-content-row">
+    <h6 class="item-content-label">${instructions}</h6>
+    <ul class="mcma-options-list" class.bind="task.autoWrapOptions ? 'wrap' : ''">
+      <li class="mcma-option" repeat.for="option of task.options">
+        <label class="custom-control custom-${inputType}">
+          <input class="custom-control-input" type.bind="inputType">
+          <span class="custom-control-indicator"></span> <p>${option.text}</p>
+        </label>
+      </li>
+    </ul>
+  </div>
+</template>

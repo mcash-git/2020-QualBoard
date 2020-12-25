@@ -1,0 +1,681 @@
+
+.media-picker {
+  .c-modal-body {
+    height: calc(100% - 232px);
+  }
+  .actions-row {
+    .btn.btn-lg.btn-primary {
+      min-width: 150px;
+    }
+  }
+}
+
+.media-picker-instructions {
+  font-size: .875rem;
+  margin-bottom: $spacer;
+  @extend .d-none;
+  @extend .d-md-block;
+}
+
+.media-picker-section {
+
+  height: 100%;
+
+  .media-pill-row {
+
+    @include media-breakpoint-down(xs) {
+      flex: 0 auto;
+    }
+
+    display: flex;
+    justify-content: center;
+    padding-bottom: $spacer;
+    //border-bottom: 1px solid rgba(0,0,0,0.2);
+
+  }
+
+  .media-search-row {
+    @extend .flex-column;
+    margin-top: $spacer;
+  }
+
+  .media-drop-row {
+    @extend .flex-row;
+    flex: 0 auto;
+    height: 50px;
+    min-height: 50px;
+    padding: 0 0 $spacer 0;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+  }
+
+  .actions-row {
+    padding-top: 0;
+
+    .btn.btn-lg.btn-primary {
+      min-width: 150px;
+    }
+  }
+
+  media-upload-area {
+    display: flex;
+    flex: 1;
+    min-height: 0;
+  }
+
+  .media-drop-zone {
+
+    @include media-breakpoint-down(xs) {
+      flex-direction: column;
+    }
+
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    padding: $spacer/2;
+    color: rgba(0,0,0,0.5);
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+    transition-property: background-color,border;
+    background-color: rgba(0,0,0,.05);
+    border: 2px dashed transparent;
+
+    &:hover {
+      cursor: pointer;
+      background-color: rgba(0,0,0,.1);
+      border: 2px dashed rgba(0,0,0,0.2);
+    }
+
+    i {
+      font-size: 2rem;
+    }
+
+    .inner-content-div {
+      .idk {
+        height: 100%;
+      }
+
+      .no-media-msg {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        color: darken($app-bg, 40%);
+        font-size: 1.5rem;
+
+        i {
+          font-size: 8rem;
+        }
+
+        @include media-breakpoint-down(sm) {
+          font-size: 1rem;
+          i {
+            font-size: 5rem;
+          }
+        }
+      }
+    }
+  }
+
+
+  .no-asset-icon {
+    position: relative;
+    opacity: 1;
+    font-size: 4rem;
+    color: rgba(0, 0, 0, 0.4);
+    padding-left: 10px;
+  }
+
+  .media-added-icon {
+    position: absolute;
+    opacity: 0;
+    z-index: 1;
+    font-size: $media-selected-icon-size;
+    transform: translate(0, 0);
+    transform: scale(0.8);
+  }
+
+  .media-added-msg {
+    position: absolute;
+    transition: all 0.2s ease-in-out;
+    transition-delay: 0.2s;
+    top: calc(50% + #{$media-selected-icon-size/2});
+    opacity: 0;
+    z-index: 1;
+    font-size: .5rem;
+  }
+
+
+  //Displays when media has been uploaded to the server
+  .media-uploaded-icon {
+    transition: all 0.2s ease-in-out;
+    position: absolute;
+    font-size: 1.125rem;
+    right: .5rem;
+    top: .5rem;
+    color: $gray-light;
+    transform: translate(0, 0);
+    transform: scale(.8);
+    opacity: 0;
+
+    &.done {
+      opacity: 1;
+      transform: translate(0, 0);
+      transform: scale(1);
+    }
+  }
+}
+
+.num-media-selected {
+  display: flex;
+  align-items: center;
+
+  .badge {
+    margin-right: .5rem;
+  }
+}
+
+// Picker Thumb Styles
+
+.media-picker-thumb-container {
+  @extend .card-row;
+}
+
+.asset-details, .video-insight-clip-wrapper, .asset-wrapper {
+  @include make-col(2);
+  position: relative;
+  float: left;
+  padding: $grid-gutter-width/4;
+  display: flex;
+
+  @include media-breakpoint-down(lg) {
+    @include make-col(3);
+  }
+
+  @include media-breakpoint-down(md) {
+    @include make-col(4);
+  }
+
+  @include media-breakpoint-down(sm) {
+    @include make-col(6);
+  }
+
+  @include media-breakpoint-down(xs) {
+    @include make-col(12);
+  }
+
+  .checker {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+  }
+
+  .thumb-container i {
+    font-size: 5rem;
+  }
+
+  .img-thumb-loader {
+    position: absolute;
+  }
+
+  .icon-ion-alert-circled {
+    padding-left: 11px;
+  }
+}
+
+.media-thumb-grid {
+  transition: all 0.2s ease-in-out;
+  position: relative;
+  width: 100%;
+  min-height: 100px;
+  background-color: #fff;
+  display: flex;
+  flex: 1 auto;
+  flex-direction: column;
+  border: 1px solid rgba(0,0,0,.20);
+  @extend .media-card-hover;
+
+  &:before {
+    box-shadow: none;
+  }
+
+  &:hover {
+    .media-thumb {
+      transition: all 0.2s ease-in-out;
+      background-color: rgba(0,0,0,.15);
+    }
+  }
+
+  .custom-control-indicator {
+    transition: box-shadow .2s ease-in-out;
+  }
+
+  .custom-checkbox:hover {
+    input:checked ~ .custom-control-indicator,
+    input:not(:checked) ~ .custom-control-indicator {
+      box-shadow: 0 0 2px 3px #80bdff !important;
+    }
+  }
+
+  .is-selecting & {
+
+    &:hover {
+      .custom-checkbox {
+        input:checked ~ .custom-control-indicator,
+        input:not(:checked) ~ .custom-control-indicator {
+          box-shadow: 0 0 2px 3px #80bdff !important;
+        }
+      }
+    }
+  }
+
+  &.media-selected {
+    box-shadow: 0 0 2px 3px $custom-control-checked-indicator-bg;
+
+    .media-thumb {
+      .media-added-icon {
+        top: calc(50% - #{$media-selected-icon-size/2});
+        left: calc(50% - #{$media-selected-icon-size/2});
+        transition: all 0.2s ease-in-out;
+        transform: translate(0, 10%);
+        transform: scaleX(1);
+        color: #fff;
+        opacity: .75;
+      }
+    }
+  }
+
+
+}
+
+.media-thumb {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: .5rem;
+  background-color: rgba(0,0,0,.10);
+  min-height: 120px;
+  max-height: 120px;
+  overflow: hidden;
+
+  &.no-asset {
+
+    img {
+      display: none !important;
+    }
+
+    &.no-asset.video {
+      >.video {
+        opacity: 1;
+        font-size: 5rem;
+        color: rgba(0, 0, 0, 0.4);
+
+      }
+    }
+
+    &.no-asset.image {
+      >.image {
+        opacity: 1;
+        font-size: 5rem;
+        color: rgba(0, 0, 0, 0.4);
+
+      }
+    }
+
+  }
+
+  .media-placeholder-icon {
+    font-size: 3.5rem;
+    color: rgba(0,0,0,.3);
+
+    &.no-asset {
+      color: $brand-danger;
+    }
+  }
+
+  // Styles for a no asset icon
+  //.no-asset {
+  //  font-size: 3.5rem;
+  //  color: $brand-danger;
+  //}
+
+  img {
+    max-height: 110px;
+    max-width: 100%;
+  }
+
+//  Loading spinner for a media thumbnail
+  .uil-ring-css {
+    //height: 45px;
+  }
+}
+
+.media-detail {
+  position: relative;
+  color: $gray;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  flex: 1 auto;
+  padding: .5rem;
+  min-height: 80px;
+  //max-height: 80px;
+
+  .media-thumb-progress {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 4px;
+    width: 100%;
+    background-color: rgba(255,255,255,.5);
+
+    .progress-fill {
+      position: absolute;
+      left: 0;
+      height: 4px;
+      background-color: #5db4ff;
+    }
+  }
+
+  .video-duration {
+    position: absolute;
+    top: .5rem;
+    right: .5rem;
+
+    i {
+      font-size: 13px;
+    }
+  }
+}
+
+// Generic Row inside the media content container of tha thumb
+.media-detail-row {
+  display: flex;
+  justify-content: space-between;
+
+  h6 {
+    font-size: .75rem;
+    font-weight: 600;
+    width: 60%;
+  }
+  // Specifics for the top row
+  &.top-row {
+    align-items: center;
+  }
+
+  // Specifics for the bottom row
+  &.bottom-row {
+    align-items: flex-end;
+    font-size: .675rem;
+  }
+}
+// Metadata container for media detail inside a thumb
+.media-detail-metadata {
+  width: 60%;
+}
+// Flex conainer for action icon links
+.media-detail-action-container {
+  display: flex;
+
+  .dropdown-toggle, .drop-target {
+    display: flex;
+    &:after {
+      display: none;
+    }
+  }
+}
+// Icon styles for primary action links on a thumb
+.media-detail-action-icon {
+  @include hoverDarkenBackground($gray-lightest);
+  transition: all 0.2s ease-in-out;
+  display: flex;
+  color: $gray;
+  border-radius: 100rem;
+  width: 24px;
+  height: 24px;
+  font-size: 1.4rem;
+  padding-top: 1px;
+  i {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.media-icon-row {
+  display: flex;
+  color: $gray-dark;
+
+  i {
+    font-size: 1.5rem;
+    color: $gray;
+  }
+}
+
+.media-thumb-title-row {
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.media-thumb-title {
+  display: flex;
+  flex: 2;
+  font-size: .75rem;
+  font-weight: 600;
+  text-align: left;
+}
+
+.media-thumb-actions {
+  display: flex;
+  flex: 1;
+  justify-content: flex-end;
+  z-index: 10;
+
+  a {
+    transition: all 0.2s ease-in-out;
+    font-size: 1.4rem;
+    padding: .2rem;
+    color: $link-color;
+    cursor: pointer;
+    transform: translate(0, 0);
+    transform: scale(1);
+
+
+    &:hover {
+      color: $link-hover-color;
+    }
+  }
+}
+
+.media-picker-btn-row {
+  display: flex;
+  padding-top: $spacer;
+  min-height: 50px;
+  justify-content: flex-end;
+
+  button {
+    margin-right: .5rem;
+
+    &:last-of-type {
+      margin: 0;
+    }
+  }
+}
+
+.media-review-btn-row {
+  @include media-breakpoint-down(md) {
+    button {
+      width: 50%;
+      &:last-child {
+        margin-right: $spacer;
+      }
+    }
+  }
+
+  display: flex;
+  flex-direction: row-reverse;
+  border-top: 1px solid rgba(0,0,0,0.1);
+  padding-top: $spacer;
+  min-height: 50px;
+  justify-content: space-between;
+}
+
+
+// Styles for the Review and Label section of the media picker
+.media-review-section {
+  @extend .flex-column;
+}
+
+.media-review-content-row {
+  @extend .flex-column;
+  margin-bottom: 1rem;
+}
+
+.scroll-content {
+  .default-content {
+    font-size: 1.5rem;
+    color: $gray-light;
+  }
+}
+
+//
+
+.media-review-component {
+  position: relative;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  margin-bottom: $spacer/2;
+
+  &:last-child {
+    border-bottom: 0;
+  }
+
+  label {
+    font-size: .75rem;
+  }
+}
+
+.media-remove {
+  position: absolute;
+  top: 5px;
+  right: 0;
+
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  i {
+    font-size: 1.5rem;
+    color: $gray-light;
+  }
+}
+
+.media-file-name {
+  @extend .flex-row;
+  padding-bottom: $spacer/2;
+}
+
+.media-label-row {
+  @extend .flex-row;
+  margin-bottom: $spacer/2;
+}
+
+.media-description-row {
+  @extend .flex-column;
+  margin-bottom: $spacer;
+}
+
+.media-title-container {
+  flex: 1;
+
+  .media-title {
+    padding-left: $spacer;
+  }
+}
+
+.media-title-thumb {
+  height: 70px;
+  width: 70px;
+  background-size: cover;
+  background-position: 50%;
+  border: 2px solid rgba(0,0,0,.3);
+}
+
+.c-modal-footer {
+  &.media-picker-footer {
+    display: flex;
+    border-top: $border-gray-light;
+    padding-top: $spacer;
+    margin-top: $spacer;
+
+
+    .media-picker-footer-section {
+      display: flex;
+      align-items: center;
+      min-height: 46px;
+      flex-grow: 1;
+      flex-basis: 33%;
+
+      &.selected-indicator {
+        justify-content: flex-start;
+      }
+
+      &.pagination {
+        justify-content: center;
+      }
+
+      nav {
+        display: flex;
+      }
+
+      &.pagination-container {
+        justify-content: center;
+
+        .pagination {
+          margin-bottom: 0;
+          margin-top: 0;
+        }
+      }
+    }
+
+    @include media-breakpoint-down(sm) {
+      display: block;
+      padding-top: 0;
+
+      .media-picker-footer-section.selected-indicator {
+        display: none;
+      }
+
+      .media-picker-btn-row .btn {
+        min-width: initial;
+        font-size: .75rem;
+        line-height: .55rem;
+      }
+    }
+  }
+}
+
+.media-picker-btn-row {
+  display: flex;
+  min-height: 50px;
+  justify-content: flex-end;
+  flex-grow: 1;
+  flex-basis: 33%;
+
+  button {
+    margin-right: .5rem;
+
+    &:last-of-type {
+      margin: 0;
+    }
+  }
+}
+
+.video-duration {
+  @extend %video-duration;
+
+  i {
+    @extend %video-duration-icon;
+  }
+}

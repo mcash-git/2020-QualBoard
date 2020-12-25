@@ -1,0 +1,93 @@
+<template>
+  <div class="full-screen-modal">
+    <div class="modal-container create-report">
+      <div class="modal-close" click.delegate="close()">
+        <i class="icon-close"></i>
+      </div>
+
+      <div class="c-modal-title">
+        <div class="report-modal-title" if.bind="!isEditMode">
+          Create Report
+        </div>
+        <div class="report-modal-title" if.bind="isEditMode">
+          Edit Report
+        </div>
+      </div>
+      <div class="c-modal-body">
+        <div class="report-modal-body-left">
+          <!-- Left hand upper pane -->
+          <div class="report-modal-step-title">
+            <span>1.</span> Setup
+          </div>
+          <div class="report-modal-container">
+            <div class="report-modal-item">
+              <div>Select Type:</div>
+              <select
+                class="custom-select"
+                value.bind="report"
+                disabled.bind="report.id"
+              >
+                <option
+                  repeat.for="o of reportTypeOptions"
+                  model.bind="o"
+                >
+                  ${o.reportType.friendly}
+                </option>
+              </select>
+            </div>
+            <div class="report-modal-item modal-item-wide">
+              <div class="report-modal-item-label">
+                <div>Report Name:</div>
+                <div class="required-label">*</div>
+              </div>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Enter your report name here"
+                value.bind="report.name"
+                validation="validator.bind: validator; property: report.name"
+              />
+            </div>
+          </div>
+
+          <div class="report-modal-spacer"></div>
+
+          <!-- Left hand lower pane -->
+          <compose
+            view-model.bind="report.view"
+            view="researcher/project/reports/report-modal/report-modal-filter-events.html"
+            model.bind="subViewModel"
+          >
+          </compose>
+        </div>
+
+        <!-- Right hand pane -->
+        <compose
+          view-model.bind="report.view"
+          view="researcher/project/reports/report-modal/report-modal-filter-right.html"
+          model.bind="subViewModel"
+          containerless
+        >
+        </compose>
+      </div>
+
+      <div class="c-modal-footer">
+        <button
+          class="btn btn-lg btn-primary"
+          click.delegate="createReport()"
+          if.bind="!isEditMode"
+        >
+          Generate Report
+        </button>
+
+        <button
+          class="btn btn-lg btn-primary"
+          click.delegate="createReport()"
+          if.bind="isEditMode"
+        >
+          Save Report
+        </button>
+      </div>
+    </div>
+  </div>
+</template>

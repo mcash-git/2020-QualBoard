@@ -1,0 +1,119 @@
+<template>
+  <require from="researcher/common/components/user-menu/display-name-section"></require>
+  <div class="sidebar-header">
+    <div class="sidebar-header-right">
+      <h6 class="title">
+        <div class="badge">${model.selectedUsers.length}</div>
+        Selected
+      </h6>
+      <div class="close" click.trigger="model.selectedUsers.splice(0, model.selectedUsers.length)">
+        <i class="icon-close"></i>
+      </div>
+    </div>
+  </div>
+  <div class="outer-content">
+    <div class="inner-content-div">
+      <div class="user-sidebar-body">
+        <!--Message Users-->
+        <div class="user-sidebar-section">
+          <div class="user-sidebar-section-header">
+            <!--<i class="icon-ion-email"></i>&nbsp; -->
+            Message User${model.selectedUsers.length > 1 ? 's' : ''}
+          </div>
+          <div class="user-message-btn-row">
+            <button class="btn btn-secondary"
+                    click.delegate="openCreateMessageModal()">
+              Email
+            </button>
+          </div>
+        </div>
+        <div class="user-sidebar-section">
+          <div class="user-sidebar-section-header">
+            <!--<i class="icon-ion-ios-people"></i>&nbsp; -->
+            Apply Group Tags
+          </div>
+          <div class="user-section-body">
+            <tag-input source-items.bind="model.groupTags"
+                       display-property="name"
+                       autocomplete-search-fields.one-way="['name']"
+                       autocomplete-sort-field="name"
+                       autocomplete-min-chars.bind="0"
+                       autocomplete-sort-direction="asc"
+                       should-allow-add.bind="true"
+                       value.bind="groupTagsToApply">
+            </tag-input>
+          </div>
+          <div class="user-btn-row">
+            <button class="btn btn-secondary btn-sm"
+                    type="button"
+                    click.trigger="applyGroupTags()"
+                    disabled.bind="groupTagsToApply.length === 0">Apply
+            </button>
+          </div>
+        </div>
+        <!--User Display Name-->
+        <display-name-section
+          class="user-sidebar-section"
+          if.bind="shouldShowDisplayNameSection"
+          project-user.bind="model.selectedUsers[0]"
+          all-project-users.bind="model.projectUsers"
+          event-users.bind="model.users"
+        ></display-name-section>
+        <!--User Status-->
+        <div class="user-sidebar-section">
+          <div class="user-sidebar-section-header">
+            Deactivate Users
+          </div>
+          <div class="user-section-body">
+            <form action="">
+              <!--Deactivate User-->
+              <div class="user-status-row-defined"
+                   if.bind="shouldShowDeactivateButton">
+                <div class="control-description">
+                  Blocks further user access to the individual activity but
+                  leaves participation data in place.
+                </div>
+                <div class="user-btn-row">
+                  <button type="button" class="btn btn-secondary btn-sm"
+                          click.delegate="handleDeactivateClick()">Deactivate
+                  </button>
+                </div>
+              </div>
+
+              <!--Activate User-->
+              <div class="user-status-row-defined"
+                   if.bind="shouldShowActivateButton">
+                <div class="control-description">Enables user access to
+                  participate in the individual activity.
+                </div>
+                <div class="user-btn-row">
+                  <button type="button" class="btn btn-success  btn-sm"
+                          click.delegate="handleActivateClick()">Activate
+                  </button>
+                </div>
+              </div>
+
+              <!--Remove User-->
+              <div class="user-status-row-defined"
+                   if.bind="shouldShowRemoveButton">
+                <div class="control-description">
+                  Blocks further user access to the individual activity AND
+                  removes all participation data. The
+                  user${users.length > 1 ? 's' : ''} will not be removed from
+                  the project, and all other event
+                  participation data will remain.
+                </div>
+                <div class="user-btn-row">
+                  <button type="button" class="btn btn-danger btn-sm"
+                          click.delegate="handleRemoveClick()">Remove
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</template>

@@ -1,0 +1,75 @@
+<template>
+  <require from="./edit-buttons"></require>
+  <require from="shared/media/media-grid"></require>
+  <div class="eb-item-edit shown">
+    <div class="item-header">
+      <div class="event-item-icon">
+        <i class.bind="task.iconClass"></i>
+      </div>
+      <h5 class="event-item-title eb-saved" validation-state="validator.bind: task.validator; property: title">
+        <input type="text"
+               class="form-control"
+               id="exampleField"
+               placeholder="Give your task a title"
+               value.bind="task.title"
+               validate="validator.bind: task.validator; property: title"
+               focus.one-time="!task.title">
+      </h5>
+    </div>
+    <div class="eb-content">
+      <div class="item-content-col">
+        <h6 class="item-content-label">What task would you like your participant to complete?</h6>
+        <div class="item-content-row ">
+          <div class="event-input-container">
+            <div class="fr-view">
+              <div class="event-text-input">
+                <froala value.two-way="task.text"
+                        validator.bind="task.validator"
+                        validation-property="text"
+                        config.bind="{ placeholderText: 'Enter instructions for your task here...' }">
+                </froala>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <compose model.bind="{task: task, availableGroupTags: availableGroupTags}" view-model.bind="viewModel"></compose>
+    </div>
+    <!--<div class="item-content-row">-->
+
+    <!--</div>-->
+    <media-grid class="media-grid " media-items.bind="task.media" can-edit.bind="true"></media-grid>
+    <div>
+      <div class="eb-edit-btns justify-content-between">
+        <!--Attach Button-->
+        <button class="btn btn-secondary"
+
+                click.trigger="openMediaPicker()">
+          <i class="icon-attach_file"></i> Attach
+        </button>
+        <div>
+          <button type="button"
+                  class="btn btn-outline-secondary"
+                  click.delegate="dispatchEvent('cancel')">
+            Cancel
+          </button>
+          <button type="button"
+                  class="btn btn-outline-primary"
+                  click.delegate="dispatchEvent('save-and-duplicate')"
+                  if.bind="task.canEdit">
+            Save & Duplicate
+          </button>
+          <button type="button"
+                  class="btn btn-outline-primary"
+                  click.delegate="dispatchEvent('save-and-new')"
+                  if.bind="task.canEdit">
+            Save & Add New
+          </button>
+          <button type="button" class="btn btn-primary" click.delegate="dispatchEvent('save')">
+            Save
+          </button>
+        </div>
+      </div>
+  </div>
+  </div>
+</template>

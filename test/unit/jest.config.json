@@ -1,0 +1,19 @@
+{
+  "roots": ["src", "test/unit"],
+  "verbose": true,
+  "modulePaths": ["src", "test/unit"],
+  "setupFiles": ["<rootDir>/test/jest.setup.js"],
+  "moduleFileExtensions": [
+    "ts",
+    "tsx",
+    "js",
+    "json"
+  ],
+  "transform": {
+    "^.+\\.(ts|tsx)$": "<rootDir>/node_modules/ts-jest/preprocessor.js",
+    "^.+\\.jsx$": "babel-jest",
+    "^.+\\.js$": "babel-jest"
+  },
+  "transformIgnorePatterns": [ "<rootDir>/node_modules/(?!2020)" ],
+  "testRegex": "/test/.*\\.(ts|tsx|js)$"
+}

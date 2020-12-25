@@ -1,0 +1,95 @@
+{
+  "@context": "http://www.w3.org/ns/anno.jsonld",
+  "type": "Annotation",
+  "targetResourceIri": "qb:/projects/project/video/video-asset",
+  "target": [{
+    "type": "SpecificResource",
+    "selector": [{
+      "type": "FragmentSelector",
+      "value": "t=8.12,17.98",
+      "conformsTo": "http://www.w3.org/TR/media-frags/",
+      "refinedBy": null,
+      "id": "annotation-3-target-selector"
+    }],
+    "source": "qb:/projects/project/video/video-asset",
+    "name": "asdfpoijwerjfi.mp4",
+    "format": null,
+    "language": null,
+    "processingLanguage": null,
+    "textDirection": "ltr",
+    "created": "2017-10-31T20:58:10.707757Z",
+    "generated": "2017-10-31T20:58:10.604Z",
+    "modified": null,
+    "creator": null,
+    "generator": {
+      "name": null,
+      "nickname": null,
+      "email": null,
+      "emailSha1": null,
+      "homepage": null,
+      "type": "Software",
+      "id": null
+    },
+    "canonical": null,
+    "via": null,
+    "id": "annotation-3-target"
+  }],
+  "body": [{
+    "type": "TextualBody",
+    "value": "test",
+    "purpose": null,
+    "format": "text/plain",
+    "language": null,
+    "processingLanguage": null,
+    "textDirection": "ltr",
+    "created": "2017-10-31T20:58:10.707786Z",
+    "generated": "2017-10-31T20:58:10.604Z",
+    "modified": null,
+    "creator": {
+      "name": "Modfirst Modlast",
+      "nickname": "moderator-user",
+      "email": "mod@mod.mod",
+      "emailSha1": "kE4Fh2vdi7pD/s6gXa1w6M6grUI=",
+      "homepage": null,
+      "type": "Person",
+      "id": "urn:uuid:moderator"
+    },
+    "generator": {
+      "name": null,
+      "nickname": null,
+      "email": null,
+      "emailSha1": null,
+      "homepage": null,
+      "type": "Software",
+      "id": null
+    },
+    "canonical": null,
+    "via": null,
+    "id": "annotation-3-body"
+  }],
+  "created": "2017-10-31T20:58:10.707738Z",
+  "generated": "2017-10-31T20:58:10.604Z",
+  "modified": "2017-10-31T20:58:10.707786Z",
+  "creator": {
+    "name": "Modfirst Modlast",
+    "nickname": "",
+    "email": "mod@mod.mod",
+    "emailSha1": "kE4Fh2vdi7pD/s6gXa1w6M6grUI=",
+    "homepage": null,
+    "type": "Person",
+    "id": "urn:uuid:moderator"
+  },
+  "generator": {
+    "name": null,
+    "nickname": null,
+    "email": null,
+    "emailSha1": null,
+    "homepage": null,
+    "type": "Software",
+    "id": null
+  },
+  "canonical": null,
+  "via": null,
+  "version": 0,
+  "id": "annotation-3"
+}

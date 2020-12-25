@@ -1,0 +1,50 @@
+<template>
+  <require from="participant/tasks/entry-task"></require>
+  <require from="shared/components/response-drawer"></require>
+  <div class="tt_qb_content-padding" ref="scrollElement">
+    <div class="ia ia-participant task-list"
+        ok.delegate="handleRespond($event)"
+        respond.delegate="openResponseDrawer($event)"
+    >
+      <entry-task
+        class="entry-task"
+        repeat.for="task of completedTasks"
+        task.bind="task"
+        project-user.bind="projectUser"
+        moderator-id.bind="moderatorId"
+        entry-id.bind="entryId"
+        project-id.bind="projectId"
+        is-last-task.one-time="false"
+        account-id.bind="accountId"
+      ></entry-task>
+      <entry-task
+        class="entry-task"
+        if.bind="isActive && currentTask"
+        task.bind="currentTask"
+        project-user.bind="projectUser"
+        moderator-id.bind="moderatorId"
+        entry-id.bind="entryId"
+        project-id.bind="projectId"
+        is-last-task.bind="isLastTask"
+        account-id.bind="accountId"
+      ></entry-task>
+      <div class="exit-message" if.bind="isComplete" ref="exitMsg">
+        <div class="event-item">
+          <div class="card-block">
+            <div>
+              <span class="circle-border-icon"><i class="icon-check"></i></span>&nbsp;
+              You have reached the end of the current activity.
+            </div>
+            <a href.bind="backUrl" class="btn btn-md btn-success">Back to project</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <response-drawer
+    view-model.ref="responseDrawer"
+    project-id.bind="projectId"
+    entry-id.bind="entryId"
+    scroll-to-response.delegate="handleScrollToResponse($event)"
+  ></response-drawer>
+</template>

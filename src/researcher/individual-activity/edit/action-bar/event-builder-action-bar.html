@@ -1,0 +1,10 @@
+<template>
+  <div class="action-bar-buttons" if.bind="shouldShowButtons">
+    <button type="button" class="btn btn-outline-secondary" click.delegate="model.openReorderDialog()">
+      Reorder
+    </button>
+    <button type="button" class="btn btn-primary" click.delegate="model.addTaskToEnd()">
+      Add Task
+    </button>
+  </div>
+</template>

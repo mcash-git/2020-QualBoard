@@ -1,0 +1,316 @@
+.card-tile.participant-activity-card {
+  height: 100%;
+  padding: 1rem;
+  position: relative;
+
+  &.is-closed {
+    opacity: .6;
+  }
+
+  .activity-card-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: $spacer;
+  }
+
+  .activity-card-stats-title {
+    display: flex;
+    font-size: .75rem;
+    align-items: center;
+    font-weight: 600;
+
+    .activity-card-stats-icon {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-right: .5rem;
+    }
+
+    i {
+      font-size: 1.5rem;
+      color: $gray;
+
+      &.complete-indicator {
+        color: $gray-lighter;
+
+        &.complete-indicator.completed {
+          color: $completed;
+        }
+      }
+    }
+  }
+
+  .circle-border-icon {
+    margin-right: 0.5rem;
+    width: 36px;
+    height: 36px;
+    color: $gray;
+    border-color: $gray;
+    position: relative;
+
+    i {
+      font-size: 1.25rem;
+      position: absolute;
+      left: 7px;
+      bottom: 8px;
+    }
+  }
+
+  i.complete {
+    font-size: 2.5rem;
+    color: $brand-success;
+    transform: translate(-4px, -4px);
+  }
+
+  .activity-card-title {
+    font-weight: 600;
+    flex: 1;
+
+    .activity-card-name {
+      font-size: .875rem;
+    }
+
+    .activity-card-due {
+      font-size: .75rem;
+      color: $brand-warning;
+    }
+  }
+
+  .activity-card-incentive {
+    width: 75px;
+    border-radius: 4px;
+    text-align: center;
+    float: right;
+    background-color: #EAF2D8;
+    color: #8BAB46;
+    line-height: 1.1;
+    padding: .125rem;
+
+    .label {
+      font-size: .625rem;
+    }
+
+    .value {
+      font-size: 1rem;
+      font-weight: bold;
+    }
+  }
+
+  .activity-card-description {
+    border: $border-gray-transparent;
+    border-radius: 4px;
+    background-color: $gray-lightest;
+    padding: .5rem;
+    font-size: .75rem;
+    margin-bottom: $spacer;
+  }
+
+  .activity-card-stats {
+    margin-bottom: 1rem;
+  }
+
+  .activity-card-stats-row {
+    height: 38px;
+    border-bottom: $border-gray-transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: $gray;
+
+    &.action:not(.disabled) {
+      cursor: pointer;
+      transition: background-color .2s ease-in-out;
+
+      &:hover {
+        background-color: $new-brand-primary-lightest;
+        text-decoration: none;
+
+        .activity-card-badge-action {
+          i {
+            color: darken($new-brand-primary, 10%);
+          }
+        }
+      }
+
+      &:focus {
+        text-decoration: none;
+      }
+
+      .activity-card-badge-action {
+        i {
+          color: $new-brand-primary;
+        }
+      }
+    }
+
+    &.disabled {
+
+      .activity-card-badge-action {
+        i {
+          color: $gray;
+        }
+      }
+    }
+  }
+
+  .activity-card-stats-values {
+    display: flex;
+    text-align: center;
+    line-height: 1;
+  }
+
+  .activity-card-stats-values-sm {
+    @extend .activity-card-stats-values;
+    display: none;
+  }
+
+  .activity-card-stat-item {
+    margin-left: .5rem;
+    // This width aligns the completed / minimum columns
+    width: 45.25px;
+
+    .value {
+      font-size: 1.125rem;
+      font-weight: 600;
+    }
+
+    .label {
+      font-size: .625rem;
+    }
+  }
+
+  .activity-card-badge-action {
+    position: relative;
+
+    .badge {
+      padding: 0 .625rem;
+      margin-right: 1.5rem;
+      background-color: $brand-warning;
+
+      &.none {
+        background-color: $gray-light;
+      }
+    }
+
+    i {
+      font-size: 1.5rem;
+      position: absolute;
+      right: 2px;
+      bottom: -2px;
+      transition: color .2s ease-in-out;
+    }
+  }
+
+  .activity-card-buttons {
+    text-align: center;
+    display: flex;
+    flex: 1;
+    align-items: flex-end;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    .btn {
+      text-transform: none;
+      font-size: .875rem;
+      line-height: 1;
+      position: relative;
+      width: 160px;
+      margin: .25rem;
+
+      &.btn-primary {
+        padding-right: 1.5rem;
+      }
+
+      i {
+        position: absolute;
+        padding-right: .5rem;
+      }
+    }
+  }
+
+  .activity-card-pending-overlay {
+    position: absolute;
+    background-color: rgba(0,0,0,.82);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+
+    > i {
+      font-size: 3rem;
+      padding-left: 5px;
+      margin-bottom: .5rem;
+    }
+  }
+
+  .activity-card-pending-note {
+    max-width: 50%;
+    text-align: center;
+    font-size: 1.125rem;
+    font-weight: 300;
+    line-height: 24px;
+  }
+
+  .activity-card-pending-time {
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+
+  @media only screen and (max-width: 320px) {
+    .activity-card-header {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+
+      .circle-border-icon {
+        margin-right: 0;
+        margin-bottom: .5rem;
+      }
+
+      .activity-card-title {
+        margin-bottom: .5rem;
+      }
+
+    }
+  }
+
+  .activity-card-pending-next-interval {
+    color: $new-brand-primary;
+
+    .next-interval-text {
+      font-size: .75rem;
+      line-height: 1;
+    }
+
+    .next-interval-duration {
+      font-size: 1rem;
+      line-height: 22px;
+      text-transform: uppercase;
+    }
+  }
+
+  .activity-card-complete-message {
+    color: $brand-success;
+    text-transform: uppercase;
+    line-height: 1;
+    margin: .25rem;
+    padding: .5rem 0;
+  }
+
+  .activity-card-closed-message {
+    font-size: 1rem;
+    line-height: 22px;
+    color: $brand-danger;
+
+    .value {
+      font-size: .75rem;
+    }
+  }
+}

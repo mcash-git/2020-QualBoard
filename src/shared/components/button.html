@@ -1,0 +1,23 @@
+<template>
+  <button
+    if.bind="model.type === 'normal'"
+    class.bind="model.buttonClasses"
+    class="btn"
+    click.trigger="model.action()"
+  >
+    ${model.text}&nbsp;
+    <i class="btn-icon" class.bind="model.iconClass" if.bind="model.iconClass"></i>
+  </button>
+  <a
+    if.bind="model.type === 'link'"
+    class.bind="model.buttonClasses"
+    class="btn"
+    href.bind="model.href"
+  >
+    ${model.text}
+    <template if.bind="model.iconClass">
+      &nbsp;
+      <i class="btn-icon" class.bind="model.iconClass"></i>
+    </template>
+  </a>
+</template>

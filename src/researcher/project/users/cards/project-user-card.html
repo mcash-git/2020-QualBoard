@@ -1,0 +1,15 @@
+<template>
+  <div class="card">
+    <!--Checkbox that allows you to select multiple users. -->
+    <div class="checker-container" if.bind="!options.hideCheckbox">
+      <div class="checker">
+        <label class="custom-control custom-checkbox">
+          <input class="custom-control-input" type="checkbox" checked.bind="selectedUsers" model.bind="user">
+          <span class="custom-control-indicator"></span>
+
+        </label>
+      </div>
+    </div>
+    <compose model.bind="{ user: user }" view-model="./${user.viewModel}" containerless view-model.ref="viewModel"></compose>
+  </div>
+</template>

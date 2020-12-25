@@ -1,0 +1,20 @@
+<template>
+  <button class="btn btn-primary" click.delegate="download()" disabled.bind="!isSelecting">
+    ${downloadExportButtonText}
+  </button>
+  <div class="media-actions">
+    <a href="#"
+       class="gallery-action-link"
+       tooltip="text: Upload Media"
+       click.trigger="uploadClick()">
+      <i class="icon-cloud_upload"></i>
+    </a>
+    <a href="#"
+       class="gallery-action-link"
+       tooltip="text: Delete"
+       click.trigger="delete()"
+       class.bind="isSelecting ? '' : 'disabled'">
+      <i class="icon-delete"></i>
+    </a>
+  </div>
+</template>

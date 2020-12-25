@@ -1,0 +1,19 @@
+<template>
+  <span>
+    ${title}: <span class="required-label" if.bind="isRequired">*</span>
+  </span>
+  <tag-input
+    tag-view-model="shared/components/user-tag-input-item"
+    source-items.bind="availableUsers"
+    display-property="displayName"
+    autocomplete-search-fields.one-way="['displayName', 'firstName', 'lastName', 'email']"
+    autocomplete-sort-fields="displayName"
+    autocomplete-min-chars="0"
+    autocomplete-sort-direct="asc"
+    should-allow-add.bind="false"
+    changed.call="changedUser()"
+    placeholder-text="Filter on users"
+    value.bind="chosenUsers"
+  >
+  </tag-input>
+</template>

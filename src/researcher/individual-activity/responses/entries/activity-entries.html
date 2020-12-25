@@ -1,0 +1,37 @@
+<template>
+  <require from="shared/media/media-pagination"></require>
+  <require from="./activity-entries-response-list"></require>
+  <require from="./entry-card"></require>
+  <require from="./activity-entry"></require>
+
+  <div class="default-content" if.bind="!entries || entries.length === 0" style="color: #a9a9a9;">
+    <div><i class="icon-library_books" style="font-size: 70px;"></i></div>
+    <div style="padding-top: 10px;">This activity has no completed entries.</div>
+  </div>
+
+  <div class="entries-wrapper" if.bind="entries && entries.length > 0">
+    <activity-entries-response-list
+      class="sidebar-entries-wrapper"
+      entries-by-date.bind="entriesByDate"
+      selected-entry.two-way="selectedEntry"
+      fetch-more-entries.call="fetchMoreEntries()"
+    ></activity-entries-response-list>
+    <div
+      class="entry-content-wrapper"
+      if.bind="selectedEntry"
+    >
+      <activity-entry
+        project-id.bind="projectId"
+        ia-id.bind="iaId"
+        selected-entry.bind="selectedEntry"
+        insight-bags.bind="insightBags"
+        add-response-insight.delegate="tryAddResponseInsight($event)"
+        tasks-loaded.delegate="handleTasksLoaded($event)"
+      ></activity-entry>
+    </div>
+    <div class="default-content" if.bind="!selectedEntry">
+      <div><i class="icon-noun_356772 default-content-icon"></i></div>
+      <div class="default-content-text">Select an entry to view responses</div>
+    </div>
+  </div>
+</template>

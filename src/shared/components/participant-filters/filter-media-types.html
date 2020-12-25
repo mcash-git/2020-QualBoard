@@ -1,0 +1,20 @@
+<template>
+  <require from="./accordion-item"></require>
+  <accordion-item title="Media Types"
+                  badge-count.bind="assetTypes.length"
+                  expanded-session-storage-key.bind="expandedSessionStorageKey"
+                  containerless>
+    <ul class="filter-category">
+      <li class="filter-category-item" repeat.for="type of availableAssetTypes">
+        <label class="custom-control custom-checkbox">
+          <input type="checkbox"
+                 class="custom-control-input"
+                 checked.bind="assetTypes"
+                 model.bind="type.int">
+          <span class="custom-control-indicator"></span>
+          <span class="custom-control-description">${type.friendly}</span>
+        </label>
+      </li>
+    </ul>
+  </accordion-item>
+</template>

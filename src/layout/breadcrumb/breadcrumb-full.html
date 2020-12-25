@@ -1,0 +1,53 @@
+<template>
+  <require from="shared/value-converters/crumb-name"></require>
+
+  <ul class="breadcrumb-custom ${viewState.isParticipantRoute ? 'breadcrumb-participant' : 'breadcrumb-moderator' }">
+    <!-- Dashboard -->
+    <li class="breadcrumb-link-container dropdown" if.bind="showDash">
+      <a class="breadcrumb-drop-btn">
+        <i class="icon-home"></i>
+      </a>
+      <a href="#" class="breadcrumb-link">Dashboard</a>
+    </li>
+
+    <!-- breadcrumb routes -->
+    <li class="breadcrumb-link-container dropdown" repeat.for="r of routes" if.bind="r.config.settings.breadIcon">
+      <!-- dropdown link -->
+      <a id="dropdownMenuButton"
+        data-toggle="${ (r.config.name === 'project' && projects.length >= 1)  || ( r.config.name === 'activity' && events.length >=1 )
+        ? 'dropdown' : ''}"
+        class="breadcrumb-drop-btn
+          ${ (r.config.name === 'project' && projects.length >= 1) || ( r.config.name === 'activity' && events.length >= 1)
+           ? 'dropdown-toggle' : ''}">
+        <i class.bind="r.config.settings.breadIcon"></i>
+      </a>
+
+      <!-- route link -->
+      <a href="#" class="breadcrumb-link" if.bind="r.config.settings.breadName" click.delegate="navigate(r)">${r.config.settings.breadName}</a>
+      <a href="#" class="breadcrumb-link" if.bind="!r.config.settings.breadName" click.delegate="navigate(r)">${r.config.name | crumbName}</a>
+
+
+      <!-- dropdown -->
+      <ul class="material-dropdown-menu breadcrumb-dropdown dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <li repeat.for="p of projects" if.bind="r.config.name === 'project'">
+          <a href="" class="dropdown-item truncate-ellipsis" click.delegate="navigate(r, 'project', { projectId: p.id })">
+          <span><i class="icon-ion-chevron-right"></i>${p.privateName}</span>
+          </a>
+        </li>
+
+        <li repeat.for="a of accounts" if.bind="r.config.name === 'account'">
+          <a href="#" class="dropdown-item truncate-ellipsis">
+          <span><i class="icon-ion-chevron-right"></i>${a.privateName}</span>
+          </a>
+        </li>
+
+        <li repeat.for="e of events" if.bind="r.config.name === 'activity'">
+          <a href="#" class="dropdown-item truncate-ellipsis" click.delegate="navigate(r, 'activity', { iaId: e.id })">
+            <span><i class="icon-ion-chevron-right"></i>${e.privateName}<span>
+          </a>
+        </li>
+      </ul>
+      <!-- end dropdown -->
+    </li>
+  </ul>
+</template>

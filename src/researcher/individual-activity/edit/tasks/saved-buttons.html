@@ -1,0 +1,7 @@
+<template>
+  <div class="event-options-bar">
+      <a click.trigger="dispatchEvent('insert-after', $event)"><i class="icon-add_circle"></i></a>
+      <a click.trigger="dispatchEvent('duplicate', $event)"><i class="icon-content_copy"></i></a>
+      <a class="remove" click.trigger="dispatchEvent('delete', $event)"><i class="icon-remove_circle_outline"></i></a>
+  </div>
+</template>

@@ -1,0 +1,89 @@
+<template>
+  <form submit.delegate="save()">
+    <div class="custom-modal create-project-user">
+      <div class="modal-close" click.delegate="modalController.cancel()">
+        <i class="icon-close"></i>
+      </div>
+      <div class="c-modal-title">
+        <h5 class="modal-title-text">
+          New ${role ? role.friendly : 'User'}
+        </h5>
+      </div>
+      <div class="c-modal-body">
+        <div if.bind="!isRoleLocked" class="form-section">
+          <div class="form-group" validation-state="validator.bind: validator; property: role">
+            <label>Choose a User Type:</label>
+            <select class="form-control form-control-sm"
+                    value.bind="role"
+                    validate="validator.bind: validator; property: role"
+                    attach-focus="true">
+              <option model.bind="null">Choose a User Type</option>
+              <option repeat.for="role of projectRoles.sortedForDisplay" model.bind="role">${role.friendly}</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-section">
+          <label>Email Address:</label>
+          <div class="form-group" validation-state="validator.bind: validator; property: createCommand.email">
+            <input type="text"
+                   class="form-control"
+                   id="email"
+                   validate="validator.bind: validator; property: createCommand.email"
+                   value.two-way="createCommand.email"
+                   placeholder="Email Address"
+                   autocomplete="off">
+          </div>
+        </div>
+        <div class="form-section">
+          <label>Name:</label>
+          <div class="form-group">
+            <input type="text"
+                   class="form-control"
+                   id="first-name"
+                   value.bind="createCommand.firstName"
+                   autocomplete="off"
+                   placeholder="First Name">
+          </div>
+          <div class="form-group">
+            <input type="text"
+                   class="form-control"
+                   id="last-name"
+                   value.bind="createCommand.lastName"
+                   autocomplete="off"
+                   placeholder="Last Name">
+          </div>
+          <div class="form-group" validation-state="validator.bind: validator; property: userProject.displayName">
+            <input type="text"
+                   class="form-control"
+                   id="display-name"
+                   value.bind="userProject.displayName"
+                   validate="validator.bind: validator; property: userProject.displayName"
+                   placeholder="Display Name">
+          </div>
+        </div>
+        <div class="form-section">
+          <label>Groups:</label>
+          <div class="form-group">
+            <tag-input source-items.bind="availableGroupTags"
+                       display-property.bind="'name'"
+                       autocomplete-search-fields.one-way="['name']"
+                       autocomplete-sort-field.bind="'name'"
+                       autocomplete-min-chars.bind="0"
+                       autocomplete-sort-direction.bind="'asc'"
+                       should-allow-add.bind="true"
+                       disabled.bind="!role || role.value !== 'Participant'"
+                       value.bind="groupTags">
+            </tag-input>
+          </div>
+        </div>
+      </div>
+      <div class="c-modal-footer">
+          <button type="submit" class="btn btn-lg btn-primary">Create User</button>
+          <!--<button type="button" class="btn btn-sm btn-default" click.delegate="modalController.cancel()">-->
+            <!--Cancel-->
+          <!--</button>-->
+      </div>
+
+    </div>
+  </form>
+</template>

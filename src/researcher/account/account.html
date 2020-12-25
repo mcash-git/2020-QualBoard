@@ -1,0 +1,55 @@
+<template>
+    <div style="display:none;" class="row" with.bind="account">
+      <div class="col-sm-3">
+        <h4>Account Statistics</h4>
+        <div class="row">
+          <div class="col-sm-4"><span>Active Projects ${activeProjects}</span></div>
+          <div class="col-sm-4"><span>Open Projects ${openProjects}</span></div>
+          <div class="col-sm-4"><span>Pending Projects ${pendingProjects}</span></div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6"><span>Moderators ${moderators}</span></div>
+          <div class="col-sm-6"><span>Account Administrators ${accountAdministrators}</span></div>
+        </div>
+      </div>
+      <div class="col-sm-9">
+        <h4>Account Overview</h4>
+        <table style="width: 100%;">
+          <thead>
+            <tr>
+              <th>Account</th>
+              <th>Company</th>
+              <th>Properties</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Parent Account: ${parentAccount}</td>
+              <td>Company Name: ${companyName}</td>
+              <td>Subdomain: ${subDomain}</td>
+            </tr>
+            <tr>
+              <td>Account Type: ${accountType}</td>
+              <td>Company Info: ${companyInfo}</td>
+              <td>QualLink Key: ${qualLinkKey}</td>
+            </tr>
+            <tr>
+              <td>Account Status: ${accountStatus}</td>
+              <td>Contact Phone: ${contactPhone}</td>
+              <td>QualLink Status: ${qualLinkStatus}</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>Billing Phone: ${billingPhone}</td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- TODO: Create a compoonent for this type of secondary/tertiary navigation (tabs) -->
+
+
+    <router-view></router-view>
+</template>

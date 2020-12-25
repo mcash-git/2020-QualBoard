@@ -1,0 +1,202 @@
+.list-card {
+  display: flex;
+  height: 50px;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.3);
+  margin-bottom: .625rem;
+  background-color: #fff;
+  border-radius: 4px;
+  color: $gray;
+
+  .list-card-icon {
+    width: 50px;
+    min-width: 50px;
+    background-color: $gray-light;
+    color: #fff;
+    border-right: 1px solid rgba(0,0,0,0.15);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-items: center;
+    border-bottom-left-radius: 4px;
+    border-top-left-radius: 4px;
+
+    .circle-border-icon {
+      border-color: #fff;
+
+      i {
+        font-size: 1.125rem;
+        padding-left: 1px;
+        padding-bottom: 2px;
+        color: #fff;
+      }
+    }
+
+
+  }
+
+  .list-card-title-container {
+    @extend %truncate-text;
+    margin-left: 1rem;
+    font-size: .75rem;
+    padding-top: .375rem;
+    flex-grow: 1;
+    border-right: $border-gray-transparent;
+
+    .list-card-title {
+      @extend %truncate-text;
+      font-weight: 600;
+    }
+
+    .list-card-subtitle {
+      @extend %truncate-text;
+    }
+  }
+
+  .list-card-stats {
+    display: flex;
+    margin-right: $spacer;
+    border-right: $border-gray-transparent;
+
+    .list-card-stat-item {
+      width: 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+
+      &.has-action {
+        cursor: pointer;
+      }
+
+      .list-card-stat-item-label {
+        top: 2px;
+        font-size: .625rem;
+        text-transform: uppercase;
+        font-weight: 600;
+      }
+
+      .list-card-stat-item-icon {
+        padding-left: 2px;
+        top: calc(50% - 12px);
+
+        i {
+          font-size: 1.5rem;
+        }
+      }
+
+      .list-card-stat-item-expander {
+        bottom: 2px;
+        font-size: .625rem;
+        color: darken($new-brand-primary, 10%);
+        text-decoration: underline;
+        padding-bottom: 2px;
+      }
+
+      .list-card-stat-item-value {
+        font-size: 1.125rem;
+        font-weight: bold;
+        top: calc(50% - 10px);
+      }
+
+      > * {
+        display: inline;
+        line-height: 1;
+        position: absolute;
+        width: 100%;
+        text-align: center;
+      }
+    }
+  }
+
+  .list-card-button-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding-right: .5rem;
+
+    .btn.btn-primary.dropdown-toggle {
+      text-transform: none;
+
+      .chevron {
+        padding-bottom: 12px;
+
+        i {
+          color: #fff;
+        }
+      }
+    }
+  }
+}
+
+.circle-border-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: $btn-border-radius;
+  border: 1px solid $body-color;
+  color: $body-color;
+  width: 32px;
+  height: 32px;
+}
+
+.drop-element.drop-theme-filters {
+
+  &.list-card-expand-content {
+    .drop-content {
+      background-color: $gray-dark;
+      color: #fff;
+
+      &::before {
+        background-color: $gray-dark;
+        border-bottom-color: $gray-dark !important;
+      }
+
+      &::after {
+        background-color: $gray-dark;
+      }
+    }
+  }
+
+  .drop-content {
+    // sigh...overriding the vendor's !important directives...
+    padding: .5rem !important;
+    border-radius: 3px !important;
+
+    &::after {
+      content: none;
+    }
+  }
+}
+
+.event-post-stats {
+  display: flex;
+  text-align: center;
+
+  .post-stats-section {
+    flex-grow: 1;
+    padding: 0 .5rem;
+
+    .post-stats-value {
+      font-size: 1rem;
+    }
+
+    .post-stats-label {
+      font-size: .625rem;
+    }
+  }
+}
+
+.event-schedule-expand-content {
+  text-align: left;
+  display: flex;
+  .event-schedule-expand-container {
+
+    &:first-child {
+      margin-right: 1rem;
+    }
+
+    .label {
+      font-weight: 600;
+    }
+  }
+}

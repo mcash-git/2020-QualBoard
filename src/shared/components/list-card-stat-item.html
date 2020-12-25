@@ -1,0 +1,17 @@
+<template>
+  <div class="list-card-stat-item-label">
+    ${item.label}
+  </div>
+  <div class="list-card-stat-item-icon" if.bind="item.iconClass != null">
+    <i class="${item.iconClass}"></i>
+  </div>
+  <div class="list-card-stat-item-value" if.bind="item.value != null">
+    ${item.value}
+  </div>
+  <div class="list-card-stat-item-expander" if.bind="hasExpandContent">
+    <a>more</a>
+  </div>
+  <div if.bind="hasExpandContent" ref="dropBodyElement">
+    <compose view-model.bind="item.expandContent.viewModel" model.bind="item.expandContent"></compose>
+  </div>
+</template>

@@ -1,0 +1,33 @@
+[{
+  "projectId": "project-1",
+  "userId": "participant",
+  "firstName": "Partfirst",
+  "lastName": "PartLast",
+  "email": "participant@participant.participant",
+  "displayName": "participant-user",
+  "groupTags": ["group-tag-1"],
+  "role": 3,
+  "isActive": true,
+  "past24HourResponseCount": 2,
+  "totalFollowupCount": 0,
+  "unansweredProbeCount": 0,
+  "completionPercentage": 0,
+  "lastPost": "2017-07-30T15:22:29.272618Z",
+  "lastLogin": "2017-07-30T21:25:39.520584Z"
+}, {
+  "projectId": "project-1",
+  "userId": "moderator",
+  "firstName": "Modfirst",
+  "lastName": "Modlast",
+  "email": "mod@mod.mod",
+  "displayName": "moderator-user",
+  "groupTags": [],
+  "role": 0,
+  "isActive": true,
+  "past24HourResponseCount": 0,
+  "totalFollowupCount": 4,
+  "unansweredProbeCount": 0,
+  "completionPercentage": 0,
+  "lastPost": "2017-07-18T15:22:29.272618Z",
+  "lastLogin": "2017-07-28T21:25:39.520584Z"
+}]

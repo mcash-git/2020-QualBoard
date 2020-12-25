@@ -1,0 +1,18 @@
+<template>
+  <div class="action-bar-container">
+    <div class="action-bar-section">
+      <div class="search">
+        <input
+          ref="searchElement"
+          input.delegate="model.applySearch()"
+          type="text"
+          value.bind="model.searchText"
+          class="form-control"
+          class.bind="!!model.searchText ? 'has-text' : ''"
+          placeholder="Filter projects..."
+        />
+        <i class="icon-search"></i>
+      </div>
+    </div>
+  </div>
+</template>

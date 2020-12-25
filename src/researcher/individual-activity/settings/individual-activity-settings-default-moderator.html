@@ -1,0 +1,72 @@
+<template>
+  <require from="./moderator.html"></require>
+
+  <div class="title">
+    <i class="icon-moderator"></i>
+    <span>Activity Moderator</span>
+  </div>
+  <div class="body">
+    <template if.bind="moderators && moderators.length > 0">
+      <div
+        id="ia-moderator-saved"
+        class="form-saved"
+        show.bind="!isEditing"
+      >
+        <moderator class="default-mod" moderator.bind="defaultModerator">
+        </moderator>
+      </div>
+      <div
+        id="ia-moderator-edit"
+        class="form-edit"
+        show.bind="isEditing"
+      >
+        <div class="eb-task-type-selector default-mod-selector">
+          <button type="button"
+                  class="btn btn-default dropdown-toggle"
+                  data-toggle="dropdown">
+            <div class="eb-task-type-selector-label">
+              <moderator class="default-mod default-mod-select" moderator.bind="edit.defaultModerator"></moderator>
+            </div>
+          </button>
+
+          <div class="dropdown-menu">
+            <a href="#" class="dropdown-item"
+               repeat.for="mod of moderators"
+               click.trigger="selectModerator(mod)">
+              <moderator class="default-mod default-mod-select" moderator.bind="mod"></moderator>
+            </a>
+          </div>
+        </div>
+      </div>
+    </template>
+    <div if.bind="!moderators || moderators.length === 0" class="default-content">
+        <span>This project doesn't have any moderators yet.&nbsp;
+        <a href.bind="projectUsersUrl">Add some moderators here.</a></span>
+    </div>
+  </div>
+  <div class="edit">
+    <template if.bind="moderators && moderators.length > 0">
+      <button
+        class="btn btn-primary btn-sm btn-form-edit"
+        if.bind="!ia.editing"
+        click.delegate="editClick()"
+      >
+        Edit
+      </button>
+      <button
+        class="btn btn-sm btn-outline-secondary btn-form-save"
+        click.delegate="cancelClick()"
+        if.bind="isEditing"
+      >
+        Cancel
+      </button>
+      <button
+        class="btn btn-sm btn-primary btn-form-save"
+        click.delegate="saveClick()"
+        if.bind="isEditing"
+      >
+        Save
+      </button>
+    </template>
+  </div>
+</template>

@@ -1,0 +1,33 @@
+<template>
+  <div class="task-segment">
+    <div class="item-content-label">${instructions}</div>
+  </div>
+  <div class="table-wrapper">
+    <table class="table table-striped table-bordered grid-table">
+      <thead>
+      <tr>
+        <th></th>
+        <th repeat.for="col of task.matrixColumns">${col.text}</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr repeat.for="row of task.matrixRows">
+        <td data-label.bind="row.text" class="row-hidden">
+          <div class="row-value">${row.text}</div>
+        </td>
+        <td repeat.for="col of task.matrixColumns" data-label.bind="col.text">
+          <label class="custom-control custom-checkbox grid-input${isDisabled(row, col) ? ' disabled' : '' & signal:'selection-changed:'+row.rowId}"
+                 class.bind="isChecked({columnId: col.columnId, rowId: row.rowId}) ? 'grid-checked' : '' & signal:'selection-changed:'+col.columnId+row.rowId">
+            <input class="custom-control-input"
+                   model.bind="{columnId: col.columnId, rowId: row.rowId}"
+                   type="checkbox"
+                   checked.bind="taskResponse.matrixResponses"
+                   change.delegate="handleChange(row, col)"
+                   disabled.bind="isDisabled(row, col) & signal:'selection-changed:'+row.rowId">
+            <span class="custom-control-indicator"></span>
+          </label>
+        </td>
+      </tbody>
+    </table>
+  </div>
+</template>

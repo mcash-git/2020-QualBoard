@@ -1,0 +1,63 @@
+<template>
+  <require from="./logic-rule-set"></require>
+  <div
+    class="modal-container logic"
+    with.bind="masterRuleSet"
+  >
+    <form>
+      <div class="modal-close" click.delegate="modalClose()">
+        <i class="icon-close"></i>
+      </div>
+      <div class="modal-subview logic" class.bind="subviewClass">
+        <div class="c-modal-title bordered">
+          <h5><i class="icon-call_split"></i> Logic Rules</h5>
+        </div>
+
+        <div class="c-modal-body">
+          <div class="logic-subtitle">Display this question when:</div>
+          <!--Sets up the list for conditional sets.-->
+          <ul class="logic-list" remove-rule-set.delegate="removeRuleSet($event)">
+            <!--Each li is a set of conditions-->
+            <template
+              repeat.for="ruleSet of ruleSets"
+            >
+              <logic-rule-set
+                subject-group-factory.bind="subjectGroupFactory"
+                rule-set.bind="ruleSet"
+                class="conditional-set"
+              ></logic-rule-set>
+              <li
+                class="conditional-set-connector"
+                class.bind="operatorClass"
+                if.bind="$index !== (ruleSets.length - 1)"
+              >
+                <select
+                  if.bind="$index === 0"
+                  class="form-control form-control-sm"
+                  value.bind="operator"
+                >
+                  <option
+                    repeat.for="op of allowedOperators"
+                    model.bind="op"
+                  >
+                    ${op.friendly}
+                  </option>
+                </select>
+                <div class="connector-text" if.bind="$index > 0">${operator.friendly}</div>
+              </li>
+            </template>
+          </ul>
+          <a class="add-set" click.delegate="addRuleSet()">
+            <span><i class="icon-add"></i> Add Set</span>
+          </a>
+        </div>
+        <div class="c-modal-footer">
+          <div class="c-modal-btn-row-fullscreen">
+            <button class="btn btn-lg btn-outline-secondary" click.delegate="modalClose()">Cancel</button>
+            <button class="btn btn-lg btn-primary" click.delegate="save()">Finish</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</template>

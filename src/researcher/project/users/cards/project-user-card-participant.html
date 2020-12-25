@@ -1,0 +1,142 @@
+<template>
+  <div class="card-user-row participant" class.bind="user.engagementClass">
+    <!--Card Header-->
+    <div class="card-header">
+      <div class="user">
+        <div class="disabled-icon" title="User has been deactivated.">
+          <i class="icon-ion-locked"></i>
+        </div>
+        <div class="avatar">
+          <avatar user-id.bind="user.userId" size.bind="50"></avatar>
+        </div>
+      </div>
+      <div class="proj-user-info">
+        <div class="user-name">
+          <strong class="proj-user-info-title">Display Name:</strong>
+          <span>${user.displayName}</span>
+        </div>
+        <div class="user-display-name">
+
+        </div>
+        <div class="user-email">
+          <strong class="proj-user-info-title">Email:</strong>
+          <span>${user.email}</span>
+        </div>
+      </div>
+    </div>
+    <!--Stats about the users engagement in the project or event-->
+    <div class="user-stats">
+      <div class="user-stats-container">
+        <!--Last Login-->
+        <div class="proj-user-stat">
+          <div class="user-stat-row">
+            <div class="truncate-ellipsis">
+              <h5 class="user-stat-title">
+                Last Login
+              </h5>
+            </div>
+          </div>
+          <div class="user-stat-row">
+            <div class="stat-text truncate-ellipsis">
+              <span>${user.lastLoginText & throttle:10000}</span>
+            </div>
+          </div>
+        </div>
+        <!--Required Activities-->
+        <div class="proj-user-stat">
+          <div class="user-stat-row">
+            <div class="truncate-ellipsis">
+              <h5 class="user-stat-title">
+                Required Activities
+              </h5>
+            </div>
+          </div>
+          <div class="user-stat-row">
+            <div class="stat-text">
+              <!--${user.engagement.participation.total || '-'}% / ${user.engagement.participation.required-->
+              <!--||-->
+              <!--'-'}%-->
+              ${user.completionPercentage}%
+            </div>
+          </div>
+        </div>
+        <!--Posts Last 24 hrs-->
+        <div class="proj-user-stat">
+          <div class="user-stat-row">
+            <div class="truncate-ellipsis">
+              <h5 class="user-stat-title">
+                Posts&nbsp;<span class="user-stat-footer-label">(Last 24 hrs)</span>
+              </h5>
+            </div>
+          </div>
+          <div class="user-stat-row">
+            <div class="truncate-ellipsis">
+              <span class="stat-text">${user.past24HourResponseCount} <!-- last Post date needed --></span>
+            </div>
+          </div>
+        </div>
+        <!--Followups-->
+        <div class="proj-user-stat">
+          <div class="user-stat-row">
+            <h5 class="user-stat-title">
+              <div class="truncate-ellipsis">
+                <span class="user-stat-footer-label">Unanswered Followups</span>
+              </div>
+            </h5>
+          </div>
+          <div class="user-stat-row">
+            <div class="stat-text">${user.unansweredProbeCount}</div>
+          </div>
+        </div>
+        <!--Group Tags Stat/Toggle-->
+        <!-- TODO:  The .sorted class SHOULD BE applied to a stat that has been sorted/ordered -->
+        <div class="proj-user-stat stat-groups" click.delegate="toggleGroupTags()">
+          <div class="user-stat-row">
+            <div class="truncate-ellipsis">
+              <h5 class="user-stat-title">
+                Groups
+              </h5>
+            </div>
+          </div>
+          <div class="user-stat-row">
+            <div class="stat-text">${user.editGroupTags.length || 0}</div>
+          </div>
+          <span class="chevron">
+            <i class="${isShowingTags ? 'icon-ion-chevron-up' : 'icon-ion-chevron-down'}"></i>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="user-groups-container${isShowingTags ? ' visible' : ''}" ref="groupTagsContainer">
+    <div class="proj-user-stat groups-detail">
+      <div class="group-tags-tray-header-row">
+        <h5 class="user-stat-title">
+          Groups
+        </h5>
+        <div class="group-tags-btn-container">
+          <div class="btn btn-xs btn-outline-secondary" click.delegate="hideGroupTags()" if.bind="hasUnsavedChanges && isShowingTags">cancel</div>
+          <div class="btn btn-xs btn-secondary" click.delegate="saveGroupTags()" if.bind="hasUnsavedChanges && isShowingTags">save</div>
+        </div>
+      </div>
+
+      <!--Actual User Groups List-->
+      <!--<div class="group-tags">${user.groups || '-'}</div>-->
+      <div class="group-tags">
+        <div class="form-group">
+          <tag-input source-items.bind="user.availableGroupTags"
+                     display-property.bind="'name'"
+                     autocomplete-search-fields.one-way="['name']"
+                     autocomplete-sort-field.bind="'name'"
+                     autocomplete-min-chars.bind="0"
+                     autocomplete-sort-direction.bind="'asc'"
+                     should-allow-add.bind="true"
+                     changed.call="tagsChanged()"
+                     value.bind="user.editGroupTags">
+          </tag-input>
+          <!--<input type="text" class="form-control form-control-sm" id="exampleInputPassword1" placeholder="Tag this user as part of a group">-->
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

@@ -1,0 +1,193 @@
+<template>
+  <div
+    class="card-tile participant-activity-card"
+    class.bind="event.isClosed ? 'is-closed' : ''"
+  >
+    <div class="activity-card-header">
+      <div class="circle-border-icon" if.bind="!event.isTotallyCompleted || hasUnansweredFollowups">
+        <i class="icon-noun_640064"></i>
+      </div>
+      <i class="complete icon-check_circle" if.bind="event.isTotallyCompleted && !hasUnansweredFollowups"></i>
+      <div class="activity-card-title">
+        <div class="activity-card-name">
+          ${event.name}
+        </div>
+        <div
+          class="activity-card-due"
+          if.bind="!event.isClosed"
+        >
+          ${dueText}
+        </div>
+      </div>
+      <div class="activity-card-incentive" if.bind="event.incentiveAmount">
+        <div class="label">Incentive</div>
+        <div class="value">$${event.incentiveAmount}</div>
+      </div>
+    </div>
+    <div class="activity-card-description">
+      ${requirementsText}
+    </div>
+    <div class="activity-card-stats">
+      <div
+        class="activity-card-stats-row"
+        if.bind="isRepeating"
+      >
+        <div class="activity-card-stats-title">
+          <div class="activity-card-stats-icon">
+            <i
+              class="complete-indicator icon-check_circle"
+              class.bind="event.isCurrentIntervalMinimumSatisfied ? 'completed' : ''"
+            ></i>
+          </div>
+          <span>${event.repeatUnit.friendly} Requirement</span>
+        </div>
+        <div class="activity-card-stats-values">
+          <div class="activity-card-stat-item">
+            <div class="value">${event.intervalRepetitionCompletionCount}</div>
+            <div class="label">completed</div>
+          </div>
+          <div class="activity-card-stat-item">
+            <div class="value">${event.minimumRepetitionCompletionCount}</div>
+            <div class="label">minimum</div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="activity-card-stats-row"
+        if.bind="isRepeating"
+      >
+        <div class="activity-card-stats-title">
+          <div class="activity-card-stats-icon">
+            <i
+              class="complete-indicator icon-check_circle"
+              class.bind="event.isTotallyCompleted ? 'completed' : ''"
+            ></i>
+          </div>
+          <span>Total Requirement</span>
+        </div>
+        <div class="activity-card-stats-values">
+          <div class="activity-card-stat-item">
+            <div class="value">${event.totalIntervalCompletionCount}</div>
+            <div class="label">completed</div>
+          </div>
+          <div class="activity-card-stat-item">
+            <div class="value">${event.totalIntervalCount}</div>
+            <div class="label">required</div>
+          </div>
+        </div>
+      </div>
+      <div
+      class="activity-card-stats-row"
+      if.bind="!isRepeating"
+    >
+      <div class="activity-card-stats-title">
+        <div class="activity-card-stats-icon">
+          <i
+            class="complete-indicator icon-check_circle"
+            class.bind="event.isTotallyCompleted ? 'completed' : ''"
+          ></i>
+        </div>
+        <span>Requirement</span>
+      </div>
+      <div class="activity-card-stats-values">
+        <div class="activity-card-stat-item">
+          <div class="value">${event.totalRepetitionCompletionCount}</div>
+          <div class="label">completed</div>
+        </div>
+        <div class="activity-card-stat-item">
+          <div class="value">${event.minimumRepetitionCompletionCount}</div>
+          <div class="label">minimum</div>
+        </div>
+      </div>
+    </div>
+      <a
+        class="activity-card-stats-row action"
+        class.bind="!isHistoryButtonEnabled ? 'disabled' : ''"
+        href.bind="historyUrl"
+      >
+        <div class="activity-card-stats-title">
+          <div class="activity-card-stats-icon"><i class="icon-history"></i></div>
+          <span>Times Completed</span>
+        </div>
+        <div class="activity-card-stats-values">
+          <div class="activity-card-badge-action">
+            <div
+              class="badge"
+              class.bind="!isHistoryButtonEnabled ? 'none' : ''"
+            >
+              ${event.totalRepetitionCompletionCount}
+            </div>
+            <i class="icon-ion-chevron-right"></i>
+          </div>
+        </div>
+      </a>
+      <a
+        class="activity-card-stats-row action"
+        class.bind="!isFollowupButtonEnabled ? 'disabled' : ''"
+        href.bind="nextFollowupUrl"
+      >
+        <div class="activity-card-stats-title">
+          <div class="activity-card-stats-icon"><i class="icon-required-followup"></i></div>
+          <span>Required Followups</span>
+        </div>
+        <div class="activity-card-stats-values">
+          <div class="activity-card-badge-action">
+            <div
+              class="badge"
+              class.bind="!isFollowupButtonEnabled ? 'none' : ''"
+            >
+              ${event.probeCount}
+            </div>
+            <i class="icon-ion-chevron-right"></i>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="activity-card-buttons">
+      <a
+        class="btn btn-warning"
+        if.bind="isFollowupButtonEnabled"
+        href.bind="nextFollowupUrl"
+      >
+        Answer Followups
+      </a>
+      <button
+        class="btn btn-primary"
+        if.bind="shouldShowActionButton"
+        click.delegate="handleStartClick()"
+      >
+        ${actionButtonText}
+        <i class="btn-icon icon-ion-chevron-right"></i>
+      </button>
+      <div
+        class="activity-card-pending-next-interval"
+        if.bind="shouldShowPendingIntervalText"
+      >
+        <div class="next-interval-text">
+          Do this activity again
+        </div>
+        <div class="next-interval-duration">
+          Starting In&nbsp;<span>${nextIntervalStartTimeText}</span>
+        </div>
+      </div>
+      <div
+        class="activity-card-complete-message"
+        if.bind="shouldShowActivityCompleteText"
+      >
+        Activity Complete
+      </div>
+      <div
+        class="activity-card-closed-message"
+        if.bind="event.isClosed"
+      >
+        <div class="label">This event closed on:</div>
+        <div class="value">${closedDateText}</div>
+      </div>
+    </div>
+    <div class="activity-card-pending-overlay" if.bind="event.isUpcoming">
+      <i class="icon-schedule"></i>
+      <span class="activity-card-pending-note">This activity will become available in:</span>
+      <span class="activity-card-pending-time">${openDateText}</span>
+    </div>
+  </div>
+</template>

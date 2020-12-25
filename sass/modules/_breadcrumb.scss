@@ -1,0 +1,129 @@
+.breadcrumb-custom {
+  display: flex;
+  margin: 0;
+  padding: 0;
+
+
+  &.breadcrumb-participant {
+    background-color: darken($body-bg, 40%);
+    display: none;
+
+    .breadcrumb-link-container {
+
+      &:after {
+        box-shadow: 2px -2px 0 0px rgba(225, 225, 225, .4), 1px -1px 0 1px rgba(255, 255, 255, 0.1);
+      }
+    }
+  }
+
+  .breadcrumb-link-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    list-style: none;
+    font-size: .75rem;
+    padding: 0 .8rem;
+
+    @include media-breakpoint-down(sm) {
+      .breadcrumb-link {
+        display: none;
+      }
+    }
+
+    a {
+      color: lighten($brand-identity, 40%);
+      text-decoration: underline;
+    }
+
+    &:hover {
+      a {
+        color: lighten($brand-identity, 30%);
+      }
+    }
+
+    &:first-child {
+      padding-left: 0;
+    }
+
+    &:last-child {
+      &:after {
+        content: none;
+      }
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: 3px;
+      right: -2px;
+      width: 12px;
+      height: 12px;
+      transform: scale(0.707) rotate(45deg);
+      z-index: 1;
+      background: transparent;
+      box-shadow: 2px -2px 0 0px rgba(255, 255, 255, 0.3);
+      border-radius: 0 5px 0 50px;
+    }
+
+    &.active {
+
+      &:after {
+        content: none;
+      }
+
+      .breadcrumb-link {
+        text-decoration: none;
+        pointer-events: none;
+      }
+    }
+  }
+
+  .breadcrumb-link {
+    font-size: .675rem;
+
+  }
+
+
+
+  .breadcrumb-drop-btn {
+    display: flex;
+    align-items: center;
+    padding-right: .3rem;
+    text-decoration: none !important;
+
+    i {
+      font-size: .875rem;
+    }
+
+    i.icon-noun_640064 {
+      font-size: .875rem;
+    }
+
+    i.icon-ion-arrow-down-b {
+      font-size: .625rem;
+    }
+
+  }
+
+}
+
+.breadcrumb-mini {
+
+  .nav-link {
+    cursor: pointer;
+    padding: 0 10px 0 0 ;
+    position: relative;
+
+    &:after {
+      position: absolute;
+      width: 0;
+      height: 0;
+      top: 50%;
+      right: 0;
+      content: "";
+      border-top: .2rem solid;
+      border-right: .2rem solid transparent;
+      border-left: .2rem solid transparent;
+    }
+  }
+}

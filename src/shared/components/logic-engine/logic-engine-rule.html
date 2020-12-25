@@ -1,0 +1,13 @@
+<template>
+  <div class="options-control-col">
+    <span>Limit By</span>
+    <select class="custom-select" value.bind="rule.memberName">
+      <option repeat.for="member of availableMembers" model.bind="member.value">${member.friendly}</option>
+    </select>
+    <div class="options-controls">
+      <i class="options-button icon-ion-android-remove-circle${task.canEdit ? '' : ' disabled'}icon-ion-android-close"
+         click.delegate="handleRemoveClick()"></i>
+    </div>
+  </div>
+  <compose view-model.bind="rule.viewModel" model.bind="{rule: rule}" />
+</template>

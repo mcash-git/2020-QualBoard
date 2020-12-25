@@ -1,0 +1,28 @@
+<template>
+  <div class="sidebar-header">
+    <div class="sidebar-header-right">
+      <h6 class="title">
+        <i class="icon-lightbulb_outline"></i>
+        Insight Bookmarks
+      </h6>
+      <div class="close" click.delegate="model.toggleSidebar()">
+        <i class="icon-close"></i>
+      </div>
+    </div>
+  </div>
+  <div class="insight-bookmarks" ref="scrollElement">
+    <compose
+      repeat.for="insightBag of model.insightBags"
+      class="insight-bookmark"
+      model.bind="{ insightBag: insightBag, canEdit: false }"
+      view-model.bind="insightBag.viewModelPath"
+      insight-bookmark-hover.delegate="model.insightHoverStart($event, $index)"
+      insight-bookmark-hover-end.delegate="model.insightHoverEnd($event)"
+      scroll-to-insight.delegate="handleScrollToInsight($event)"
+    ></compose>
+    <div class="default-message" if.bind="shouldShowDefaultMessage">
+      <i class="icon-Insight"></i>
+      <span>Add an insight to a response by clicking the Add Insight button</span>
+    </div>
+  </div>
+</template>

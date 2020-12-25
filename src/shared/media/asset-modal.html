@@ -1,0 +1,27 @@
+<template>
+  <require from="./media-item-thumbnail"></require>
+  <div class="modal-media">
+      <div class="modal-close" click.trigger="close()"><i class="icon-close"></i></div>
+      <div class="c-modal-body">
+        <div class="media-labeling">
+          <div class="form-section">
+            <div class="form-group">
+              <div class="media-modal-title">${asset.fileName}</div>
+            </div>
+          </div>
+        </div>
+        <div class="media-content">
+          <div class="media-wrapper">
+            <video-player view-model.ref="player" asset.bind="asset" if.bind="asset.type === 2"></video-player>
+            <!-- TODO:  loading things in advance! -->
+            <asset-thumbnail click.delegate="viewImage()" if.bind="asset.type === 1" asset.bind="asset"></asset-thumbnail>
+          </div>
+        </div>
+      </div>
+      <div class="c-modal-footer">
+        <div class="media-skip-buttons">
+          <button class="btn btn-secondary btn-lg" click.trigger="close()">done</button>
+        </div>
+      </div>
+  </div>
+</template>

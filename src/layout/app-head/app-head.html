@@ -1,0 +1,58 @@
+<template>
+  <require from="layout/search-form.html"></require>
+  <require from="layout/breadcrumb/bread"></require>
+  <require from="layout/content-header"></require>
+  <require from="./jobs/jobs-react-element"></require>
+
+  <nav class="navbar navbar-dark fixed-top app-header">
+    <div class="navbar-content">
+      <a href="/#/" class="navbar-left">
+        <div class="customer-logo">
+          <img class="logo-regular" src="/images/logo-qb-header-sm-green.png">
+          <img class="logo-thumb" src="/images/logo-qb-header-thumb.png" alt="">
+        </div>
+      </a>
+      <div class="navbar-middle">
+        <a href="/#/" class="navbar-link" if.bind="isParticipantRoute">
+          <i class="icon-ion-android-home"></i>
+        </a>
+        <a class="navbar-link notifications-toggle" click.delegate="hide()"
+           if.bind="isResearcherRoute">
+          <div class="badge selected" if.bind="domainState.unreadNoticeCount > 0">
+            ${domainState.unreadNoticeCount}
+          </div>
+          <i class="icon-ion-android-notifications"></i>
+        </a>
+        <bread class="breadcrumb-mini" size.bind="breadcrumbView"
+               if.bind="isResearcherRoute"></bread>
+        <h5 if.bind="isParticipantRoute">${title}</h5>
+      </div>
+      <div class="navbar-right">
+        <ul class="user-nav">
+          <li class="nav-item" if.bind="user.isDeveloper">
+            <a class="nav-link"
+               click.delegate="copyAccessTokenToClipboard()"
+               href="#"
+               title="Get Access Token">
+              <i class="icon-ion-beaker"></i>
+            </a>
+          </li>
+          <li class="nav-item download" if.bind="canHaveDownloads">
+            <jobs-react-element></jobs-react-element>
+          </li>
+          <li class="nav-item help">
+            <a class="nav-link" href="#" click.delegate="showOlark()"
+               title="Version: ${appVersion || 'local'}">
+              <i class="icon-help"></i>
+              <div class ="help-text">Help</div>
+            </a>
+          </li>
+          <li class="nav-item dropdown">
+            <compose view-model="layout/dynamic-dropdown" if.bind="domainState.header.userMenu"
+                     model.bind="domainState.header.userMenu"></compose>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</template>

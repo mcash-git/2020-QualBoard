@@ -1,0 +1,41 @@
+<template>
+    <div class="card-tile" with.bind="cardModel" css="height: ${height}">
+      <div class="card-tile-content">
+        <div class="card-tile-content-title-icon">
+          <i class.bind="titleIconClass"></i>
+        </div>
+        <div class="card-tile-content-title" class.bind="!subtitle ? 'emphasize' : ''">
+          ${title}
+        </div>
+        <div class="card-tile-content-subtitle" if.bind="subtitle">
+          ${subtitle}
+        </div>
+        <div class="card-tile-content-detail-row">
+          <label>Open:</label>
+          <span>${openFormatted}</span>
+        </div>
+        <div class="card-tile-content-detail-row">
+          <label>Close:</label>
+          <span>${closeFormatted}</span>
+        </div>
+        <div class="card-tile-content-detail-row">
+          <label>Time Zone:</label>
+          <span>${timeZoneAbbr}</span>
+          </div>
+        <div class="card-tile-content-button-row">
+          <compose view-model.bind="button.viewModel" model.bind="button"></compose>
+        </div>
+      </div>
+      <div class="card-tile-stats" if.bind="bottomStatItems && bottomStatItems.length > 0">
+        <div
+          class="card-tile-stat-item"
+          css="width: ${100 / bottomStatItems.length}%"
+          repeat.for="item of bottomStatItems"
+        >
+          <div class="card-tile-stat-item-title">${item.label}</div>
+          <div class="card-tile-stat-item-value">${item.value}</div>
+        </div>
+        <div class="clear"></div>
+      </div>
+    </div>
+  </template>

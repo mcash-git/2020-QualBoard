@@ -1,0 +1,580 @@
+[
+  {
+    "id": "f8d3d049-c308-4e47-8a31-761852ab54f0",
+    "projectUserLogicRules": [],
+    "taskLogicRules": [],
+    "individualActivityId": "500c3203-496f-47cb-a659-2d41e2dc5fbd",
+    "autoWrapOptions": false,
+    "isActive": true,
+    "matrixColumns": [],
+    "matrixRows": [],
+    "matrixGroupTags": [],
+    "maximumOptionsLimit": null,
+    "media": [],
+    "mediaRequired": false,
+    "minimumOptionsRequired": 1,
+    "options": [],
+    "platformLimit": 0,
+    "responseTextRequired": false,
+    "sortOrder": 0,
+    "type": 1,
+    "text": "<p>You are ready to begin the activity.</p><p>Click \"OK\" to begin!</p>",
+    "title": "Welcome!"
+  },
+  {
+    "id": "1b9da5e6-3bc2-429e-93cc-9dd3f963a4da",
+    "projectUserLogicRules": [],
+    "taskLogicRules": [],
+    "individualActivityId": "500c3203-496f-47cb-a659-2d41e2dc5fbd",
+    "autoWrapOptions": false,
+    "isActive": true,
+    "matrixColumns": [],
+    "matrixRows": [],
+    "matrixGroupTags": [],
+    "maximumOptionsLimit": null,
+    "media": [],
+    "mediaRequired": false,
+    "minimumOptionsRequired": 1,
+    "options": [],
+    "platformLimit": 0,
+    "responseTextRequired": false,
+    "sortOrder": 1,
+    "type": 0,
+    "text": "If answer text contains \"razor\" show task \"Razor\" next.",
+    "title": "Task 1"
+  },
+  {
+    "id": "a026ba93-24eb-476e-8fcb-fcab7b85e65f",
+    "projectUserLogicRules": [],
+    "taskLogicRules": [],
+    "individualActivityId": "500c3203-496f-47cb-a659-2d41e2dc5fbd",
+    "autoWrapOptions": false,
+    "isActive": true,
+    "matrixColumns": [],
+    "matrixRows": [],
+    "matrixGroupTags": [],
+    "maximumOptionsLimit": null,
+    "media": [],
+    "mediaRequired": false,
+    "minimumOptionsRequired": 1,
+    "options": [],
+    "platformLimit": 0,
+    "responseTextRequired": false,
+    "sortOrder": 2,
+    "type": 0,
+    "text": "This should only show if the participant answered with \"razor\" (ignoring caps) in Task 1.",
+    "title": "Razor"
+  },
+  {
+    "id": "5a95897e-e8e9-460a-91e8-90beeeffeb60",
+    "projectUserLogicRules": [],
+    "taskLogicRules": [],
+    "individualActivityId": "500c3203-496f-47cb-a659-2d41e2dc5fbd",
+    "autoWrapOptions": false,
+    "isActive": true,
+    "matrixColumns": [],
+    "matrixRows": [],
+    "matrixGroupTags": [],
+    "maximumOptionsLimit": null,
+    "media": [],
+    "mediaRequired": false,
+    "minimumOptionsRequired": 1,
+    "options": [],
+    "platformLimit": 0,
+    "responseTextRequired": false,
+    "sortOrder": 3,
+    "type": 1,
+    "text": "This shouldn't show up in the tasks you can choose from to make rules.",
+    "title": "Notice"
+  },
+  {
+    "id": "3996fe93-272e-4d92-94de-b71cd86a8338",
+    "projectUserLogicRules": [],
+    "taskLogicRules": [],
+    "individualActivityId": "500c3203-496f-47cb-a659-2d41e2dc5fbd",
+    "autoWrapOptions": false,
+    "isActive": true,
+    "matrixColumns": [],
+    "matrixRows": [],
+    "matrixGroupTags": [],
+    "maximumOptionsLimit": null,
+    "media": [],
+    "mediaRequired": false,
+    "minimumOptionsRequired": 1,
+    "options": [
+      {
+        "optionId": "6f4325d3-7d20-4996-9d4f-f249aa327dfd",
+        "text": "A",
+        "sortOrder": 0,
+        "groupTags": [],
+        "reportingAlias": null
+      },
+      {
+        "optionId": "5102fe55-3f01-408c-8f4d-16233d64fe54",
+        "text": "B",
+        "sortOrder": 1,
+        "groupTags": [],
+        "reportingAlias": null
+      },
+      {
+        "optionId": "5d2d6e32-c419-43de-a4a6-76fdba2da348",
+        "text": "C",
+        "sortOrder": 2,
+        "groupTags": [],
+        "reportingAlias": null
+      }
+    ],
+    "platformLimit": 0,
+    "responseTextRequired": false,
+    "sortOrder": 4,
+    "type": 2,
+    "text": "Choose \"A\" to be shown the \"A\" task or choose \"B\" to be shown the \"B\" task next.",
+    "title": "Task 2"
+  },
+  {
+    "id": "88f64d76-3b00-484b-973b-d747bdfec8b5",
+    "projectUserLogicRules": [],
+    "taskLogicRules": [],
+    "individualActivityId": "500c3203-496f-47cb-a659-2d41e2dc5fbd",
+    "autoWrapOptions": false,
+    "isActive": true,
+    "matrixColumns": [],
+    "matrixRows": [],
+    "matrixGroupTags": [],
+    "maximumOptionsLimit": null,
+    "media": [],
+    "mediaRequired": false,
+    "minimumOptionsRequired": 1,
+    "options": [],
+    "platformLimit": 0,
+    "responseTextRequired": false,
+    "sortOrder": 5,
+    "type": 0,
+    "text": "This should only show if you selected \"A\" for Task 2.",
+    "title": "Task A"
+  },
+  {
+    "id": "97683ff3-a456-4a09-9433-1af563d591dc",
+    "projectUserLogicRules": [],
+    "taskLogicRules": [],
+    "individualActivityId": "500c3203-496f-47cb-a659-2d41e2dc5fbd",
+    "autoWrapOptions": false,
+    "isActive": true,
+    "matrixColumns": [],
+    "matrixRows": [],
+    "matrixGroupTags": [],
+    "maximumOptionsLimit": null,
+    "media": [],
+    "mediaRequired": false,
+    "minimumOptionsRequired": 1,
+    "options": [],
+    "platformLimit": 0,
+    "responseTextRequired": false,
+    "sortOrder": 6,
+    "type": 0,
+    "text": "This should only show if you selected \"B\" for Task 2.",
+    "title": "Task B"
+  },
+  {
+    "id": "f0d85245-6cc6-4284-8a6f-e98ead9e112b",
+    "projectUserLogicRules": [],
+    "taskLogicRules": [],
+    "individualActivityId": "500c3203-496f-47cb-a659-2d41e2dc5fbd",
+    "autoWrapOptions": false,
+    "isActive": true,
+    "matrixColumns": [],
+    "matrixRows": [],
+    "matrixGroupTags": [],
+    "maximumOptionsLimit": null,
+    "media": [],
+    "mediaRequired": false,
+    "minimumOptionsRequired": 1,
+    "options": [
+      {
+        "optionId": "ec16d92d-49fa-4108-9546-0aeb86ff20b6",
+        "text": "X",
+        "sortOrder": 0,
+        "groupTags": [],
+        "reportingAlias": null
+      },
+      {
+        "optionId": "36f26ae9-d978-453e-ad66-0ba333ce8b5d",
+        "text": "Y",
+        "sortOrder": 1,
+        "groupTags": [],
+        "reportingAlias": null
+      },
+      {
+        "optionId": "07efd3b1-aa22-40b4-a6ee-ba37baaf7097",
+        "text": "Z",
+        "sortOrder": 2,
+        "groupTags": [],
+        "reportingAlias": null
+      }
+    ],
+    "platformLimit": 0,
+    "responseTextRequired": false,
+    "sortOrder": 7,
+    "type": 3,
+    "text": "Choose \"X\" to be shown the \"X\" task or choose \"Y\" to be shown the \"Y\" task next.",
+    "title": "Task 3"
+  },
+  {
+    "id": "219905c5-343d-4d4a-9c04-e4cac782b934",
+    "projectUserLogicRules": [],
+    "taskLogicRules": [],
+    "individualActivityId": "500c3203-496f-47cb-a659-2d41e2dc5fbd",
+    "autoWrapOptions": false,
+    "isActive": true,
+    "matrixColumns": [],
+    "matrixRows": [],
+    "matrixGroupTags": [],
+    "maximumOptionsLimit": null,
+    "media": [],
+    "mediaRequired": false,
+    "minimumOptionsRequired": 1,
+    "options": [],
+    "platformLimit": 0,
+    "responseTextRequired": false,
+    "sortOrder": 8,
+    "type": 0,
+    "text": "This should only show if you selected \"X\" for Task 3.",
+    "title": "Task X"
+  },
+  {
+    "id": "18e07083-4869-48e1-bc41-7c9520f71a6e",
+    "projectUserLogicRules": [],
+    "taskLogicRules": [],
+    "individualActivityId": "500c3203-496f-47cb-a659-2d41e2dc5fbd",
+    "autoWrapOptions": false,
+    "isActive": true,
+    "matrixColumns": [],
+    "matrixRows": [],
+    "matrixGroupTags": [],
+    "maximumOptionsLimit": null,
+    "media": [],
+    "mediaRequired": false,
+    "minimumOptionsRequired": 1,
+    "options": [],
+    "platformLimit": 0,
+    "responseTextRequired": false,
+    "sortOrder": 9,
+    "type": 0,
+    "text": "This should only show if you selected \"Y\" for Task 3.",
+    "title": "Task Y"
+  },
+  {
+    "id": "f243a581-1c8d-482c-b92a-ce29c360391d",
+    "projectUserLogicRules": [],
+    "taskLogicRules": [],
+    "individualActivityId": "500c3203-496f-47cb-a659-2d41e2dc5fbd",
+    "autoWrapOptions": false,
+    "isActive": true,
+    "matrixColumns": [
+      {
+        "columnId": "ac781ab2-c45d-4d49-9bde-00ec0ca23a2e",
+        "text": "Potato",
+        "sortOrder": 0,
+        "reportingAlias": null
+      },
+      {
+        "columnId": "93bb92ce-e963-4bb6-9297-3c396a2128dd",
+        "text": "Carrot",
+        "sortOrder": 1,
+        "reportingAlias": null
+      },
+      {
+        "columnId": "70c6dfdc-7516-476f-b633-8108e6a05ef2",
+        "text": "Snap Pea",
+        "sortOrder": 2,
+        "reportingAlias": null
+      },
+      {
+        "columnId": "8b977a1b-1412-4d94-9d9a-f71ea936d22c",
+        "text": "Chimichanga",
+        "sortOrder": 3,
+        "reportingAlias": null
+      }
+    ],
+    "matrixRows": [
+      {
+        "rowId": "96102c0c-9cfa-4cc1-ba39-eea1685072fa",
+        "text": "Purple",
+        "sortOrder": 0
+      },
+      {
+        "rowId": "0bf8dedd-e929-42f5-88b7-8ee5a52d1bff",
+        "text": "Red",
+        "sortOrder": 1
+      },
+      {
+        "rowId": "66e8066a-763f-4d73-a822-3c9dc54aab5d",
+        "text": "Green",
+        "sortOrder": 2
+      },
+      {
+        "rowId": "4361a394-1542-4b8e-bb4a-72631a88912d",
+        "text": "Blue",
+        "sortOrder": 3
+      }
+    ],
+    "matrixGroupTags": [],
+    "maximumOptionsLimit": null,
+    "media": [],
+    "mediaRequired": false,
+    "minimumOptionsRequired": 1,
+    "options": [],
+    "platformLimit": 0,
+    "responseTextRequired": false,
+    "sortOrder": 10,
+    "type": 4,
+    "text": "Well this is going to be fun...",
+    "title": "Task 4"
+  },
+  {
+    "id": "683621ee-db15-4639-bfad-9db52d27c0ec",
+    "projectUserLogicRules": [],
+    "taskLogicRules": [],
+    "individualActivityId": "500c3203-496f-47cb-a659-2d41e2dc5fbd",
+    "autoWrapOptions": false,
+    "isActive": true,
+    "matrixColumns": [],
+    "matrixRows": [],
+    "matrixGroupTags": [],
+    "maximumOptionsLimit": null,
+    "media": [],
+    "mediaRequired": false,
+    "minimumOptionsRequired": 1,
+    "options": [],
+    "platformLimit": 0,
+    "responseTextRequired": false,
+    "sortOrder": 11,
+    "type": 0,
+    "text": "This should only show if you have choose \"Potato\" for the \"Purple\" row.",
+    "title": "Purple - Potato"
+  },
+  {
+    "id": "1928d30d-f237-4ed4-a279-624014db76f4",
+    "projectUserLogicRules": [],
+    "taskLogicRules": [],
+    "individualActivityId": "500c3203-496f-47cb-a659-2d41e2dc5fbd",
+    "autoWrapOptions": false,
+    "isActive": true,
+    "matrixColumns": [],
+    "matrixRows": [],
+    "matrixGroupTags": [],
+    "maximumOptionsLimit": null,
+    "media": [],
+    "mediaRequired": false,
+    "minimumOptionsRequired": 1,
+    "options": [],
+    "platformLimit": 0,
+    "responseTextRequired": false,
+    "sortOrder": 12,
+    "type": 0,
+    "text": "This should only show if you have choose \"Carrot\" for the \"Blue\" row.",
+    "title": "Blue - Carrot"
+  },
+  {
+    "id": "9949e4f6-af6f-42f6-ae84-f24f1cbd82d2",
+    "projectUserLogicRules": [],
+    "taskLogicRules": [],
+    "individualActivityId": "500c3203-496f-47cb-a659-2d41e2dc5fbd",
+    "autoWrapOptions": false,
+    "isActive": true,
+    "matrixColumns": [
+      {
+        "columnId": "9bcf5659-7aa8-4048-818f-24c36f030455",
+        "text": "Spinach",
+        "sortOrder": 0,
+        "reportingAlias": null
+      },
+      {
+        "columnId": "ed56c0b1-1202-48d9-aa35-aaf3192832c9",
+        "text": "Turnip Greens",
+        "sortOrder": 1,
+        "reportingAlias": null
+      },
+      {
+        "columnId": "ab5b4c16-2485-4b8f-95f0-c195f5ce8f2c",
+        "text": "Beet",
+        "sortOrder": 2,
+        "reportingAlias": null
+      },
+      {
+        "columnId": "240314ec-9ece-4123-938c-ed209d9d6780",
+        "text": "Taco",
+        "sortOrder": 3,
+        "reportingAlias": null
+      }
+    ],
+    "matrixRows": [
+      {
+        "rowId": "56d12c51-1b8f-495e-88dd-16043a6fddba",
+        "text": "Brown",
+        "sortOrder": 0
+      },
+      {
+        "rowId": "53261923-82bc-4ebd-a463-ef4f125812c1",
+        "text": "Black",
+        "sortOrder": 1
+      },
+      {
+        "rowId": "c123a585-cf92-48bb-b56e-ed5767ae5940",
+        "text": "White",
+        "sortOrder": 2
+      },
+      {
+        "rowId": "f937d615-49da-41e4-8746-b5def70d47cc",
+        "text": "Yellow",
+        "sortOrder": 3
+      }
+    ],
+    "matrixGroupTags": [],
+    "maximumOptionsLimit": null,
+    "media": [],
+    "mediaRequired": false,
+    "minimumOptionsRequired": 1,
+    "options": [],
+    "platformLimit": 0,
+    "responseTextRequired": false,
+    "sortOrder": 13,
+    "type": 4,
+    "text": "Well this is going to be fun...",
+    "title": "Task 5"
+  },
+  {
+    "id": "eaf2e6f8-cd62-41a3-ae82-0f07885bfe9a",
+    "projectUserLogicRules": [],
+    "taskLogicRules": [],
+    "individualActivityId": "500c3203-496f-47cb-a659-2d41e2dc5fbd",
+    "autoWrapOptions": false,
+    "isActive": true,
+    "matrixColumns": [],
+    "matrixRows": [],
+    "matrixGroupTags": [],
+    "maximumOptionsLimit": null,
+    "media": [],
+    "mediaRequired": false,
+    "minimumOptionsRequired": 1,
+    "options": [],
+    "platformLimit": 0,
+    "responseTextRequired": false,
+    "sortOrder": 14,
+    "type": 0,
+    "text": "This should only be shown if you choose \"Turnip Greens\" for the \"Brown\" row.",
+    "title": "Brown - Turnip Greens"
+  },
+  {
+    "id": "7c4db662-e6e3-4d49-9e4e-79ee9ba79070",
+    "projectUserLogicRules": [],
+    "taskLogicRules": [],
+    "individualActivityId": "500c3203-496f-47cb-a659-2d41e2dc5fbd",
+    "autoWrapOptions": false,
+    "isActive": true,
+    "matrixColumns": [],
+    "matrixRows": [],
+    "matrixGroupTags": [],
+    "maximumOptionsLimit": null,
+    "media": [],
+    "mediaRequired": false,
+    "minimumOptionsRequired": 1,
+    "options": [],
+    "platformLimit": 0,
+    "responseTextRequired": false,
+    "sortOrder": 15,
+    "type": 0,
+    "text": "This should only be shown if you choose \"Taco\" for the \"Yellow\" row.",
+    "title": "Yellow - Taco"
+  },
+  {
+    "id": "755bace7-e02d-4cc5-b831-706bf4bdc6df",
+    "projectUserLogicRules": [],
+    "taskLogicRules": [],
+    "individualActivityId": "500c3203-496f-47cb-a659-2d41e2dc5fbd",
+    "autoWrapOptions": false,
+    "isActive": true,
+    "matrixColumns": [
+      {
+        "columnId": "9bcf5659-7aa8-4048-818f-24c36f030455",
+        "text": "Spinach",
+        "sortOrder": 0,
+        "reportingAlias": null
+      },
+      {
+        "columnId": "ed56c0b1-1202-48d9-aa35-aaf3192832c9",
+        "text": "Turnip Greens",
+        "sortOrder": 1,
+        "reportingAlias": null
+      },
+      {
+        "columnId": "ab5b4c16-2485-4b8f-95f0-c195f5ce8f2c",
+        "text": "Beet",
+        "sortOrder": 2,
+        "reportingAlias": null
+      },
+      {
+        "columnId": "240314ec-9ece-4123-938c-ed209d9d6780",
+        "text": "Taco",
+        "sortOrder": 3,
+        "reportingAlias": null
+      }
+    ],
+    "matrixRows": [
+      {
+        "rowId": "56d12c51-1b8f-495e-88dd-16043a6fddba",
+        "text": "Brown",
+        "sortOrder": 0
+      },
+      {
+        "rowId": "53261923-82bc-4ebd-a463-ef4f125812c1",
+        "text": "Black",
+        "sortOrder": 1
+      },
+      {
+        "rowId": "c123a585-cf92-48bb-b56e-ed5767ae5940",
+        "text": "White",
+        "sortOrder": 2
+      },
+      {
+        "rowId": "f937d615-49da-41e4-8746-b5def70d47cc",
+        "text": "Yellow",
+        "sortOrder": 3
+      }
+    ],
+    "matrixGroupTags": [],
+    "maximumOptionsLimit": null,
+    "media": [],
+    "mediaRequired": false,
+    "minimumOptionsRequired": 1,
+    "options": [],
+    "platformLimit": 0,
+    "responseTextRequired": false,
+    "sortOrder": 16,
+    "type": 5,
+    "text": "Well this is going to be fun...",
+    "title": "Task 5"
+  },
+  {
+    "id": "7a1763c4-cf79-47db-88a5-71214b0458df",
+    "projectUserLogicRules": [],
+    "taskLogicRules": [],
+    "individualActivityId": "500c3203-496f-47cb-a659-2d41e2dc5fbd",
+    "autoWrapOptions": false,
+    "isActive": true,
+    "matrixColumns": [],
+    "matrixRows": [],
+    "matrixGroupTags": [],
+    "maximumOptionsLimit": null,
+    "media": [],
+    "mediaRequired": false,
+    "minimumOptionsRequired": 1,
+    "options": [],
+    "platformLimit": 0,
+    "responseTextRequired": false,
+    "sortOrder": 17,
+    "type": 1,
+    "text": "<p>There are no more tasks for you to complete in this activity.</p><p>Click \"FINISH\" to return to your dashboard!</p>",
+    "title": "You are finished!"
+  }
+]

@@ -1,0 +1,79 @@
+<template>
+  <div class="card-user-row" with.bind="user">
+    <!--Card Header-->
+    <div class="card-header">
+      <div class="user">
+        <div class="disabled-icon" title="User has been deactivated.">
+          <i class="icon-ion-locked"></i>
+        </div>
+        <div class="avatar">
+          <avatar user-id.bind="userId" size.bind="50"></avatar>
+        </div>
+      </div>
+      <div class="proj-user-info">
+        <div class="user-name">${firstName} ${lastName}</div>
+        <div class="user-display-name">
+          <strong class="proj-user-info-title">Display Name:</strong>
+          <span>${displayName}</span>
+        </div>
+        <div class="user-email">
+          <strong class="proj-user-info-title">Email:</strong>
+          <span>${email}</span>
+        </div>
+
+      </div>
+
+    </div>
+    <!--Stats about the users engagement in the project or event-->
+    <div class="user-stats">
+      <div class="user-stats-container">
+        <!--Last Login-->
+        <div class="proj-user-stat">
+          <div class="user-stat-row">
+            <h5 class="user-stat-title">
+              Last Login
+            </h5>
+          </div>
+          <div class="user-stat-row">
+            <div class="stat-text truncate-ellipsis">
+              <span>${lastLoginText & throttle:10000}</span>
+            </div>
+          </div>
+          <div class="user-stat-row footer">
+            &nbsp;
+          </div>
+        </div>
+        <!--Followups Last 24 hrs-->
+        <div class="proj-user-stat">
+          <div class="user-stat-row">
+            <h5 class="user-stat-title">
+              Followups</h5>
+          </div>
+          <div class="user-stat-row">
+            <div class="stat-text">
+              ${past24HourResponseCount}
+            </div>
+          </div>
+          <div class="user-stat-row footer">
+            Last 24 hrs
+          </div>
+        </div>
+        <!--Followups-->
+        <div class="proj-user-stat">
+          <div class="user-stat-row">
+            <h5 class="user-stat-title">
+              <!--<i class="icon-ion-android-alert"></i> -->
+              Followups
+            </h5>
+          </div>
+          <div class="user-stat-row">
+            <div class="stat-text">${totalFollowupCount}</div>
+          </div>
+          <div class="user-stat-row footer">
+            Total
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

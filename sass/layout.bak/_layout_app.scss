@@ -1,0 +1,478 @@
+body {
+  background-color: $app-bg;
+  position: absolute;
+  width: 100%;
+}
+
+.application-version {
+  font-size: .35rem;
+  color: rgba(100%, 100%, 100%, .4);
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 8px;
+}
+
+.app {
+  width: 100%;
+  height: 100%;
+  font-family: "Open Sans";
+  -webkit-font-smoothing: subpixel-antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.flex-base {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  min-width: 0;
+}
+
+// Gives the body of the app a fluid container and a margin
+// Notifications and app content go inside of this
+.app-content {
+  display: flex;
+  flex-direction: row;
+  background-color: $app-bg !important;
+  max-width: 0;
+  max-height: 0;
+
+}
+
+// Container that sets up child layouts to be in a row. So this allows
+// a sidebar and a content layout to align next to each other.
+.flex-row {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  min-width: 0;
+  min-height: 0;
+}
+
+// Container that sets up child blocks to be in a row
+.flex-column {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+}
+
+
+//.app-router-view {
+//  height: calc(100% - #{$app-head-height});
+//}
+// Sets up a container row to hold a sidebar/panel and block of content. Maintains 100% height
+// so that children can use height: 100%....safari I'm looking at you...
+.sidebar-row {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  min-width: 0;
+  min-height: 0;
+  height: 100%;
+}
+
+// Container that holds the main mod tools sidebar layout in app.html. This is set to relative positioning so that the absolute
+//sidebar height is set appropriately
+
+.layout-sidebar-project {
+  @extend .flex-row;
+  position: relative;
+  height: 100%;
+}
+
+// Collapsible left panel that holds Notifications
+.left-panel {
+  transition: transform .3s ease-in-out;
+  min-width: 350px;
+  width: 350px;
+  z-index: 0;
+
+}
+
+.right-panel {
+  transition: margin .3s ease-in-out;
+
+}
+
+.panel-header {
+  padding: .8rem .5rem;
+  border-bottom: 1px solid $separator-color;
+
+  h5 {
+    margin-bottom: 0;
+    font-size: 1rem;
+  }
+}
+
+.panel-title {
+  font-size: 1.125rem;
+  font-weight: 300;
+  padding: .5rem 0;
+}
+
+.panel-footer {
+  border-top: 1px solid rgba(0,0,0,.1);
+  padding: .5rem;
+
+  button {
+    width: 100%;
+    padding: 1rem;
+  }
+}
+
+// Some side panels require a call to action at the bottom of the panel. This class describes that area
+.side-panel-bottom-action {
+  padding: .5rem;
+  background-color: rgba(0,0,0,.05);
+  border-top: 1px solid rgba(0,0,0,.1);
+}
+
+// This container is for the actual content of a view. It sets up children to be laid
+// out in a column and sets the left right padding for the main block of content.
+
+.content-panel {
+  @extend.container-fluid;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+  padding: 0 1rem;
+  //@include media-breakpoint-down(sm) {
+  //  padding-left: .5rem;
+  //  padding-right: .5rem;
+  //}
+}
+
+.context-panel-sidebar {
+  -webkit-box-shadow: 1px 0 0 0 rgba(0,0,0,.2);
+  background-color: $left-panel-bg;
+  box-shadow: 1px 0 0 0 rgba(0,0,0,.2);
+  display: flex;
+  flex-direction: column;
+  margin-right: -15px;
+  width: 350px;
+  min-height: 0px;
+  //height: 100%;
+}
+
+
+//Open and close states for the Left Panel
+
+.left-panel:not(.panel-open) {
+  display: none;
+  //transform: translate3d(-350px, 0, 0);
+}
+
+.left-panel.panel-open {
+  margin-left: 0 !important;
+  opacity: 1 !important;
+
+}
+
+.content-padding {
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+
+// Contains stats for the overal project and a toggle button for Notifications
+.app-subnav {
+  @extend.flex-row;
+  flex: 0;
+  background-color: $app-subnav-bg;
+  border-bottom: $border-gray-light;
+  color: darken($app-subnav-bg, 15%);
+  min-height: 50px;
+  max-height: 50px;
+
+  &.no-margin {
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+
+  .app-title {
+    padding-left: $spacer;
+    align-items: center;
+    color: $app-subnav-color;
+    line-height: initial;
+  }
+
+}
+// Sets up the row beneath the app header that contains the title of the event or sub view and tabs/buttons.
+// Tab styles themselves are located in the _tabs.scss file.
+.title-row {
+  @include make-row();
+}
+
+.app-title {
+  //@include make-col(12);
+  font-weight: 300;
+  font-size: 1.125rem;
+  padding-top: $spacer/2;
+  padding-bottom: $spacer/2;
+  margin: 0;
+  color: $brand-primary;
+
+  &.app-title-card-spacing {
+    padding-left: .5rem;
+    padding-right: .5rem;
+  }
+}
+
+.subtitle-row {
+  display: flex;
+  flex: 0 0 auto;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 .5rem 0 .5rem;
+
+}
+
+.app-subtitle {
+  font-size: 1.125rem;
+  font-weight: 300;
+  margin-bottom: 0;
+}
+
+// Small footer at the bottom of some views for app related buttons
+.app-footer {
+  @extend.actions-row;
+  background-color: $app-subnav-bg;
+  border-top: 1px solid darken($app-subnav-bg, 10%);
+  text-align: right;
+}
+
+// hr for separating sections of content within a view
+.separator-content {
+  background-color: $separator-color;
+  height: 0px;
+  margin: 0;
+  width: 100%;
+}
+
+// Styles for scrolling content within a div. This adds flexbox
+
+.slimScrollDiv {
+  display: flex;
+  //flex: 1;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+  //height: 100%;
+}
+
+.outer-content {
+  display: block;
+  //float: left;
+  width: 100%;
+  min-width: 0;
+  min-height: 0;
+  height: 100%;
+
+}
+
+.outer-content-spacing {
+  .inner-content-div {
+    padding-top: 1rem;
+  }
+}
+
+.inner-content-div {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+  height: 100%;
+  overflow: auto;
+}
+// Padding to the overflow element to allow scrolling past the bottom of the container
+.scroll-padding {
+  padding-top: .5rem;
+  padding-bottom: 185px;
+}
+
+.default-content {
+  font-size: 1.5rem;
+  font-weight: 300;
+  min-width: 0;
+  min-height: 0;
+  max-width: 50%;
+  margin: 0 auto;
+  padding-top: 10rem;
+  text-align: center;
+
+  @include media-breakpoint-down(sm) {
+    max-width: 75%;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+}
+
+.default-content-slim {
+  @extend .default-content;
+  margin-top: 0;
+}
+
+.test-div {
+  background-color: $gray-lighter;
+  border-radius: 4px;
+  color: $gray-dark;
+  margin: 0px 0 10px 0;
+  padding: 50px 0 50px 20px;
+
+}
+
+.test-div-2 {
+  width: 500px;
+  height: 500px;
+  display: grid;
+  position: sticky;
+  flex-wrap: wrap;
+  box-shadow: 10px 10px 5px #888888;
+  text-align: justify;
+}
+
+a:fullscreen {
+  display: grid;
+  color: #10f1f0;
+}
+
+// Action Bar Styles
+
+.action-bar {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid $separator-color;
+  padding: .2rem .5rem;
+  min-height: $action-bar-height;
+  h5,h6 {
+    margin-bottom: 0;
+  }
+
+  .action-bar-section {
+    display: flex;
+    align-items: center;
+  }
+
+  &.no-top-border {
+    border-top: 0;
+  }
+
+  &.no-margin {
+    margin-left: -15px;
+    margin-right: -15px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  &.filter-action-bar {
+    justify-content: space-between;
+  }
+}
+
+// Styles for various panel toggle buttons
+.panel-toggle {
+  position: relative;
+  align-items: center;
+  border-right: 1px solid rgba(0,0,0,.1);
+  color: initial;
+  display: flex;
+  width: 65px;
+  justify-content: center;
+  font-size: 1.4rem;
+  text-decoration: none;
+  cursor: pointer;
+
+  &:hover {
+    color: darken($brand-primary, 5%);
+    background-color: transparent;
+    text-decoration: none;
+  }
+  &:focus {
+    color: darken($brand-primary, 5%);
+    text-decoration: none;
+  }
+  &:active {
+    color: $brand-primary;
+    text-decoration: none;
+  }
+  &:visited {
+    color: $brand-primary;
+    text-decoration: none;
+  }
+
+  .badge {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+  }
+
+}
+
+.tools-toggle {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: none;
+  }
+  &:focus {
+    text-decoration: none;
+  }
+  &:active {
+    text-decoration: none;
+  }
+  &:visited {
+    text-decoration: none;
+  }
+}
+
+// Smoothscroll overrides
+
+[data-scrollbar], [scrollbar] {
+  display: flex !important;
+}
+
+.scroll-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  width: 100%;
+}
+
+.transparent {
+  opacity: 0;
+}
+
+hr.modal-form-separator {
+  width: 100%;
+  margin: .5rem 0;
+}
+
+// Panel styles that use the card base style
+.panel {
+  @extend .card;
+  box-shadow: $card-shadow;
+  border-radius: 0;
+}
+
+
+// Style for info icons. These are mostly used in titles and side panels to provide
+//more information about a particular function (I'm not sure this belongs in this file but
+//I tend to think this is more of a global style
+
+.help-hover {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  color: $gray-light;
+
+  i {
+    color: $gray-light;
+  }
+}

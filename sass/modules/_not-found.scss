@@ -1,0 +1,30 @@
+.not-found-container {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10000;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .qb-logo {
+    margin-bottom: 3rem;
+  }
+
+  .not-found-header {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+  }
+
+  .not-found-text {
+    margin-bottom: 1rem;
+  }
+
+  .btn:not(:last-child) {
+    margin-right: 1rem;
+  }
+}

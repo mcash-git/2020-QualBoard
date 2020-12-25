@@ -1,0 +1,29 @@
+.fr-box.fr-basic .fr-element {
+  font-size: 1rem;
+}
+
+// Styles to make the froala container div look like a textarea field.
+.froala-onclick-box {
+  .fr-element {
+    @extend .form-control;
+    background-color: transparent;
+    color: $gray;
+
+    &:focus {
+      border-color: transparent;
+    }
+  }
+}
+
+// Hides pre-defined links
+.fr-popup {
+  .fr-buttons{
+    [id^="linkList"] {
+      display: none !important;
+    }
+    // Hides non-functional link styling
+    [id^="linkStyle"] {
+      display: none !important;
+    }
+  }
+}

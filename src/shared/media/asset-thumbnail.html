@@ -1,0 +1,23 @@
+<template>
+  <img
+    src.bind="apiSrc"
+    if.bind="!dataUrl && !apiThumbnailErrored"
+    load.trigger="handleApiImageLoad()"
+    error.trigger="handleApiImageError()"
+  />
+  <img
+    src.bind="dataUrl"
+    if.bind="dataUrl && !fileThumbnailErrored"
+    load.trigger="handleFileImageLoad()"
+    error.trigger="handleFileImageError()"
+    css="${!fileThumbnailLoaded ? 'display:none;' : '' & oneWay}"
+  />
+  <!--<i class="icon-ion-load-a loading-indicator" -->
+     <!--show.bind="(!dataUrl && !apiThumbnailLoaded && !apiThumbnailErrored) ||-->
+      <!--(dataUrl && !fileThumbnailLoaded && !fileThumbnailErrored)"></i>-->
+  <!--Loader SVG-->
+  <img src="/images/media-loader.svg" alt="" show.bind="(!dataUrl && !apiThumbnailLoaded && !apiThumbnailErrored) ||
+      (dataUrl && !fileThumbnailLoaded && !fileThumbnailErrored)">
+
+  <i class="icon-ion-alert-circled" if.bind="(!dataUrl && apiThumbnailErrored) || (dataUrl && fileThumbnailErrored)"></i>
+</template>

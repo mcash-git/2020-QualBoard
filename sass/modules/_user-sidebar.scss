@@ -1,0 +1,163 @@
+// Namespace for styles specific to the user sidebar
+.user-sidebar {
+  border-left: $border-gray-light;
+  background-color: $side-panel-bg;
+
+  .header {
+    display: flex;
+    align-items: center;
+    font-size: .75rem;
+    padding: .5rem;
+    //background: rgba(255,255,255,0.86);
+    text-transform: uppercase;
+    justify-content: space-between;
+    border-bottom: $border-gray-light;
+
+    div {
+      display: flex;
+      align-items: center;
+    }
+
+    .close {
+      transition: all .2s ease-in-out;
+      font-size: 2.5rem;
+      opacity: .4;
+
+      &:hover {
+        opacity: .6;
+      }
+
+      i {
+        font-size: 2rem;
+      }
+    }
+  }
+
+  .badge {
+    margin-right: .5rem;
+  }
+
+}
+// Body containing content sections for the user sidebar
+.user-sidebar-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: .5rem;
+
+}
+
+// Sections of content in the user sidebar
+.user-sidebar-section {
+  padding: .5rem 0;
+  border-bottom: 1px solid rgba(0,0,0,.1);
+
+  &:first-child {
+    padding-top: 0;
+  }
+
+  &:last-child {
+    border-bottom: 0;
+  }
+}
+// Section headers with icons
+.user-sidebar-section-header {
+  display: flex;
+  align-items: center;
+  font-size: .75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: .5rem;
+
+  i {
+    font-size: 1.125rem;
+  }
+}
+// Section body
+.user-section-body {
+  display: flex;
+  flex-direction: column;
+
+  &.form-group {
+    margin-bottom: 0;
+  }
+}
+
+.user-btn-row {
+  display: flex;
+  padding-top: .5rem;
+  justify-content: flex-end;
+
+  button {
+    min-width: 80px;
+    margin-left: .5rem;
+  }
+}
+
+// User status section
+.user-status-row {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: .5rem;
+  font-size: .75rem;
+
+  &:last-child {
+    padding-bottom: 0;
+  }
+
+  label {
+    font-weight: 600;
+    font-size: .75rem;
+
+    .custom-control-indicator {
+      background-color: rgba(255,255,255,1);
+    }
+  }
+
+  .control-description {
+    font-style: italic;
+    padding-right: .5rem;
+  }
+}
+
+.user-status-row-defined {
+  @extend .user-status-row;
+  background: #f9f9f9;
+  border-radius: 3px;
+  padding: .5rem;
+  border: 1px solid #e2e1e1;
+  margin-bottom: .5rem;
+
+  &:last-child {
+    padding-bottom: .5rem;
+    margin-bottom: 0;
+  }
+}
+
+// Button row for the message user section...button width 50%...may be a better way to handle
+// these variable button widths and icons with some mixins
+.user-message-btn-row {
+  display: flex;
+  justify-content: space-between;
+
+  button {
+    flex: 1;
+    // Bring this style back when we implement chat
+    //&:first-child {
+    //  margin-right: .5rem;
+    //}
+  }
+}
+
+// Fake tag control...this will likely go away when we implement selectize
+.tag-control {
+  display: flex;
+  flex: 1;
+  padding: .5rem;
+  background-color: #fff;
+  border: 1px solid rgba(55, 58, 60, 0.21);
+
+  .tag {
+    margin-right: .2rem;
+  }
+}

@@ -1,0 +1,8 @@
+<template>
+  <froala-editor config.bind="config"
+                 view-model.ref="froalaViewModel"
+                 validation-state="validator.bind: validator; property.bind: validationProperty"
+                 validate="validator.bind: validator; property.bind: validationProperty; on: manual"
+                 value.two-way="value"
+                 event-handlers.bind="mergedEventHandlers"></froala-editor>
+</template>

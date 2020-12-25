@@ -1,0 +1,26 @@
+<template>
+  <require from="./individual-activity-settings-name"></require>
+  <require from="./individual-activity-settings-schedule"></require>
+  <require from="./individual-activity-settings-default-moderator"></require>
+  <require from="./individual-activity-settings-incentive"></require>
+
+  <div class="tt_qb_content-padding">
+    <div id="individual-activity-settings-view" class="settings">
+      <div class="settings-column">
+        <individual-activity-settings-name class="settings-card" ia.bind="ia">
+        </individual-activity-settings-name>
+        <individual-activity-settings-schedule class="settings-card" ia.bind="ia" if.bind="!isModerator">
+        </individual-activity-settings-schedule>
+      </div>
+      <div class="settings-column">
+        <individual-activity-settings-default-moderator class="settings-card"
+                                                        ia.bind="ia"
+                                                        moderators.bind="moderators">
+        </individual-activity-settings-default-moderator>
+        <individual-activity-settings-incentive class="settings-card" ia.bind="ia">
+        </individual-activity-settings-incentive>
+      </div>
+    </div>
+  </div>
+
+</template>

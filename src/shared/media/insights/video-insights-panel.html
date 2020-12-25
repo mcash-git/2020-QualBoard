@@ -1,0 +1,40 @@
+<template>
+  <require from="researcher/components/video-insight-bookmark"></require>
+  <div class="media-insights-panel-header">
+    <i
+      click.trigger="toggleOpen()"
+      class="toggle-collapse"
+      class.bind="toggleOpenIconClass"
+    ></i>
+    <h6 class="media-insights-panel-title">
+      <i class="icon-lightbulb_outline"></i>
+      Insights
+      <div
+        class="badge badge-insights"
+        if.bind="mediaItem.insightBags.length > 0"
+      >
+        ${mediaItem.insightBags.length}
+      </div>
+    </h6>
+    <div class="clear"></div>
+  </div>
+  <div
+    class="insight-bookmarks"
+    ref="scrollElement"
+  >
+    <video-insight-bookmark
+      repeat.for="insightBag of mediaItem.insightBags"
+      class="insight-bookmark"
+      insight-bag.bind="insightBag"
+      video-player.bind="videoPlayer"
+      can-edit.bind="true"
+      scroll-to-insight.delegate="handleScrollToInsight($event)"
+      insight-bookmark-hover.delegate="insightHoverStart(insightBag)"
+      insight-bookmark-hover-end.delegate="insightHoverEnd(insightBag)"
+    ></video-insight-bookmark>
+    <div class="default-message" if.bind="shouldShowDefaultMessage">
+      <i class="icon-Insight"></i>
+      <span>Add an insight to the media by clicking the light bulb at the bottom of the screen.</span>
+    </div>
+  </div>
+</template>

@@ -1,0 +1,378 @@
+.gallery-action-bar {
+  display: block;
+  flex: 1;
+  align-items: center;
+  justify-content: space-between;
+
+  .action-bar-section {
+
+    .num-media-selected {
+      padding-left: 1rem;
+      margin-left: 1rem;
+      border-left: 1px solid rgba(0, 0, 0, 0.1);
+      height: 100%;
+    }
+
+    .media-actions {
+      display: flex;
+      border-left: 1px solid $separator-color;
+      margin-left: 1rem;
+    }
+
+    a {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .filter-toggle {
+      padding-right: .5rem;
+      border-right: 1px solid $separator-color;
+      color: $link-color;
+      position: relative;
+
+      .badge {
+        position: absolute;
+        right: -2px;
+        top: -2px;
+      }
+    }
+
+    i {
+      font-size: 1.5rem;
+    }
+
+    .btn i {
+      font-size: initial;
+    }
+    // Select All for the Gallery
+    .select-all {
+      display: flex;
+      align-items: center;
+      font-size: .75rem;
+      padding-left: .5rem;
+
+      .custom-control {
+        display: flex;
+        align-items: center;
+      }
+
+      .custom-control-indicator {
+        height: 1.2rem;
+        width: 1.2rem !important;
+        top: calc(50% - 1.2rem/2);
+      }
+    }
+    .action-bar-segment {
+      padding-right: 1rem;
+      margin-right: 1rem;
+      border-right: 1px solid $separator-color;
+    }
+  }
+
+  .gallery-action-link {
+    padding-right: .5rem;
+    padding-left: .5rem;
+    padding-top: .25rem;
+
+    &:hover {
+      text-decoration: none;
+    }
+
+    &.disabled {
+      color: $btn-link-disabled-color;
+    }
+
+  }
+
+  .search-notifications {
+    padding-left: 1rem;
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+
+    input {
+      color: $gray-light;
+    }
+
+    i {
+      top: 4px;
+      left: 4px;
+      font-size: 1.3rem;
+      color: $gray-light;
+    }
+  }
+}
+
+.gallery-container {
+  min-height: 0;
+  height: 100%;
+  display: flex;
+  flex: 1;
+
+  .media-picker-thumb-container {
+    margin-bottom: 250px;
+  }
+
+}
+
+.media-upload-area {
+  height: 100%;
+
+  .outer-content {
+    min-height: 100%;
+
+
+  }
+}
+
+.gallery-pagination-row {
+  background-color: darken($app-bg, 10%);
+  display: flex;
+  flex: 0;
+  justify-content: flex-end;
+  min-height: 2.5rem;
+  padding: .5rem;
+
+  &.filters-showing {
+    margin-left: 402px;
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+
+    .pagination {
+      margin: 0;
+    }
+  }
+}
+
+// Media Gallery Thumbs Experiment
+.thumb-row {
+  background-color: orange;
+  display: flex;
+  flex-wrap: wrap;
+
+  @include media-breakpoint-down(sm) {
+    background-color: green;
+  }
+}
+
+.thumb-wrapper {
+  transition: all .2s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 auto;
+  padding: $grid-gutter-width/4;
+  width: 250px;
+  height: 200px;
+
+}
+
+.thumb-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.thumb-container-top {
+  flex: 1;
+  background-color: gray;
+  max-width: 100%;
+}
+
+.gallery-img-thumb {
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  padding: .5rem;
+  overflow: hidden;
+
+  img {
+    max-width: 100%;
+    height: 100%;
+  }
+}
+
+.thumb-info-bottom {
+  flex: 1;
+  background-color: #fff;
+}
+
+.filter-block {
+  padding: 1rem;
+  border-bottom: 1px solid $separator-color;
+}
+
+// Media Gallery Filter Accordion
+
+.gallery-filters-list {
+
+
+  .eb-settings-section {
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    border: 0;
+  }
+
+  logic-engine-rule {
+    background-color: #fff;
+  }
+}
+
+// A UL inside a filter category
+
+.filter-category {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+
+  .filter-category-item:not(.checkbox-trees) {
+    &:last-of-type {
+      .custom-control {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+//Right side container of a filter header. Contains the badge for filters selected and the toggle arrow
+.filter-header-right{
+  display: flex;
+  align-items: center;
+}
+
+.filter-section-toggle-icon {
+  padding-left: .5rem;
+}
+
+.media-action {
+  display: flex;
+  padding: 4px 0;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  &:first-child {
+    padding-top: 0;
+  }
+
+  &:last-child {
+    padding-bottom: 0;
+  }
+
+  .badge {
+    position: relative;
+    top: 4px;
+    right: 5px;
+    padding-left: 2px;
+  }
+}
+
+// Select mode hint/cue:
+
+.media-picker-thumb-container.is-selecting {
+
+  .media-detail-action-icon {
+    display: none;
+  }
+}
+
+@keyframes select-hint-throb {
+  0% {
+    box-shadow: 0 0 1px 1px #0074d9;
+  }
+  50% {
+    box-shadow: 0 0 2px 2px #0074d9;
+  }
+  100% {
+    box-shadow: 0 0 1px 1px #0074d9;
+  }
+}
+
+.gallery-filters-list .card-block {
+  transition: all .5s linear;
+  max-height: initial;
+
+  &.hid {
+    max-height: 0;
+  }
+}
+
+.media-drop-zone {
+  .content-padding {
+    padding: 1rem;
+  }
+}
+
+.media-action-bar-content {
+  display: flex;
+  max-height: 100%;
+
+  .media-action {
+    padding: 0 1rem;
+    height: 31px;
+
+    &:not(:last-child) {
+      border-right: $border-gray-transparent;
+    }
+
+    button:not(.btn-primary) {
+      &:not(.toggle-filters-button) {
+        @include hoverDarkenColor($link-color);
+      }
+
+      padding: 0;
+    }
+  }
+
+  .action-bar-section:first-of-type {
+    border-left: $border-gray-transparent;
+    border-right: $border-gray-transparent;
+    padding-left: .5rem;
+    margin-left: .25rem;
+    padding-right: .5rem;
+    height: 31px;
+  }
+}
+
+.select-all-dropdown {
+  .dropdown-toggle {
+    border-radius: 0;
+  }
+
+  .dropdown-button-text {
+    font-size: .875rem;
+  }
+
+  .badge {
+    margin-right: .5rem;
+  }
+
+  .dropdown-title {
+    min-width: 250px;
+
+    .num-selected {
+      color: $accent-2;
+      margin: 0 .25rem;
+    }
+  }
+
+  .dropdown-item {
+    &:focus {
+      outline: none;
+    }
+
+    .select-count {
+      float: right;
+      font-weight: 600;
+      color: inherit;
+    }
+  }
+
+  .dropdown-menu.show {
+    left: -.5rem !important;
+  }
+}

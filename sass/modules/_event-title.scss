@@ -1,0 +1,9 @@
+.title-event {
+  @include make-col(6);
+  //@include make-col-span(6);
+  font-weight: 300;
+}
+.title-row-content {
+  @include make-col(12);
+  //@include make-col-span(12);
+}

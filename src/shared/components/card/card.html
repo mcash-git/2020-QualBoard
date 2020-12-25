@@ -1,0 +1,13 @@
+<template>
+  <require from="./card-header"></require>
+  <require from="./schedule"></require>
+  <div class="card" click.trigger="cardClick($event)">
+    <card-header card.bind="card"></card-header>
+    <div class="card-block">
+      <schedule schedule.bind="card.schedule" if.bind="card.schedule"></schedule>
+      <compose view-model.bind="card.contentViewModel" model.bind="{ card: card }"></compose>
+
+
+    </div>
+  </div>
+</template>

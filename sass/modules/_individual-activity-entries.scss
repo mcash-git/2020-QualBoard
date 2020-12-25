@@ -1,0 +1,85 @@
+.entry-card-list-wrapper {
+  margin-left: auto;
+  margin-right: auto;
+
+  ul.card-list {
+    list-style: none;
+    padding: 1rem 1rem 0 1rem;
+    margin: 0 auto;
+  }
+
+  ul.card-list > li {
+    width: 100%;
+    padding-bottom: .125rem;
+
+    &.skip-summary:not(:first-child) {
+      margin-top: 2rem;
+    }
+
+    entry-card.active > div {
+      border-color: $accent-2;
+      border-width: 2px;
+    }
+  }
+}
+
+.entry-card-list-wrapper ul.card-list {
+    width: 70%;
+
+    @include media-breakpoint-down(md) {
+      width: 100%;
+    }
+}
+
+entry-card > .card {
+  @include hoverDarkenBackground(#ffffff);
+  padding: .125rem;
+  display: block;
+  flex-direction: row;
+  @include clearfix;
+  border-top: none;
+
+  .entry-card-col {
+    line-height: 1.8rem;
+    display: block;
+    float: left;
+    padding: 0 1rem;
+  }
+
+  .entry-card-col-right {
+    line-height: 1.8rem;
+    display: block;
+    float: right;
+    padding: 0 1rem;
+  }
+
+  avatar.entry-card-col {
+    flex: 0;
+  }
+
+  .user-name {
+    width: 12rem;
+    font-weight: bold;
+  }
+
+  .entry-num {
+    padding-right: 0.25rem
+  }
+}
+
+.current-entry-view {
+  overflow-y: scroll;
+  background-color: $gray-lightest;
+  border-left: solid 1px $gray-lighter;
+
+  ul.ia-mod.task-list {
+    padding: 1rem;
+    width: initial;
+  }
+
+  entry-response {
+    moderator-view-task-response {
+      margin-left: 2.5rem;
+    }
+  }
+}

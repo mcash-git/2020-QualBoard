@@ -1,0 +1,23 @@
+<template>
+  <span class="badge" if.bind="hasRules">${ruleCount}</span>
+  <h6 class="eb-settings-section-title">
+    <span>Users / Groups Display Logic</span>
+  </h6>
+  <span class="eb-settings-text">
+    Display this task to certain users and/or groups. &nbsp;
+  </span>
+  <span class="eb-settings-text" if.bind="hasRules">
+    Click to edit your logic rule(s).
+  </span>
+  <span class="eb-settings-text" if.bind="!hasRules">
+    Click to add your first logic rule.
+  </span>
+  <div class="eb-settings-btn-row">
+    <button class="btn btn-sm btn-secondary" click.delegate="openModal()">
+      <span class="btn-flex-wrapper">
+        <!--<i class="icon-call_split"></i>-->
+        ${hasRules ? 'Edit' : 'Add' & oneWay}
+      </span>
+    </button>
+  </div>
+</template>

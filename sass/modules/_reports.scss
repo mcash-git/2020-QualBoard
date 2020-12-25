@@ -1,0 +1,188 @@
+.report-modal-title {
+  font-size: 24px;
+  font-weight: 300;
+  text-align: center;
+  color: $gray;
+}
+
+.report-modal-step-title {
+  flex-basis: 100%;
+  font-size: 1.15rem;
+  font-weight: 600;
+
+  > span {
+    font-size: 1.6rem;
+    margin-right: 6px;
+  }
+}
+
+.report-modal-spacer {
+  border-bottom: 1px solid $separator-color;
+  margin-top: $spacer;
+  margin-bottom: $spacer;
+}
+
+.report-modal-body-left,
+.report-modal-body-right {
+  color: $gray;
+  font-weight: 600;
+  font-size: 14px;
+
+  .report-modal-container {
+    display: flex;
+    justify-content: space-between;
+
+    .report-modal-item {
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: space-around;
+      flex: 1;
+      height: 4.5rem;
+
+      &.modal-item-wide {
+        flex: 2;
+        margin: 0 25px;
+      }
+      &.modal-item-tall {
+        margin: 12px 0 0;
+      }
+
+      .report-modal-item-label {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+  }
+
+  .default-content-slim {
+    font-size: 1.2rem;
+    max-width: 80%;
+  }
+}
+
+.report-modal-body-left {
+  flex: 8 2 0;
+
+  .report-modal-events {
+    display: flex;
+    flex-wrap: wrap;
+
+    .event-labels {
+      flex-basis: 100%;
+      display: flex;
+
+      padding: .8rem;
+      margin-bottom: .5rem;
+      background-color: #fafafa;
+      border-radius: $border-radius;
+
+      > * {
+        flex: 1;
+      }
+    }
+
+    .event-category {
+      flex: 1;
+      border-left: none;
+
+      & ~ .event-category {
+        padding-left: 2rem;
+        border-left: 1px solid $separator-color;
+      }
+    }
+  }
+}
+
+.report-modal-body-right {
+  flex: 3 1 0;
+  padding: 10px;
+  margin-left: 15px;
+  background-color: #f7f7f7;
+  border: 1px solid $separator-color;
+  border-radius: $border-radius;
+
+  height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+
+  .report-modal-container {
+    flex-direction: column;
+  }
+}
+
+.report-modal-filters {
+  width: 375px;
+  .card {
+    border-bottom: 1px solid rba(0, 0, 0, 0.19);
+  }
+
+  .card-header {
+    background-color: #fff;
+    color: $brand-primary;
+    padding: 0;
+    border-radius: 0px;
+
+    &:hover {
+      background-color: lighten($link-color, 55%);
+    }
+
+    h5 {
+      display: flex;
+      width: 100%;
+      font-size: .875rem;
+
+      a {
+        display: flex;
+        flex: 1;
+        align-items: center;
+        justify-content: space-between;
+        padding: .5rem;
+
+        &:hover,&:focus,&:active,&:visited {
+          text-decoration: none;
+        }
+
+        .required-label {
+          padding-left: .3rem;
+        }
+
+      }
+    }
+  }
+  .card-block {
+    background-color: lighten($gray-lightest, 8%);
+    border-bottom: 1px solid $separator-color;
+  }
+
+  .form-group:last-child {
+    margin-bottom: 0;
+  }
+
+  .custom-control {
+    min-height: initial;
+  }
+
+  .custom-control-description {
+    line-height: 1;
+  }
+
+  .custom-control {
+    min-height: initial;
+  }
+
+  .custom-control-description {
+    line-height: 1;
+  }
+}
+
+.remove-icon {
+  color: $brand-danger;
+  font-size: 20px;
+}
+
+.action-icons {
+  color: #58afd1;
+  font-size: 20px;
+}
+

@@ -1,0 +1,29 @@
+<template>
+  <form>
+    <div class="custom-modal create-account">
+      <div class="c-modal-title">
+        <h3 class="modal-title-text">New Account</h3>
+        <div class="modal-close" click.delegate="cancelButtonClick()"><i class="icon-close"></i></div>
+      </div>
+      <div class="c-modal-body">
+        <div class="form-section">
+          <h5>Name Your Account</h5>
+          <div class="form-group" validation-state="validator.bind: validator; property: accountModel.name">
+            <input type="text"
+                   class="form-control"
+                   id="public-name"
+                   value.bind="accountModel.name"
+                   validate="validator.bind: validator; property: accountModel.name"
+                   attach-focus="true"
+                   keydown.delegate="keydown($event)"
+                   autocomplete="off"
+                   placeholder="Account Name" />
+          </div>
+        </div>
+      </div>
+      <div class="c-modal-footer">
+        <button type="button" class="btn btn-lg btn-primary" click.delegate="save()">Create Account</button>
+      </div>
+    </div>
+  </form>
+</template>

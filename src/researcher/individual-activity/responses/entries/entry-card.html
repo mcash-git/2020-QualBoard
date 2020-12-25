@@ -1,0 +1,32 @@
+<template>
+  <require from="shared/components/avatar"></require>
+
+  <div class="card">
+    <div class="left">
+      <div class="status-dot" class.bind="readStatusClassName">&nbsp;</div>
+      <avatar
+        class="avatar entry-card-col"
+        user-id.bind="entry.participantId"
+        size.one-time="27">
+      </avatar>
+    </div>
+    <div class="middle">
+      <div>
+        <div class="name">${entry.participant.displayName}</div>
+        <div class="entry-name">${entry.text}</div>
+      </div>
+      <div class="started-wrapper">
+        <div>Started:&nbsp;${entry.startedOn | momentFormat:currentUser.timeZone}</div>
+      </div>
+    </div>
+    <div class="end">
+      <div class="icon-wrapper">
+        <i class="fa fa-check-circle check" if.bind="entry.completionStatus.value === 'Complete'"></i>
+        <i class="fa fa-clock-o clock" if.bind="entry.completionStatus.value === 'Started'"></i>
+      </div>
+      <div class="arrow">
+        <i class="fa fa-angle-right arrow"></i>
+      </div>
+    </div>
+  </div>
+</template>

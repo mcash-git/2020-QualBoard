@@ -1,0 +1,20 @@
+<template>
+  <div class="card-header" click.delegate="toggle()">
+    <h5 class="mb-0">
+      <a href="javascript:;">
+        <span>
+          ${title} <span class="required-label" if.bind="isRequired">*</span>
+        </span>
+        <span class="filter-header-right">
+          <span class="badge filter" if.bind="badgeCount > 0">${badgeCount}</span>
+          <i class="icon-ion-chevron-${isExpanded ? 'up' : 'down'} filter-section-toggle-icon"></i>
+        </span>
+      </a>
+    </h5>
+  </div>
+  <div ref="sectionElement" class="collapse" class.one-way="isExpanded ? 'show' : ''">
+    <div class="card-block">
+      <slot></slot>
+    </div>
+  </div>
+</template>

@@ -1,0 +1,25 @@
+<template>
+  <require from="./reorder-task.html"></require>
+  <form with.bind="createCommand" id="create-project">
+    <div class="custom-modal reorder-tasks">
+      <div class="c-modal-title">
+        <div class="modal-title-text"><h5>Reorder Tasks</h5></div>
+        <div class="modal-subtitle-text"><h6>Drag and drop to reorder your tasks:</h6></div>
+        <div class="modal-close" click.delegate="modalController.close()"><i class="icon-close"></i></div>
+      </div>
+      <!-- TODO:  When we can get the modal to not overflow view-port, we need to use the
+                  attribute and handle scrolling events via that. -->
+      <!--<div class="c-modal-body" ref="dragContainer">-->
+      <div class="c-modal-body" ref="dragContainer" style="max-height: 640px;">
+        <div class="reorder-task-container">
+          <reorder-task task.bind="task" class="reorder-task" repeat.for="task of tasks" index.bind="$index">
+          </reorder-task>
+        </div>
+      </div>
+      <div class="c-modal-footer">
+        <button type="button" class="btn btn-lg btn-outline-secondary" click.delegate="cancel()">Cancel</button>
+        <button type="button" class="btn btn-lg btn-primary" click.delegate="reorder()">Save</button>
+      </div>
+    </div>
+  </form>
+</template>

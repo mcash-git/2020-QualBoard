@@ -1,0 +1,23 @@
+<template>
+  <require from="./accordion-item"></require>
+  <accordion-item title.bind="title"
+                  expanded-session-storage-key.bind="expandedSessionStorageKey"
+                  badge-count.bind="filterCount">
+    <div class="form-inline-custom" validation-state="validator.bind: validator; property.bind: startDateValidationProperty">
+      <label>${labelStart}</label>
+      <date-picker date.bind="startDate"
+                   placeholder.bind="placeholderStart"
+                   validator.bind="validator"
+                   validation-property.bind="startDateValidationProperty">
+      </date-picker>
+    </div>
+    <div class="form-inline-custom" validation-state="validator.bind: validator; property.bind: endDateValidationProperty">
+      <label>${labelEnd}</label>
+      <date-picker date.bind="endDate"
+                   placeholder.bind="placeholderEnd"
+                   validator.bind="validator"
+                   validation-property.bind="endDateValidationProperty">
+      </date-picker>
+    </div>
+  </accordion-item>
+</template>

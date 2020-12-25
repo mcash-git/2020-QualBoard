@@ -1,0 +1,41 @@
+.skip-container {
+  border-bottom: $border-gray-transparent;
+
+  .skip-summary {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid $transparent-gray-lighter;
+    margin: 1.5rem 0;
+    height: 0;
+
+    > span {
+      position: relative;
+      font-style: italic;
+      color: $gray-light;
+      display: block;
+      background-color: $app-bg;
+      padding: 0 0.75rem;
+    }
+  }
+}
+
+.incomplete-message {
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid $transparent-gray-lighter;
+    margin: 1.5rem 0;
+    height: 0;
+
+    > span {
+      position: relative;
+      font-style: italic;
+      color: $gray-light;
+      display: block;
+      background-color: $app-bg;
+      padding: 0 0.75rem;
+    }
+
+  margin-top: 1.5rem;
+}

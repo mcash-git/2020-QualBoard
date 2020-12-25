@@ -1,0 +1,47 @@
+<template>
+  <require from="./insight-bookmark-comment"></require>
+  <div class="insight-card card write">
+    <div class="card-head">
+      <div class="circle-border-icon">
+        <i class="icon-lightbulb_outline"></i>
+      </div>
+      <span class="creator-name">${insight.projectUser.displayName}</span>
+      <span class="created-date" if.bind="insight.createdOn">${insight.createdOn | momentFormat:currentUser.timeZone}</span>
+      <span class="clear"></span>
+    </div>
+    <div class="card-body">
+      <div class="video-play-control">
+        <button
+          class="btn btn-sm btn-secondary video-insight-play-button"
+          click.trigger="togglePlay()"
+        >
+          <span><i class.bind="loopPlaybackIcon"></i>&nbsp;
+            Start: ${insight.start | formatSeconds}</span>
+          <span>End: ${insight.end | formatSeconds}</span>
+        </button>
+      </div>
+      <div class="text-body">
+        <textarea
+          ref="textElement"
+          class="form-control"
+          value.bind="insight.comments[0].text"
+          placeholder="Comment..."
+        ></textarea>
+      </div>
+    </div>
+    <div class="card-buttons">
+      <button
+        class="btn btn-xs btn-outline-secondary"
+        click.delegate="cancelClick()"
+      >
+        Cancel
+      </button>
+      <button
+        class="btn btn-xs btn-secondary"
+        click.delegate="saveClick()"
+      >
+        Save
+      </button>
+    </div>
+  </div>
+</template>

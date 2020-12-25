@@ -1,0 +1,8 @@
+<template>
+  <select class="form-control form-control-sm"
+          value.bind="selectedTimeZone"
+          validate="validator.bind: validator; property.bind: validationProperty">
+    <option model.bind="null">Select A Time Zone</option>
+    <option repeat.for="tz of timezones" model.bind="tz">${tz.text}</option>
+  </select>
+</template>

@@ -1,0 +1,577 @@
+.ia-participant > :last-child {
+  margin-bottom: 60vh;
+}
+
+.entry-task {
+
+  .event-item {
+    .card-block {
+      padding-left: 2.5rem;
+    }
+
+    .event-item-icon {
+      margin-left: -2rem;
+    }
+
+    .drag-over-shade {
+      overflow: hidden;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      transform: scale(0);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      z-index: 10;
+
+      opacity: 0;
+      color: white;
+      background: rgba(0, 0, 0, 0.8);
+      position: absolute;
+
+      transition: all .15s ease-in-out;
+      transition-property: transform, opacity;
+
+      p {
+        font-weight: 100;
+        font-size: 1rem;
+        width: 100%;
+        text-align: center;
+
+        i {
+          font-size: 4rem;
+        }
+      }
+    }
+  }
+
+  media-grid {
+    padding: 10px 0;
+  }
+
+  .table-wrapper {
+    margin-bottom: .5rem;
+  }
+}
+
+.ia.task-list:not(.ia-participant), .activity-tasks-main-content .prompt-wrapper {
+  max-width: calc(#{$main-content-max-width} - #{$spacer});
+  padding: $spacer / 2;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media only screen and (max-width: #{$main-content-max-width + $responses-sidebar-width}) {
+    width: calc(100% - #{$spacer});
+  }
+
+  @media only screen and (max-width: 300px) {
+    padding-left: 0;
+    padding-right: 0;
+    width: 100%;
+  }
+}
+
+.ia.task-list {
+  &.current {
+    padding-bottom: 400px;
+  }
+
+  .event-item.answered {
+    transition: all .2s ease-in-out;
+
+    .answered-icon {
+      opacity: 1;
+      transform: scale(1.5,1.5);
+    }
+
+    .probe {
+      background-color: $text-response-answered-bg;
+      color: lighten($gray-dark, 5%);
+    }
+
+    .probe-post {
+      border-bottom-color: $text-response-answered-border;
+    }
+
+    .user-resp-actions a {
+      color: lighten($gray-dark, 5%);
+    }
+
+  }
+
+  .answered {
+
+    .event-item-title {
+      //color: $brand-success;
+    }
+
+    .task-response-control {
+      border-radius: $border-radius-lg;
+      background-color: rgba(0,0,0,.02);
+      border: $border-gray-light;
+      padding: .5rem;
+    }
+
+    .user-resp-info {
+      display: flex;
+
+      .answered-icon {
+        opacity: 1;
+        transform: scale(1.7,1.7);
+      }
+    }
+  }
+
+  .answered-icon {
+    transition: all .2s ease-in-out;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: .75rem;
+    height: .75rem;
+    background-color: #fff;
+    border-radius: 100px;
+    top: 8px;
+    left: -2.1rem;
+    z-index: 2;
+    opacity: 0;
+
+    i {
+      color: $brand-success;
+      font-size: 1.1rem;
+    }
+  }
+
+  .event-item.task-hidden {
+    height: 0;
+    opacity: 0;
+  }
+
+  // The task-segments purpose was to transition in each step of the task that a ptp will need to complete. Should not be used for spacing
+  .task-segment {
+    transition: all .2s ease-in-out;
+
+    &:last-child {
+      padding-bottom: 0;
+    }
+  }
+
+  .task-segment.task-hidden {
+    height: 0;
+    opacity: 0;
+  }
+
+  .mcma-options-row {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    min-height: 0;
+    min-width: 0;
+
+    @include media-breakpoint-down(md){
+      flex-direction: column;
+    }
+  }
+
+
+  // This class should be applied by the scroll framework to obscure previously answered tasks
+  .event-item.inactive {
+    opacity: .4;
+  }
+
+  .event-item.drag-over {
+    transform: scale(1.02);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.36);
+
+    .drag-over-shade {
+      transform: scale(1);
+      opacity: 1;
+      z-index: 99;
+    }
+  }
+
+  .item-header {
+    padding-right: 3.5rem;
+  }
+
+  .event-options-bar {
+    display: flex;
+
+    a {
+      padding: 0 8px;
+      border-right: 1px solid darken($card-border-color, 5%);
+
+      &:last-child {
+        border-right: 0;
+      }
+
+      i {
+        font-size: 1.5rem;
+
+        &.icon-ion-ios-chatbubble {
+          font-size: 1.3rem;
+        }
+      }
+    }
+
+    .item-response-toggle {
+      display: flex;
+      align-items: center;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      .num-responses {
+        font-size: .875rem;
+        font-weight: 600;
+        margin-left: 4px;
+      }
+    }
+  }
+
+  .response-title {
+    position: relative;
+    font-size: .875rem;
+    text-transform: uppercase;
+    font-weight: 300;
+    padding-bottom: 5px;
+    padding-top: .5rem;
+    border-top: 1px solid rgba(0,0,0,.1);
+  }
+
+  .orig-item-text {
+    font-size: .875rem;
+  }
+
+  .user-resp-info {
+    position: relative;
+    @extend.flex-row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: .75rem;
+    font-weight: 600;
+    padding-bottom: .5rem;
+    display: none;
+
+    .user {
+      display: flex;
+      align-items: center;
+    }
+
+    .avatar {
+      @include avatar-size(30px, .5rem);
+
+      @include media-breakpoint-down(sm) {
+        margin-left: 0;
+      }
+    }
+  }
+
+  // Response text
+  .user-resp-text {
+    @extend.flex-row;
+    font-weight: 300;
+    font-size: .875rem;
+  }
+
+  .task-response-content {
+    width: 100%;
+  }
+
+  // Comment Buttons related to a response
+  .user-resp-actions {
+    @extend.flex-row;
+    flex-wrap: wrap;
+
+    ul {
+      align-items: center;
+    }
+
+    li {
+      padding: 2px 6px;
+
+      a {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        font-weight: 300;
+        font-size: .75rem;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: all .2s ease-in-out;
+
+        &:hover {
+          color: lighten($gray-dark, 10%);
+        }
+        span {
+          padding-left: 5px;
+        }
+      }
+    }
+  }
+
+  .post-atributes {
+    display: flex;
+    padding: 0px;
+    list-style: none;
+  }
+
+  .post-btns {
+    display: flex;
+    padding: 0px;
+    list-style: none;
+  }
+
+  // Form Controls for participant task responses
+  .task-response-label {
+    margin-bottom: .5rem;
+    font-weight: 600;
+  }
+
+  .task-response-control {
+    @extend .flex-column;
+    position: relative;
+
+    @include media-breakpoint-down(sm) {
+      //padding-left: .5rem;
+    }
+
+    compose {
+      width: 100%;
+    }
+
+    @extend .form-group;
+
+  }
+
+  .comment-block-activity {
+    margin-top: 0;
+  }
+
+  // SAVED RESPONSES IN A PTP IA
+
+  .saved-response {
+    display: flex;
+    flex-direction: column;
+    font-weight: 300;
+
+    li {
+      padding-left: 0;
+    }
+
+    p {
+      margin-bottom: 0;
+    }
+
+    .mcma-options-list {
+      .mcma-option {
+        flex: 1 0 auto;
+      }
+    }
+
+    .user-resp-text {
+      position: relative;
+      font-weight: 400;
+      font-size: .875rem;
+      border-radius: $border-radius;
+
+      i {
+        position: absolute;
+        font-size: 1.3rem;
+        top: 0px;
+        left: 5px;
+        color: rgba(0,0,0,.2);
+      }
+    }
+
+    .comment-saved {
+      position: relative;
+      background-color: rgba(55, 58, 60, 0.10);
+      border: 1px solid rgba(55, 58, 60, 0.15);
+      padding: 1.5rem;
+      border-radius: 3px;
+
+      i {
+        font-size: 1.3rem;
+
+        &.left {
+          position: absolute;
+          top: .5rem;
+          left: .5rem;
+        }
+
+        &.right {
+          position: absolute;
+          bottom: .5rem;
+          right: .5rem;
+          transform: rotate(-180deg);
+        }
+      }
+    }
+
+    .comment-text {
+      margin: 0;
+      font-style: italic;
+      font-size: .875rem;
+    }
+
+    .media-uploaded {
+      width: 300px;
+      background-color: rgba(0,0,0,.07);
+      padding: .5rem;
+
+      img {
+        width: 100%;
+      }
+    }
+  }
+
+  .activity-btn-row {
+    @extend .flex-row;
+    flex: 0 0 auto;
+
+    button {
+      margin-right: .5rem;
+    }
+
+    button {
+      &:last-of-type {
+        margin-right: 0rem;
+      }
+    }
+  }
+
+  .btn-activity {
+    width: 7rem;
+    font-size: .875rem;
+    padding: .75rem;
+
+    span {
+      width: 100%;
+    }
+
+    .activity-btn-wrapper {
+      display: flex;
+      flex-direction: row;
+
+      .ok {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex: 1;
+        font-size: 1rem;
+
+        i {
+          font-size: 2rem;
+          padding-right: 5px;
+        }
+      }
+    }
+  }
+}
+
+//ACTIONS BAR AT THE TOP OF PTP EVENT VIEWS THAT DISPLAYS THE REPETITION NEXT TASK AND DONE BUTTONS.
+.activity-action-menu {
+  @extend .actions-row;
+  @extend .no-margin;
+  padding: .5rem;
+  z-index: 20;
+  flex: 1;
+  justify-content: flex-end;
+
+  .btn {
+    margin: 0 1rem;
+
+    &:first-of-type {
+      margin-left: 0;
+    }
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+  }
+}
+
+.mobile-back-btn {
+  display: flex;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: $brand-primary;
+  padding: 0 1rem 0 .5rem;
+  border-right: 1px solid darken($separator-color, 5%);
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.rep-info {
+  display: flex;
+}
+
+.ptp-panel-toggle {
+  width: 28px;
+  border-right: 1px solid rgba(0,0,0,.2);
+  font-size: 1.3rem;
+}
+
+.rep-title {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  padding: 0 .5rem;
+
+  button {
+    i {
+      font-size: 1rem;
+    }
+  }
+
+}
+
+.exit-message {
+  @extend .entry-task;
+
+  .card-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: $brand-success;
+    font-size: 1rem;
+    font-weight: bold;
+
+    > div {
+      display: flex;
+    }
+
+    .circle-border-icon {
+      height: 1.75rem;
+      width: 1.75rem;
+      border: 2px $brand-success solid;
+
+      i {
+        font-size: 1.25rem;
+        color: $brand-success;
+      }
+    }
+  }
+}
+
+// STYLES FOR PTP NOTIFICATIONS
+.proj-checklist-btn-group {
+  width: 100%;
+
+  button {
+    width: 50%;
+  }
+}
+
+.participant-project-instructions {
+  min-width: 100%;
+  .project-instructions {
+    margin: .5rem;
+  }
+}

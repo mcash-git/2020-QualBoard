@@ -1,0 +1,183 @@
+<template>
+  <require from="shared/media/media-grid"></require>
+  <require from="shared/media/media-uploader"></require>
+  <require from="./comment"></require>
+   <div
+     if.bind="task"
+     class.bind="taskClass"
+     drop.delegate="handleDrop($event)"
+     dragenter.delegate="handleDrag(true, $event)"
+     dragleave.delegate="handleDrag(false, $event)"
+     dragover.delegate="$event.preventDefault()"
+   >
+    <div class="drag-over-shade">
+      <div class="center-wrapper">
+        <p><i class="icon-photo"></i></p>
+        <p>Drop files here</p>
+      </div>
+    </div>
+
+
+    <div class="card-block">
+      <div class="item-header">
+        <div class="item-title-container">
+          <div class="event-item-icon">
+            <i class.bind="iconClass"></i>
+          </div>
+          <h5 class="event-item-title eb-saved">${task.title}</h5>
+        </div>
+      </div>
+      <div class="item-content">
+        <div class="item-content-row">
+          <div class="orig-item-text" innerhtml.bind="task.text | sanitize"></div>
+        </div>
+        <!-- STIM / MODERATOR-UPLOADED MEDIA -->
+        <media-grid
+          class="media-grid"
+          can-edit.bind="false"
+          media-items.bind="task.mediaItems"
+          if.bind="task.mediaItems.length > 0">
+        </media-grid>
+
+        <!-- INTERACTIVE BIT -->
+        <template if.bind="!task.hasResponse">
+          <div class="task-response-control" if.bind="task.type.value !== 'Notice'">
+            <div class="user-resp-info">
+              <div class="user">
+                <span class="avatar">
+                  <avatar user-id.bind="projectUser.userId" size.bind="50"></avatar>
+                </span>
+                <span>${projectUser.displayName}</span>
+              </div>
+            </div>
+
+            <!-- ACTUAL TASK CONTENT (MCMA, etc.) -->
+            <compose
+              if.bind="task.type.value !== 'Text'"
+              view-model.bind="viewModel"
+              model.bind="{task: task, response: responseWriteModel}">
+            </compose>
+
+            <!-- COMMENT / TEXT RESPONSE  -->
+            <div class="item-content-row">
+              <div class="task-segment">
+                <div class="item-content-label comment-label">
+                  <i class="icon-mode_comment"></i> ${commentInstructions}
+                </div>
+                <div class="froala-onclick-box">
+                  <froala
+                    value.two-way="responseWriteModel.text"
+                    config.bind="{ placeholderText: 'Click here to comment...', initOnClick: true }"
+                    event-handlers.bind="froalaEventHandlers"
+                  ></froala>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="activity-btn-row">
+            <media-uploader
+              asset-scope="1"
+              multiple.one-time="true"
+              view-model.ref="mediaUploader"
+              on-upload-started.call="handleUpload(assets)"
+              project-id.bind="projectId"
+              account-id.bind="accountId"
+            ></media-uploader>
+            <button
+              if.bind="task.type.value !== 'Notice'"
+              class="btn btn-secondary btn-activity"
+              click.trigger="attachMedia()"
+            >
+              <span><i class="icon-attach_file"></i> Attach</span>
+            </button>
+
+            <button class="btn btn-primary btn-activity"
+              class.bind="responseWriteModel.isValid ? '' : 'disabled'"
+              click.trigger="submitTaskResponse()"
+              tooltip="text.bind: disabledButtonTooltip"
+            >
+              <span><i class="btn-icon icon-check"></i>${buttonText}</span>
+            </button>
+          </div>
+          <media-grid
+            class="media-grid"
+            can-edit.bind="true"
+            media-items.bind="responseWriteModel.mediaItems"
+          ></media-grid>
+        </template>
+
+        <!-- READONLY / RESPONSE BIT -->
+        <div class="item-content-row" if.bind="task.hasResponse && task.type.value !== 'Notice'">
+          <div
+            class="task-response-control"
+            class.bind="responseBlockClass"
+            ref="responseBlockElement"
+          >
+            <div class="saved-response" id="${task.response.id}">
+              <!--User avatar and header-->
+              <div class="user-resp-info">
+                <div class="answered-icon">
+                  <i class="icon-check_circle"></i>
+                </div>
+                <div class="user">
+                  <span href="" class="avatar">
+                    <avatar user-id.bind="projectUser.userId" size.bind="50"></avatar>
+                  </span>
+                  <span>${projectUser.displayName}</span>
+                  <div class="user-resp-date">
+                    ${task.response.respondedOn | momentFormat:currentUser.timeZone}
+                  </div>
+                </div>
+              </div>
+              <div
+                class="item-content-row"
+                if.bind="task.type.value !== 'Text'"
+              >
+                <compose view-model.bind="viewModel"
+                         model.bind="{task: task, response: task.response}"></compose>
+              </div>
+              <div class="item-content-row" if.bind="task.response.text">
+                <div class="user-resp-text">
+                  <div class="task-response-content" innerhtml.bind="task.response.text | sanitize">
+                  </div>
+                </div>
+              </div>
+
+              <div class="item-content-row" if.bind="task.response.mediaItems.length > 0">
+                <media-grid
+                  class="media-grid"
+                  can-edit.bind="false"
+                  media-items.bind="task.response.mediaItems"
+                ></media-grid>
+              </div>
+            </div>
+
+            <!--FOOLOWUP / COMMENTS-->
+            <div class="comment-block-activity" repeat.for="followup of task.response.responses">
+              <h5 class="followups-title">
+                <div>
+                  <i class="icon-followup"></i>
+                  Followups
+                </div>
+              </h5>
+              <ul class="comment-list">
+                <comment
+                  class="comment"
+                  response.bind="followup"
+                  is-followup.bind="true"
+                  model.bind="{response: followup}"
+                ></comment>
+                <comment
+                  class="comment"
+                  repeat.for="res of followup.responses"
+                  response.bind="res"
+                  is-followup.bind="res.userId !== projectUser.userId"
+                ></comment>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

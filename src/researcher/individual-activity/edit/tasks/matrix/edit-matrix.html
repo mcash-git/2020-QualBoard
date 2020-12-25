@@ -1,0 +1,92 @@
+<template>
+  <require from="./matrix-tag-cell"></require>
+  <div class="item-content-col">
+    <div class="eb-content-section">
+      <!--<h6 class="item-content-label">${optionsHeader}</h6>-->
+      <h6 class="options-column-label"><span><i class="icon-noun_667383"></i>Column Headers</span></h6>
+      <div class="mcma-options-col-1" ref="dragContainerColumns">
+        <div class="eb-options-row" repeat.for="column of task.matrixColumns" index.bind="$index">
+          <div class="options-col">
+            <input value.bind="column.text"
+                   focus.one-time="(task.title && task.text) || column.focus"
+                   validation-state="validator.bind: task.validator; property: matrixColumns; collection-property: text; index.bind: $index"
+                   validate="validator.bind: task.validator; property: matrixColumns; collection-property: text; index.bind: $index"
+                   class="form-control form-control-sm"
+                   type="text"
+                   placeholder="Column"
+                   keyup.delegate="keyUp($event, task.matrixColumns, $index)" />
+          </div>
+          <div class="options-col">
+            <input value.bind="column.reportingAlias"
+                   class="form-control form-control-sm"
+                   type="text"
+                   placeholder="Reporting Alias"
+                   disabled.bind="!task.canEdit"
+                   keyup.delegate="keyUp($event, task.matrixColumns, $index)" />
+          </div>
+          <div class="options-control-col">
+            <div class="options-controls">
+              <i class="options-button icon-ion-android-add-circle${task.canEdit ? '' : ' disabled'}" click.delegate="add(task.matrixColumns, $index)">
+              </i>
+              <i class="options-button icon-ion-android-remove-circle${task.canEdit ? '' : ' disabled'}"
+                 click.delegate="delete(task.matrixColumns, $index)">
+              </i>
+              <i class="options-button icon-ion-arrow-move handle${task.canEdit ? '' : ' disabled'}"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h6 class="options-column-label"><span><i class="icon-noun_667388"></i>Row Headers</span></h6>
+      <div class="mcma-options-col-2" ref="dragContainerRows">
+        <div class="eb-options-row" repeat.for="row of task.matrixRows" index.bind="$index">
+          <div class="options-col">
+            <input value.bind="row.text"
+                   validation-state="validator.bind: task.validator; property: matrixRows; collection-property: text; index.bind: $index"
+                   validate="validator.bind: task.validator; property: matrixRows; collection-property: text; index.bind: $index"
+                   focus.one-time="row.focus"
+                   class="form-control form-control-sm"
+                   type="text"
+                   placeholder="Row"
+                   keyup.delegate="keyUp($event, task.matrixRows, $index)">
+          </div>
+          <div class="options-control-col">
+            <div class="options-controls">
+              <i class="options-button icon-ion-android-add-circle${task.canEdit ? '' : ' disabled'}" click.delegate="add(task.matrixRows, $index)"></i>
+              <i class="options-button icon-ion-android-remove-circle${task.canEdit ? '' : ' disabled'}" click.delegate="delete(task.matrixRows, $index)">
+              </i>
+              <i class="options-button icon-ion-arrow-move handle${task.canEdit ? '' : ' disabled'}"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h6 class="options-column-label" click.delegate="isGroupTagsVisible = !isGroupTagsVisible">
+        <span><i class="icon-ion-pricetag"></i>Group Tags</span>
+        <a class="attachments-toggle" >
+          <i class=" icon-ion-chevron-${isGroupTagsVisible ? 'up' : 'down'}"></i>
+        </a>
+      </h6>
+      <div class="mcma-options-col-3 tags-matrix" show.bind="isGroupTagsVisible">
+        <div class="table-wrapper">
+          <table class="table table-striped table-bordered grid-table">
+            <thead>
+            <tr>
+              <th>&nbsp;</th>
+              <th repeat.for="col of task.matrixColumns">${col.text}</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr repeat.for="row of task.matrixRows">
+              <td class="row-hidden">
+                <div class="row-value">${row.text}</div>
+              </td>
+              <td repeat.for="col of task.matrixColumns">
+                <matrix-tag-cell column-id.bind="col.columnId" row-id.bind="row.rowId" task.bind="task"></matrix-tag-cell>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

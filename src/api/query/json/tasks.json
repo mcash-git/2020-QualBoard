@@ -1,0 +1,326 @@
+[{
+  "id": "820afeb1-f994-4371-852b-622a73f9a266",
+  "sortOrder": 0,
+  "type": 1,
+  "title": "Welcome!",
+  "text": "<p>Welcome to the activity!</p>",
+  "media": []
+}, {
+  "id": "820afeb1-f994-4371-852b-622a73f9a266",
+  "sortOrder": 2,
+  "type": 0,
+  "media": [{
+    "id": 1,
+    "url": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/submerged.jpg"
+  }, {
+    "id": 2,
+    "url": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/look-out.jpg"
+  }, {
+    "id": 3,
+    "url": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/one-world-trade.jpg"
+  }, {
+    "id": 4,
+    "url": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/drizzle.jpg"
+  }, {
+    "id": 5,
+    "url": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/cat-nose.jpg"
+  }],
+  "title": "First product",
+  "text": "<p>What product did you use first today? Why?</p>",
+  "mediaRequired": false,
+  "textRequired": false
+}, {
+  "id": "f856f862-89f5-49a5-a8a0-4b564667b02b",
+  "sortOrder": 1,
+  "type": 2,
+  "media": [{
+    "id": 1,
+    "url": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/submerged.jpg"
+  }, {
+    "id": 2,
+    "url": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/look-out.jpg"
+  }, {
+    "id": 3,
+    "url": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/one-world-trade.jpg"
+  }, {
+    "id": 4,
+    "url": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/drizzle.jpg"
+  }, {
+    "id": 5,
+    "url": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/cat-nose.jpg"
+  }],
+  "autoWrapOptions": true,
+  "title": "Second product",
+  "text": "<p>What product did you use second today? Why?</p>",
+  "mediaRequired": true,
+  "textRequired": true,
+  "options": {
+    "cea822d2-7d68-4d96-809f-00140e200d8b": {
+      "optionId": "cea822d2-7d68-4d96-809f-00140e200d8b",
+      "text": "Potatoes",
+      "sortOrder": 4,
+      "groupTags": ["Group 1", "Group 2"]
+    },
+    "b3d9fdbb-4713-4076-8fc0-d1ef2b3239bd": {
+      "optionId": "b3d9fdbb-4713-4076-8fc0-d1ef2b3239bd",
+      "text": "Carrots",
+      "sortOrder": 0,
+      "groupTags": ["Group 1", "Group 2"]
+    },
+    "468f1e8c-1469-48d3-bb69-0a16ceb2835e": {
+      "optionId": "468f1e8c-1469-48d3-bb69-0a16ceb2835e",
+      "text": "Parsnips",
+      "sortOrder": 3,
+      "groupTags": ["Group 1", "Group 2"]
+    },
+    "9683b296-7f28-4ddb-a92e-a389a454c41d": {
+      "optionId": "9683b296-7f28-4ddb-a92e-a389a454c41d",
+      "text": "Spinach",
+      "sortOrder": 6,
+      "groupTags": ["Group 1", "Group 2"]
+    },
+    "7f86390a-918f-49f7-8dc4-43785e3a9d08": {
+      "optionId": "7f86390a-918f-49f7-8dc4-43785e3a9d08",
+      "text": "Celery",
+      "sortOrder": 1,
+      "groupTags": ["Group 1", "Group 2"]
+    },
+    "8b794fe2-9ca5-4a31-bf15-5affc369e805": {
+      "optionId": "8b794fe2-9ca5-4a31-bf15-5affc369e805",
+      "text": "Devil's Cabbage",
+      "sortOrder": 2,
+      "groupTags": ["Group 1", "Group 2"]
+    },
+    "9bf4af0f-fa59-41d7-a212-48cbfc4d3361": {
+      "optionId": "9bf4af0f-fa59-41d7-a212-48cbfc4d3361",
+      "text": "Yams",
+      "sortOrder": 7,
+      "groupTags": ["Group 1", "Group 2"]
+    },
+    "7d1d3226-a257-49ea-81de-424b6b0c4477": {
+      "optionId": "7d1d3226-a257-49ea-81de-424b6b0c4477",
+      "text": "Radishes",
+      "sortOrder": 5,
+      "groupTags": ["Group 1", "Group 2"]
+    }
+  }
+}, {
+  "id": "f67dbf4c-ff4c-4918-b7e9-9f64fa09b3d1",
+  "sortOrder": 4,
+  "type": 3,
+  "media": [{
+    "id": 1,
+    "url": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/submerged.jpg"
+  }, {
+    "id": 2,
+    "url": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/look-out.jpg"
+  }, {
+    "id": 3,
+    "url": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/one-world-trade.jpg"
+  }, {
+    "id": 4,
+    "url": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/drizzle.jpg"
+  }, {
+    "id": 5,
+    "url": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/cat-nose.jpg"
+  }],
+  "title": "Third product",
+  "text": "<p>Select the vegetables that you use in recipes the most:</p>",
+  "mediaRequired": false,
+  "textRequired": false,
+  "autoWrapOptions": false,
+  "minimumOptionsRequired": 1,
+  "maximumOptionsLimit": 2,
+  "options": {
+    "cea822d2-7d68-4d96-809f-00140e200d8b": {
+      "optionId": "cea822d2-7d68-4d96-809f-00140e200d8b",
+      "text": "Potatoes",
+      "sortOrder": 4,
+      "groupTags": ["Group 1", "Group 2"]
+    },
+    "b3d9fdbb-4713-4076-8fc0-d1ef2b3239bd": {
+      "optionId": "b3d9fdbb-4713-4076-8fc0-d1ef2b3239bd",
+      "text": "Carrots",
+      "sortOrder": 0,
+      "groupTags": ["Group 1", "Group 2"]
+    },
+    "468f1e8c-1469-48d3-bb69-0a16ceb2835e": {
+      "optionId": "468f1e8c-1469-48d3-bb69-0a16ceb2835e",
+      "text": "Parsnips",
+      "sortOrder": 3,
+      "groupTags": ["Group 1", "Group 2"]
+    },
+    "9683b296-7f28-4ddb-a92e-a389a454c41d": {
+      "optionId": "9683b296-7f28-4ddb-a92e-a389a454c41d",
+      "text": "Spinach",
+      "sortOrder": 6,
+      "groupTags": ["Group 1", "Group 2"]
+    },
+    "7f86390a-918f-49f7-8dc4-43785e3a9d08": {
+      "optionId": "7f86390a-918f-49f7-8dc4-43785e3a9d08",
+      "text": "Celery",
+      "sortOrder": 1,
+      "groupTags": ["Group 1", "Group 2"]
+    },
+    "8b794fe2-9ca5-4a31-bf15-5affc369e805": {
+      "optionId": "8b794fe2-9ca5-4a31-bf15-5affc369e805",
+      "text": "Devil's Cabbage",
+      "sortOrder": 2,
+      "groupTags": ["Group 1", "Group 2"]
+    },
+    "9bf4af0f-fa59-41d7-a212-48cbfc4d3361": {
+      "optionId": "9bf4af0f-fa59-41d7-a212-48cbfc4d3361",
+      "text": "Yams",
+      "sortOrder": 7,
+      "groupTags": ["Group 1", "Group 2"]
+    },
+    "7d1d3226-a257-49ea-81de-424b6b0c4477": {
+      "optionId": "7d1d3226-a257-49ea-81de-424b6b0c4477",
+      "text": "Radishes",
+      "sortOrder": 5,
+      "groupTags": ["Group 1", "Group 2"]
+    }
+  }
+}, {
+  "id": "5535ec90-656d-4465-872e-b8619986427a",
+  "sortOrder": 3,
+  "type": 4,
+  "media": [{
+    "id": 1,
+    "url": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/submerged.jpg"
+  }, {
+    "id": 2,
+    "url": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/look-out.jpg"
+  }, {
+    "id": 3,
+    "url": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/one-world-trade.jpg"
+  }, {
+    "id": 4,
+    "url": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/drizzle.jpg"
+  }, {
+    "id": 5,
+    "url": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/cat-nose.jpg"
+  }],
+  "title": "Fourth product",
+  "text": "<p>Something something something?  Elaborate in the comment section below.</p>",
+  "textRequired": true,
+  "matrixColumns": {
+    "f4839435-f4c3-418d-9bbf-d053db97424e": {
+      "columnId": "f4839435-f4c3-418d-9bbf-d053db97424e",
+      "text": "Slightly Unlikely",
+      "sortOrder": 3,
+      "groupTags": ["Group 1", "Group 2"]
+    },
+    "ef1f9c26-8602-45a4-8d89-716f5afd1cf9": {
+      "columnId": "ef1f9c26-8602-45a4-8d89-716f5afd1cf9",
+      "text": "Unlikely",
+      "sortOrder": 2,
+      "groupTags": ["Group 1", "Group 2"]
+    },
+    "606d114a-3426-45a9-9400-6d5f71e88d3a": {
+      "columnId": "606d114a-3426-45a9-9400-6d5f71e88d3a",
+      "text": "Extremely Unlikely",
+      "sortOrder": 0,
+      "groupTags": ["Group 1", "Group 2"]
+    },
+    "824da69b-d0a5-4324-a849-844b00723c9a": {
+      "columnId": "824da69b-d0a5-4324-a849-844b00723c9a",
+      "text": "Likely",
+      "sortOrder": 6,
+      "groupTags": ["Group 1", "Group 2"]
+    },
+    "a10134a9-4f71-4ba6-8755-b85a10db393f": {
+      "columnId": "a10134a9-4f71-4ba6-8755-b85a10db393f",
+      "text": "Very Likely",
+      "sortOrder": 7,
+      "groupTags": ["Group 1", "Group 2"]
+    },
+    "7fdd92f3-61ef-4754-a7ea-c2def8c7e543": {
+      "columnId": "7fdd92f3-61ef-4754-a7ea-c2def8c7e543",
+      "text": "Extremely Likely",
+      "sortOrder": 8,
+      "groupTags": ["Group 1", "Group 2"]
+    },
+    "19aa5841-05f1-4432-a0ad-b9ddf960614e": {
+      "columnId": "19aa5841-05f1-4432-a0ad-b9ddf960614e",
+      "text": "Not Applicable",
+      "sortOrder": 9,
+      "groupTags": ["Group 1", "Group 2"]
+    },
+    "018d9f80-6d96-44ad-b18a-9a43416bc7b6": {
+      "columnId": "018d9f80-6d96-44ad-b18a-9a43416bc7b6",
+      "text": "Neutral",
+      "sortOrder": 4,
+      "groupTags": ["Group 1", "Group 2"]
+    },
+    "4480c39b-bc82-4224-85ab-5e086ff70b17": {
+      "columnId": "4480c39b-bc82-4224-85ab-5e086ff70b17",
+      "text": "Slightly Likely",
+      "sortOrder": 5,
+      "groupTags": ["Group 1", "Group 2"]
+    },
+    "dcc78c88-5a50-4b91-8b11-6de1208f54f9": {
+      "columnId": "dcc78c88-5a50-4b91-8b11-6de1208f54f9",
+      "text": "Very Unlikely",
+      "sortOrder": 1,
+      "groupTags": ["Group 1", "Group 2"]
+    }
+  },
+  "matrixRows": {
+    "cea822d2-7d68-4d96-809f-00140e200d8b": {
+      "rowId": "cea822d2-7d68-4d96-809f-00140e200d8b",
+      "text": "Potatoes",
+      "sortOrder": 4,
+      "groupTags": ["Group 1", "Group 2"]
+    },
+    "b3d9fdbb-4713-4076-8fc0-d1ef2b3239bd": {
+      "rowId": "b3d9fdbb-4713-4076-8fc0-d1ef2b3239bd",
+      "text": "Carrots",
+      "sortOrder": 0,
+      "groupTags": ["Group 1", "Group 2"]
+    },
+    "468f1e8c-1469-48d3-bb69-0a16ceb2835e": {
+      "rowId": "468f1e8c-1469-48d3-bb69-0a16ceb2835e",
+      "text": "Parsnips",
+      "sortOrder": 3,
+      "groupTags": ["Group 1", "Group 2"]
+    },
+    "9683b296-7f28-4ddb-a92e-a389a454c41d": {
+      "rowId": "9683b296-7f28-4ddb-a92e-a389a454c41d",
+      "text": "Spinach",
+      "sortOrder": 6,
+      "groupTags": ["Group 1", "Group 2"]
+    },
+    "7f86390a-918f-49f7-8dc4-43785e3a9d08": {
+      "rowId": "7f86390a-918f-49f7-8dc4-43785e3a9d08",
+      "text": "Celery",
+      "sortOrder": 1,
+      "groupTags": ["Group 1", "Group 2"]
+    },
+    "8b794fe2-9ca5-4a31-bf15-5affc369e805": {
+      "rowId": "8b794fe2-9ca5-4a31-bf15-5affc369e805",
+      "text": "Devil's Cabbage",
+      "sortOrder": 2,
+      "groupTags": ["Group 1", "Group 2"]
+    },
+    "9bf4af0f-fa59-41d7-a212-48cbfc4d3361": {
+      "rowId": "9bf4af0f-fa59-41d7-a212-48cbfc4d3361",
+      "text": "Yams",
+      "sortOrder": 7,
+      "groupTags": ["Group 1", "Group 2"]
+    },
+    "7d1d3226-a257-49ea-81de-424b6b0c4477": {
+      "rowId": "7d1d3226-a257-49ea-81de-424b6b0c4477",
+      "text": "Radishes",
+      "sortOrder": 5,
+      "groupTags": ["Group 1", "Group 2"]
+    }
+  }
+}, {
+  "id": "820afeb1-f994-4371-852b-622a73f9a266",
+  "sortOrder": 100,
+  "type": 1,
+  "title": "All done!",
+  "text": "<p>Thanks for participating!</p><p>Check back again <b>tomorrow</b> to complete the activity again!</p>",
+  "media": []
+}]

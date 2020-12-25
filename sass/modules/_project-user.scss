@@ -1,0 +1,553 @@
+.user-avatar {
+  width: 35px;
+  height: 30px;
+  overflow: visible;
+
+  img {
+    border-radius: 100px;
+    border: 1px solid rgba(0,0,0,.4);
+    height: 30px;
+    width: 30px;
+  }
+}
+
+user-card {
+  cursor: pointer;
+}
+
+.card-grid-user {
+  display: block;
+  position: relative;
+
+  width: 100%;
+  padding-left: 2rem;
+  font-size: .875rem;
+
+  &.disabled {
+    .card-header {
+      .disabled-icon {
+        display: flex ;
+      }
+    }
+  }
+
+  .card {
+    @extend .card-shadow;
+    position: relative;
+    display: block;
+    float: left;
+    width: 100%;
+    padding: 0;
+    list-style: none;
+    margin-bottom: .5rem;
+    font-size: .75rem;
+    border: 0;
+
+    .checker-container {
+      position: absolute;
+      left: -32px;
+      top: 0;
+
+    }
+  }
+
+  .card-user-row {
+    position: relative;
+    float: left;
+    display: block;
+    width: 100%;
+    padding: .3rem;
+
+    @include media-breakpoint-down(sm) {
+
+      .card-header {
+        //padding: .5rem;
+        float: none;
+        width: 100%;
+        height: auto;
+      }
+
+      .user-stats {
+        float: none;
+        width: 100%;
+        height: auto;
+        padding-top: .5rem;
+      }
+    }
+
+    &.participant {
+      &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 4px;
+        z-index: 10;
+      }
+
+      &.last-24:before {
+        background-color: $last-24;
+      }
+
+      &.last-48:before {
+        background-color: $last-48;
+      }
+
+      &.not-last-48:before {
+        background-color: $not-last-48;
+      }
+
+      &.never-posted:before {
+        background-color: $never-posted;
+      }
+
+      &.never-signed-in:before {
+        background-color: $never-signed-in;
+      }
+    }
+  }
+
+  .card-header {
+    display: inline-block;
+    background-color: #fff;
+    color: $body-color;
+    padding: 0;
+    float: left;
+    width: 40%;
+    font-weight: 400;
+    border-bottom: 0;
+    height: 100%;
+
+    @include media-breakpoint-down(sm) {
+      border-bottom: 1px solid $separator-color;
+      padding-bottom: .5rem;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    .card-header-wrapper {
+      display: block;
+      float: left;
+      width: 100%;
+      height: 100%;
+    }
+
+    .user {
+      position: relative;
+      display: inline-block;
+      float: left;
+      padding: 0 .5rem;
+    }
+
+    .disabled-icon {
+      display: none;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      bottom: -3px;
+      right: -3px;
+      background-color: $brand-danger;
+      padding: 5px;
+      height: 20px;
+      width: 20px;
+      border-radius: 100px;
+
+      i {
+        color: #fff;
+      }
+    }
+
+  }
+
+  .proj-user-info {
+    display: inline-block;
+    padding-left: .5rem;
+  }
+
+  .user-name {
+    font-size: .875rem;
+    font-weight: 600;
+  }
+
+  .proj-user-info-title {
+    padding-right: .3rem;
+  }
+
+  .avatar {
+    @include avatar-size(40px, 3px);
+
+    img {
+      background-color: #fff;
+    }
+  }
+
+  //Stats showing a users project or event egagement
+
+    .user-stats {
+      display: inline-block;
+      float: left;
+      width: 60%;
+      height: 100%;
+      color: #fff;
+    }
+
+    .user-stats-container {
+      display: inline-block;
+      float: left;
+      width: 100%;
+      height: 100%;
+    }
+
+    .user-groups-container {
+      //transition: all 0.2s ease-in-out;
+      display: none;
+      height: 0;
+      opacity: 0;
+
+      &.visible {
+        display: block;
+        height: auto;
+        max-height: 100% !important;
+        opacity: 1;
+        width: 100%;
+        float: left;
+        background-color: rgba(0,0,0,.1);
+        border-top: 1px solid $separator-color;
+        border-right: 0;
+        padding: .5rem;
+      }
+    }
+
+
+  .proj-user-stat {
+    float: left;
+    width: 20%;
+    text-align: center;
+    color: $gray;
+    border-right: 1px solid rgba(0,0,0,.2);
+    padding: 0 .5rem;
+    max-height: 66px;
+
+    &:first-of-type {
+      border-left: 1px solid rgba(0,0,0,.2);
+
+      &.groups-detail {
+        border-left: 0;
+      }
+    }
+
+    &:last-of-type {
+      border-right: 0;
+    }
+
+    &.groups-detail {
+      min-height: initial !important;
+      max-height: initial !important;
+    }
+
+    &.stat-groups {
+      position: relative;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $gray-lightest;
+      }
+
+      .chevron {
+        font-size: 1rem;
+        position: absolute;
+        top: -2px;
+        right: 5px;
+      }
+    }
+
+    .user-stat-title {
+      font-size: .625rem;
+      font-weight: 600;
+      margin-bottom: 0;
+      text-transform: uppercase;
+    }
+
+    .stat-text {
+      font-size: 1.2rem;
+      font-weight: 400;
+      padding: .2rem 0;
+      color: $new-accent-1;
+      white-space: nowrap;
+    }
+
+    .user-stat-footer-label {
+      font-size: .625rem;
+    }
+
+    .btn-stat-toggle {
+      @include transition(all .2s ease-in-out);
+      display: inline-block;
+      background-color: $gray-lightest;
+      color: $gray;
+      border: 1px solid darken($gray-lightest, 5%);
+      padding: 0 1rem;
+      border-radius: 100px;
+      text-transform: none;
+
+      &:hover {
+        background-color: darken($gray-lightest, 5%);
+      }
+
+      &:not(.disabled) {
+        cursor: pointer;
+      }
+    }
+
+    &.groups-detail {
+      width: 100%;
+      text-align: left;
+
+      @include media-breakpoint-down(sm) {
+
+      }
+
+      @include media-breakpoint-down(xs) {
+      }
+
+      .user-stat-row {
+        width: 100%;
+        display: flex;
+        flex: 1;
+      }
+
+      .user-stat-title {
+        text-align: left;
+        text-transform: uppercase;
+        font-size: .625rem;
+        font-weight: 600;
+
+        i {
+          font-size: 1.1rem;
+        }
+      }
+
+      .group-tags {
+        width: 100%;
+
+        .form-group {
+          margin-bottom: 0;
+        }
+      }
+    }
+    .group-tags-tray-header-row {
+      display: inline-block;
+      width: 100%;
+      padding-bottom: .2rem;
+
+      .user-stat-title {
+        display: block;
+        float: left;
+        margin-bottom: 0;
+        line-height: 1.5rem;
+        font-size: .75rem;
+      }
+
+      .group-tags-btn-container {
+        display: block;
+        float: right;
+      }
+
+      .btn {
+        display: inline-block;
+        &:first-of-type {
+          margin-right: .5rem;
+        }
+      }
+  }
+
+  //Refers to a specific stats active state
+  .stat-groups {
+    &.active {
+      &:before {
+        content: '';
+        position: absolute;
+        bottom:-7px;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 8px 8px 0 8px;
+        border-color: #7a7f84 transparent transparent transparent;
+        z-index: 2;
+      }
+    }
+  }
+}
+
+// Describes responsive styles in the project and event user views when a sidebar is present
+.panel-aware {
+  // Filters
+  .data-list-header {
+    @include media-breakpoint-down(md) {
+      flex-direction: column-reverse;
+      align-items: flex-start;
+    }
+  }
+
+  .select-container {
+    @include media-breakpoint-down(md) {
+      padding: calc(.5rem/2) 0;
+      width: 100%;
+      justify-content: space-between;
+    }
+  }
+
+  .action-container {
+    @include media-breakpoint-down(md) {
+      width: 100%;
+      padding: calc(.5rem/2) 0;
+      justify-content: space-between;
+
+      .engagement-legend {
+        padding-left: .5rem;
+      }
+    }
+  }
+
+  // Stats
+  .card-user-row {
+    @media (max-width: 1030px) {
+      flex-direction: column;
+
+      .card-header {
+        padding: .5rem;
+        flex: 1 auto;
+      }
+
+      .user-stats {
+        flex: 1 50%;
+      }
+    }
+  }
+}
+
+// Describes the useres represented in the groups view
+
+  &.group-user {
+    padding-left: 2rem;
+
+    &:last-of-type {
+      margin-bottom: 100px;
+    }
+
+    .card {
+      font-size: .75rem;
+      cursor: pointer;
+      padding: .5rem;
+
+      @include media-breakpoint-down(md) {
+        &:before {
+          display: none;
+        }
+      }
+
+      &:before {
+        content: '';
+        position: absolute;
+        top: 10%;
+        left: 40%;
+        height: 80%;
+        width: 1px;
+        background-color: $separator-color;
+      }
+
+      .checker-container {
+        position: absolute;
+        left: -32px;
+      }
+    }
+
+    .card-header {
+      background-color: transparent;
+      border: 0;
+      color: $body-color;
+      height: auto;
+      width: 40%;
+
+      @include media-breakpoint-down(md) {
+        float: none;
+        width: 100%;
+      }
+
+    }
+
+    .user-stats {
+      display: none;
+    }
+
+    .proj-user-info {
+      padding: 0;
+    }
+
+    .proj-user-stat.groups-detail {
+
+      width: auto;
+      background-color: transparent;
+      border-top: 0;
+
+      @include media-breakpoint-down(md) {
+        border-top: 1px solid $separator-color;
+        padding: .5rem 0 0 0;
+        width: 100%;
+      }
+
+      .tag {
+        font-size: .75rem;
+      }
+    }
+
+    .tags-row {
+      flex: 1;
+
+      .tag {
+        margin: .1rem;
+
+      }
+    }
+  }
+}
+//  Describes users displayed in the invite users modal
+
+.custom-modal.users-modal {
+
+    .inner-content-div {
+      padding: 5px;
+    }
+
+  .card {
+    padding: 0;
+  }
+  .card-header {
+    background-color: #fff;
+    color: inherit;
+    border-bottom: 0;
+
+    & .user-name, .user-display-name, .user-email, .user-last-login {
+      font-size: .75rem;
+    }
+  }
+
+  .user-name {
+    font-weight: 600;
+  }
+
+  .user-stats {
+    display: none;
+  }
+
+  .user-last-login {
+    display: none;
+  }
+
+  .c-modal-footer {
+    border-top: 1px solid $separator-color;
+  }
+}

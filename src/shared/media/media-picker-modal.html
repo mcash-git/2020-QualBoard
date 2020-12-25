@@ -1,0 +1,86 @@
+<template>
+  <require from="./media-upload-area"></require>
+  <require from="./media-pagination"></require>
+
+  <form select-page.delegate="handleSelectPage($event)"
+        delete-asset.delegate="handleDeleteAsset($event)"
+        cancel-asset-upload.delegate="handleCancelAssetUpload($event)">
+    <div class="full-screen-modal media-picker">
+      <div class="modal-container">
+          <div class="modal-close" click.delegate="close()">
+        <i class="icon-close"></i>
+          </div>
+          <div class="c-modal-title">
+            <h5>Choose Media</h5>
+            <p class="media-picker-instructions">
+              Select from media you have already uploaded. To upload new
+              media, click upload or just drag your files to the gallery.
+            </p>
+
+            <div class="actions-row no-margin">
+              <button ref="addFilesButton" class="btn btn-lg btn-primary"
+                      click.delegate="mediaUploadArea.openFileDialog($event)">
+                Add Files
+              </button>
+              <!-- search isn't implemented yet
+              <div class="search">
+                <form action="">
+                  <i class="icon-ion-android-search"></i>
+                <input class="form-control" type="text" placeholder="Search Media" value.bind="searchText"
+                       keyup.delegate="searchMedia()">
+                </form>
+              </div>
+              -->
+            </div>
+          </div>
+          <div class="c-modal-body">
+
+
+              <media-upload-area
+                view-model.ref="mediaUploadArea"
+                asset-scope.bind="assetScope"
+                selected-assets.bind="selectedAssets"
+                can-select-multiple.bind="canSelectMultiple"
+                mode="select"
+                on-before-upload.call="attachNames(fileList)"
+                current-page.bind="currentPage"
+                class="media-picker-section"
+                project-id.bind="projectId"
+                account-id.bind="accountId"
+              ></media-upload-area>
+
+              <!--On small screens we will hide the "Media Label Column" of the modal and give the user a next button to move between panels-->
+
+            <!--This is the panel for the google image search. May not be MVP but wanted to have a place for it-->
+            <!--<div class="tab-pane" id="profile" role="tabpanel">-->
+            <!--<div class="media-search-row">-->
+            <!--<input class="form-control" type="text" placeholder="Search Web Images">-->
+            <!--</div>-->
+            <!--</div>-->
+
+          </div>
+          <div class="c-modal-footer media-picker-footer">
+            <!--Pagination Row-->
+            <div class="media-picker-footer-section selected-indicator">
+              <div class="num-media-selected">
+                <span class="badge selected">${selectedAssets.length}</span>
+                <span class="badge-description">selected</span>
+              </div>
+            </div>
+            <div class="media-picker-footer-section pagination-container" if.bind="currentPage.totalPages > 1">
+              <media-pagination
+                                page-summary.bind="currentPage"></media-pagination>
+            </div>
+            <!--Footer Buttons-->
+            <div class="media-picker-btn-row">
+              <button class="btn btn-lg btn-outline-secondary" click.delegate="close()">Cancel</button>
+              <button class="btn btn-lg btn-primary" click.delegate="confirmSelectedAssets()"
+                      disabled.bind="!selectedAssets || selectedAssets.length === 0">Attach
+              </button>
+            </div>
+          </div>
+      </div>
+    </div>
+
+  </form>
+</template>

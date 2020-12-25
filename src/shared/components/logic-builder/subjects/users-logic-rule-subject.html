@@ -1,0 +1,25 @@
+<template>
+  <div
+    if.bind="subject.availableUsers.length === 0"
+    class="no-users-note"
+  >
+    <i class="icon-warning"></i>
+    <span>
+      You must first add some participants to the activity.
+    </span>
+  </div>
+  <tag-input
+    if.bind="subject.availableUsers.length > 0"
+    source-items.bind="subject.availableUsers"
+    tag-view-model="shared/components/user-tag-input-item"
+    autocomplete-search-fields.one-way="['displayName', 'firstName', 'lastName', 'email']"
+    autocomplete-sort-field="displayName"
+    autocomplete-min-chars="0"
+    autocomplete-sort-direction="asc"
+    should-allow-add.bind="false"
+    placeholder-text="Choose some users..."
+    value.bind="subject.users"
+    mini.bind="true"
+    display-property="displayName"
+  ></tag-input>
+</template>

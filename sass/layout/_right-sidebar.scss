@@ -1,0 +1,219 @@
+.tt_qb_sidebar-wrapper.right {
+  background-color: #fff;
+  border-left: 1px solid $separator-color;
+  font-size: .75rem;
+
+  .sidebar-header {
+    .title {
+      display: flex;
+      align-items: center;
+      font-size: 1rem;
+      margin-bottom: 0;
+      color: $transparent-gray-dark;
+
+      i {
+        padding-right: .3rem;
+      }
+
+      .badge {
+        margin-right: .3rem;
+      }
+    }
+  }
+
+  .sidebar-header-left {
+
+  }
+
+  .sidebar-header-right {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $brand-primary-lightest;
+    border-bottom: 1px solid $separator-color;
+    padding: 0 .5rem;
+    height: $right-sidebar-header-height;
+
+    .close {
+      padding-top: .125rem;
+    }
+  }
+
+  .sidebar-content {
+    height: 100%;
+  }
+
+  .sidebar-section {
+    padding: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  }
+
+  // Describes each section title
+  .sidebar-section-title {
+    @extend.flex-row;
+    align-items: center;
+    font-size: .75rem;
+    font-weight: 600;
+    justify-content: space-between;
+    margin: 1rem 0 .5rem 0;
+    text-transform: uppercase;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  // Styles for flex columns and rows within the sidebar
+  .sidebar-row {
+    @extend.flex-row;
+    margin-bottom: .5rem;
+
+    .settings-row-label {
+      display: flex;
+      align-items: center;
+    }
+
+    .checkbox {
+      margin-bottom: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .sidebar-settings-column {
+    @extend.flex-column;
+    margin-bottom: 1rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .help-hover {
+    font-size: 1rem;
+    margin-left: .5rem;
+    color: $gray;
+  }
+
+  // Container for on/off toggle setting inside the builder settings sidebar
+  .setting-toggle {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  //Sidebar accordion styles
+
+  .filter-accordion {
+    width: 100%;
+
+    .card {
+      border: none;
+
+      &:last-child {
+        margin-bottom: 50vh;
+      }
+
+      date-picker input {
+        margin-bottom: .75rem;
+      }
+    }
+    .card-header {
+      @extend %unbutton;
+      @include hoverDarkenColor($brand-primary);
+      align-items: center;
+
+      background-color: #fff;
+      padding: 0;
+      border-radius: 0;
+      border-bottom: $border-gray-transparent;
+
+      &:hover {
+        background-color: lighten($link-color, 55%);
+      }
+
+      h5 {
+        display: flex;
+        width: 100%;
+        font-size: .875rem;
+        margin-bottom: 0;
+        padding: .5rem;
+
+        .required-label {
+          padding-left: .3rem;
+        }
+
+        a {
+          display: flex;
+          flex: 1;
+          align-items: center;
+          justify-content: space-between;
+          min-height: 35px;
+
+          &:hover,&:focus,&:active,&:visited {
+            text-decoration: none;
+          }
+
+        }
+      }
+
+      .card-header-title {
+        justify-content: space-between;
+        min-height: 35px;
+
+        .filter-section-toggle-icon {
+          position: relative;
+          top: 2px;
+          padding-left: .5rem;
+        }
+      }
+    }
+    .card-block {
+      background-color: lighten($gray-lightest, 8%);
+      border-bottom: 1px solid $separator-color;
+
+      .form-inline-custom {
+        &:last-of-type {
+          .form-group {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+
+    logic-engine-rules {
+      .sidebar-section {
+        padding: 0;
+      }
+    }
+
+    .label {
+      margin-bottom: .5rem;
+      display: inline-block;
+    }
+
+    .flatpickr-input, .input-group.date .input-group-addon {
+      margin-bottom: .75rem;
+    }
+
+    .custom-control {
+      display: block;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  // Defines scrolling containers for the sidebar
+  .outer-content {
+    padding: 0;
+    height: calc(100% - #{$right-sidebar-header-height});
+
+    .inner-conntent-div {
+
+    }
+  }
+}

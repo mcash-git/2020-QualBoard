@@ -1,0 +1,148 @@
+
+// TRUNCATE ONE LINE OF TEXT
+.truncate-ellipsis {
+  display: table;
+  table-layout: fixed;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.truncate-ellipsis > * {
+  display: table-cell;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: initial;
+}
+
+// Used to apply negative left and right margin for an edge to edge design on some views
+
+.no-margin-horizontal {
+  margin: 0 -1rem !important;
+}
+
+// BOX SHADOW FOR CARDS
+.card-shadow {
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 1px 5px 0 rgba(0,0,0,0.12),0 3px 1px -2px rgba(0,0,0,0.2);
+  transition: all 0.2s ease-in-out;
+}
+
+// Hover State for Cards
+
+.card-hover {
+  &:hover {
+    cursor: pointer;
+
+    .card-header {
+      background-color: darken($brand-primary, 5%);
+    }
+  }
+}
+
+// Hover State for Media
+
+.media-card-hover {
+  transition: box-shadow .2s ease-in-out;
+  cursor: pointer;
+
+  &:hover{
+    @extend .card-shadow;
+  }
+}
+
+// Styles for dropzone areas and default instructional states
+.media-drop-target {
+  transition: all .3s ease-in-out;
+  flex: 1;
+
+  &:hover {
+    cursor: pointer;
+    background-color: $transparent-gray-lighter;
+  }
+}
+
+.no-media-msg {
+  position: absolute;
+  top: calc(50% - 5rem/2);
+  left: 0;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  color: darken($app-bg, 40%);
+  font-size: 1.5rem;
+
+  i {
+    font-size: 5rem;
+  }
+
+  @include media-breakpoint-down(sm) {
+    font-size: 1rem;
+    i {
+      font-size: 3rem;
+    }
+  }
+}
+
+// Stat Selected State
+.stat-selected {
+  &:before {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .2);
+    top: 0;
+    left: 0;
+    z-index: 1;
+    box-shadow: inset 0 0 3px 0 rgba(0,0,0,.5);
+  }
+}
+
+// Transition Content
+
+
+
+// Fade Content
+.fade-content {
+  transition: all .2s ease-in-out;
+  opacity: 1;
+}
+
+
+// Font icon sizes
+
+.icon2x {
+  font-size: 1.125rem !important;
+}
+
+.icon3x {
+  font-size: 1.5rem !important;
+}
+
+.icon4x {
+ font-size: 1.75rem !important;
+}
+
+.icon5x {
+  font-size: 2rem !important;
+}
+
+// Button Helpers
+.btn-flex-wrapper {
+  display: flex;
+  align-items: center;
+
+  i.icon-call_split {
+    font-size: 1rem;
+  }
+}
+
+
+.hide-scroll {
+  -ms-overflow-style: none;  // IE 10+
+  overflow: -moz-scrollbars-none;  // Firefox
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}

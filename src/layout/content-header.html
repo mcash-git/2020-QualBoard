@@ -1,0 +1,60 @@
+<template>
+  <require from="layout/breadcrumb/bread"></require>
+  <require from="./action-bar"></require>
+  <!--New Content Header Component-->
+
+  <div class="bg-image" element.ref="bgImg">
+    <div class="background"></div>
+  </div>
+  <section class="tt_qb_content-header" if.bind="shouldShowContentHeader">
+    <div class="tt_qb_content-header-top">
+      <div class="tt_qb_header-info">
+        <div class="tt_qb_header-breadcrumbs">
+          <!-- breadcrumb handles its own state by hooking into the router/navigation in aurelia-router -->
+          <bread size="full"></bread>
+        </div>
+        <div class="tt_qb_header-titles-wrapper">
+          <a href="#"
+             class="tt_qb_content-header-back"
+             class.bind="stack.current.backButtonRoute ? '' : 'hidden'"
+             href.bind="stack.current.backButtonRoute">
+            <i class="icon-arrow_back"></i>
+          </a>
+          <h2 class="tt_qb_header-title"><i class="tt_qb_header-title-icon" class.bind="stack.current.titleIcon"></i> ${stack.current.title}</h2>
+          <h3 class="tt_qb_header-subtitle">${stack.current.subtitle}</h3>
+        </div>
+      </div>
+      <div class="tt_qb_header-stats" if.bind="stack.current.statItems && stack.current.statItems.length > 0">
+        <ul class="tt_qb_header-statblock">
+          <li class="tt_qb_header-statblock-statrow" repeat.for="statItem of stack.current.statItems">
+            <div class="tt_qb_header-statblock-stat-title">
+              <i class.bind="statItem.iconClass"></i>${statItem.title}</div>
+            <div class="tt_qb_header-statblock-stat">
+              ${statItem.value}
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <div class="tt_qb_sticky">
+    <div class="tt_qb_tabs">
+      <ul class="tabs">
+        <a href="#"
+           class="tt_qb_content-header-back"
+           class.bind="stack.current.backButtonRoute ? '' : 'hidden'"
+           href.bind="stack.current.backButtonRoute">
+          <i class="icon-arrow_back"></i>
+        </a>
+        <li class="nav-item ${navItem.isActive ? 'open' : ''}" class.bind="navItem.settings.class" repeat.for="navItem of stack.current.navItems">
+          <a class="nav-link" href.bind="navItem.href" class.bind="navItem.settings.iconClass ? has-icon : no-icon">
+            <i if.bind="navItem.settings.iconClass" class.bind="navItem.settings.iconClass"></i>
+            <span>${navItem.title}</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <action-bar class="tt_qb_tabs-actions"></action-bar>
+  </div>
+
+</template>

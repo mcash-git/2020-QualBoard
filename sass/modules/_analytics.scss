@@ -1,0 +1,692 @@
+.analytics-view {
+  display: block;
+  flex-direction: column;
+}
+
+.analytics-split-wrapper {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+
+.tt_qb_create-analytics {
+  max-width: 400px;
+  height: 100%;
+  border-right: solid $gray-lighter 1px;
+  font-size: 12px;
+
+  .filters-sec {
+    overflow-y: auto;
+  }
+
+  .form-inline-custom {
+    font-size: .75rem;
+  }
+
+  .sidebar-settings-column {
+    .btn-primary {
+      width: 100%;
+    }
+  }
+
+  .card-header {
+    background: initial;
+    font-size: .875rem;
+    cursor: pointer;
+    background-color: #fff;
+    align-items: center;
+
+    h5 {
+      width: 100%;
+      font-size: 1.0rem;
+
+      span.filter-header-right {
+        display: block;
+        float: right;
+      }
+
+      a {
+        text-decoration: none;
+      }
+    }
+  }
+
+  .card-block {
+    background-color: #fafafa;
+  }
+
+  .collapse {
+    border-bottom: solid 1px $gray-lighter;
+  }
+
+  .gallery-filters-action {
+    margin-top: auto;
+  }
+}
+
+.reports-container {
+  flex: 1 auto;
+  margin-left: -1rem;
+  margin-right: -1rem;
+  //height: 100%;
+}
+
+.reports-section {
+  display: flex;
+  flex: 1 auto;
+  background-color: $tabs-background;
+  max-height: 100%;
+}
+
+.analytics-filter-view {
+  display: flex;
+  flex: 1 auto;
+  min-width: 0;
+  min-height: 0;
+  padding-bottom: 62px;
+}
+
+.gallery-filters {
+  min-width: 400px;
+  max-width: 400px;
+
+  &.reports {
+    background-color: #fff;
+    height: 100%;
+
+    .filters-sec {
+      overflow-y: auto;
+    }
+
+    .card {
+      border-bottom: 1px solid rba(0, 0, 0, 0.19);
+    }
+
+    .card-header {
+      background-color: #fff;
+      color: $brand-primary;
+      padding: 0;
+      border-radius: 0px;
+
+      &:hover {
+        background-color: lighten($link-color, 55%);
+      }
+
+      h5 {
+        display: flex;
+        width: 100%;
+        font-size: .875rem;
+
+        a {
+          display: flex;
+          flex: 1;
+          align-items: center;
+          justify-content: space-between;
+          padding: .5rem;
+
+          &:hover,&:focus,&:active,&:visited {
+            text-decoration: none;
+          }
+
+          .required-label {
+            padding-left: .3rem;
+          }
+
+        }
+      }
+    }
+    .card-block {
+      background-color: lighten($gray-lightest, 8%);
+      border-bottom: 1px solid $separator-color;
+
+      .form-inline-custom {
+        &:last-of-type {
+          .form-group {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+//** Styles for the Analytics Filters Sidebar **//
+
+// If the project does not have enough responses to display concepts, we need to
+// hide the gallery-filters-list and display the below default
+.gallery-filters-default {
+  @extend .flex-column;
+  flex: 1 auto;
+  justify-content: center;
+  align-items: center;
+  border-left: 1px solid $separator-color;
+
+  .filter-default-message {
+    @extend .flex-column;
+    font-weight: 300;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 3rem;
+    text-align: center;
+    color: $brand-primary-lighter;
+
+    i {
+      font-size: 4rem;
+      padding-bottom: .5rem;
+    }
+  }
+}
+
+.gallery-filters-action {
+  @extend .side-panel-bottom-action;
+  background-color: $app-bg;
+
+  button {
+    width: 100%;
+    text-align: center;
+    span {
+      width: 100%;
+    }
+  }
+}
+
+//** Styles for the Analytics Cue Area **//
+
+.concept-cue-panel, .concept-cue-panel-default {
+  @extend .flex-column;
+  flex: 1 auto;
+  padding: 1rem;
+
+  .test-wrapper {
+    background-color: orange;
+    padding: 10px;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+
+  }
+  .box {
+    height: 200px;
+    width: 1800px;
+    background-color: blue;
+    flex: 0 0 auto;
+  }
+}
+
+// Default Styles for the Analytics Cue Area
+.concept-cue-panel-default {
+  justify-content: center;
+  align-items: center;
+
+  .concept-cue-default-message {
+    @extend .flex-column;
+    font-weight: 300;
+    font-size: 1.5rem;
+    color: $gray-light;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+    max-width: 50%;
+    margin-top: 0;
+
+    i {
+      font-size: 5rem;
+      padding-bottom: 1rem;
+    }
+
+    @include media-breakpoint-down(md) {
+      max-width: 70%;
+    }
+
+    @include media-breakpoint-down(sm) {
+      max-width: 100%;
+    }
+  }
+}
+
+.concept-table {
+  .concept-status {
+    padding: .5rem;
+    vertical-align: middle;
+    text-align: center;
+
+    .concept-status-icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &:hover {
+        text-decoration: none;
+      }
+      &:focus {
+        text-decoration: none;
+      }
+      i {
+        font-size: 25px;
+      }
+    }
+  }
+}
+
+// Styles for the Concept Detail View
+.analytics-concept-detail-view {
+  display: block;
+  width: 100%;
+  border-top: 1px solid rgba(0,0,0,.2);
+  background-color: $tabs-background;
+  height: 100%;
+}
+
+.analytics-action-bar {
+  @extend .action-bar;
+  background-color: rgba(0,0,0,.06);
+}
+
+.action-back-btn {
+  transition: all .3s ease-in-out;
+  border-right: 1px solid rgba(0,0,0,.2);
+  display: flex;
+  align-items: center;
+  padding-right: .5rem;
+  color: $link-color;
+  font-size: 1rem;
+
+  &:hover {
+    color: $link-hover-color;
+  }
+  &:hover, :active, :visited, :focus {
+    text-decoration: none;
+  }
+
+  i {
+    padding-right: .3rem;
+  }
+}
+
+.action-bar-title {
+  font-size: 1rem;
+  padding-left: .5rem;
+}
+
+// Container that holds the analytics charts and verbatims. Mostly used for padding.
+
+
+.analytics-legend-container {
+  display: flex;
+  align-items: flex-end;
+  height: 35px;
+}
+
+div[class^='legend-'] {
+  position: relative;
+  width: 100px;
+  height: 10px;
+  margin-right: 4px;
+
+  span {
+    position: absolute;
+    left: 0;
+    top: -18px;
+    font-size: .75rem;
+  }
+}
+
+.legend-positive {
+  background-image: linear-gradient(90deg, #92B367 0%, #BCE683 100%);
+}
+
+.legend-neutral {
+  background-color: #cacaca;
+}
+
+.legend-negative {
+  background-image: linear-gradient(90deg, #FF4732 0%, #AE1919 99%);
+}
+
+.legendicon {
+  display: flex;
+  height: 10px;
+  align-items: center;
+
+  &:first-of-type {
+    padding-right: .3rem;
+  }
+
+  &:last-of-type {
+    padding-left: .3rem;
+  }
+}
+
+.concept-row {
+  @extend .flex-base;
+  flex-direction: row;
+  height: calc(100% - #{$action-bar-height});
+
+  @include media-breakpoint-down(sm) {
+    flex-direction: column;
+  }
+}
+
+.analytics-charts {
+  padding: $grid-gutter-width / 4;
+  @extend .flex-column;
+  flex: 2;
+  overflow: auto;
+
+  @include media-breakpoint-down(md) {
+    flex: 1;
+  }
+}
+
+.chart-row {
+  display: block;
+  float: left;
+  width: 100%;
+}
+
+.chart-grid {
+  width: 50%;
+  padding: $grid-gutter-width / 4;
+  float: left;
+}
+
+.chart-panel {
+  @extend .panel;
+  width: 100%;
+  max-height: 350px;
+  height: 350px;
+  padding: .5rem;
+}
+
+.chart-title {
+  position: relative;
+  font-size: 1rem;
+  text-transform: uppercase;
+  width: 100%;
+  //background-color: $gray-lightest;
+  padding: .3rem;
+  text-align: center;
+  color: rgba(0,0,0,.6);
+
+  .help-hover {
+    position: absolute;
+    right: .2rem;
+    top: calc(50% - .6rem);
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.analytics-charts-container {
+  display: flex;
+  flex: 1 auto;
+  border-right: $border-gray-light;
+
+  @include media-breakpoint-down(md) {
+     flex-direction: column;
+  }
+
+  @include media-breakpoint-down(sm) {
+    flex-direction: row;
+    border-right: 0;
+  }
+}
+
+.analytics-charts-section {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+}
+
+.analytics-pie {
+  display: block;
+  width: 100%;
+  height: 100%;
+  filter: none !important;
+}
+
+.word-cloud-default {
+  display: flex;
+  flex-direction: column;
+  flex: 1 auto;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  color: $gray-light;
+  font-size: 1rem;
+
+  i {
+    font-size: 4rem;
+  }
+}
+
+.word-cloud {
+  width: 100%;
+  display: flex;
+  flex: 1 auto;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    //width: 100%;
+    display: block;
+  }
+
+}
+
+// Styles for the Verbatims default section when no concept is selected
+.analytics-verbatims-default {
+  @extend .flex-column;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  border-left: 1px solid $separator-color;
+
+  @include media-breakpoint-down(sm) {
+    border-top: 1px solid $separator-color;
+  }
+}
+
+// Message block inside the default container
+.analytics-verbatims-default-msg {
+  @extend .flex-column;
+  justify-content: center;
+  align-items: center;
+  color: $gray-light;
+  max-width: 300px;
+  text-align: center;
+
+  i {
+    font-size: 4rem;
+  }
+  p {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 300;
+  }
+}
+
+// Styles for the Verbatims section
+.analytics-verbatims {
+  @extend .flex-column;
+  background-color: #fff;
+  flex: 1;
+  height: 100%;
+  border-left: 1px solid $separator-color;
+
+  @include media-breakpoint-down(sm) {
+    border-top: 1px solid $separator-color;
+  }
+
+  .outer-content {
+    height: calc(100% - 45px);
+  }
+
+  .inner-content-div {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+}
+
+.analytics-verbatim-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: .3rem .5rem;
+  color: $brand-primary;
+  flex: 0 auto;
+  min-height: 45px;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,.2);
+  z-index: 10;
+
+  @media only screen and (max-width : 768px) {
+    flex-direction: row;
+    h5 {
+      padding: 0;
+    }
+  }
+
+  &.right-border {
+    border-right: 1px solid $separator-color;
+  }
+
+  h5 {
+    margin-bottom: 0;
+    font-size: 1rem;
+  }
+
+  .action-bar-section {
+    .form-group {
+      padding-right: .5rem;
+      margin-bottom: 0;
+
+      &:last-of-type {
+        padding-right: 0;
+      }
+
+      label {
+        padding-right: .3rem;
+        font-weight: 600;
+
+        &:last-of-type {
+          padding-right: 0;
+          padding-left: .3rem;
+        }
+      }
+    }
+  }
+}
+
+.analytics-verbatims-list {
+  flex: 1;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  min-width: 0;
+  min-height: 0;
+  font-size: .75rem;
+
+}
+
+.analytics-verbatim {
+  position: relative;
+  display: flex;
+  border-bottom: 1px solid rgba(0,0,0,.3);
+
+
+  &:after {
+    position: absolute;
+    top: 0;
+    content: '';
+    width: 100%;
+    height: 1px;
+    background-color: rgba(255,255,255,.6);
+  }
+
+}
+
+.analytics-verbatim-sentiment-level {
+  width: 25px;
+  min-width: 25px;
+}
+
+.verbatim-actions {
+  display: flex;
+  width: 100%;
+  padding: .2rem 1rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.verbatim-actions-right, .verbatim-actions-left {
+  display: flex;
+
+  button {
+    display: inline-block;
+
+    &:first-of-type {
+      margin-right: .5rem;
+    }
+  }
+}
+
+.verbatim-emotion {
+  font-size: 1.2rem;
+}
+
+.analytics-verbatim-text {
+  padding: 0 1rem .5rem;
+}
+
+// Donut Chart Styles
+
+.arc {
+
+  &.selected {
+    > path {
+      stroke: #77a9e4;
+
+      &:hover {
+        fill-opacity: initial;
+        stroke-width: 4;
+      }
+    }
+  }
+
+  path {
+    transition: all .2s ease-in-out;
+    stroke: #fff;
+    stroke-width: 4;
+
+    &:hover {
+      cursor: pointer;
+      fill-opacity: .8;
+      stroke-width: 3;
+    }
+  }
+
+  text {
+    transition: all .2s ease-in-out;
+    cursor: pointer;
+  }
+}
+
+// Word Cloud Styles
+.word {
+  transition: all .2s ease-in-out;
+  &:hover {
+    cursor: pointer;
+    fill-opacity: .8;
+  }
+}
+
+.verbatim-content {
+  width: 100%;
+}

@@ -1,0 +1,22 @@
+<template>
+    <a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <div class="avatar">
+        <avatar user-id.bind="user.userId" size.bind="22"></avatar>
+      </div>
+      <span class="dropdown-toggle-user-title">${title}</span>
+    </a>
+    <div class="material-dropdown-menu app-header-dropdown dropdown-menu">
+      <div repeat.for="item of items">
+        <a class="dropdown-item"
+        if.bind="item.route"
+        href="${item.route}">
+        ${item.name}
+        </a>
+        <a class="dropdown-item"
+        if.bind="item.event"
+        click.trigger="dispatchEvent(item.event)">
+        ${item.name}
+        </a>
+      </div>
+    </div>
+</template>

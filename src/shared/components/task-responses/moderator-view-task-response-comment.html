@@ -1,0 +1,48 @@
+<template>
+  <li
+    class.bind="liClasses"
+    with.bind="response"
+    id.bind="response.id"
+  >
+    <i class="probe-icon icon-ion-android-alert" tooltip="text: "></i>
+    <a class="avatar">
+      <avatar user-id.bind="user.userId" size.bind="22"></avatar>
+    </a>
+    <div class="comment-body">
+      <div class="followup-stripe"></div>
+      <div class="user-resp-info">
+        <div class="user-resp-left">
+          ${user.displayName}
+          <span class="user-resp-date">${respondedOn | momentFormat:timeZone}</span>
+        </div>
+      </div>
+      <div class="probe-text">
+        <div class="item-content-row">
+          <div innerhtml.bind="response.text | sanitize"></div>
+        </div>
+      </div>
+      <div class="user-resp-actions">
+        <div class="response-buttons">
+          <button
+            if.bind="isParticipant && currentUserIsModerator && isActivityOpen"
+            class="btn btn-link-followup post-btn"
+            click.trigger="respond()"
+          >
+            <i class="icon-ion-reply"></i> <span>Follow Up</span>
+          </button>
+          <span
+            if.bind="disabledButtonTooltip"
+            tooltip="text.bind: disabledButtonTooltip"
+          >
+            <button
+              disabled
+              class="btn btn-link-followup post-btn"
+            >
+              <i class="icon-ion-reply"></i> <span>Follow Up</span>
+            </button>
+          </span>
+        </div>
+      </div>
+    </div>
+  </li>
+</template>

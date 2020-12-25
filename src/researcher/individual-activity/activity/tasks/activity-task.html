@@ -1,0 +1,49 @@
+<template>
+  <require from="./task-response-block"></require>
+  <require from="shared/media/media-grid"></require>
+  <li class="event-item" class.bind="taskClass" click.trigger="toggleResponses()">
+    <div class="card-block">
+      <div class="item-header">
+        <div class="item-title-container">
+          <div class="event-item-icon"><i class.bind="iconClass"></i></div>
+          <h5 class="event-item-title eb-saved">${task.title}</h5>
+        </div>
+        <div class="event-options-bar" if.bind="task.type !== 1">
+          <a>
+            <span class="badge response-count" if.bind="task.totalResponses">${task.totalResponses}</span>
+            <i class="icon-noun-completes"></i>
+          </a>
+        </div>
+      </div>
+      <div class="item-content">
+        <div class="item-content-row orig-item-text" innerhtml.bind="task.text | sanitize"></div>
+        <div class="item-content-row" if.bind="task.type !== 0 && task.type !== 1">
+          <compose view-model.bind="task.viewModel"
+                   model.bind="{task: task, taskResponse: task.taskResponse, disabled: true}">
+          </compose>
+        </div>
+        <media-grid class="media-grid " if.bind="task.media.length > 0" media-items.bind="task.media"></media-grid>
+        <div>
+          <ul class="activity-response-container visible"
+              show.bind="showResponses"
+              click.trigger="stopProp($event)">
+            <h5 class="response-title">
+              <div>
+                <i class="icon-ion-checkmark-circled"></i>${task.userCompletions && task.userCompletions.length > 0 ? 'Completes' : 'No completes'}
+              </div>
+            </h5>
+            <task-response-block
+              repeat.for="userCompletion of task.userCompletions"
+              class="activity-response-block"
+              task.bind="task"
+              project-id.bind="projectId"
+              user-lookup.bind="task.projectUserLookup"
+              summary.bind="userCompletion"
+              expand-to.bind="expandTo"
+            ></task-response-block>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </li>
+</template>

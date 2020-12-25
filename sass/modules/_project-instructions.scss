@@ -1,0 +1,54 @@
+.list-card.project-instructions {
+  flex-direction: column;
+  justify-content: center;
+  color: $new-accent-1;
+  height: auto;
+
+  .project-instructions-header {
+    display: flex;
+    justify-content: space-between;
+    transition: background-color .2s ease-in-out;
+    padding: .75rem;
+    cursor: pointer;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, .02);
+    }
+
+    .project-instructions-title {
+      @extend %truncate-text;
+      font-size: 1.125rem;
+      position: relative;
+      padding: 0 1.75rem;
+
+      i {
+        font-size: 1.25rem;
+        position: absolute;
+        top: 3px;
+        left: 0;
+      }
+    }
+
+    .project-instructions-expander {
+      position: relative;
+
+      i {
+        position: absolute;
+        right: 0;
+        top: 5px;
+      }
+    }
+  }
+
+  .project-instructions-body-wrapper {
+    overflow-y: hidden;
+    font-size: .75rem;
+    color: $gray;
+    height: 0;
+
+    .project-instructions-body-content {
+      padding: .75rem;
+
+    }
+  }
+}

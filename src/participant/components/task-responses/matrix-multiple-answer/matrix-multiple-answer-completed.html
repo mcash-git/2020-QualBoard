@@ -1,0 +1,34 @@
+<template>
+  <div class="table-wrapper matrix">
+    <table class="table table-striped grid-table">
+      <thead>
+      <tr>
+        <th></th>
+        <th repeat.for="col of task.matrixColumns">${col.text}</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr repeat.for="row of task.matrixRows">
+        <td data-label.bind="row.text" class="row-hidden">
+          <div class="row-value">${row.text}</div>
+        </td>
+        <td repeat.for="col of task.matrixColumns" data-label.bind="col.text">
+          <label
+            class="test custom-control custom-checkbox grid-input disabled"
+            class.bind="isChecked({columnId: col.columnId, rowId: row.rowId}) ? 'grid-checked' : ''"
+          >
+            <input
+              class="custom-control-input"
+              model.bind="{columnId: col.columnId, rowId: row.rowId}"
+              type="checkbox"
+              checked.bind="selectedOptions"
+              matcher.bind="checkedItemMatcher"
+              disabled
+            />
+            <span class="custom-control-indicator"></span>
+          </label>
+        </td>
+      </tbody>
+    </table>
+  </div>
+</template>

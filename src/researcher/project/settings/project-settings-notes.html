@@ -1,0 +1,44 @@
+<template>
+  <div class="title">
+    <i class="icon-journal"></i>
+    <span>Project Notes</span>
+  </div>
+  <div class="body">
+    <div class="form-saved" show.bind="!isEditing">
+      <div class="form-group">
+        <div>${project.notes || '--'}</div>
+      </div>
+    </div>
+    <div class="form-edit" show.bind="isEditing">
+      <div class="form-group">
+        <textarea
+          type="text" class="form-control"
+          value.two-way="edit.notes">
+        </textarea>
+      </div>
+    </div>
+  </div>
+  <div class="edit">
+    <button
+      class="btn btn-primary btn-sm btn-form-edit"
+      click.delegate="editClick()"
+      if.bind="!project.editing"
+    >
+      Edit
+    </button>
+    <button
+      class="btn btn-sm btn-outline-secondary btn-form-save"
+      if.bind="isEditing"
+      click.delegate="cancelClick()"
+    >
+      Cancel
+    </button>
+    <button
+      class="btn btn-sm btn-primary btn-form-save"
+      if.bind="isEditing"
+      click.delegate="saveClick()"
+    >
+      Save
+    </button>
+  </div>
+</template>

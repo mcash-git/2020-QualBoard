@@ -1,0 +1,85 @@
+// --------------------------------------------------------
+// arrows
+// --------------------------------------------------------
+ $direction: top, left, right, bottom, top-left, top-right, bottom-left, bottom-right;
+ $color: hex, rgb or rbga;
+ $size: px or em;
+// @example
+// .element{
+//     @include arrow(top, #000, 50px);
+// }
+@mixin arrow($direction, $color, $size){
+  display: block;
+  height: 0;
+  width: 0;
+
+  @if $direction == 'top' {
+    border-left: $size solid transparent;
+    border-right: $size solid transparent;
+    border-bottom: $size solid $color;
+  } @else if $direction == 'right' {
+    border-top: $size solid transparent;
+    border-bottom: $size solid transparent;
+    border-left: $size solid $color;
+  } @else if $direction == 'bottom' {
+    border-top: $size solid $color;
+    border-right: $size solid transparent;
+    border-left: $size solid transparent;
+  } @else if $direction == 'left' {
+    border-top: $size solid transparent;
+    border-right: $size solid $color;
+    border-bottom: $size solid transparent;
+  } @else if $direction == 'top-left' {
+    border-top: $size solid $color;
+    border-right: $size solid transparent;
+  } @else if $direction == 'top-right' {
+    border-top: $size solid $color;
+    border-left: $size solid transparent;
+  } @else if $direction == 'bottom-left' {
+    border-bottom: $size solid $color;
+    border-right: $size solid transparent;
+  } @else if $direction == 'bottom-right' {
+    border-bottom: $size solid $color;
+    border-left: $size solid transparent;
+  }
+}
+
+@mixin arrowWithTail($direction, $color, $tailWidth) {
+  position: relative;
+
+  @if $direction == 'top' {
+    width: $tailWidth;
+    background-color: $color;
+    &::after {
+      top: -($tailWidth/2);
+      left: 0;
+    }
+  } @else if $direction == 'right' {
+    height: $tailWidth;
+    background-color: $color;
+    &::after {
+      right: -($tailWidth/2);
+      top: 0;
+    }
+  } @else if $direction == 'bottom' {
+    height: $tailWidth;
+    background-color: $color;
+    &::after {
+      bottom: -($tailWidth/2);
+      left: 0;
+    }
+  } @else if $direction == 'left' {
+    height: $tailWidth;
+    background-color: $color;
+    &::after {
+      left: -($tailWidth/2);
+      top: 0;
+    }
+  }
+
+  &::after {
+    @include arrow($direction, $color, $tailWidth/2);
+    content: "";
+    position: absolute;
+  }
+}

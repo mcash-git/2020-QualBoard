@@ -1,0 +1,15 @@
+<template>
+  <require from="./accordion-item"></require>
+  <accordion-item title.bind = "title"
+                  badge-count.bind="taskIds.length"
+                  expanded-session-storage-key.bind="expandedSessionStorageKey"
+                  containerless>
+    <ul class="filter-category">
+      <li class="filter-category-item default-content" if.bind="!iaCheckboxTrees">(None)</li>
+      <li class="filter-category-item checkbox-trees" repeat.for="ia of iaCheckboxTrees">
+        <checkbox-tree checked.bind="taskIds" model.bind="ia"></checkbox-tree>
+      </li>
+    </ul>
+
+  </accordion-item>
+</template>

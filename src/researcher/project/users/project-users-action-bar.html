@@ -1,0 +1,60 @@
+<template>
+  <div class="action-bar-container">
+    <div class="action-bar-section">
+      <div class="select-container">
+        <div class="select-all${model.isSelectAllDisabled ? ' disabled' : ''}">
+          <div class="checker">
+            <label class="custom-control custom-checkbox">
+              <input class="custom-control-input" type="checkbox" change.delegate="model.selectAllChecked($event)"
+                     checked.bind="model.selectAll" disabled.bind="model.isSelectAllDisabled">
+              <span class="custom-control-indicator"></span>
+            </label>
+          </div>
+          <span click.delegate="model.selectAllLabelClick()" class="select-all-label">${model.selectAll ? 'Deselect' : 'Select'} All</span>
+        </div>
+      </div>
+    </div>
+    <div class="action-bar-section">
+      <a class="all-groups-toggle" class.bind="model.isToggleAllGroupsDisabled ? 'disabled' : ''"
+         href="#"
+         click.delegate="model.toggleAllGroups()">
+        <i class="icon-people"></i>
+        <span>${model.toggleGroupsText} all groups</span>
+      </a>
+    </div>
+    <div class="action-bar-section">
+      <div class="btn-group btn-pill" role="group" aria-label="Basic example">
+        <button type="button"
+                class="btn btn-xs btn-outline-secondary"
+                click.delegate="model.selectTab(role)"
+                repeat.for="role of model.projectRoles"
+                class.bind="role === model.selectedRole ? 'active' : ''"
+                click.delegate="model.selectTab(role)">
+          ${role.friendly}s
+        </button>
+        <button type="button"
+                class="btn btn-xs btn-outline-secondary${!model.selectedRole ? ' active' : ''}"
+                click.delegate="model.selectTab(null)">All
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="action-bar-buttons">
+    <div class="btn-group dropdown-btn">
+      <button type="button" class="btn btn-primary" click.delegate="model.importUsersButtonClick()">
+        Add Users
+      </button>
+      <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+        <div class="chevron"><i class="icon-ion-chevron-down"></i></div>
+      </button>
+      <ul class="dropdown-menu dropdown-menu-right">
+        <li><a class="dropdown-item" click.delegate="model.importUsersButtonClick()">Bulk Import Users</a></li>
+        <li><a class="dropdown-item" click.delegate="model.addUserButtonClick()">Add Single User</a></li>
+        <template if.bind="shouldShowAddSelfOption">
+          <li><span class="dropdown-item dropdown-separator">Super-User Options:</span></li>
+          <li><a class="dropdown-item" click.delegate="model.addSelfAsModerator()">Add Yourself (Moderator)</a></li>
+        </template>
+      </ul>
+    </div>
+  </div>
+</template>

@@ -1,0 +1,27 @@
+@import '../base/custom-variables.scss';
+
+.rolling-spinner {
+  margin: 50px;
+  height: 38px;
+  width: 38px;
+  animation: rotate 0.8s infinite linear;
+  border: 4px solid $new-accent-1;
+  border-right-color: transparent;
+  border-radius: 50%;
+}
+
+.badge-spinner {
+  height: 12px;
+  width: 12px;
+  border: 2px solid #fff;
+  border-right-color: transparent;
+  border-radius: 50%;
+  &.animation {
+    animation: rotate 0.8s infinite linear
+  }
+}
+
+@keyframes rotate {
+  0%    { transform: rotate(0deg); }
+  100%  { transform: rotate(360deg); }
+}

@@ -1,0 +1,33 @@
+<template>
+  <div class="notification" with.bind="card">
+    <!--<div class="note-status">-->
+      <!--&lt;!&ndash;<span>${isRead ? 'Read' : 'Unread'}</span>&ndash;&gt;-->
+      <!--&lt;!&ndash;<span class="read-label"></span>&ndash;&gt;-->
+      <!---->
+    <!--</div>-->
+    <span class="read-indicator ${isRead ? 'read' : 'unread'}"></span>
+    <div class="notification-icon">
+      <div class="event-item-icon">
+        <i class.bind="icon"></i>
+      </div>
+    </div>
+    <div class="n-content">
+      <h6 class="n-title">
+        ${title}
+        <div class="n-subtitle truncate-ellipsis">
+          <span>${subtitle}</span>
+        </div>
+      </h6>
+      <div class="n-headline truncate-ellipsis">
+        <span>${body}</span>
+      </div>
+      <div class="n-stat">
+        ${timeAgo} 
+        <span class="avatar">
+          <avatar if.bind="type === 'followup-response'" user-id.bind="triggeredByUserId" size.bind="20"></avatar>
+        </span>
+      </div>
+    </div>
+  </div>
+</template>
+  

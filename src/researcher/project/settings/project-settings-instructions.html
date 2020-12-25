@@ -1,0 +1,60 @@
+<!-- TODO: create a component that wraps this accordion section and reuse it. -->
+<template>
+  <div class="title">
+    <i class="icon-info2"></i>
+    <span>Project Instructions</span>
+  </div>
+  <div class="body">
+    <div class="form-saved" show.bind="!isEditing">
+      <div class="form-group">
+        <div class="label">Title:</div>
+        <div>${project.instructionTitle || '--'}</div>
+      </div>
+      <div class="form-group">
+        <div class="label">Body:</div>
+        <div innerhtml.one-way="project.instructionText || '--' | sanitize"></div>
+      </div>
+    </div>
+    <div class="form-edit" show.bind="isEditing">
+      <div class="form-group">
+        <div class="label">Title:</div>
+        <input
+          class="form-control"
+          id="public-name"
+          value.bind="edit.title"
+          placeholder="Title"
+        />
+      </div>
+      <div class="form-group">
+        <div class="label">Body:</div>
+        <froala
+          value.two-way="edit.text"
+          config.bind="{ placeholderText: 'Project instructions main text...', height: 200 }"
+        ></froala>
+      </div>
+    </div>
+  </div>
+  <div class="edit">
+    <button
+      class="btn btn-primary btn-sm btn-form-edit"
+      click.delegate="editClick()"
+      if.bind="!project.editing"
+    >
+      Edit
+    </button>
+    <button
+      class="btn btn-sm btn-outline-secondary btn-form-save"
+      if.bind="isEditing"
+      click.delegate="cancelClick()"
+    >
+      Cancel
+    </button>
+    <button
+      class="btn btn-sm btn-primary btn-form-save"
+      if.bind="isEditing"
+      click.delegate="saveClick()"
+    >
+      Save
+    </button>
+  </div>
+</template>

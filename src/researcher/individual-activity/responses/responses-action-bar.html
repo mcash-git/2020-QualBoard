@@ -1,0 +1,16 @@
+<template>
+  <div class="btn-group" role="group" aria-label="Response view selection">
+    <a
+      class="btn btn-outline-secondary ${nav.isActive ? 'active' : ''}"
+      href.bind="nav.href"
+      repeat.for="nav of model.router.navigation"
+    >
+      ${nav.title}
+    </a>
+  </div>
+  <compose
+    class="sub-action-bar"
+    view-model.bind="model.subViewModel"
+    model.bind="model.subModel"
+  ></compose>
+</template>

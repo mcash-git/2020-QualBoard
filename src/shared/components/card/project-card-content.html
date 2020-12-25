@@ -1,0 +1,57 @@
+<template>
+  <template with.bind="card">
+    <!--Events-->
+    <div class="proj-card-stats-row justify-content-between align-items-center">
+      <div class="card-row-icon">
+        <i class="icon-ion-calendar"></i>
+        <div class="card-row-title"></div>
+      </div>
+      <div class="proj-stat-container">
+        <div class="stat stat-secondary">
+          <div class="stat-num">${inactiveEventCount}</div>
+          <div class="stat-label">Inactive</div>
+        </div>
+        <div class="stat stat-secondary">
+          <div class="stat-num">${activeEventCount}</div>
+          <div class="stat-label">Active</div>
+        </div>
+        <div class="stat stat-main">
+          <div class="stat-num">${activeEventCount + inactiveEventCount}</div>
+          <div class="stat-label">Total</div>
+        </div>
+      </div>
+    </div>
+    <!--Users-->
+    <div class="proj-card-stats-row justify-content-between align-items-center">
+      <div class="card-row-icon">
+        <i class="icon-person"></i>
+      </div>
+      <div class="proj-stat-container">
+        <div class="stat stat-main">
+          <div class="stat-num">${projectUserCount}</div>
+          <div class="stat-label">Total</div>
+        </div>
+      </div>
+    </div>
+    <!--Posts-->
+    <div class="proj-card-stats-row last-row justify-content-between align-items-center">
+      <div class="card-row-icon">
+        <i class="icon-ion-chatbubble"></i>
+      </div>
+      <div class="proj-stat-container">
+        <div class="stat stat-secondary">
+          <div class="stat-num">${past48HourResponseCount}</div>
+          <div class="stat-label">Last 48hrs</div>
+        </div>
+        <div class="stat stat-secondary">
+          <div class="stat-num">${past24HourResponseCount}</div>
+          <div class="stat-label">Last 24hrs</div>
+        </div>
+        <div class="stat stat-main">
+          <div class="stat-num">${totalResponseCount}</div>
+          <div class="stat-label">Total</div>
+        </div>
+      </div>
+      </div>
+  </template>
+</template>

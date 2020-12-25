@@ -1,0 +1,21 @@
+{
+  "id": "task-2-response",
+  "taskPromptId": "task-2",
+  "individualActivityId": "individual-activity",
+  "projectId": "project",
+  "userId": "participant",
+  "repetitionId": "entry-completed",
+  "parentResponseId": null,
+  "parentUserId": null,
+  "rootUserId": null,
+  "rootResponseId": null,
+  "responseTimeStamp": "2017-08-01T12:24:08.478147Z",
+  "taskType": 0,
+  "text": "Some data",
+  "plainText": "Some data",
+  "responseOptions": [],
+  "matrixResponses": [],
+  "isProbe": false,
+  "isActive": true,
+  "media": []
+}

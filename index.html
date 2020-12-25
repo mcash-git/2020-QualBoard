@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>QualBoard | 20|20 Research</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i"/>
+  <!--The FontAwesome version is locked at 4.6.3 in the package.json file to keep this from breaking.-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+
+
+  <% if (htmlWebpackPlugin.options.metadata.ENV === 'production') { %>
+  <script>
+    window.API_URL = '$API_URL';
+    window.API_BASE_URL = '$API_BASE_URL';
+    window.IDENTITY_URL = '$IDENTITY_URL';
+    window.IDENTITY_CLIENTID = '$IDENTITY_CLIENTID';
+    window.REDIRECT_URI = '$REDIRECT_URI';
+    window.POSTLOGOUT_REDIRECT_URI = '$POSTLOGOUT_REDIRECT_URI';
+    window.SILENT_REDIRECT_URI = '$SILENT_REDIRECT_URI';
+    window.SITE_URL = '$URL';
+    window.MEDIA_URL = '$MEDIA_URL';
+    window.MEDIA_IMAGE_URI_BASE = '$MEDIA_IMAGE_URI_BASE';
+    window.MEDIA_URL_ROUTE = '$MEDIA_URL_ROUTE';
+    window.MEDIA_AWS_KEY = '$MEDIA_AWS_KEY';
+    window.MEDIA_BUCKET = '$MEDIA_BUCKET';
+    window.MEDIA_AWS_URL = '$MEDIA_AWS_URL';
+    window.MESSAGING_URL = '$MESSAGING_URL';
+    window.MESSAGING_APPLICATION_ID = '$MESSAGING_APPLICATION_ID';
+    window.ANALYTICS_URL = '$ANALYTICS_URL';
+    window.GOOGLE_TRACKING_ID = '$GOOGLE_TRACKING_ID';
+    window.VERSION = '$VERSION';
+    window.MAINTENANCE ='$MAINTENANCE';
+    window.ENABLE_CONTAINER_STATE = true;
+    window.APPLICATION_INSIGHTS_KEY = '$APPLICATION_INSIGHTS_KEY';
+  </script>
+  <% } %>
+
+  <script>
+  if (window.GOOGLE_TRACKING_ID) {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-2111137-21', 'auto');
+    ga('send', 'pageview');
+  }
+
+  if (window.APPLICATION_INSIGHTS_KEY) {
+    var appInsights=window.appInsights||function(config){
+    function i(config){t[config]=function(){var i=arguments;t.queue.push(function(){t[config].apply(t,i)})}}var t={config:config},u=document,e=window,o="script",s="AuthenticatedUserContext",h="start",c="stop",l="Track",a=l+"Event",v=l+"Page",y=u.createElement(o),r,f;y.src=config.url||"https://az416426.vo.msecnd.net/scripts/a/ai.0.js";u.getElementsByTagName(o)[0].parentNode.appendChild(y);try{t.cookie=u.cookie}catch(p){}for(t.queue=[],t.version="1.0",r=["Event","Exception","Metric","PageView","Trace","Dependency"];r.length;)i("track"+r.pop());return i("set"+s),i("clear"+s),i(h+a),i(c+a),i(h+v),i(c+v),i("flush"),config.disableExceptionTracking||(r="onerror",i("_"+r),f=e[r],e[r]=function(config,i,u,e,o){var s=f&&f(config,i,u,e,o);return s!==!0&&t["_"+r](config,i,u,e,o),s}),t
+    }({
+        instrumentationKey:window.APPLICATION_INSIGHTS_KEY
+    });
+
+    window.appInsights=appInsights;
+    appInsights.trackPageView();
+  }
+  </script>
+</head>
+<body>
+<div aurelia-app="main" class="app">
+  <!--aurelia-app="main"-->
+  <div class="splash">
+    <div class="loader-container arc-scale">
+      <div class="loader">
+        <span class="loader-icon">
+          <i class="icon-QB-icon"></i>
+        </span>
+        <div class="arc"></div>
+      </div>
+    </div>
+
+  </div>
+  <!-- Uncomment below line for Webpack Dev Server auto reload -->
+  <!--<script src="/webpack-dev-server.js"></script>-->
+</div>
+
+<div id="maintenance-splash">
+  <div class="content">
+    <img alt="QB4 Logo" src="/images/logo-qb-maintenance-green.png"/>
+    <h3>Under Maintenance</h3>
+    <p class="message">QualBoard is currently undergoing maintenance and is inaccesible. Please try again later.</p>
+  </div>
+</div>
+
+<div>
+  <% if (htmlWebpackPlugin.options.metadata.ENV === 'production') { %>
+
+  <!-- begin olark code -->
+  <script type="text/javascript" async>
+    ;(function(o,l,a,r,k,y){if(o.olark)return;
+      r="script";y=l.createElement(r);r=l.getElementsByTagName(r)[0];
+      y.async=1;y.src="//"+a;r.parentNode.insertBefore(y,r);
+      y=o.olark=function(){k.s.push(arguments);k.t.push(+new Date)};
+      y.extend=function(i,j){y("extend",i,j)};
+      y.identify=function(i){y("identify",k.i=i)};
+      y.configure=function(i,j){y("configure",i,j);k.c[i]=j};
+      k=y._={s:[],t:[+new Date],c:{},l:a};
+    })(window,document,"static.olark.com/jsclient/loader.js");
+    /* Add configuration calls bellow this comment */
+
+    olark.identify('7887-808-10-3460');
+    olark('api.box.hide');
+
+    olark('api.box.onShrink', function() {
+      olark('api.box.hide');
+    });
+
+    olark('api.chat.onOperatorsAvailable', function() {
+      window.OLARK_OPERATOR = true;
+    });
+
+    olark('api.chat.onOperatorsAway', function() {
+      window.OLARK_OPERATOR = false;
+    });
+  </script>
+  <!-- end olark code -->
+  <% } %>
+</div>
+</body>
+</html>

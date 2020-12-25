@@ -1,0 +1,15 @@
+<template>
+  <tag-input
+    tag-view-model="shared/components/multiple-answer-tag-input-item"
+    source-items.bind="subject.task.matrixColumns"
+    display-property="text"
+    autocomplete-search-fields.one-way="['text']"
+    autocomplete-sort-field="text"
+    autocomplete-min-chars="0"
+    autocomplete-sort-direction="asc"
+    should-allow-add.bind="false"
+    placeholder-text="Choose some options"
+    value.bind="subject.columns"
+    mini.bind="true"
+  ></tag-input>
+</template>

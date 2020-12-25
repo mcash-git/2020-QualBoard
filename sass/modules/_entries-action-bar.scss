@@ -1,0 +1,27 @@
+.tt_qb_tabs-actions.responses-action-bar {
+  padding-right: 0;
+
+  .action-bar-section {
+    .action-bar-link {
+      position: relative;
+      line-height: 1;
+
+      i {
+        color: $gray;
+        font-size: 1.75rem;
+      }
+    }
+  }
+}
+
+.badge.badge-insights {
+  font-size: .75rem;
+  background-color: $new-accent-2;
+  position: absolute;
+  top: 0;
+  right: .25rem;
+  border-radius: 100rem;
+  width: 1.5rem;
+  text-align: center;
+  color: #fff;
+}

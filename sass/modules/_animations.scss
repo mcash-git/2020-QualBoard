@@ -1,0 +1,38 @@
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes rotate360 {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.throb {
+  animation: throb 3s ease-out infinite;
+}
+
+.throb-twice {
+  animation: throb 3s ease-out 2;
+}
+
+@keyframes throb {
+  0% {
+    box-shadow: 0 0 5px 0 rgba(4, 138, 204, 0.82);
+  }
+  70% {
+    box-shadow: 0 0 5px 15px rgba(4, 138, 204, 0);
+  }
+  100% {
+    box-shadow: 0 0 5px 0 rgba(4, 138, 204, 0);
+  }
+}
+

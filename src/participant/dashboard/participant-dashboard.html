@@ -1,0 +1,9 @@
+<template>
+  <require from="./participant-card-tile"></require>
+  <div class="tiles tiles-sm" if.bind="projectCards && projectCards.length > 0">
+    <participant-card-tile card-model.bind="projectCard" repeat.for="projectCard of projectCards"></participant-card-tile>
+  </div>
+  <div if.bind="!projectCards || projectCards.length == 0" class="default-content">
+    <span>You do not belong to any active projects at this time.  If you believe you are seeing this message in error, please contact support.</span>
+  </div>
+</template>

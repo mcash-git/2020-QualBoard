@@ -1,0 +1,287 @@
+<template>
+  <require from="shared/components/time-zone-picker"></require>
+  <!--Activity Time Zone-->
+  <div class="form-section">
+    <h5>Choose your timezone:</h5>
+    <div
+      class="form-group"
+      validation-state="validator.bind: validator; property.bind: timeZoneProperty"
+    >
+      <!-- timezone -->
+      <time-zone-picker
+        if.bind="totalResponseCount <= 0"
+        selected-time-zone.two-way="timeZone"
+        validator.bind="validator"
+        validation-property.bind="timeZoneProperty"
+      ></time-zone-picker>
+
+      <div if.bind="totalResponseCount > 0">
+        <!-- has responses so no edit allowed -->
+        <div class="label">Time Zone:</div>
+        <div>${timeZone.text}</div>
+      </div>
+    </div>
+    <hr class="modal-form-separator"/>
+  </div>
+
+  <!--Actvity Repeats-->
+  <div class="form-section">
+    <h5>Choose a repeat schedule for your activity:</h5>
+    <div id="accordion" class="settings-frequency">
+      <!--No Repeats-->
+      <div class="card">
+        <div class="card-header">
+          <h5 class="mb-0">
+            <label class="custom-control custom-radio">
+              <input
+                type="radio"
+                class="custom-control-input"
+                checked.bind="repeatCategory"
+                model.bind="repeatCategories.none"
+              />
+              <span class="custom-control-indicator"></span>
+              <span class="custom-control-description">Does not repeat</span>
+            </label>
+          </h5>
+
+          <div class="item-help">
+            <i class="icon-ion-help-circled"
+               tooltip="text: Your activity has an opening and closing date and time and occurs 1 time only."></i>
+          </div>
+
+        </div>
+        <div class="collapse" ref="scheduleNoneElement">
+          <div class="settings-frequency-section">
+            <div class="form-inline-custom">
+
+              <!-- has responses so show static -->
+              <div if.bind="totalResponseCount > 0">
+                <div class="left">
+                  <div class="label">Open Date:</div>
+                  <div class="date">${open.dateTimeText | dateTimeFormat:'M/D/YYYY'}</div>
+                </div>
+                <div>
+                  <div class="label">Open Time:</div>
+                  <div class="date">${open.dateTimeText | dateTimeFormat:'h:mm A'}</div>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <!-- has no responses so show picker -->
+              <date-time-picker
+                if.bind="totalResponseCount <= 0"
+                model.bind="open"
+                validator.bind="validator"
+                validate-on="manual"
+                date-property.bind="openDateProperty"
+                time-property.bind="openTimeProperty"
+              ></date-time-picker>
+            </div>
+            <div class="form-inline-custom">
+              <date-time-picker
+                model.bind="close"
+                validator.bind="validator"
+                validate-on="manual"
+                date-property.bind="closeDateProperty"
+                time-property.bind="closeTimeProperty"
+              ></date-time-picker>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--Repeat on a schedule-->
+      <div class="card">
+        <div class="card-header">
+          <h5 class="mb-0">
+            <label class="custom-control custom-radio">
+              <input
+                type="radio"
+                class="custom-control-input"
+                checked.bind="repeatCategory"
+                model.bind="repeatCategories.repeating"
+              />
+              <span class="custom-control-indicator"></span>
+              <span class="custom-control-description">Repeats on a schedule</span>
+            </label>
+          </h5>
+          <div class="item-help">
+            <i class="icon-ion-help-circled"
+               tooltip="text: Your activity has a start date and a min / max number of times for completion. The end date of the activity will be determined by the number of times you would like the activity to be completed."></i>
+          </div>
+        </div>
+        <div class="collapse" ref="scheduleRepeatingElement">
+          <div class="settings-frequency-section">
+            <div class="form-inline-custom">
+              <!-- has responses so show static -->
+              <div if.bind="totalResponseCount > 0">
+                <div class="left">
+                  <div class="label">Open Date:</div>
+                  <div class="date">${open.dateTimeText | dateTimeFormat:'M/D/YYYY'}</div>
+                </div>
+                <div>
+                  <div class="label">Open Time:</div>
+                  <div class="date">${open.dateTimeText | dateTimeFormat:'h:mm A'}</div>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <!-- has no responses so show picker -->
+              <date-time-picker
+                if.bind="totalResponseCount <= 0"
+                model.bind="open"
+                validator.bind="validator"
+                validate-on="manual"
+                date-property.bind="openDateProperty"
+                time-property.bind="openTimeProperty"
+              ></date-time-picker>
+            </div>
+            <div class="settings-frequency-row">
+              <span>This activity repeats every:</span>
+            </div>
+            <div class="settings-frequency-row form">
+              <div class="form-group">
+                <select class="form-control" value.bind="repeatingRepeatUnit">
+                  <option repeat.for="unit of repeatUnits | onlyRepeating" model.bind="unit">
+                    ${unit.noun}
+                  </option>
+                </select>
+              </div>
+              <span>for a total of </span>
+              <div
+                class="form-group min-max-times"
+                validation-state="validator.bind: validator; property.bind: numberOfRepetitionsProperty"
+              >
+                <input
+                  class="form-control"
+                  validate="validator.bind: validator; property.bind: numberOfRepetitionsProperty"
+                  value.bind="numberOfRepetitions"
+                />
+              </div>
+              <span>${repeatUnit.noun.toLowerCase() & oneWay}s</span>
+            </div>
+            <div class="settings-frequency-row form">
+              <span>with a min of</span>
+              <div class="form-group min-max-times"
+                   validation-state="validator.bind: validator; property.bind: repeatMinimumProperty">
+                <input
+                  class="form-control"
+                  validate="validator.bind: validator; property.bind: repeatMinimumProperty"
+                  value.bind="repeatMinimum"
+                />
+              </div>
+              <span>and a max of</span>
+              <div
+                class="form-group min-max-times"
+                validation-state="validator.bind: validator; property.bind: repeatMaximumProperty"
+              >
+                <input
+                  validate="validator.bind: validator; property.bind: repeatMaximumProperty"
+                  class="form-control"
+                  value.bind="repeatMaximum"
+                />
+              </div>
+              <span>times per ${repeatUnit.noun.toLowerCase() & oneWay}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--Repeat Continuously-->
+      <div class="card">
+        <div class="card-header">
+          <h5 class="mb-0">
+            <label class="custom-control custom-radio">
+              <input
+                type="radio"
+                class="custom-control-input"
+                checked.bind="repeatCategory"
+                model.bind="repeatCategories.continuous"
+              />
+              <span class="custom-control-indicator"></span>
+              <span class="custom-control-description">Repeats continuously</span>
+            </label>
+          </h5>
+          <div class="item-help">
+            <i
+              class="icon-ion-help-circled"
+              tooltip="text: Your activity has a set open and close date. You determine the min and max times your activity is completed within that time."
+            ></i>
+          </div>
+        </div>
+        <div class="collapse" ref="scheduleContinuousElement">
+          <div class="settings-frequency-section">
+            <div class="form-inline-custom">
+              <!-- has responses so show static -->
+              <div if.bind="totalResponseCount > 0">
+                <div class="left">
+                  <div class="label">Open Date:</div>
+                  <div class="date">${open.dateTimeText | dateTimeFormat:'M/D/YYYY'}</div>
+                </div>
+                <div>
+                  <div class="label">Open Time:</div>
+                  <div class="date">${open.dateTimeText | dateTimeFormat:'h:mm A'}</div>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <!-- has no responses so show picker -->
+              <date-time-picker
+                if.bind="totalResponseCount <= 0"
+                model.bind="open"
+                validator.bind="validator"
+                validate-on="manual"
+                date-property.bind="openDateProperty"
+                time-property.bind="openTimeProperty"
+              ></date-time-picker>
+            </div>
+            <div class="form-inline-custom">
+              <date-time-picker
+                model.bind="close"
+                validator.bind="validator"
+                validate-on="manual"
+                date-property.bind="closeDateProperty"
+                time-property.bind="closeTimeProperty"
+              ></date-time-picker>
+            </div>
+            <div class="settings-frequency-row">
+              <span>This activity repeats:</span>
+            </div>
+            <div class="settings-frequency-row form">
+              <span>for a min of</span>
+              <div
+                class="form-group min-max-times"
+                validation-state="validator.bind: validator; property.bind: repeatMinimumProperty"
+              >
+                <input
+                  validate="validator.bind: validator; property.bind: repeatMinimumProperty"
+                  class="form-control"
+                  value.bind="repeatMinimum"
+                />
+              </div>
+              <span>and a max of</span>
+              <div
+                class="form-group min-max-times"
+                validation-state="validator.bind: validator; property.bind: repeatMaximumProperty"
+              >
+                <input
+                  validate="validator.bind: validator; property.bind: repeatMaximumProperty"
+                  class="form-control"
+                  value.bind="repeatMaximum"
+                />
+              </div>
+              <span>times</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="duration-summary" if.bind="shouldShowDurationSummary">
+      <span class="label">Activity Duration:</span>
+      <div class="duration-summary-value">${duration}</div>
+      <div class="clear"></div>
+    </div>
+    <!--<div class="repeat-summary">-->
+    <!--<span class="summary-title">Your activity will be open until</span>-->
+    <!--<span class="summary-total">10/14/1984 at 8:00PM CDT</span>-->
+    <!--</div>-->
+  </div>
+</template>

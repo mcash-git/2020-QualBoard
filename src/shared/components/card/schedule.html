@@ -1,0 +1,24 @@
+<template>
+  <require from="shared/value-converters/date-format.js"></require>
+  <div class="schedule-card-stats-row">
+    <div class="card-row-icon">
+      <i class="icon-ion-ios-clock"></i>
+    </div>
+    <div class="schedule-container">
+      <div class="schedule-module">
+        <div class="open-time">
+          <strong>Open:</strong>&nbsp;
+          <span class="proj-dates truncate-ellipsis"><span>${open | dateFormat:timeZoneFriendly}</span></span>
+        </div>
+        <div class="close-time">
+          <strong>Close:</strong>&nbsp;
+          <span class="proj-dates truncate-ellipsis"><span>${close | dateFormat:timeZoneFriendly}</span></span>
+
+        </div>
+      </div>
+      <div class="schedule-module">
+        <strong>Timezone:</strong> <span class="truncate-ellipsis"><span>${timeZoneFriendly}</span></span>
+      </div>
+    </div>
+  </div>
+</template>

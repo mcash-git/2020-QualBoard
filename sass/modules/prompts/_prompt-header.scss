@@ -1,0 +1,22 @@
+.prompt-header {
+  .title {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 22px;
+    display: inline-block;
+  }
+
+  .icon-container {
+    display: inline-block;
+    float: right;
+    font-size: 19px;
+
+    i:not(:last-child) {
+      padding-right: 5px;
+    }
+  }
+
+  .title-body {
+    font-size: 14px;
+  }
+}

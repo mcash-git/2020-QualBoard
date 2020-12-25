@@ -1,0 +1,89 @@
+{
+  "@context": "http://www.w3.org/ns/anno.jsonld",
+  "type": "Annotation",
+  "targetResourceIri": "qb:/projects/ebab4a1f-bc28-48df-a34a-fdf11168043d/task-responses/a0b2fd4d-e967-41dd-999e-474039049e03",
+  "target": [{
+    "type": "SpecificResource",
+    "selector": [],
+    "source": "qb:/projects/ebab4a1f-bc28-48df-a34a-fdf11168043d/task-responses/a0b2fd4d-e967-41dd-999e-474039049e03",
+    "name": null,
+    "format": null,
+    "language": null,
+    "processingLanguage": null,
+    "textDirection": "ltr",
+    "created": "2017-09-03T11:03:34.246277Z",
+    "generated": "2017-09-03T11:03:34.475Z",
+    "modified": null,
+    "creator": null,
+    "generator": {
+      "name": null,
+      "nickname": null,
+      "email": null,
+      "emailSha1": null,
+      "homepage": null,
+      "type": "Software",
+      "id": null
+    },
+    "canonical": null,
+    "via": null,
+    "id": "urn:uuid:eab6feb7-5e30-4e58-9b42-bacbcec20cf8"
+  }],
+  "body": [{
+    "type": "TextualBody",
+    "value": "9/3/2017 4:03AM PDT",
+    "purpose": null,
+    "format": "text/plain",
+    "language": null,
+    "processingLanguage": null,
+    "textDirection": null,
+    "created": "2017-09-06T23:07:51.514253Z",
+    "generated": "2017-09-06T23:07:51.502Z",
+    "modified": null,
+    "creator": {
+      "name": "Andrew Albright",
+      "nickname": "andrew-mod",
+      "email": "andrewa@2020research.com",
+      "emailSha1": "kE4Fh2vdi7pD/s6gXa1w6M6grUI=",
+      "homepage": null,
+      "type": "Person",
+      "id": "urn:uuid:00a2cfb7-c640-4817-fa81-08d41e21a1a3"
+    },
+    "generator": {
+      "name": null,
+      "nickname": null,
+      "email": null,
+      "emailSha1": null,
+      "homepage": null,
+      "type": "Software",
+      "id": null
+    },
+    "canonical": null,
+    "via": null,
+    "id": "urn:uuid:c56323e6-b6c5-4658-be68-d9f6cf5902e3"
+  }],
+  "created": "2017-09-03T11:03:34.246215Z",
+  "generated": "2017-09-03T11:03:34.475Z",
+  "modified": "2017-09-08T23:06:17.814619Z",
+  "creator": {
+    "name": "Andrew Albright",
+    "nickname": "",
+    "email": "andrewa@2020research.com",
+    "emailSha1": "kE4Fh2vdi7pD/s6gXa1w6M6grUI=",
+    "homepage": null,
+    "type": "Person",
+    "id": "urn:uuid:00a2cfb7-c640-4817-fa81-08d41e21a1a3"
+  },
+  "generator": {
+    "name": null,
+    "nickname": null,
+    "email": null,
+    "emailSha1": null,
+    "homepage": null,
+    "type": "Software",
+    "id": null
+  },
+  "canonical": null,
+  "via": null,
+  "version": 0,
+  "id": "urn:uuid:b20181f1-61ad-4a7b-a180-aa38c22573bf"
+}

@@ -1,0 +1,14 @@
+<template>
+  <div class="tag-input-tag" ref="liElement">
+    <span class="tag-input-color">
+      <i class="icon-label"></i>
+    </span>
+    <span class="tag-input-tag-content">${displayItem(item) & oneTime}</span>
+    <span
+      class="tag-input-tag-remove-button"
+      click.delegate="removeTag()"
+    >
+      <span class="tag-input-tag-remove-button-default"><i class="icon-close"></i></span>
+    </span>
+  </div>
+</template>

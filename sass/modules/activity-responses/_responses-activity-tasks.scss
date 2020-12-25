@@ -1,0 +1,49 @@
+@import "./responses";
+
+.activity-tasks {
+  height: 100%;
+  display: flex;
+}
+
+.activity-tasks-main-content {
+  @extend %main-content;
+  flex: 1;
+
+  .prompt-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: $spacer;
+
+    .prompt {
+      width: 100%;
+      margin-bottom: 60vh;
+    }
+  }
+}
+
+.activity-tasks-sidebar {
+  @extend %sidebar;
+}
+
+.sidebar-task {
+  @extend %sidebar-item;
+
+  &:hover {
+    background-color: rgba(0,0,0,.02);
+  }
+
+  &.is-selected {
+    background-color: $entry-selected-color;
+    color: #fff;
+
+    &:hover {
+      background-color: $entry-selected-color;
+    }
+  }
+}
+
+.sidebar-task-icon {
+  @extend %sidebar-item-icon;
+}
+

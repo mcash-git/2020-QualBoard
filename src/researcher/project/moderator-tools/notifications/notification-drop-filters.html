@@ -1,0 +1,48 @@
+<template>
+  <div class="notification-filters" data-popover="filter-drop" drop>
+    <i class="icon-ion-android-funnel drop-target"></i>
+    <div class="badge" if.bind="badgeCount > 0">${badgeCount}</div>
+    <div class="drop-body medium">
+      <div class="filter-content">
+        <div class="drop-header">
+          <h5 class="drop-title">Filter By:</h5>
+          <a href="#" class="clear-all" click.trigger="clearFilters()">
+            clear all
+            <i class="icon-ion-close"></i>
+          </a>
+        </div>
+        <hr>
+        <div class="filter-section">
+          <label class="custom-control custom-checkbox" repeat.for="f of filters.checkboxes">
+            <input  type="checkbox"
+                    class="custom-control-input"
+                    model.bind="f"
+                    checked.bind="$parent.appliedFilters.checked"
+                    change.delegate="filterApplied()">
+            <span class="custom-control-indicator"></span>
+            <span class="custom-control-description">${f.name}</span>
+          </label>
+          <hr>
+        </div>
+        <div class="drop-header">
+          <h5 class="drop-title">Read Notifications:</h5>
+        </div>
+        <hr>
+        <div class="filter-section">
+          <div class="drop-row">
+            <span>Hide Read</span>
+            <div class="switch">
+              <input id="n-options-toggle-1"
+                     class="cmn-toggle cmn-toggle-round"
+                     type="checkbox"
+                     checked.bind="appliedFilters.hideRead"
+                     change.delegate="filterApplied()">
+              <label for="n-options-toggle-1"></label>
+            </div>
+          </div>
+          <hr>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

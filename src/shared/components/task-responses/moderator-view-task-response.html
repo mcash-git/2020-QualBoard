@@ -1,0 +1,73 @@
+<!-- THIS FILE DOES NOT APPEAR TO BE IN USE -->
+<template>
+  <require from="shared/media/media-grid"></require>
+  <require from="shared/components/task-responses/moderator-view-task-response-comment"></require>
+
+
+  <i class="icon-ion-checkmark-circled rep-completed"></i>
+  <!-- TODO:  Remove this with.bind -->
+  <li class.bind="liClasses" with.bind="response" data-annotator-targetable="SpecificResource:qb:/projects/${response.projectId}/task-responses/${response.id}">
+    <div class="user-resp-info">
+      <div class="user-resp-left">
+        <div class="user">
+          <a class="avatar">
+            <avatar user-id.bind="user.userId" size.bind="22"></avatar>
+          </a>
+
+          <span>${user.displayName}</span>
+          <div class="user-resp-date">
+            ${responseTimeStamp | dateFormat:timeZone}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <compose if.bind="task.type !== 0" view-model.bind="task.completedViewModel" model.bind="{task: task, taskResponse: response}"></compose>
+    <!-- TODO:  I would like to innerhtml.bind on the div.user-resp-text - but there are other contents so... -->
+    <div class="item-content-row" if.bind="response.text">
+      <div innerhtml.bind="response.text | sanitize"></div>
+    </div>
+
+
+    <!--Media Grid-->
+    <media-grid class="media-grid " media-items.bind="response.media" if.bind="response.media.length > 0"></media-grid>
+
+    <!-- TODO: componentize -->
+    <!--Response Action buttons-->
+    <div class="item-content-row">
+      <div if.bind="isParticipant && canUserFollowUp" class="user-resp-actions">
+        <ul class="response-buttons">
+          <li>
+            <button class="btn btn-link-followup" click.trigger="respond()">
+              <i class="icon-ion-reply"></i> <span>Follow Up</span>
+            </button>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+    <!-- Repeat over each top level child response (probe) -->
+    <div class="comment-block-activity" if.bind="response.responses.length > 0">
+      <h5 class="followups-title">
+        <div>
+          <i class="icon-followup"></i>
+          Followups
+        </div>
+      </h5>
+      <ul class="comment-list" repeat.for="probe of response.responses">
+        <moderator-view-task-response-comment
+          response.bind="probe"
+          expand-to.bind="expandTo"
+          class="comment"
+        ></moderator-view-task-response-comment>
+        <moderator-view-task-response-comment
+          repeat.for="res of probe.responses"
+          response.bind="res"
+          expand-to.bind="expandTo"
+          class="comment"
+        ></moderator-view-task-response-comment>
+      </ul>
+    </div>
+  </li>
+
+</template>

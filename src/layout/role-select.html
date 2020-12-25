@@ -1,0 +1,26 @@
+<template>
+  <div class="flex-row">
+    <div class="content-panel">
+      <div class="app-subnav no-margin">
+        <h1 class="app-title">Participate or Moderate?</h1>
+      </div>
+      <div class="flex-row" style="margin-top:32px;">
+        <div class="flex-column">
+          <a class="btn btn-gigas btn-secondary" href="/#/projects">
+            Moderate<br />(${modProjectCount} Project${modProjectCount === 1 ? '' : 's'})
+          </a>
+        </div>
+        <div class="flex-column">
+          <a class="btn btn-gigas btn-secondary" href="/#/observer">
+            Observe<br />(${obsProjectCount} Project${obsProjectCount === 1 ? '' : 's'})
+          </a>
+        </div>
+        <div class="flex-column">
+          <a class="btn btn-gigas btn-secondary" href="/#/participant">
+            Participate<br />(${partProjectCount} Project${partProjectCount === 1 ? '' : 's'})
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

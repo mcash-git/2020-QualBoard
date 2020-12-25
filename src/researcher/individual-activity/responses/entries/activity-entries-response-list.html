@@ -1,0 +1,52 @@
+<template>
+  <require from="./entry-card"></require>
+
+  <!-- Today -->
+  <div if.bind="entriesByDate.today && entriesByDate.today.length > 0">
+    <div class="header">TODAY</div>
+    <div virtual-repeat.for="entry of entriesByDate.today" infinite-scroll-next.call="scrollCallback($scrollContext)">
+      <entry-card
+        entry.bind="entry"
+        click.delegate = "setSelectedEntry(entry)"
+        class = "${selectedEntry.id === entry.id ? 'entry-selected' : ''}"
+      ></entry-card>
+    </div>
+  </div>
+
+  <!-- Yesterday -->
+  <div if.bind="entriesByDate.yesterday && entriesByDate.yesterday.length > 0">
+    <div class="header">YESTERDAY</div>
+    <div virtual-repeat.for="entry of entriesByDate.yesterday" infinite-scroll-next.call="scrollCallback($scrollContext)">
+      <entry-card
+        entry.bind="entry"
+        click.delegate = "setSelectedEntry(entry)"
+        class = "${selectedEntry.id === entry.id ? 'entry-selected' : ''}"
+      ></entry-card>
+    </div>
+  </div>
+
+  <!-- This Week -->
+  <div if.bind="entriesByDate.week && entriesByDate.week.length > 0">
+    <div class="header">THIS WEEK</div>
+    <div virtual-repeat.for="entry of entriesByDate.week" infinite-scroll-next.call="scrollCallback($scrollContext)">
+      <entry-card
+        entry.bind="entry"
+        click.delegate = "setSelectedEntry(entry)"
+        class = "${selectedEntry.id === entry.id ? 'entry-selected' : ''}"
+      ></entry-card>
+    </div>
+  </div>
+
+  <!-- Older -->
+  <div if.bind="entriesByDate.older && entriesByDate.older.length > 0">
+    <div class="header">OLDER</div>
+    <div virtual-repeat.for="entry of entriesByDate.older" infinite-scroll-next.call="scrollCallback($scrollContext)">
+      <entry-card
+        entry.bind="entry"
+        click.delegate = "setSelectedEntry(entry)"
+        class = "${selectedEntry.id === entry.id ? 'entry-selected' : ''}"
+      ></entry-card>
+    </div>
+  </div>
+
+</template>

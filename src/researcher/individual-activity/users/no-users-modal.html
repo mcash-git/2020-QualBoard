@@ -1,0 +1,28 @@
+<template>
+  <div class="custom-modal modal-large">
+    <div class="modal-close" click.delegate="modalController.cancel()">
+      <i class="icon-close"></i>
+    </div>
+    <div class="c-modal-title">
+      <h5 class="modal-title-text">
+        <i class="icon-person"></i>
+        Out of Users
+      </h5>
+    </div>
+    <div class="c-modal-body">
+      <div class="modal-error-content">
+        <span>
+          All of the project users are already invited to this
+          individual activity. You can&nbsp;<a href.bind="projectUsersUrl" click.delegate="linkClick()">add some more</a>
+          &nbsp;then return here to invite
+          them to the activity.
+        </span>
+      </div>
+    </div>
+    <div class="c-modal-footer">
+      <div class="form-inline-custom">
+        <button type="submit" class="btn btn-lg btn-primary" click.delegate="modalController.cancel()">Ok</button>
+      </div>
+    </div>
+  </div>
+</template>

@@ -1,0 +1,128 @@
+<template>
+
+  <!--View that displays the detail of each concept report-->
+  <div class="analytics-concept-detail-view">
+    <section class="analytics-action-bar">
+      <a href.bind="analyticsCreateUrl" class="action-back-btn"><i class="icon-ion-chevron-left"></i> back</a>
+      <h5 class="action-bar-title">${featureOutputJob.name}</h5>
+    </section>
+    <div class="concept-row">
+      <section class="analytics-charts">
+        <!--<div class="action-bar">-->
+        <!--<a href="" class="action-back-btn"><i class="icon-ion-chevron-left"></i> back</a>-->
+        <!--<h5 class="action-bar-title">Name of my concept analysis</h5>-->
+        <!--</div>-->
+        <div>
+          <div class="analytics-legend-container">
+            <div><i class="legendicon icon-add"></i></div>
+              <div class="legend-positive">
+                <span>Positive</span>
+              </div>
+              <div class="legend-neutral">
+                <span>Neutral</span>
+              </div>
+              <div class="legend-negative">
+                <span>Negative</span>
+              </div>
+            <div><i class="legendicon icon-ion-minus"></i></div>
+          </div>
+          <div class="chart-row">
+            <div class="chart-grid">
+              <div class="chart-panel">
+                <h5 class="chart-title">Concept Chart <i class="help-hover icon-help" tooltip="text: Groups of related responses.; placement: top"></i></h5>
+                <svg id="feature-chart" class="analytics-pie" ref="svg" viewBox="0 0 300 300"
+                     perserveAspectRatio="xMinYMid" filter="url(#dropShadow)"></svg>
+                <filter id="dropShadow">
+                  <feGaussianBlur in="SourceAlpha" stdDeviation=""/>
+                  <feOffset dx="2" dy="10"/>
+                  <feMerge>
+                    <feMergeNode/>
+                    <feMergeNode in="SourceGraphic"/>
+                  </feMerge>
+                </filter>
+              </div>
+            </div>
+            <div class="chart-grid">
+              <div class="chart-panel">
+                <h5 class="chart-title">Key Words <i class="help-hover icon-help" tooltip="text: The most relevant words derived from a concept.; placement: top"></i></h5>
+                <!--Default message for the word cloud panel. This needs to be displayed if a concept has not yet been selected.-->
+                <!--<div class="word-cloud-default">-->
+                <!--<i class="icon-format_quote"></i>-->
+                <!--Select a segment of the concept chart to view associated verbatims-->
+                <!--</div>-->
+                <div class="word-cloud">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+      <section class="analytics-verbatims-default" if.bind="selectedVerbatims.length === 0">
+        <div class="analytics-verbatims-default-msg">
+          <i class="icon-format_quote"></i>
+          <p>Select a segment of the concept chart to view associated verbatims</p>
+        </div>
+      </section>
+      <section class="analytics-verbatims" if.bind="selectedVerbatims.length > 0">
+        <!--Verbatims header with search-->
+        <header class="analytics-verbatim-header">
+          <h5>Responses</h5>
+          <div class="action-bar-section">
+            <div class="form-inline">
+              <div class="form-group">
+              </div>
+              <div class="form-group">
+                <div class="search">
+                  <i class="icon-search"></i>
+                  <input class="form-control form-control-sm"
+                         type="search"
+                         value.bind="searchText"
+                         placeholder="Search..."
+                         id="example-search-input"/>
+                </div>
+              </div>
+            </div>
+          </div>
+        </header>
+        <!--Verbatims List-->
+
+        <div class="outer-content">
+          <div class="inner-content-div">
+            <ul class="analytics-verbatims-list">
+              <li class="analytics-verbatim" repeat.for="verbatim of filteredVerbatims">
+                <div class="analytics-verbatim-sentiment-level"
+                     tooltip="text.one-time: getSentimentTooltipString(verbatim.sentiment); placement: left"
+                     css.bind="getVerbatimSentimentColorString(verbatim)">
+                </div>
+                <div class="verbatim-content">
+                  <div class="verbatim-actions">
+                    <div class="verbatim-actions-left">
+                      <!--Emotion Icons go here.-->
+                      <!--<i class="verbatim-emotion icon-ion-android-happy"></i>-->
+                    </div>
+                    <div class="verbatim-actions-right">
+                      <!--Button to kick off an annotation-->
+                      <!--<button class="btn btn btn-link-followup">-->
+                        <!--<div class="btn-flex-wrapper">-->
+                          <!--<i class="icon-ion-lightbulb"></i>Annotate-->
+                        <!--</div>-->
+                      <!--</button>-->
+                      <a href.bind="verbatimNavigationUrl(verbatim)" class="btn btn btn-link-followup">
+                        <div class="btn-flex-wrapper">
+                          <i class="icon-open_in_new"></i>View Original
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="analytics-verbatim-text" innerhtml.bind="verbatim.highlightedHtml || verbatim.text | sanitize">
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</template>

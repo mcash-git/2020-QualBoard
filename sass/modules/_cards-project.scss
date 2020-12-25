@@ -1,0 +1,155 @@
+.project-card {
+
+  .card {
+    background-color: $brand-primary-medium;
+    color: #fff;
+  }
+
+  .card-header {
+    background-color: rgba(0,0,0,.2);
+    padding: 0;
+  }
+
+  .card-block {
+    padding-top: 0;
+  }
+
+  // Right action buttons in the card header
+  .card-header-btn-container {
+    display: flex;
+
+    .primary-button {
+      font-size: 1.8rem;
+      border-left: 0;
+      background-color: rgba(0,0,0,.2);
+      color: $brand-identity;
+
+      &:hover {
+        background-color: rgba(0,0,0,.3);
+      }
+    }
+    .secondary-button {
+      font-size: 1.5rem;
+      color: rgba(255,255,255,.5);
+      border-left: 1px solid rgba(0,0,0,.2);
+      height: 100%;
+
+      &.download {
+        display: none;
+      }
+
+      &:hover {
+        color: rgba(255,255,255,1);
+        background-color: rgba(255,255,255,.05);
+      }
+
+      .card-more-btn {
+        display: flex;
+      }
+    }
+  }
+
+  // Left icon in the header
+  .card-icon {
+    align-items: center;
+    display: flex;
+    flex: 0;
+    padding: .5rem 1rem;
+    border-right: 1px solid rgba(0,0,0,.2);
+
+    i {
+      font-size: 2rem;
+      color: rgba(255,255,255,.6);
+    }
+  }
+
+// Stats styles for project card stats
+
+
+  .schedule-card-stats-row {
+
+    border-color: rgba(255,255,255,.25);
+  }
+
+  //Styles for Stat layouts on cards
+
+  .card-row-icon {
+    display: flex;
+    align-items: center;
+    font-size: 1.4rem;
+    padding-right: 1rem;
+    color: rgba(255,255,255,.6);
+  }
+
+  .proj-card-stats-row {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: row;
+    padding: .1rem 0;
+    list-style: none;
+    margin: 0;
+    border-bottom: 1px solid rgba(255,255,255,.25);
+
+    .card-row-cell {
+      flex: 1;
+      padding-left: .5rem;
+      &:first-of-type {
+        border-right: 1px solid $separator-color;
+        padding-left: 0;
+      }
+      .stat-icon {
+
+      }
+      .stat-title {
+
+      }
+    }
+
+    &.last-row {
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+
+  }
+
+  .proj-stat-container {
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 .5rem;
+    text-align: center;
+  }
+
+  .stat-title {
+    font-size: .675rem;
+    padding: 0;
+  }
+
+  .stat-label {
+    font-size: .625rem;
+    padding: 0;
+    text-transform: uppercase;
+  }
+
+  .stat-main {
+    font-weight: 600;
+    .stat-num {
+      font-size: 1.4rem;
+
+    }
+
+  }
+
+  .stat-secondary {
+    font-weight: 300;
+    .stat-num {
+      font-size: 1rem;
+    }
+  }
+
+}

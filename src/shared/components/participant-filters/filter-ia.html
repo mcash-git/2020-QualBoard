@@ -1,0 +1,27 @@
+<template>
+  <require from="./accordion-item"></require>
+  <accordion-item title.bind = "title"
+                  badge-count.bind="badge"
+                  is-required.bind="isRequired"
+                  expanded-session-storage-key.bind="expandedSessionStorageKey"
+                  containerless>
+    <ul class="filter-category">
+      <li class="filter-category-item default-content" if.bind="!individualActivities">(None)</li>
+      <li class="filter-category-item">
+        <div repeat.for="ia of individualActivities">
+          <label class="custom-control custom-checkbox">
+            <input
+              class="custom-control-input"
+              type="checkbox"
+              model.bind="ia"
+              matcher.bind="eventsMatcher"
+              checked.bind="events"
+            />
+            <span class="custom-control-indicator"></span>
+            <span class="custom-control-description">${ia.privateName}</span>
+          </label>
+        </div>
+      </li>
+    </ul>
+  </accordion-item>
+</template>

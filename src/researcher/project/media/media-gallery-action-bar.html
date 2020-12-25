@@ -1,0 +1,13 @@
+<template>
+  <select class="custom-select" value.bind="model.currentRoute" change.delegate="selectChanged()">
+    <option repeat.for="nav of model.router.navigation" model.bind="nav">
+      ${nav.title}
+    </option>
+  </select>
+  <compose
+    class="gallery-action-bar"
+    if.bind="model.viewModel"
+    view-model.bind="model.viewModel"
+    model.bind="model.module"
+  ></compose>
+</template>

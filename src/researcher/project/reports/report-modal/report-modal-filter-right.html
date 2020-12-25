@@ -1,0 +1,71 @@
+<template>
+  <require from="shared/components/filters/user/filter-user"></require>
+  <require from="shared/components/filters/group-tag/filter-group-tag"></require>
+
+  <div class="report-modal-body-right">
+    <div>
+      <div class="report-modal-step-title">
+        <span>3.</span> Filter By
+      </div>
+      <div class="report-modal-container">
+        <div class="default-content-slim" if.bind="!hasFilters">
+          This report type does not support filtering
+        </div>
+
+        <div class="report-modal-item">
+          <filter-user
+            if.bind="hasFilters"
+            available-users.bind="participants"
+            chosen-users.bind="report.users"
+            title="Users"
+          >
+          </filter-user>
+        </div>
+        <div class="report-modal-item modal-item-tall">
+          <filter-group-tag
+            if.bind="hasFilters"
+            available-tags.bind="groupTags"
+            chosen-tags.bind="report.groupTags"
+            title="Group Tags"
+          >
+          </filter-group-tag>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="report-modal-step-title">
+        <span>4.</span> Export
+      </div>
+      <div class="report-modal-container">
+        <div class="report-modal-item" if.bind="hasFilters">
+          <div class="report-modal-item-label">Include Notices:</div>
+          <div class="switch">
+            <input id="cmn-toggle-1"
+                   class="cmn-toggle cmn-toggle-round"
+                   checked.bind="report.showNotices"
+                   type="checkbox">
+            <label for="cmn-toggle-1"></label>
+          </div>
+        </div>
+        <div class="report-modal-item">
+          <div class="report-modal-item-label">
+            <div>Select File Type:</div>
+            <div class="required-label">*</div>
+          </div>
+          <select
+            class="custom-select"
+            value.bind="report.fileType"
+          >
+            <option
+              repeat.for="f of fileTypes"
+              model.bind="f"
+            >
+              ${f.friendly.toUpperCase()}
+            </option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

@@ -1,0 +1,74 @@
+<template>
+  <section class="response-control" ref="drawerElement">
+    <!-- TODO:  Aurelia componentize tab controls -->
+    <div class="response-tabs">
+      <div class="tabs-title-nav">
+        <div class="title-nav-left">
+          <ul class="tabs">
+            <li class="nav-item">
+              <a href="#response"
+                 class="nav-link active"
+                 role="tab"
+                 data-toggle="tab">
+                <i class="icon-ion-reply"></i><span>Response</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="title-nav-right">
+          <div class="cancel-response-btn" click.delegate="close()">
+            <i class=" icon-ion-chevron-down"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="response-tab-content">
+      <div class="tab-content">
+        <div class="tab-pane active" id="response" role="tabpanel">
+          <div class="reply-to-row">
+            <span class="replyto-user">Reply to:</span>
+            <a class="user"
+               with.bind="parentResponseModel.user"
+               title="Click to scroll to the comment you are replying to."
+               ref="$parent.replyButton"
+               click.delegate="scrollToResponse()">
+              <span class="avatar">
+                <avatar user-id.bind="userId" size.bind="22"></avatar>
+              </span>
+              <span>${displayName} <i class=" icon-ion-reply"></i></span>
+            </a>
+          </div>
+
+          <div class="response-input">
+            <froala
+              config.bind="{ heightMin: 100, heightMax: 100 }"
+              value.two-way="response.text"
+            ></froala>
+          </div>
+          <div class="response-actions-row">
+            <div class="set-probe">
+              <label class="custom-control custom-checkbox" if.bind="canProbe">
+                <input
+                  class="custom-control-input"
+                  type="checkbox"
+                  checked.bind="response.isProbe"
+                />
+                <span class="custom-control-indicator"></span>
+                Require reply
+              </label>
+            </div>
+            <div class="action-row-buttons">
+              <button
+                click.trigger="postResponse()"
+                disabled.bind="responseTextIsEmpty"
+                class="btn btn-primary"
+              >
+                Post Response
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</template>

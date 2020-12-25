@@ -1,0 +1,99 @@
+.project-nav {
+  @extend .flex-base;
+  //background-color: #768999;
+  background-color: $brand-primary-medium;
+  border-bottom: 1px solid rgba(0,0,0,.2);
+  padding: 0;
+  margin: 0;
+
+  li {
+    display: flex;
+    list-style: none;
+
+    @include media-breakpoint-down(xs) {
+      flex: 1;
+      .proj-nav-link {
+        flex: 1;
+      }
+    }
+  }
+
+  .notifications {
+    flex: 0;
+  }
+}
+
+// Represents each navigation link
+a.proj-nav-link {
+  position: relative;
+  display: flex;
+  //flex-direction: column;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  transition: all .3s ease-in-out;
+  color: rgba(255,255,255,1);
+  padding: .5rem 1rem;
+  font-size: 1.1rem;
+  border-right: $border-gray-light;
+  text-decoration: none;
+  cursor: pointer;
+
+  @include media-breakpoint-down(sm){
+    .proj-nav-title {
+      display: none;
+    }
+
+    i {
+      font-size: 1.4rem;
+    }
+  }
+
+  i {
+    //display: flex;
+    //align-items: center;
+    //justify-content: center;
+    //flex: 1;
+  }
+
+
+  // Adds an arrow to the bottom of the link to show the active state
+  &.active {
+    color: rgba(255,255,255,1);
+    //&:after {
+    //  content: '';
+    //  position: absolute;
+    //  bottom: -1px;
+    //  left: calc(50% - 6px);
+    //  @include arrow(top, $app-bg, 6px)
+    //}
+    background-color: rgba(0,0,0,.2);
+
+    &:hover {
+      background-color: rgba(0,0,0,.2);
+    }
+  }
+  a:visited,:active,:focus {
+    color: rgba(255,255,255,.7);
+    text-decoration: none;
+  }
+
+
+  &:hover {
+    text-decoration: none;
+    color: rgba(255,255,255,1);
+    background-color: rgba(0,0,0,.2);
+  }
+
+  .badge {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+  }
+}
+
+.proj-nav-title {
+  font-size: 0.75rem;
+  padding-left: .3rem;
+}
+

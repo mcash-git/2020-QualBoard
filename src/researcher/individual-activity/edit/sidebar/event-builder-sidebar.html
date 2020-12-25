@@ -1,0 +1,41 @@
+<template>
+
+  <require from="shared/components/logic-engine-rules"></require>
+  <require from="./task-options"></require>
+  <require from="./task-logic-summary"></require>
+  <require from="./user-logic-summary"></require>
+
+  <div class="sidebar-header">
+    <div class="sidebar-header-right">
+      <h6 class="title"><i class="icon-settings"></i>Task Settings</h6>
+    </div>
+
+  </div>
+  <div class="outer-content">
+    <div class="inner-content-div">
+      <form if.bind="task">
+        <task-options task.bind="task"></task-options>
+        <task-logic-summary
+          view-model.ref="taskLogicSummaryViewModel"
+          class="eb-settings-section logic-summary"
+          task.bind="task"
+          available-tasks.bind="task.tasks"
+        ></task-logic-summary>
+        <div
+          class="conditional-set-connector and"
+          show.bind="shouldShowConditionalConnector"
+          tooltip="text: Both sets of display logic must be met to show this task."
+        >
+          <div class="connector-text">AND</div>
+        </div>
+        <user-logic-summary
+          view-model.ref="userLogicSummaryViewModel"
+          class="eb-settings-section logic-summary"
+          task.bind="task"
+          available-group-tags.bind="model.availableGroupTags"
+          available-users.bind="model.participants"
+        ></user-logic-summary>
+      </form>
+    </div>
+  </div>
+</template>

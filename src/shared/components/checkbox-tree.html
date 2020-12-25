@@ -1,0 +1,32 @@
+<template>
+  <span if.bind="isParent && model.children.length > 0" class="checkbox-tree-expander" click.delegate="toggleExpanded()">
+    <i class="icon-ion-${model.isExpanded ? 'minus' : 'plus'}"></i>
+  </span>
+  <label class="custom-control custom-checkbox">
+    <input if.bind="!model.isParent"
+           type="checkbox"
+           class="custom-control-input"
+           change.delegate="leafChange()"
+           checked.bind="checked"
+           value.bind="model.value"/>
+
+    <input if.bind="model.isParent"
+           ref="checkboxElement"
+           type="checkbox"
+           class="custom-control-input"
+           checked.bind="isChecked"
+           disabled.bind="model.children.length === 0"/>
+
+    <span class="custom-control-indicator"></span>
+    <span class="custom-control-description truncate-ellipsis"><span>${model.text}</span></span>
+  </label>
+  <ul ref="childrenElement" class="checkbox-tree-children" show.bind="model.isParent && model.children.length > 0 && model.isExpanded">
+    <li class="checkbox-tree-child" repeat.for="child of model.children">
+      <checkbox-tree checked.bind="checked"
+                     leaf-change.delegate="handleLeafChange()"
+                     view-model.ref="viewModelChildren[$index]"
+                     model.bind="child">
+      </checkbox-tree>
+    </li>
+  </ul>
+</template>

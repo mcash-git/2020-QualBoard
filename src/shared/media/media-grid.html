@@ -1,0 +1,33 @@
+<template>
+  <require from="./attached-media-item"></require>
+  <!--Media Grid Design-->
+    <div class="attachments">
+      <!--Attached Assets Section Label - expand/collapse all media attached-->
+      </div>
+
+      <!--Attachment Grid starts here-->
+        <attached-media-item
+          repeat.for="mediaItem of mediaItems"
+          class="attachment-grid-repeat"
+          media-item.bind="mediaItem"
+          click.trigger="openAsset($event, mediaItem)"
+          remove-media-item.delegate="removeItem($event)"
+          cancel-upload.delegate="cancelUpload($event)"
+          can-edit.bind="canEdit"
+          show.bind="$index < thumbnailShowCount || shouldShowMore"
+        ></attached-media-item>
+        <!-- Toggle View More -->
+        <div class="attachment-grid-repeat"
+             if.bind="mediaItems.length > thumbnailShowCount"
+             click.trigger="toggleMore($event)">
+          <div class="attachments-grid-thumb more">
+            <template if.bind="shouldShowMore">
+              <i class="icon-noun-circle-up"></i> view less
+            </template>
+            <template if.bind="!shouldShowMore">
+              <i class="icon-ion-more"></i> and ${mediaItems.length - thumbnailShowCount} more
+            </template>
+          </div>
+        </div>
+
+</template>

@@ -1,0 +1,46 @@
+<template>
+  <require from="./settings/project-user-profile.html"></require>
+  <require from="./settings/project-settings-name"></require>
+  <require from="./settings/project-settings-schedule"></require>
+  <require from="./settings/project-settings-instructions"></require>
+  <require from="./settings/project-settings-analytics"></require>
+  <require from="./settings/project-settings-billing"></require>
+  <require from="./settings/project-settings-notes"></require>
+  <require from="./settings/project-settings-branding"></require>
+  <div class="tt_qb_content-padding">
+    <div id="project-settings-view" class="settings">
+      <div class="settings-column">
+        <project-settings-name
+          class="settings-card"
+          project.bind="project"
+        ></project-settings-name>
+        <project-settings-schedule
+          class="settings-card"
+          project.bind="project"
+          if.bind="userRole.isSuperUser()"
+        ></project-settings-schedule>
+        <project-settings-analytics
+          class="settings-card"
+          project.bind="project"
+          selected-tier.bind="selectedTier"
+          if.bind="userRole.isSuperUser()"
+        ></project-settings-analytics>
+      </div>
+      <div class="settings-column">
+        <project-settings-instructions
+          class="settings-card"
+          project.bind="project"
+        ></project-settings-instructions>
+        <project-settings-billing
+          class="settings-card"
+          project.bind="project"
+          if.bind="userRole.isSuperUser()"
+        ></project-settings-billing>
+        <project-settings-notes
+          class="settings-card"
+          project.bind="project"
+        ></project-settings-notes>
+      </div>
+    </div>
+  </div>
+</template>

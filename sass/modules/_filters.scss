@@ -1,0 +1,83 @@
+.filter-content {
+  font-size: 0.75rem;
+  flex: 1;
+
+&.filter-large {
+  width: 200px;
+}
+
+  .filter-title {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+  }
+
+  .filter-section {
+
+    .filter-section-title {
+      font-size: 0.75rem;
+    }
+    input {
+      min-width: 200px;
+      width: 100%;
+      color: $gray-dark;
+    }
+
+    .filter-section-stat {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 5px;
+
+      &:last-child {
+        padding-bottom: 0;
+      }
+    }
+    .filter-order-buttons {
+
+      &.active {
+        a {
+          color: $link-color;
+          &:hover {
+            color: $link-hover-color;
+          }
+        }
+      }
+      a {
+        color: $gray-light;
+        text-decoration: none;
+      }
+      .btn-filter {
+        padding: 4px;
+        border-radius: 2px;
+        line-height: 1rem;
+
+        &:focus {
+          outline: 0 !important;
+        }
+      }
+    }
+
+  }
+
+  .filter-button-row {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 0.75rem;
+  }
+
+  hr {
+    background-color: rgba(255,255,255,.2);
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}
+
+.tag-rule-label {
+  margin-bottom: .5rem;
+  font-size: .875rem;
+}
+
+.tag-rule-operator {
+  width: 80px;
+  margin-bottom: .5rem;
+}

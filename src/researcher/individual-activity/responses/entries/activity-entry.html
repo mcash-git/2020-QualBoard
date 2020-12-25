@@ -1,0 +1,57 @@
+<template>
+  <require from="shared/components/response-drawer"></require>
+  <require from="./tasks/entry-task"></require>
+
+  <div id="entry-content" ref="scrollElement" class="entry-content">
+    <div class="ia task-list ia-moderator"
+        ok.delegate="handleRespond($event)"
+        follow-up.delegate="openResponseDrawer($event)"
+        respond.delegate="openResponseDrawer($event)"
+    >
+      <div class="entry-header">
+        <div class="left">
+          <avatar class="avatar" user-id.bind="selectedEntry.participantId" size.bind="35"></avatar>
+          <span class="name-entry">${selectedEntry.participant.displayName}</span>
+          <span if.bind="selectedEntry.text">&nbsp;&ndash;&nbsp;${selectedEntry.text}</span>
+        </div>
+        <div class="right">
+          <span>${selectedEntry.startedOn | momentFormat:currentUser.timeZone}</span>
+        </div>
+      </div>
+      <template repeat.for="task of tasksWithPlaceholders">
+        <entry-task
+          class="entry-task"
+          if.bind="task.skippedCount === undefined"
+          task.bind="task"
+          project-user-lookup.bind="projectUserLookup"
+          project-id.bind="projectId"
+          insight-bags.bind="insightBags"
+        ></entry-task>
+        <div class="skip-container" if.bind="task.skippedCount > 0">
+          <div class="skip-summary">
+            <span>Skipped ${task.skippedCount} tasks due to display logic rules</span>
+          </div>
+        </div>
+      </template>
+      <li class="incomplete-message" if.bind="selectedEntry.completionStatus.value !== 'Complete'">
+        <span>No further tasks have been completed</span>
+      </li>
+      <div class="exit-message" if.bind="selectedEntry.completionStatus.value === 'Complete'">
+        <div class="event-item">
+          <div class="card-block">
+            <div>
+              <span class="circle-border-icon"><i class="icon-check"></i></span>&nbsp;
+              You have reached the end of the current entry.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <response-drawer
+    view-model.ref="responseDrawer"
+    project-id.bind="projectId"
+    scroll-to-response.delegate="handleScrollToResponse($event)"
+  ></response-drawer>
+</template>

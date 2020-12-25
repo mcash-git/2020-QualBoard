@@ -1,0 +1,49 @@
+<template>
+  <!-- saved -->
+  <require from="./media-item-thumbnail"></require>
+  <div
+    id.bind="mediaItem.assetId"
+    class="attachments-grid-thumb ${thumbnailClass}"
+  >
+    <a class="attachments-remove" if.bind="canEdit">
+      <i class="icon-ion-minus-circled" click.trigger="removeItem($event)"></i>
+    </a>
+    <div class="media-thumb-overlay">
+      <template if.bind="mediaItem.asset && mediaItem.asset.uploadProgress < 1">
+        <div class="media-thumb-info">
+          <div class="media-title">Uploading...</div>
+          <div class="media-thumb-progress">
+            <div class="progress-fill" css="width:${mediaItem.asset.uploadProgress.toFixed(2) * 100}%"></div>
+          </div>
+        </div>
+
+        <div class="media-thumb-links">
+          <button class="btn btn-sm btn-opaque" click.trigger="cancelUpload($event)">cancel</button>
+        </div>
+      </template>
+      <template if.bind="!mediaItem.asset || mediaItem.asset.uploadProgress === 1">
+        <i class="primary-action" class.bind="mediaItem.viewable ? 'icon-zoom_in' : 'icon-download'"></i>
+        <div class="media-title">
+          <span class="truncate-ellipsis">
+            <span>${mediaItem.title}</span>
+          </span>
+        </div>
+        <div class="media-description">
+          <span class="truncate-ellipsis">
+            <span>${mediaItem.description}</span>
+          </span>
+        </div>
+      </template>
+    </div>
+    <!-- If the media item was just attached from the media-picker modal, and it is still uploading
+         the dataUrl will be on the asset, so we just use that to display the thumbnail. -->
+    <asset-thumbnail if.bind="mediaItem.asset" asset.bind="mediaItem.asset" height="63"></asset-thumbnail>
+    <media-item-thumbnail if.bind="!mediaItem.asset" media-item.bind="mediaItem" height="63"></media-item-thumbnail>
+    <div
+      class="circle-border-icon insight-marker"
+      if.bind="numInsights > 0"
+    >
+      ${numInsights}
+    </div>
+  </div>
+</template>

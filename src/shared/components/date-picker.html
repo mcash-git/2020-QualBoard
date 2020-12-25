@@ -1,0 +1,10 @@
+<template>
+  <input ref="inputElement"
+         type="text"
+         value.one-way="dateText"
+         keydown.delegate="keyup($event)"
+         class="flatpickr form-control"
+         change.trigger="inputValueChanged()"
+         validate="validator.bind: validator; property.bind: validationProperty; on: manual"
+         placeholder.bind="placeholder" />
+</template>

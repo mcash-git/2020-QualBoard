@@ -1,0 +1,31 @@
+<template>
+  <require from="researcher/project/reports/report-tables/report-config-table"></require>
+  <div class="tt_qb_content-padding">
+    <div class="flex-column">
+      <!-- when no response -->
+      <div class="default-content" if.bind="!isResponses">
+        This project currently has no responses to create a report please check back later.
+      </div>
+
+      <!-- when there are responses but no report -->
+      <div class="default-content" if.bind="isResponses && !hasReportItems">
+        This project does not have any reports.
+        &nbsp;
+        <a href="#" click.delegate="openReportCreation()">Click here</a>
+        &nbsp;
+        to create one.
+      </div>
+
+      <div if.bind="hasReportItems" class="shadow-box">
+        <h5 class="header">Report Configurations</h5>
+        <div>
+          <report-config-table
+            project-id.bind="projectId"
+            account-id.bind="accountId"
+            reports.bind="reports"
+          ></report-config-table>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

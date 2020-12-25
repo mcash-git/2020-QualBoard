@@ -1,0 +1,84 @@
+@import '../base/custom-variables';
+@import '../base/custom-mixins';
+@import '../base/custom-placeholders';
+
+.media-items-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.media-items-expander {
+
+  .expander-content {
+    background: white;
+    color: $brand-primary;
+  }
+
+  i {
+    font-size: 2rem;
+  }
+
+  &:hover {
+    .expander-content {
+      color: darken($brand-primary, 10%);
+    }
+  }
+}
+
+.media-item-wrapper {
+  @extend %unbutton;
+  display: block;
+  background-color: $gray-lightest;
+  border: 1px solid $card-border-color;
+  padding: 5px;
+  position: relative;
+  cursor: pointer;
+  height: 75px;
+  width: 130px;
+  margin-top: .5rem;
+  margin-right: .5rem;
+
+  .overlay {
+    @extend %absolute-fill-parent;
+    opacity: 0;
+    transition: opacity .2s ease-in-out;
+    background-color: $transparent-gray-darker;
+
+    i {
+      @extend %translate-center;
+      font-size: 2.5rem;
+      color: #fff;
+    }
+  }
+
+  &:hover > .overlay {
+    opacity: 1;
+  }
+}
+
+.media-thumbnail-container, .expander-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+
+  .media-thumbnail {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
+
+.media-thumbnail-container > i {
+  font-size: 2.5rem;
+}
+
+.expander-content {
+  flex-direction: column;
+  font-size: .75rem;
+
+  i {
+    line-height: .75;
+  }
+}

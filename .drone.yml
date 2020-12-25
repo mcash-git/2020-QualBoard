@@ -1,0 +1,105 @@
+build:
+    image: node:latest
+    commands:
+        - yarn
+        - yarn lint
+        - yarn test
+        - yarn build:prod
+    when:
+        branch: integration
+publish:
+    ecr:
+        access_key: $$AWSAccessKey
+        secret_key: $$AWSSecretKey
+        region: us-east-1
+        repo: 2020ip/qualboard-web
+        file: docker-build/Dockerfile.prod
+        tag:
+            - 4.0.$$BUILD_NUMBER-integration
+        when:
+            branch: integration
+    ecr:
+        access_key: $$AWSAccessKey
+        secret_key: $$AWSSecretKey
+        region: us-east-1
+        repo: 2020ip/qualboard-web
+        file: docker-build/Dockerfile.prod
+        tag:
+            - latest
+            - 4.0.$$BUILD_NUMBER
+        when:
+            branch: master-random
+deploy:
+    ecs:
+        image: plugins/drone-ecs
+        region: us-east-1
+        access_key: $$AWSAccessKey
+        secret_key: $$AWSSecretKey
+        cluster: east-us-1-alpha
+        family: qualboard-web-alpha
+        image_name: 979246834305.dkr.ecr.us-east-1.amazonaws.com/2020ip/qualboard-web
+        image_tag: 4.0.$$BUILD_NUMBER
+        service: qualboard-web
+        environment_variables:
+            - API_URL=https://api-dev.qualboard.com/api/
+            - API_BASE_URL=https://api-dev.qualboard.com
+            - IDENTITY_URL=https://alpha.2020identity.com
+            - IDENTITY_CLIENTID=1473447706.apps.2020identity.com
+            - REDIRECT_URI=https://qb4alpha.qualboard.com/#/oidc/#
+            - POSTLOGOUT_REDIRECT_URI=https://qb4alpha.qualboard.com/
+            - SILENT_REDIRECT_URI=https://qb4alpha.qualboard.com/#/oidc-silent/#
+            - URL=https://qb4alpha.qualboard.com/
+            - LOG_LEVEL=4
+            - MEDIA_URL=https://media-alpha.2020ip.io
+            - MEDIA_IMAGE_URI_BASE=https://media-alpha.2020ip.io
+            - MEDIA_URL_ROUTE=/api/amazon/sign
+            - MEDIA_AWS_KEY=AKIAJWEIL4JDHIQDMWSQ
+            - MEDIA_BUCKET=twentytwenty.us-east-1.alpha
+            - MEDIA_AWS_URL=https://s3.amazonaws.com
+            - MESSAGING_URL=https://messaging-alpha.2020ip.io
+            - MESSAGING_APPLICATION_ID=f10c5b04-6292-4987-8fa0-310fa439a9e5
+            - ANALYTICS_URL=https://analytics-alpha.2020ip.io
+            - APPLICATION_INSIGHTS_KEY=64b4217c-b841-4600-80ad-046bd9921670
+            - VERSION=4.0.$$BUILD_NUMBER
+            - MAINTENANCE=false
+        port_mappings:
+            - 0 80
+        memory: 300
+        when:
+            branch: master-random
+    ecs:
+        image: plugins/drone-ecs
+        region: us-east-1
+        access_key: $$AWSAccessKey
+        secret_key: $$AWSSecretKey
+        cluster: east-us-1-alpha
+        family: qualboard-web-dev
+        image_name: 979246834305.dkr.ecr.us-east-1.amazonaws.com/2020ip/qualboard-web
+        image_tag: 4.0.$$BUILD_NUMBER-integration
+        service: qualboard-web-dev
+        environment_variables:
+            - API_URL=https://api-dev.qualboard.com/api/
+            - API_BASE_URL=https://api-dev.qualboard.com
+            - IDENTITY_URL=https://alpha.2020identity.com
+            - IDENTITY_CLIENTID=1473447706.apps.2020identity.com
+            - REDIRECT_URI=https://qb4dev.qualboard.com/#/oidc/#
+            - POSTLOGOUT_REDIRECT_URI=https://qb4dev.qualboard.com/
+            - SILENT_REDIRECT_URI=https://qb4dev.qualboard.com/#/oidc-silent/#
+            - URL=https://qb4dev.qualboard.com/
+            - LOG_LEVEL=4
+            - MEDIA_URL=https://media-alpha.2020ip.io
+            - MEDIA_IMAGE_URI_BASE=https://media-alpha.2020ip.io
+            - MEDIA_URL_ROUTE=/api/amazon/sign
+            - MEDIA_AWS_KEY=AKIAJWEIL4JDHIQDMWSQ
+            - MEDIA_BUCKET=twentytwenty.us-east-1.alpha
+            - MEDIA_AWS_URL=https://s3.amazonaws.com
+            - MESSAGING_URL=https://messaging-alpha.2020ip.io
+            - MESSAGING_APPLICATION_ID=f10c5b04-6292-4987-8fa0-310fa439a9e5
+            - ANALYTICS_URL=https://analytics-alpha.2020ip.io
+            - VERSION=4.0.$$BUILD_NUMBER-integration
+            - MAINTENANCE=false
+        port_mappings:
+            - 0 80
+        memory: 300
+        when:
+            branch: integration

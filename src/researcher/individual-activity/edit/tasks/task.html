@@ -1,0 +1,7 @@
+<template>
+  <require from="./saved-task"></require>
+  <require from="./edit-task"></require>
+
+  <saved-task if.bind="!task.isBeingEdited" click.trigger="edit($event)" task.bind="task"></saved-task>
+  <edit-task if.bind="task.isBeingEdited" task.bind="editingTask" available-group-tags.bind="availableGroupTags"></edit-task>
+</template>

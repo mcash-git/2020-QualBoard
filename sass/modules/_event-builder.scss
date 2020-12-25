@@ -1,0 +1,498 @@
+// Name spacing for an event list as presented in the event builder
+
+.ia.ia-moderator.eb.task-list {
+  position: relative;
+
+  .insert-at-start-container {
+    position: absolute;
+    height: 1.5rem;
+    left: .5rem;
+    right: .5rem;
+    top: -1rem;
+    cursor: pointer;
+
+    .eb-insert-menu {
+      bottom: 2px;
+    }
+
+    &:hover {
+      .eb-insert-menu {
+        opacity: 1;
+      }
+    }
+  }
+
+   > li:last-child {
+    margin-bottom: 50vh;
+  }
+  .saved-mode message-task-save {
+    cursor: pointer;
+  }
+
+  .event-item {
+    transition: all .3s ease-in-out;
+    position: relative;
+    @extend .card-hover;
+    border: 2px dashed transparent;
+
+
+    // When hovering over an event item, display the insert menu
+    &:hover {
+      cursor: pointer;
+      //border-style: dashed;
+      border: 2px dashed $new-brand-primary;
+
+      .fr-wrapper {
+        cursor: text;
+      }
+
+      .eb-insert-menu {
+        opacity: 1;
+      }
+    }
+
+    &.saved-mode {
+      .card-block {
+        padding: 0;
+
+        saved-task {
+          padding: 1rem;
+        }
+      }
+    }
+
+    &.edit {
+      cursor: default;
+      transition: all .2s ease-in-out;
+      border: 2px dashed $gray-lighter;
+      background-color: #fff;
+
+      .eb-insert-menu {
+        display: none;
+      }
+
+      .card-block {
+        &:before {
+          content: none;
+          &:hover:before {
+            border: none;
+          }
+        }
+      }
+
+      .item-header {
+        padding-bottom: 1rem;
+        margin-bottom: 1rem;
+        margin-top: initial;
+      }
+    }
+
+    &.default-task {
+      transition: background-color 0.5s ease !important;
+      border: 3px dashed lighten($link-color, 35%);
+      background-color: lighten($link-color, 50%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.25rem;
+      color: lighten($link-color, 10%);
+
+      i {
+        margin-right: .5rem;
+      }
+
+      &:hover {
+        border: 3px dashed lighten($link-color, 30%);
+        background-color: lighten($link-color, 45%);
+      }
+    }
+
+    &.eb-item-inactive {
+      opacity: .8;
+
+      saved-buttons {
+        display: none;
+      }
+
+      &:hover {
+        background-color: #fff;
+        border-color: transparent;
+        //box-shadow: none;
+
+        .eb-insert-menu {
+          opacity: 0;
+        }
+      }
+
+      .card-block {
+        &:hover {
+          cursor: default;
+        }
+        &:hover:before {
+          border: 0;
+        }
+      }
+    }
+  }
+
+  .item-header {
+    @extend.event-item-row;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: -.5rem;
+    padding-right: 0;
+  }
+
+  .item-title-container {
+    @extend.event-item-row;
+    align-items: center;
+    //margin-bottom: 5px;
+  }
+
+  .item-content {
+    @extend.flex-column;
+
+      textarea {
+        background-color: rgba(255,255,255,.8);
+        border-radius: 3px;
+        width: 100%;
+      }
+
+      .fr-view {
+        font-size: .875rem;
+      }
+    }
+  //  Edit content textarea style
+
+  .event-input-container {
+    width: 100%;
+    flex: 1;
+    form {
+      width: 100%;
+    }
+  }
+}
+
+// Event Builder Content
+.eb-actions-row {
+  @extend.actions-row;
+  //padding: 1.25rem 0;
+  justify-content: flex-end;
+}
+
+
+
+.eb-item-saved {
+  display: inline-block;
+  width: 100%;
+}
+
+.eb-content-section {
+  padding: 0;
+  margin-bottom: .5rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+//.eb-content-label {
+//  @extend.flex-row;
+//  font-size: 1rem;
+//  font-weight: 600;
+//  //margin-bottom: 0;
+//}
+
+//.eb-content-row {
+//  @extend.flex-row;
+//  padding: .4rem 0 1.3rem 0;
+//
+//  .table-responsive {
+//    overflow-x: auto;
+//  }
+//
+//}
+
+//.eb-content-col {
+//  @extend.flex-column;
+//  padding-bottom: .8rem;
+//}
+
+// Styles specifically for the event builder edit state
+.eb-item-edit {
+  display: none;
+
+  .event-item-title {
+    width: 100%;
+    font-weight: 600;
+    color: $gray-dark;
+    font-size: 1.375px;
+
+    //  Edit title style
+    input {
+      background-color: rgba(255,255,255,.8);
+      border-radius: 3px;
+
+    }
+  }
+
+  .eb-item-content {
+    width: 100%;
+  }
+
+  .eb-content-section {
+    padding: 0 .5rem .5rem .5rem;
+    border-radius: 3px;
+  }
+
+}
+
+.eb-edit-btns {
+  @extend.actions-row;
+  padding: 0;
+
+  .btn {
+    line-height: 1.2;
+    float: left;
+    margin-left: .5rem;
+    min-width: 110px;
+
+    &:last-child {
+      //border-radius: 0 0 2px 0;
+    }
+  }
+}
+
+// Styles for the Insert Task/Question hover buttons
+.eb-insert-row {
+  @extend.event-item-row;
+  height: 0;
+  justify-content: center;
+
+  .btn-group {
+    transition: opacity .2s ease-in-out;
+    box-shadow: $card-shadow;
+
+    .btn{
+      font-size: .75rem;
+      text-transform: uppercase;
+    }
+  }
+}
+
+.eb-insert-menu {
+  position: absolute;
+  bottom: -1rem;
+  opacity: 0;
+  border-radius: 100px;
+  display: flex;
+  z-index: 10;
+
+  &.show {
+    opacity: 1;
+  }
+}
+
+.eb-insert-button {
+  background-color: $gray-lighter;
+  border-right: 1px solid $gray-dark;
+  color: $gray-dark;
+  display: inline-block;
+
+  &:last-child {
+    border-radius: 0 3px 3px 0;
+    border-right: 0;
+  }
+}
+
+// Styles for MCMA Builder Options
+
+.eb-options-row {
+  @extend.flex-row;
+  padding: .4rem 0;
+}
+  // Options list for saved state
+//.mcma-options-list {
+//  list-style: none;
+//  padding: 0;
+//  margin-right: 2rem;
+//  min-width: 0;
+//}
+//
+//.mcma-options-col-1, .mcma-options-col-2 {
+//  min-height: 2rem;
+//  margin-right: 2rem;
+//  list-style: none;
+//  padding: 0;
+//}
+//
+//.mcma-option {
+//  padding-bottom: .5rem;
+//  min-width: 0;
+//  word-wrap: break-word;
+//  white-space: normal;
+//}
+
+.eb-item-edit {
+  // I'm pretty sure these are being used as rows and not columns.
+  .mcma-options-col-1, .mcma-options-col-2, .mcma-options-col-3 {
+    margin-right: 0;
+  }
+}
+
+
+.options-col {
+  @extend.flex-column;
+  padding-right: .5rem;
+  padding-bottom: 0;
+}
+
+.options-control-col {
+  display: flex;
+  align-items: center;
+
+  i {
+    cursor: pointer;
+  }
+}
+
+.tag-control-col {
+  max-width: 500px;
+}
+
+.options-column-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: .75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-top: .5rem;
+  //border-bottom: 1px solid rgba(0,0,0,.2);
+  background: rgba(0,0,0,.2);
+  border: $border-gray-light;
+  border-radius: 3px;
+  color: rgba(0,0,0,.6);
+  width: 100%;
+  padding: .5rem;
+
+  //&:first-of-type {
+  //  padding-top: 0;
+  //}
+
+  span {
+    display: flex;
+    align-items: center;
+
+    i {
+      font-size: 1rem;
+      padding-right: .5rem;
+    }
+  }
+}
+
+
+.options-controls {
+  @extend.flex-row;
+}
+.options-button  {
+  font-size: 1.4rem;
+  padding: 0 .5rem;
+  color: $gray;
+
+  &:hover {
+    color: $gray-dark;
+  }
+
+  &.disabled {
+    cursor: not-allowed;
+    opacity: 0.4;
+  }
+}
+
+.ex-moved {
+  //background-color: green;
+  transition: 0.4s ease-in-out;
+  opacity: 1;
+}
+
+.gu-transit {
+  background-color: rgba(0,0,0,.4);
+}
+
+
+
+
+
+// Test...remove this block later
+.overflow-content {
+  padding:20px;
+  border:dotted 1px;
+  white-space:nowrap;
+  overflow-x:auto;
+
+  .content-block {
+    width:100px;
+    height:180px;
+    background-color: red;
+    margin:10px;
+    display:inline-block
+  }
+}
+
+.reorder-title {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.reorder-tasks-item {
+  background-color: #fff;
+  cursor: move;
+  display: flex;
+  border: 1px solid $list-group-border-color;
+  border-left: none;
+  border-right: none;
+  margin-bottom: -1px;
+  padding: .75rem 0;
+
+  .task-content {
+    width: 100%;
+    flex: 1 auto;
+    padding: .3rem;
+  }
+
+  .task-handle {
+    width: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    i {
+      font-size: 1.5rem;
+      color: $new-brand-primary;
+    }
+  }
+
+  .item-header {
+    border-bottom: 0;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+  .item-title-container {
+    font-weight: bold;
+    vertical-align: middle;
+    width: 100%;
+  }
+
+  .task-icon-and-title {
+    font-weight: bold;
+  }
+
+  .item-content {
+    padding-left: 40px;
+    font-size: .75rem;
+  }
+}
+
+.compose-test {
+  background-color: pink;
+}

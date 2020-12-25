@@ -1,0 +1,30 @@
+<template>
+  <div class="form-2col-modal">
+    <div class="form-group input-button-group input-group date"
+         style="position:relative;"
+         validation-state="validator.bind: validator; property.bind: dateProperty">
+      <input ref="dateElement"
+             type="text"
+             value.one-way="model.date"
+             keydown.delegate="dateKeyup($event)"
+             class="flatpickr form-control"
+             ref="datePicker"
+             validate="validator.bind: validator; property.bind: dateProperty; on: change"
+             placeholder.bind="model.datePlaceholderText" />
+      <div class="input-group-addon" click.delegate="dateElement.focus()"><i class="icon-ion-calendar"></i></div>
+    </div>
+    <div class="form-group input-button-group input-group date"
+         validation-state="validator.bind: validator; property.bind: timeProperty">
+      <input ref="timeElement"
+             type="text"
+             value.one-way="model.time"
+             keydown.delegate="timeKeyup($event)"
+             class="flatpickr form-control"
+             ref="timePicker"
+             validate="validator.bind: validator; property.bind: timeProperty; on.bind: validateOn"
+             placeholder.bind="model.timePlaceholderText" />
+      <div class="input-group-addon" click.delegate="timeElement.focus()"><i class="icon-ion-clock"></i></div>
+    </div>
+  </div>
+
+</template>

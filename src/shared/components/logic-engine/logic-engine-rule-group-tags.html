@@ -1,0 +1,21 @@
+<template>
+  <div class="logic-engine-rule-options">
+    <span>Contains</span>
+    <select class="custom-select" value.bind="rule.operator" change.delegate="signalChange()">
+      <option repeat.for="operator of ruleOperators" model.bind="operator.int">${operator.friendly}</option>
+    </select>
+    <span>of the following:</span>
+  </div>
+  <tag-input source-items.bind="rule.availableGroupTags"
+             display-property="name"
+             autocomplete-search-fields.one-way="['name']"
+             autocomplete-sort-field="name"
+             autocomplete-min-chars="0"
+             autocomplete-sort-direction="asc"
+             should-allow-add="true"
+             changed.call="signalChange()"
+             placeholder-text="Filter on groups"
+             value.bind="rule.groupTags">
+  </tag-input>
+</template>
+</template>

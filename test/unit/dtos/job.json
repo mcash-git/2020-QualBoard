@@ -1,0 +1,13 @@
+{
+  "userId": "moderator",
+  "externalId": "tt://media/jobs/3d14628e-9f68-4fce-8ab1-c186a662dcc7",
+  "createdOn": "2017-11-15T16:27:45.164278Z",
+  "completedOn": "2017-11-15T16:27:46.627975Z",
+  "title": "Export Started",
+  "fileName": "i know what you did last summer.zip",
+  "status": 2,
+  "progress": 1.0,
+  "link": null,
+  "downloadLink": "https://media-dev.2020ip.io/api/export/i know what you did last summer-b68ea12b-4573-4012-8e88-43d981f41ab1.zip",
+  "id": "a223d343-3427-4848-a97e-d56335018baa"
+}

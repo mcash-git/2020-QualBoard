@@ -1,0 +1,14 @@
+<template>
+  <require from="shared/components/participant-filters/participant-filters"></require>
+
+  <participant-filters
+    class="flex-column sidebar-content"
+    if.bind="model && model.module"
+    filter-model.bind="model.module.filterModel"
+    available-group-tags.bind="model.module.availableGroupTags"
+    participants.bind="model.module.participants"
+    individual-activities.bind="model.module.individualActivities"
+    filters-updated.delegate="model.module.loadPage(1)"
+    client-storage-key-base.bind="model.module.storageKeys.filters"
+  ></participant-filters>
+</template>

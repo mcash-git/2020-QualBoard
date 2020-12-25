@@ -1,0 +1,332 @@
+.logic-subtitle {
+  margin-top: 1rem;
+  margin-bottom: .5rem;
+  //color: $gray;
+}
+
+.logic-list {
+  width: 100%;
+  padding: 0;
+}
+
+.connector-text {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.conditional-set {
+  display: list-item;
+  position: relative;
+  list-style: none;
+  width: 100%;
+  padding: .5rem;
+  margin-bottom: 10px;
+  background-color: lighten($gray-lightest, 8%);
+  //background-color: $gray-lightest;
+  border: 1px solid $gray-lighter;
+  border-radius: 4px;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+
+  // the `a.` is to override a specificity thing from bootstrap...grumble grumble
+  a.remove-set {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    top: -25px;
+    right: 15px;
+    font-size: .875rem;
+    color: $brand-danger;
+    text-decoration: none;
+
+    &:hover {
+      color: darken($brand-danger, 20%);
+    }
+  }
+
+  .conditional-row {
+    display: flex;
+    width: 100%;
+    padding-bottom: .3rem;
+
+    &:last-of-type {
+      padding-bottom: 0;
+    }
+
+    .conditional-cell {
+      padding-right: .5rem;
+
+      &:last-of-type {
+        padding-right: 0;
+      }
+    }
+
+    .condition-connector {
+      width: 100px;
+      text-transform: uppercase;
+
+      span {
+        color: $gray;
+        font-weight: bold;
+      }
+
+      .connector-text {
+        border: 1px solid;
+        border-radius: 3px;
+        text-align: center;
+        transition: all .1s ease-in-out;
+        transition-property: color,background-color,border-color;
+      }
+
+      select {
+        transition: all .1s ease-in-out;
+        transition-property: color,border-color;
+      }
+
+      &.and {
+        .connector-text {
+          color: darken($accent-4, 10%);
+          background-color: lighten($accent-4, 10%);
+          border-color: $accent-4;
+        }
+
+        select {
+          border-color: lighten($accent-4, 10%);
+          color: $accent-4;
+          text-transform: uppercase;
+        }
+      }
+
+      &.or {
+        .connector-text {
+          color: darken($accent-1, 10%);
+          background-color: lighten($accent-1, 10%);
+          border-color: $accent-1;
+        }
+
+        select {
+          border: 1px solid $accent-1;
+          color: $accent-1;
+          text-transform: uppercase;
+        }
+      }
+    }
+
+    .condition {
+      flex: 2;
+    }
+    .operator {
+      flex: 1;
+    }
+    .answer {
+      flex: 2;
+    }
+    .conditional-remove {
+      width: 1.5rem;
+      padding-top: .2rem;
+
+      a {
+        transition: $color-transition;
+        color: $brand-danger;
+
+        &:hover {
+          text-decoration: none;
+          color: darken($brand-danger, 20%);
+        }
+        &:focus {
+          text-decoration: none;
+        }
+        &:active {
+          text-decoration: none;
+        }
+      }
+
+      i {
+        font-size: 1.5rem;
+      }
+    }
+
+  //  Add Condition Button
+    .add-condition {
+      flex: 1;
+
+      .add-condition-button {
+        display: flex;
+        flex: 1;
+        justify-content: center;
+        align-items: center;
+        border: 2px dashed $new-brand-primary;
+        border-radius: 3px;
+        background-color: $new-brand-primary-lightest;
+        color: $new-brand-primary;
+
+        &:hover {
+          background-color: darken($new-brand-primary-lightest, 3%);
+        }
+      }
+    }
+  }
+}
+
+.conditional-set-connector {
+  position: relative;
+  display: block;
+  width: 150px;
+  border: 2px solid;
+  padding: .3rem;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  margin-left: 2rem;
+  transition: background-color .1s ease-in-out;
+
+  .connector-text {
+    transition: color .1s ease-in-out;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  select {
+    transition: all .1s ease-in-out;
+    transition-property: color,border-color;
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: -12px;
+    left: calc(50% - 6px);
+    width: 6px;
+    height: 10px;
+    background-color: $gray-lighter;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: calc(50% - 6px);
+    width: 6px;
+    height: 10px;
+    background-color: $gray-lighter;
+  }
+
+  &.and {
+    background-color: lighten($accent-4, 10%);
+    border: 2px solid $accent-4;
+
+    .connector-text {
+      color: darken($accent-4, 10%);
+    }
+
+    select {
+      border-color: $accent-4;
+      color: $accent-4;
+      text-transform: uppercase;
+    }
+  }
+
+  &.or {
+    background-color: lighten($accent-1, 15%);
+    border-color: $accent-1;
+
+    .connector-text {
+      color: darken($accent-1, 10%);
+    }
+    select {
+      border: 1px solid $accent-1;
+      color: $accent-1;
+      text-transform: uppercase;
+    }
+  }
+}
+
+.add-set {
+  transition: $background-color-transition;
+  padding: .5rem;
+  border: 2px dashed $new-brand-primary;
+  border-radius: 4px;
+  text-decoration: none;
+  text-transform: uppercase;
+  background-color: $new-brand-primary-lightest;
+
+  &:hover {
+    text-decoration: none;
+    background-color: darken($new-brand-primary-lightest, 5%);
+  }
+  &:focus {
+    text-decoration: none;
+  }
+  &:active {
+    text-decoration: none;
+  }
+  > span {
+    color: $new-brand-primary;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.tag-input-wrapper .tag-input-tags {
+
+  &.tag-input-summary {
+    > .tag-input-tag.multiple-choice {
+      >.tag-input-color {
+        width: 1rem;
+      }
+    }
+    > .tag-input-tag.multiple-answer {
+      >.tag-input-color {
+        width: 1rem;
+      }
+    }
+  }
+
+  > .tag-input-tag.multiple-choice {
+    position: relative;
+
+    .custom-control {
+      margin: 0;
+      padding: 0;
+      position: absolute;
+      transform: scale(.8);
+      top: -2px;
+    }
+
+    .tag-input-color {
+      margin-right: .1rem;
+    }
+  }
+
+  > .tag-input-tag.multiple-answer {
+    position: relative;
+
+    .custom-control {
+      margin: 0;
+      padding: 0;
+      position: absolute;
+      transform: scale(.7);
+      top: -3px;
+      left: 2px;
+    }
+
+    .tag-input-color {
+      margin-right: .15rem;
+    }
+  }
+}
+
+.no-users-note {
+  display: flex;
+  align-items: center;
+  border: 1px solid darken($brand-warning, 20%);
+  padding: .1rem .5rem;
+  background-color: lighten($brand-warning, 30%);
+  color: darken($brand-warning, 20%);
+
+  span {
+    margin-left: .25rem;
+  }
+}

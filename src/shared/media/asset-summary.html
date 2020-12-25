@@ -1,0 +1,32 @@
+<template>
+  <!--Add .no-asset + .video or .image to .media-thumb to display the appropriate media placeholder-->
+  <!-- TODO: DO THE ONERROR THING (.no-asset(.image|.video)) -->
+  <div class="media-thumb${asset.isSelected ? ' media-added' : '' & oneWay}">
+    <i class="media-added-icon icon-ion-checkmark-circled"></i>
+    <!--<div class="media-added-msg">${asset.fileName}</div>-->
+    <asset-thumbnail asset.bind="asset" height="110"></asset-thumbnail>
+  </div>
+  <div class="media-detail">
+    <div class="media-thumb-progress" if.bind="asset.uploadProgress < 1">
+      <div class="progress-fill" css="width:${asset.uploadProgress.toFixed(2) * 100}%"></div>
+    </div>
+    <i class="media-uploaded-icon done icon-ion-android-cloud-done"
+       if.bind="asset.uploadProgress === 1 || asset.state === 1"></i>
+    <div class="media-icon-row">
+      <i class.bind="iconClass"></i>
+    </div>
+    <div class="media-thumb-title-row">
+      <div class="media-thumb-title">${asset.fileName}</div>
+      <div class="media-thumb-actions">
+        <a>
+          <i class="icon-ion-trash-b"
+             click.trigger="confirmDelete($event)"
+             show.bind="asset.state === 1 || asset.uploadProgress === 1"></i>
+          <i class="icon-ion-android-cancel"
+             click.trigger="cancelUpload($event)"
+             show.bind="asset.uploadProgress < 1"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</template>

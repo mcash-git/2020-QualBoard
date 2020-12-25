@@ -1,0 +1,55 @@
+<template>
+  <require from="layout/app-head/app-head"></require>
+  <require from="./content-header"></require>
+  <require from="./app.js"></require>
+  <require from="researcher/project/moderator-tools/moderator-tools"></require>
+  <div
+    class.bind="classes"
+    dragover.delegate="ignoreDomEvent($event)"
+    drop.delegate="ignoreDomEvent($event)"
+    dragleave.delegate="ignoreDomEvent($event)"
+  >
+      <app-head
+        class="tt_qb_app-head"
+      ></app-head>
+      <aside
+        class="tt_qb_sidebar-wrapper left"
+        class.bind="state.moderatorToolsOpen ? 'active' : 'inactive'"
+      >
+        <moderator-tools></moderator-tools>
+      </aside>
+      <aside
+        class="tt_qb_sidebar-wrapper right"
+        class.bind="sidebar.open ? 'active' : 'inactive'"
+      >
+        <compose
+          view-model.bind="sidebar.viewModel"
+          model.bind="sidebar.model"
+        ></compose>
+      </aside>
+      <div class="tt_qb_content-wrapper">
+        <content-header
+          element.ref="contentHeaderElement"
+        ></content-header>
+        <article style.bind="contentStyle" element.ref="contentElement">
+          <slot></slot>
+        </article>
+      </div>
+      <div
+        class="tt_qb_modal-wrapper"
+        if.bind="state.modal || state.moderatorToolsOpen"
+        click.delegate="handleOutsideClick($event)"
+      >
+        <div
+          class="tt_qb_modal-body"
+          if.bind="state.modal"
+          click.delegate="$event.stopPropagation()"
+        >
+          <compose
+            view-model.bind="state.modal.viewModel"
+            model.bind="state.modal.model"
+          ></compose>
+        </div>
+      </div>
+  </div>
+</template>

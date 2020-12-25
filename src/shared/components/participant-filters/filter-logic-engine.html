@@ -1,0 +1,14 @@
+<template>
+  <require from="./accordion-item"></require>
+  <require from="shared/components/logic-engine-rules"></require>
+  <accordion-item title="Participants / Groups"
+                  badge-count.bind="rules.length"
+                  expanded-session-storage-key.bind="expandedSessionStorageKey"
+                  containerless>
+    <logic-engine-rules rules.bind="rules"
+                        logic-engine-rule-change.delegate="signalChange()"
+                        available-users.bind="participants"
+                        available-group-tags.bind="availableGroupTags">
+    </logic-engine-rules>
+  </accordion-item>
+</template>

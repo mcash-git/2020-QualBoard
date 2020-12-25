@@ -1,0 +1,35 @@
+<template>
+  <div class="user-sidebar-section-header">
+    <!--<i class="icon-ion-ios-person"></i>&nbsp; -->
+    User Display Name
+  </div>
+  <div
+    class="user-section-body form-group"
+    validation-state="validator.bind: validator; property: editDisplayName"
+  >
+    <input
+      value.bind="editDisplayName"
+      class="form-control"
+      validate="validator.bind: validator; property: editDisplayName"
+      blur.trigger="handleBlur()"
+    >
+  </div>
+  <div class="user-btn-row">
+    <button
+      if.bind="editDisplayName !== originalDisplayName"
+      class="btn btn-outline-secondary btn-sm"
+      type="button"
+      click.trigger="reset()"
+    >
+      Cancel
+    </button>
+    <button
+      class="btn btn-secondary btn-sm"
+      type="button"
+      click.trigger="saveDisplayName()"
+      disabled.bind="editDisplayName === originalDisplayName"
+    >
+      Apply
+    </button>
+  </div>
+</template>

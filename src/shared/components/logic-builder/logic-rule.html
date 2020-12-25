@@ -1,0 +1,43 @@
+<template>
+  <!--Condition select-->
+  <div class="conditional-cell condition">
+    <select class="form-control form-control-sm" value.bind="rule.subject">
+      <option model.bind="null" if.bind="!rule.subject">Choose...</option>
+      <template repeat.for="subjectGroup of availableSubjectGroups">
+        <optgroup label.bind="subjectGroup.title" if.bind="subjectGroup.subjects.length > 1">
+          <option repeat.for="subject of subjectGroup.subjects" model.bind="subject">
+            ${subject.name}
+          </option>
+        </optgroup>
+        <option if.bind="subjectGroup.subjects.length === 1" model.bind="subjectGroup.subjects[0]">
+            ${subjectGroup.subjects[0].name}
+        </option>
+      </template>
+    </select>
+  </div>
+  <!--Operator Select-->
+  <div class="conditional-cell operator">
+    <select
+      class="form-control form-control-sm"
+      value.bind="rule.subject.operator"
+      if.bind="rule.subject"
+    >
+      <option
+        repeat.for="operator of rule.subject.allowedOperators"
+        model.bind="operator"
+      >
+        ${operator.friendly}
+      </option>
+    </select>
+  </div>
+  <!--Answer Tag Control-->
+  <div class="conditional-cell answer">
+    <compose
+      containerless
+      if.bind="rule.subject"
+      view-model="shared/components/logic-builder/subjects/logic-rule-subject"
+      view.bind="rule.subject.module + '.html'"
+      model.bind="{ subject: rule.subject }"
+    ></compose>
+  </div>
+</template>

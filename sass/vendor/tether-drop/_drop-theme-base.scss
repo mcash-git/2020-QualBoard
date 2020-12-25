@@ -1,0 +1,197 @@
+@import "../tether/css/tether.sass";
+@import "../tether/css/helpers/tether-theme-arrows";
+
+//@import "./src/css/helpers/drop-animation-scale";
+
+$themePrefix: "drop";
+$themeName: "filters";
+$arrowSize: 8px;
+$backgroundColor: #fff;
+$color: $gray-dark;
+$useDropShadow: true;
+
+@include tether($themePrefix: $themePrefix);
+
+@include tether-theme-arrows($themePrefix: $themePrefix, $themeName: $themeName, $arrowSize: $arrowSize, $backgroundColor: $backgroundColor, $color: $color, $useDropShadow: $useDropShadow);
+
+$attachmentOffset: $arrowSize;
+$easing: cubic-bezier(0, 0, 0.265, 1.55);
+
+//@include drop-animation-scale($themePrefix: $themePrefix, $themeName: $themeName, $attachmentOffset: $attachmentOffset, $easing: $easing);
+
+.drop-element.drop-theme-filters {
+  z-index: 2000;
+}
+
+.drop-content {
+  padding: 1rem !important;
+  border-radius: 0 !important;
+  border: 1px solid rgba(0,0,0,.2);
+  z-index: 0;
+  font-size: .75rem !important;
+
+  &.large {
+    width: 350px;
+  }
+
+  .custom-control {
+    margin-left: 0;
+  }
+
+   //TODO: DIG INTO THE DROP SASS AND STYLE THIS APPROPRIATELY. WOULD LIKE TO HAVE A NICE SLIDE OR FADE IN ANIMATION
+  //Controlls the Drop arrow THIS IS NOT RIGHT BUT I DON'T HAVE TIME TO DIG INTO DROP STYLES AT THE MOMENT
+  &:before {
+    content: "";
+    background: #fff;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    top: initial !important;
+    margin: 0 0 -7px -7px;
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,.1);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+  &:after {
+    content: "";
+    width: 30px;
+    height: 1rem;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    margin: 0 0 0 -15px;
+    z-index: 1;
+    background: #fff;
+  }
+}
+
+.drop-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  &.medium {
+    min-width: 230px;
+  }
+
+  &.large {
+    min-width: 300px;
+    max-width: 350px;
+    max-height: 50vh;
+  }
+
+  .drop-btn-row {
+    &.full-width {
+      button {
+        width: 100%;
+        min-height: 45px;
+      }
+    }
+  }
+
+  .custom-control {
+    overflow: hidden;
+    transition: all .2s ease-in-out;
+    display: flex;
+    align-items: center;
+    margin-right: 0;
+
+    .truncate-ellipsis {
+      padding: .2rem;
+      &:hover {
+        background-color: $dropdown-link-hover-bg;
+      }
+    }
+  }
+}
+
+// Section that contains engagement filters
+.filter-section{
+  display: flex;
+  flex-direction: column;
+}
+
+.drop-title {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+.drop-link {
+  @extend %unbutton;
+  transition: color .2s ease-in-out;
+  display: flex;
+  padding: 4px 0;
+  color: $link-color;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: none;
+    color: $link-hover-color;
+
+    i, a {
+      text-decoration: none;
+      color: $link-hover-color;
+    }
+  }
+
+  i {
+    transition: color .2s ease-in-out;
+  }
+
+  //&:first-child {
+  //  padding-top: 0;
+  //}
+
+  &:last-child {
+    padding-bottom: 0;
+  }
+
+  a {
+    color: $link-color;
+    //&:hover, &:active, &:focus {
+    //  text-decoration: none;
+    //  color: $link-hover-color;
+    //}
+  }
+
+  i {
+    font-size: 1rem;
+    color: $link-color;
+  }
+}
+
+
+
+.drop-row {
+  @extend .flex-row;
+  justify-content: space-between;
+}
+
+// Styles for the header of filter dropdowns that have a clear all link
+.drop-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .drop-title {
+    margin-bottom: 0;
+  }
+
+  .clear-all {
+    display: flex;
+    align-items: center;
+    font-size: .675rem;
+    color: $link-color !important;
+    cursor: pointer;
+
+    &:hover {
+      color: $link-hover-color !important;
+      text-decoration: none;
+    }
+
+    i {
+      padding-left: .3rem;
+    }
+  }
+}

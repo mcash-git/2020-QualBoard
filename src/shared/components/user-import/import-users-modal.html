@@ -1,0 +1,18 @@
+<template>
+  <div class="full-screen-modal">
+    <div class="modal-container">
+      <form>
+        <div class="modal-close" click.delegate="importUserClose()">
+          <i class="icon-close"></i>
+        </div>
+        <div class="c-modal-title">
+        </div>
+        <div class="c-modal-body">
+          <div class="modal-subview" class.bind="subviewClass">
+            <bulk-import containerless bulk-import-model.bind="bulkImportModel"></bulk-import>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</template>

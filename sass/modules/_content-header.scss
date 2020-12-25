@@ -1,0 +1,306 @@
+// Base component styles
+content-header {
+  position: relative;
+  display: block;
+  background: $brand-identity;
+
+  .bg-image {
+    position: absolute;
+    top: 0;
+    bottom: $action-bar-height;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    transition: opacity 2s;
+
+    overflow: hidden;
+
+    .background {
+      height: 100%;
+      width: 100%;
+      transition: all 3s;
+    }
+
+    &.opaque {
+      opacity: 1;
+      .background {
+        transform-origin: top right;
+        transform: scale (2);
+        background: url("/images/content-header-bg2.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: right;
+      }
+    }
+  }
+}
+
+.tt_qb_content-header {
+  //background-color: $brand-identity;
+  padding: .5rem 1rem 0rem 65px;
+  color: #fff;
+}
+
+// This section contains the top section of the header including breadcrumbs, stats, title and subtitle
+// This also contains responsive breakpoints to either hide or reorder the stats sections on mobile
+.tt_qb_content-header-top {
+  @extend .flex-base;
+
+  @include media-breakpoint-down(sm) {
+    flex-direction: column;
+    padding-bottom: 1rem;
+
+    .tt_qb_header-statblock {
+      display: none;
+    }
+  }
+}
+
+// Contains the title and subtitle only
+.tt_qb_header-info {
+  flex: 1;
+}
+
+// Back button for the content header
+.tt_qb_content-header-back {
+  transition: $transition-base;
+  position: absolute;
+  top: 0px;
+  left: -48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 34px;
+  width: 34px;
+  padding: .5rem;
+  background-color: rgba(0,0,0,.2);
+  border-radius: 1000px;
+  text-decoration: none;
+
+  &:hover, &:active, &:visited, &:focus {
+    text-decoration: none;
+  }
+
+  &:hover, &:active {
+    background-color: rgba(0,0,0,.4);
+  }
+
+  &.hidden {
+    opacity: 0;
+    display: flex;
+    visibility: hidden;
+  }
+
+  i {
+    color: #fff;
+    font-size: 1.5rem;
+  }
+}
+
+// Styles for the breadcrumb row
+.tt_qb_header-breadcrumbs {
+  padding-bottom: 1rem;
+  font-size: .75rem;
+  color: lighten($brand-primary, 40%);
+
+  &:hover {
+    color: lighten($brand-primary, 15%);
+  }
+}
+
+//Styles for component titles
+.tt_qb_header-titles-wrapper {
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.tt_qb_header-title {
+  display: flex;
+  font-size: 1.625rem;
+  font-weight: 300;
+}
+
+.tt_qb_header-subtitle {
+  font-size: .75rem;
+}
+
+.tt_qb_header-title-icon {
+  padding-right: .5rem;
+}
+
+// Styles for the stats area
+
+.tt_qb_header-statblock {
+  padding: .8rem .5rem .5rem .5rem;
+  background: rgba(0,0,0,.2);
+  border-radius: 4px;
+  font-size: .675rem;
+  width: 250px;
+  margin-top: .5rem;
+}
+
+.tt_qb_header-statblock-statrow {
+  display: inline-block;
+  width: 100%;
+  list-style: none;
+  padding-bottom: .3rem;
+  font-size: .75rem;
+}
+
+.tt_qb_header-statblock-stat-title {
+  float: left;
+  display: flex;
+  align-items: center;
+
+  i {
+    font-size: .875rem;
+    padding-right: .3rem;
+  }
+}
+
+.tt_qb_header-statblock-stat {
+  float: right;
+  font-weight: 600;
+}
+
+// Tabs nav styles
+.tt_qb_tabs {
+  margin-left: -65px;
+  margin-right: -1rem;
+  //background-color: $brand-primary;
+  height: 35px;
+
+
+  .tabs {
+    @extend .nav;
+    position: relative;
+    border: 0;
+    display: flex;
+    flex-basis: auto;
+    flex-shrink: 0;
+    position: relative;
+    padding-left: 65px;
+    height: 100%;
+    flex-wrap: nowrap;
+
+    &:after {
+      background-color: transparent;
+    }
+
+    .tt_qb_content-header-back {
+      left: 15px;
+      opacity: 0;
+      transition: $transition-base;
+      display: none;
+    }
+
+    .nav-item {
+      @include media-breakpoint-down(sm) {
+        flex: 1 auto;
+      }
+      @include media-breakpoint-down(xs) {
+        flex: 1 auto;
+      }
+      display: flex;
+      cursor: pointer;
+
+      &.no-hide {
+        .nav-link {
+          span {
+            display: inline;
+          }
+        }
+      }
+
+      a {
+        text-decoration: none;
+      }
+    }
+
+    .nav-link {
+      transition: $transition-base;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 0 solid transparent;
+      border-radius: 0;
+      font-size: .875rem;
+      position: relative;
+      color: $content-header-tabs-color;
+
+      i {
+        font-size: 1.1rem;
+        text-align: center;
+      }
+
+      span {
+        padding-left: .3rem;
+      }
+
+      @include media-breakpoint-down(sm) {
+        flex: 1 auto;
+
+        i {
+          font-size: 1.5rem !important;
+          justify-content: center !important;
+        }
+
+        span {
+          display: none;
+        }
+      }
+
+      @include media-breakpoint-down(xs) {
+        font-size: 1rem !important;
+      }
+
+      @include hover-focus {
+        margin-bottom: 0;
+        //background-color: rgba(255,255,255,0.15);
+        background-color: rgba(0,0,0,0.1);
+        cursor: pointer;
+
+        &:after {
+          background-color: transparent;
+
+        }
+      }
+    }
+
+    .nav-link.active,
+    .nav-item.open .nav-link {
+      background-color: $content-header-tabs-actions-bg !important;
+      border-bottom: 0px;
+      color: $content-header-tabs-actions-color;
+
+      &:after {
+        background-color: transparent !important;
+      }
+
+      @include plain-hover-focus {
+        background-color: transparent;
+      }
+
+      i {
+        color: $content-header-tabs-actions-color;
+      }
+    }
+  }
+}
+
+.tt_qb_sticky {
+  padding: 0 1rem 0 65px;
+  @include media-breakpoint-down(sm) {
+    padding-left: 0;
+  }
+}
+
+.tt_qb_application-wrapper.sticky-active {
+  .tt_qb_tabs .tt_qb_content-header-back {
+    display: flex;
+    opacity: 1;
+    top: 5px;
+    height: 30px;
+    width: 30px;
+  }
+}

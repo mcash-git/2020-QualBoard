@@ -1,0 +1,24 @@
+<template>
+  <div class="task-segment">
+    <div class="item-content-label">${instructions}</div>
+    <ul class="mcma-options-list" class.bind="task.autoWrapOptions ? 'wrap' : ''">
+      <li class="mcma-option" repeat.for="option of task.availableOptions">
+        <label
+          class="custom-control custom-checkbox"
+          class.bind="option.disabled ? 'disabled' : ''"
+        >
+          <input
+            type="checkbox"
+            class="custom-control-input"
+            model.bind="option"
+            checked.bind="response.responseOptions"
+            disabled.bind="!option.isSelected && !canSelectMore"
+            change.delegate="handleChange(option)"
+          />
+          <span class="custom-control-indicator"></span>
+          <span>${option.text}</span>
+        </label>
+      </li>
+    </ul>
+  </div>
+</template>

@@ -1,0 +1,47 @@
+<template>
+  <div class="btn-group dropdown-btn" with.bind="model">
+    <template if.bind="type === 'normal'">
+      <button
+        class.bind="buttonClasses"
+        class="btn"
+        click.trigger="action()"
+      >
+        ${text}
+      </button>
+      <button
+        class="btn dropdown-toggle"
+        class.bind="buttonClasses"
+        data-toggle="dropdown"
+      >
+        <div class="chevron"><i class="icon-ion-chevron-down"></i></div>
+      </button>
+    </template>
+    <template if.bind="type === 'link'">
+      <a
+        class.bind="buttonClasses"
+        class="btn"
+        href.bind="href"
+      >
+        ${text}
+      </a>
+      <a
+        class="btn dropdown-toggle"
+        class.bind="buttonClasses"
+        data-toggle="dropdown"
+      >
+        <div class="chevron"><i class="icon-ion-chevron-down"></i></div>
+      </a>
+    </template>
+    <ul class="dropdown-menu dropdown-menu-right">
+      <li>
+        <a
+          repeat.for="item of dropDownItems"
+          class="dropdown-item"
+          href.bind="item.href"
+        >
+          ${item.text}
+        </a>
+      </li>
+    </ul>
+  </div>
+</template>

@@ -1,0 +1,142 @@
+@import '../../base/custom-variables.scss';
+@import "../../../node_modules/bootstrap/scss/bootstrap.scss";
+
+.mcma-prompt-wrapper {
+  padding-top: 3px;
+  border-radius: 0px;
+  min-height: 0;
+  flex: 1 0 100%;
+  transition: all .15s ease-in-out;
+  font-size: .875rem;
+  font-weight: 400;
+  color: rgba(0,0,0,.7);
+}
+
+.mcma-options-list {
+  margin-bottom: 0px;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: stretch;
+  margin-right: 0;
+  padding: 0;
+  list-style: none;
+
+  &.wrap {
+    display: flex;
+    flex-direction: row !important;
+    flex-wrap: wrap;
+    width: 100%;
+
+    .mcma-option {
+      flex: 1 0 25%;
+      max-width: 25%;
+      padding-right: 1rem;
+
+      .custom-control {
+        margin-right: .5rem;
+        height: calc(100% - #{$spacer});
+        padding-bottom: .75rem;
+      }
+
+      @include media-breakpoint-down(sm) {
+        flex: 0 0 auto;
+        flex-wrap: nowrap;
+      }
+    }
+
+    @include media-breakpoint-down(md) {
+      flex-direction: column;
+      margin-right: 0;
+      max-width: 100%;
+
+      .mcma-option {
+        flex: 1 0 auto;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &:not(.wrap) {
+    .custom-control {
+      margin-right: 0;
+    }
+
+    .mcma-option:last-child .custom-control {
+      //margin-bottom: 0;
+    }
+  }
+
+  .mcma-option {
+    //@include make-col(3);
+    flex: 1 0 auto;
+
+    @include media-breakpoint-down(md) {
+      //@include make-col(12);
+      flex: 1 0 auto;
+      max-width: 100%;
+    }
+
+    .custom-control-input {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.mcma-option {
+  .custom-control {
+    transition: all .2s ease-in-out;
+    background-color: rgba(0,0,0,.05);
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 2px;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.5);
+    padding: .3rem;
+    display: flex;
+    align-items: flex-start;
+    font-size: .875rem;
+    font-weight: 600;
+    width: 100%;
+    min-width: 0;
+    word-wrap: break-word;
+    white-space: normal;
+
+    &.custom-checkbox {
+      .custom-control-indicator {
+        border-radius: .25rem;
+      }
+    }
+
+    &.custom-radio {
+      .custom-control-indicator {
+        border-radius: 2rem;
+      }
+    }
+
+    .custom-control-indicator {
+      transition: all .2s ease-in-out;
+      border-radius: .25rem;
+      background-color: rgba(0,0,0,.1);
+      border: 1px solid rgba(0,0,0,.13);
+      position: initial;
+      margin-right: .5rem;
+      min-width: 1.2rem;
+      min-height: 1.2rem;
+      box-shadow: none !important;
+    }
+
+    input:checked ~ .custom-control-indicator {
+      background-color: $brand-primary;
+      background-size: 15px;
+    }
+
+    input:disabled:checked ~ .custom-control-indicator {
+      background-color: $new-accent-1;
+    }
+
+    .truncate-ellipsis {
+      display: flex;
+    }
+  }
+}

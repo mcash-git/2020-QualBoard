@@ -1,0 +1,13 @@
+<template>
+  <require from="shared/components/card-tile"></require>
+  <div class="tiles tiles-sm" if.bind="projectCards && projectCards.length > 0">
+    <card-tile
+      card-model.bind="projectCard"
+      repeat.for="projectCard of projectCards"
+      ref="cardElements[$index]"
+    ></card-tile>
+  </div>
+  <div if.bind="!projectCards || projectCards.length == 0" class="default-content">
+    <span>${noProjectsText} &nbsp;<a click.delegate="addProject()" href="#">&nbsp;Add one.</a></span>
+  </div>
+</template>

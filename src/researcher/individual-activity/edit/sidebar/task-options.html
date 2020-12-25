@@ -1,0 +1,102 @@
+<template>
+  <div class="sidebar-section">
+    <div class="sidebar-row">
+      <div class="eb-task-type-selector">
+        <button type="button"
+                class="btn btn-default dropdown-toggle"
+                data-toggle="dropdown"
+                disabled.bind="!task.canEdit">
+          <div class="eb-task-type-selector-label" innerhtml.bind="selectedHtml"></div>
+        </button>
+
+        <div class="dropdown-menu">
+          <a class="dropdown-item${task.canEdit ? '' : ' disabled'}"
+             repeat.for="t of types"
+             model.bind="t"
+             click.delegate="changeType(t)">
+            <i class.bind="t.icon"></i>${t.friendly}
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="sidebar-row" if.bind="showRequireMedia">
+      <div class="setting-toggle">
+        <span>Require Media</span>
+
+        <div class="switch">
+          <input id="cmn-toggle-1"
+                 class="cmn-toggle cmn-toggle-round"
+                 checked.bind="task.mediaRequired"
+                 type="checkbox"
+                 disabled.bind="!task.canEdit">
+          <label for="cmn-toggle-1"></label>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar-row" if.bind="showRequireComment">
+      <div class="setting-toggle">
+        <span>Require Comment</span>
+
+        <div class="switch">
+          <input id="cmn-toggle-2"
+                 class="cmn-toggle cmn-toggle-round"
+                 checked.bind="task.responseTextRequired"
+                 type="checkbox"
+                 disabled.bind="!task.canEdit">
+          <label for="cmn-toggle-2"></label>
+        </div>
+      </div>
+    </div>
+    <div if.bind="showAutoWrapOptions || showMinMax">
+
+    </div>
+    <div class="sidebar-row" if.bind="showAutoWrapOptions">
+      <div class="setting-toggle">
+        <span class="settings-row-label">Wrap MC/MA Options
+          <i class="icon-help help-hover" tooltip="text: Displays answer options in columns.; placement: top"></i>
+        </span>
+        <div class="switch">
+          <input id="cmn-toggle-3"
+                 class="cmn-toggle cmn-toggle-round"
+                 type="checkbox"
+                 checked.bind="task.autoWrapOptions"
+                 disabled.bind="!task.canEdit">
+          <label for="cmn-toggle-3"></label>
+        </div>
+      </div>
+    </div>
+    <div if.bind="showMinMax">
+      <div class="sidebar-row">
+        <div class="setting-toggle">
+          <span class="settings-row-label">Option Min
+            <i class="icon-help help-hover" tooltip="text: The minimum amount of options that a respondent must select.; placement: top"></i>
+          </span>
+          <div>
+            <input
+              validate="validator.bind: task.validator; property: minimumOptionsRequired"
+              validation-state="validator.bind: task.validator; property: minimumOptionsRequired"
+              class="form-control form-control-sm"
+              value.bind="task.minimumOptionsRequired | integer"
+              disabled.bind="!task.canEdit" />
+          </div>
+        </div>
+      </div>
+      <div class="sidebar-row">
+        <div class="setting-toggle">
+          <span class="settings-row-label">Option Max
+            <i class="icon-help help-hover" tooltip=" text: The maximum amount of options that a respondent can select.; placement: top"></i>
+          </span>
+          <div>
+            <input
+              validate="validator.bind: task.validator; property: maximumOptionsLimit"
+              validation-state="validator.bind: task.validator; property: maximumOptionsLimit"
+              class="form-control form-control-sm"
+              value.bind="task.maximumOptionsLimit | integer"
+              disabled.bind="!task.canEdit" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

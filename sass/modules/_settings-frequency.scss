@@ -1,0 +1,115 @@
+.settings-frequency {
+  padding-bottom: .5rem;
+
+  h5 {
+    font-size: .875rem;
+  }
+
+  .card {
+    border: 0;
+  }
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: transparent;
+    border: 0;
+    color: $body-color;
+    padding: 0;
+    margin-bottom: .5rem;
+    height: auto;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+
+    h5 label {
+      display: inline-block;
+      margin-bottom: 0;
+    }
+
+    .item-help {
+      color: $gray;
+    }
+
+    i {
+      font-size: 1.3rem;
+    }
+  }
+
+  .settings-frequency-section {
+    margin: .5rem 0;
+
+    .form-group {
+      &:first-child {
+        padding-right: .5rem;
+      }
+      &:last-child {
+        padding-left: .5rem;
+      }
+    }
+
+    .form-inline-custom {
+      .left {
+        float:left;
+        padding-right: 130px;
+        font-size: .875rem;
+        padding-bottom: 5px;
+      }
+      .date {
+        font-size: .875rem;
+      }
+    }
+  }
+
+  // Styles for the min-max rows for frequency settings in the modal
+  .settings-frequency-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: .5rem;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+
+    span {
+      padding: 0 .5rem;
+      font-weight: 600;
+
+      &:first-child {
+        padding-left: 0;
+      }
+      &:last-child {
+        padding-right: 0;
+      }
+    }
+
+    select {
+      width: auto;
+    }
+
+    .form-group {
+      margin-bottom: 0;
+
+      &.min-max-times {
+        input {
+          width: 55px;
+        }
+      }
+    }
+  }
+}
+
+// At the bottom of the repeat options, we will need a row to summarise the total reapeat times
+.repeat-summary {
+  display: flex;
+  justify-content: center;
+  font-size: .875rem;
+  font-weight: 600;
+  background-color: $gray-lightest;
+  border: $border-gray-light;
+  border-radius: 3px;
+  padding: 1rem;
+  flex-wrap: wrap;
+  min-height: 55px;
+}

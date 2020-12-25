@@ -1,0 +1,206 @@
+notification-card {
+  flex: 1 auto;
+}
+
+.notification-wrapper {
+  position: relative;
+  display: flex;
+  flex: 0 0 auto;
+  overflow: hidden;
+  height: 0;
+  opacity: 0;
+
+
+  &:hover {
+    background-color: rgba(231,236,239,.05);
+
+    &.selected {
+        background-color: initial;
+
+    }
+
+  }
+
+  &.selected {
+    .notification {
+      background-color: rgba(231,236,239,.10);
+      color: rgba(255,255,255,.8);
+
+      .notification-icon {
+        .event-item-icon {
+          background-color: rgba(0,0,0,.2);
+          border: 1px solid rgba(255,255,255,.2);
+        }
+      }
+    }
+
+    &:before {
+      position: absolute;
+      content: '';
+      width: 6px;
+      height: 100%;
+      left: 0;
+      top: 0;
+      background-color: rgba(255,255,255,.6);
+    }
+  }
+
+  &.notification-read {
+    color: rgba(255,255,255,.5);
+  }
+
+  &.notification-showing {
+    transition: all .3s .2s ease-out;
+    height: 70px;
+    opacity: 1;
+
+
+    .notification {
+      animation: animSlideTop .3s .2s ease-out;
+    }
+
+
+    // Notification Keyframe Animations
+    @keyframes animSlideTop {
+      0% {transform: translate3d(-50%,0,0);  }
+      100% {transform: translate3d(0,0,0); }
+    }
+  }
+
+  &.notification-shown {
+    opacity: 1;
+    height: 70px;
+  }
+
+
+  .notification {
+    transition: all .3s ease-out;
+    display: flex;
+    height: 70px;
+    width: 100%;
+    padding: .5rem .5rem .5rem 1rem;
+    border-bottom: 1px solid rgba(255,255,255,.13);
+    font-size: .75rem;
+    cursor: pointer;
+
+
+    &:after {
+      position: absolute;
+      content: '';
+      bottom: 1px;
+      left: 0;
+      height: 1px;
+      width: 100%;
+      background-color: rgba(0,0,0,.2);
+    }
+
+    //.note-status {
+    //  //display: flex;
+    //  //align-items: center;
+    //  position: absolute;
+    //  left: .5rem;
+    //  font-size: .675rem;
+    //}
+
+    .read-indicator {
+      width: 10px;
+      height: 10px;
+      border-radius: 25px;
+      position: absolute;
+      left: 0;
+      margin-left: 3px;
+      background-color: transparent;
+
+
+      &.read {
+
+        background-color: #fff;
+      }
+
+      &.unread {
+        background-color: #4A90E2;
+      }
+    }
+
+    label {
+      height: 20px;
+      position: absolute;
+      right: 0;
+
+      input {
+        display: none;
+      }
+    }
+
+    .notification-icon {
+      .event-item-icon {
+        background-color: $brand-identity;
+        border: 1px solid rgba(0,0,0,0.1);
+        min-height: 25px;
+        min-width: 25px;
+        max-height: 25px;
+        max-width: 25px;
+
+        i {
+          font-size: 1rem;
+
+          &.icon-noun_640064 {
+            margin-top: -2px;
+          }
+        }
+      }
+    }
+  }
+
+
+  .n-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding-left: .5rem;
+  }
+
+  .n-title {
+    font-size: .75rem;
+    font-weight: 600;
+    margin-bottom: .3rem;
+
+    div {
+      font-weight: 600;
+    }
+  }
+
+  .n-subtitle {
+    width: 65%;
+  }
+
+  .n-headline {
+    font-size: .75rem;
+    flex: 1;
+    padding-right: .5rem;
+  }
+
+  .n-stat {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    font-size: .6875rem;
+
+
+    .avatar {
+      @include avatar-size(21px, 0rem);
+      margin-left: 0.3rem;
+      min-width: 21px;
+      max-width: 21px;
+
+      img {
+        border-width: 1px;
+      }
+    }
+  }
+
+}
+

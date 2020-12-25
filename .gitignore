@@ -1,0 +1,35 @@
+# Dependency Directories
+node_modules/
+jspm_packages/
+
+# Build Directories
+dist/
+export/
+publish/
+
+#VSCode
+.vscode
+
+# Webstorm
+.idea/
+
+# Yarn
+yarn-debug.log*
+yarn-error.log*
+.yarn-integrity
+.yarnclean
+
+# NPM
+npm-debug.log*
+.npm
+
+# ESLINT
+.eslintcache
+
+# Misc Log Files
+*.orig
+*.log
+
+tools/*
+
+*.placeholder

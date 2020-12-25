@@ -1,0 +1,25 @@
+<template>
+  <div
+    class="list-card project-instructions"
+    class.bind="isExpanded ? 'expanded' : ''"
+    with.bind="projectInstructions"
+  >
+    <div class="project-instructions-header" click.trigger="toggle()"
+    title.bind="title">
+      <div class="project-instructions-title">
+        <i class="icon-info2"></i> ${title}
+      </div>
+      <div class="project-instructions-expander">
+        <i
+          class.bind="isExpanded ? 'icon-ion-chevron-up' : 'icon-ion-chevron-down'"
+        ></i>
+      </div>
+    </div>
+    <div class="project-instructions-body-wrapper" ref="$parent.bodyWrapperElement">
+      <div
+        class="project-instructions-body-content"
+        innerhtml.bind="text | sanitize"
+      ></div>
+    </div>
+  </div>
+</template>

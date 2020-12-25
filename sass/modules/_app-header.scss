@@ -1,0 +1,247 @@
+// Outer Class that describes the header component-active-bg
+.app-header {
+  @extend .theme-header;
+  flex-direction: row;
+  font-size: .8em;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.20);
+  border-bottom: 1px solid rgba(0,0,0,.4);
+  padding: 0;
+  color: $brand-identity;
+
+  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    transition: 300ms ease all;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+
+  a {
+    text-decoration: none;
+    //color: #fff;
+  }
+}
+
+// Layout of the header nav
+.navbar-content {
+  display: flex;
+  flex: 1;
+  height: $app-head-height;
+  font-weight: 300;
+  font-size: .75rem;
+  transition: height .3s;
+  @extend.righttoleft;
+
+  .navbar-left {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 40px;
+    max-width: 153px;
+    padding: 0 1rem;
+    border-right: $border-gray-transparent;
+
+    @include media-breakpoint-down(sm) {
+     align-self: center;
+    }
+
+    .customer-logo {
+      padding-top: 0;
+      //height: 100%;
+
+      @include media-breakpoint-down(sm) {
+
+        img {
+         height: 24px;
+
+        }
+
+        .logo-thumb {
+          display: block;
+          max-height: 100%;
+          width: auto;
+        }
+
+        .logo-regular {
+          display: none;
+        }
+      }
+    }
+
+    img {
+      transition: width .3s, height .3s;
+      width: 115px;
+    }
+
+    .logo-thumb {
+      display: none;
+    }
+
+    .logo-regular {
+      display: block;
+    }
+
+  }
+
+  .navbar-link {
+    transition: all .3s ease-in-out;
+    position: relative;
+    display: flex;
+    font-size: 1.2rem;
+    width: 45px;
+    justify-content: center;
+    align-items: center;
+    border-right: $border-gray-transparent;
+    padding: 1rem;
+
+    &:hover {
+      background-color: rgba(0,0,0, .05);
+    }
+
+    &.active {
+      background-color: rgba(0,0,0,.15);
+      box-shadow: inset 1px 1px 1px rgba(0, 0, 0, .2);
+
+      &:after {
+        background-color: transparent;
+      }
+    }
+
+    .badge {
+      position: absolute;
+      top: 3px;
+      right: 3px;
+    }
+  }
+
+  .navbar-middle {
+    @extend %truncate-text;
+    display: flex;
+    flex: 2;
+    flex-direction: row;
+    height: 40px;
+
+    @include media-breakpoint-down(sm) {
+      align-self: center;
+      flex: 1;
+    }
+
+    h5 {
+      display: none;
+      flex: 1;
+      align-items: center;
+      font-size: 1.125rem;
+      font-weight: 300;
+      margin-bottom: 0;
+      transition: opacity .1s;
+      padding-left: 1rem;
+      max-width: calc(100vw - 290px);
+
+      i {
+        padding-right: .5rem;
+      }
+    }
+
+    .navbar-link {
+      color: $app-head-color;
+    }
+
+    .nav-row {
+      align-items: center;
+      display: flex;
+      flex: 1;
+      flex-direction: row;
+    }
+
+    .secondary-nav {
+      flex: 1;
+      flex-direction: row;
+      text-transform: uppercase;
+      @extend.nav, .nav-pills;
+
+      .nav-link {
+        transition: 300ms ease all;
+        padding: 0;
+      }
+    }
+
+    bread {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .navbar-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .search-nav {
+      display: flex;
+      justify-content: flex-end;
+      align-items: baseline;
+      //height: 30px;
+      @include media-breakpoint-down(sm) {
+        display: none;
+      }
+    }
+
+    .app-search {
+      a {
+        transition: 300ms ease all;
+        font-size: 1.5rem;
+        color: $app-head-color;
+        cursor: pointer;
+
+        @include hover-focus {
+          color: darken($app-head-color, 15%);
+        }
+      }
+    }
+  }
+
+  &.navbar-shrink {
+    height: 45px;
+
+    .navbar-left {
+      .customer-logo {
+        margin-right: 0;
+        padding-left: 0;
+      }
+
+      img {
+        height: 45px;
+        width: 45px;
+      }
+    }
+
+    .navbar-middle {
+      align-self: center;
+      padding-top: 0;
+
+      h5 {
+        display: none;
+      }
+
+      .nav-row {
+        align-items: flex-start;
+      }
+    }
+
+    .navbar-right {
+      align-self: center;
+
+      .search-nav {
+        display: none;
+      }
+
+      input {
+        opacity: 0;
+      }
+    }
+  }
+}
+
+.tt_qb_application-wrapper.sticky-active {
+  .app-header .navbar-middle h5 {
+    display: flex;
+  }
+}

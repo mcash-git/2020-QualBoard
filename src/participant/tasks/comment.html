@@ -1,0 +1,45 @@
+<template>
+  <li
+    class.bind="classes"
+    id.bind="id"
+    with.bind="response"
+    ref="$parent.liElement"
+  ><i class="probe-icon icon-ion-android-alert"></i>
+    <a class="avatar">
+      <avatar user-id.bind="user.userId" size.bind="22"></avatar>
+    </a>
+    <div class="comment-body">
+      <div class="comment-indicator"></div>
+      <div class="user-resp-info">
+        <div class="user-resp-left">
+          ${user.displayName}
+          <span class="resp-reply-info">
+            <i class="icon-ion-forward"></i>
+            <a class="avatar" style="opacity:1;">
+              <avatar user-id.bind="parentResponse.user.userId" size.bind="22"></avatar>
+            </a>
+            <span>${parentResponse.user.displayName}</span>
+          </span>
+          <span class="user-resp-date">
+            <!-- TODO:  need to have this link to the parent response somehow -->
+            ${respondedOn | momentFormat:currentUser.timeZone}
+          </span>
+        </div>
+
+      </div>
+      <div class="item-content-row" if.bind="response.text.length > 0">
+        <div class="probe-text" innerhtml.bind="response.text | sanitize"></div>
+      </div>
+      <!-- TODO: componentize -->
+      <div class="user-resp-actions" if.bind="user.userId !== currentUser.userId">
+        <ul class="response-buttons">
+          <li>
+            <button class="btn btn-link-followup" click.delegate="replyClick()">
+              <i class="icon-ion-reply"></i> <span>Reply</span>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </li>
+</template>

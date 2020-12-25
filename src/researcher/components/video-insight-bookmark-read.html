@@ -1,0 +1,49 @@
+<template>
+  <require from="./insight-bookmark-comment"></require>
+  <div
+    class="insight-card card"
+    mouseenter.trigger="handleMouseEnter()"
+    mouseleave.trigger="handleMouseLeave($event)"
+    click.trigger="click()"
+  >
+    <div class="card-head">
+      <div class="circle-border-icon">
+        <i class="icon-lightbulb_outline"></i>
+      </div>
+      <span class="creator-name">${insight.projectUser.displayName}</span>
+      <span class="created-date">${insight.createdOn | momentFormat:currentUser.timeZone}</span>
+      <span class="clear"></span>
+    </div>
+    <div class="card-body"><div class="video-play-control">
+      <button
+        class="btn btn-sm btn-secondary video-insight-play-button"
+        click.trigger="togglePlay()"
+      >
+        <span><i class.bind="loopPlaybackIcon"></i>&nbsp;
+          Start: ${insight.start | formatSeconds}</span>
+        <span>End: ${insight.end | formatSeconds}</span>
+      </button>
+    </div>
+      <insight-bookmark-comment
+        repeat.for="comment of insight.comments"
+        comment.bind="comment"
+      ></insight-bookmark-comment>
+    </div>
+    <div class="card-buttons">
+      <a
+        if.bind="canEdit"
+        class="icon-button"
+        click.trigger="editClick($event)"
+      >
+        <i class="icon-mode_edit"></i>
+      </a>
+      <a
+        if.bind="canEdit"
+        class="icon-button"
+        click.trigger="removeClick($event)"
+      >
+        <i class="icon-delete"></i>
+      </a>
+    </div>
+  </div>
+</template>

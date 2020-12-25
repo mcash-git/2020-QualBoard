@@ -1,0 +1,94 @@
+<template>
+  <ul class="card-stats-row">
+    <li class="stat-row-container">
+      <div class="stat-row">
+        <h5 class="stat-title"><i class=
+        "icon-person"></i>&nbsp;Project Users</h5>
+      </div>
+      <div class="stat-row">
+        <h5 class="stat-text">${data.users.total}</h5>
+      </div>
+    </li>
+    <li class="stat-row-container">
+      <div class="stat-row">
+        <h5 class="stat-title"><i class=
+        "icon-ion-chatbubble"></i>&nbsp;Events</h5>
+      </div>
+      <div class="stat-row">
+        <div class="stat-block-label">
+          Total
+        </div>
+        <h5 class="stat-text"></h5>
+        <div>
+          <h5 class="stat-text">${data.events.total}</h5>
+        </div>
+      </div>
+      <div class="stat-row">
+        <div class="stat-block-label">
+          Active/Inactive
+        </div>
+        <div class="sub">
+          ${data.events.active}/${data.events.inactive}
+        </div>
+      </div>
+    </li>
+  </ul>
+  <ul class="card-stats-row">
+    <li class="stat-row-container">
+      <div class="stat-row">
+        <div class="stat-left">
+          <h5 class="stat-title"><i class=
+          "icon-ion-chatbubble"></i>&nbsp;Posts</h5>
+        </div>
+        <div class="stat-right">
+          <h5 class="stat-text">${data.posts.total}</h5>
+        </div>
+      </div>
+      <div class="stat-row">
+        <div class="fake-bar-chart"></div>
+      </div>
+      <div class="stat-row">
+        <div class="stat-block">
+          <strong class="stat-block-stat">${data.posts.last48}</strong>
+          <div class="stat-block-label">
+            Last 48hrs
+          </div>
+        </div>
+        <div class="stat-block">
+          <strong class="stat-block-stat">${data.posts.last24}</strong>
+          <div class="stat-block-label">
+            Last 24hrs
+          </div>
+        </div>
+      </div>
+    </li>
+    <li class="stat-row-container">
+      <div class="stat-row">
+        <div class="stat-left">
+          <h5 class="stat-title"><i class=
+          "icon-ion-chatbubble"></i>&nbsp;Backroom Chat</h5>
+        </div>
+        <div class="stat-right">
+          <h5 class="stat-text">${data.backroom.total}</h5>
+        </div>
+      </div>
+      <div class="stat-row">
+        <div class="fake-bar-chart"></div>
+      </div>
+      <div class="stat-row">
+        <div class="stat-block">
+          <strong class="stat-block-stat">${data.backroom.last48}</strong>
+          <div class="stat-block-label">
+            Last 48hrs
+          </div>
+        </div>
+        <div class="stat-block">
+          <strong class="stat-block-stat">${data.backroom.last24}</strong>
+          <div class="stat-block-label">
+            Last 24hrs
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</template>

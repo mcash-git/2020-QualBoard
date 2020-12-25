@@ -1,0 +1,24 @@
+<template>
+  <div class="eb-edit-btns justify-content-end">
+    <button type="button"
+            class="btn btn-secondary"
+            click.delegate="dispatchEvent('cancel')">
+      Cancel
+    </button>
+    <button type="button"
+            class="btn btn-primary"
+            click.delegate="dispatchEvent('save-and-duplicate')"
+            if.bind="task.canEdit">
+      Save & And Duplicate
+    </button>
+    <button type="button"
+            class="btn btn-primary"
+            click.delegate="dispatchEvent('save-and-new')"
+            if.bind="task.canEdit">
+      Save & Add New
+    </button>
+    <button type="button" class="btn btn-primary" click.delegate="dispatchEvent('save')">
+      Save
+    </button>
+  </div>
+</template>

@@ -1,0 +1,13 @@
+
+<template>
+  <div class="action-bar-buttons">
+    <button
+      type="button"
+      class="btn btn-primary"
+      click.delegate="model.openReportCreation()"
+      disabled.bind="!model.isResponses"
+    >
+      <span>Create Report</span>
+    </button>
+  </div>
+</template>

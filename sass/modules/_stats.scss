@@ -1,0 +1,346 @@
+// Base stat styles
+//.stat-container {
+//  border-right: 1px solid $card-border-color;
+//  display: flex;
+//  flex: 1;
+//  flex-direction: column;
+//  margin: 0;
+//
+//  &:first-child {
+//    padding-right: $card-spacing;
+//  }
+//
+//  &:last-of-type {
+//    border: 0;
+//    padding-left: $card-spacing;
+//
+//  }
+//  @include media-breakpoint-down(xs) {
+//    border-bottom: 1px solid $card-border-color;
+//    border-right: 0 solid $card-border-color;
+//    padding: 10px 0;
+//  }
+//}
+
+// For stat containers that are equal width in a row (project cards)
+//.stat-row-container {
+//  border-right: 1px solid $card-border-color;
+//  display: flex;
+//  flex: 1 1 auto;
+//  width: 50%;
+//  flex-direction: column;
+//  margin: 0;
+//
+//  &:first-child {
+//    padding-right: $card-spacing;
+//  }
+//
+//  &:last-child {
+//    border: 0;
+//    padding-left: $card-spacing;
+//
+//  }
+//  @include media-breakpoint-down(xs) {
+//    border-bottom: 1px solid $card-border-color;
+//    border-right: 0 solid $card-border-color;
+//    padding: 10px 0;
+//    width: 100%;
+//  }
+//}
+
+//.stat-flex-0 {
+//  flex: 0 auto;
+//}
+//
+//.stat-flex-1 {
+//  flex: 1 0 auto;
+//}
+//
+//.stat-flex-2 {
+//  flex: 2 0 auto;
+//}
+//
+//.stat-flex-3 {
+//  flex: 3 0 auto;
+//}
+
+
+
+//.fake-bar-chart {
+//  position: relative;
+//  height: 15px;
+//  width: 100%;
+//  background-color: $gray-dark;
+//  border-radius: 20px;
+//  overflow: hidden;
+//  margin: 5px 0;
+//
+//  .bar-1 {
+//    position: absolute;
+//    content: '';
+//    height: 15px;
+//    background-color: rgba(255,255,255, .30);
+//    top: 0;
+//    left: 0;
+//  }
+//
+//  .bar-2 {
+//    position: absolute;
+//    content: '';
+//    height: 15px;
+//    background-color: rgba(255,255,255, .50);
+//    top: 0;
+//  }
+//}
+
+
+// Highlight blocks for numbers of probes and comments
+//.stat-block {
+//  flex: 1;
+//  text-align: center;
+//  background-color: $gray-lighter;
+//  margin: 0px 0 $card-spacing/2 0;
+//  border-radius: 3px;
+//
+//  &:first-child {
+//    margin-right: $card-spacing/2;
+//  }
+//
+//  &:last-of-type {
+//    margin-left: $card-spacing/2;
+//  }
+//
+//  &.required-followup {
+//    background-color: $probe-bg;
+//    color: #fff;
+//  }
+//
+//  &.followup {
+//    background-color: $gray-dark;
+//    color: #fff;
+//  }
+//
+//
+//  .stat-block-stat {
+//    font-size: 1rem;
+//  }
+//}
+
+//.stat-block-label {
+//  align-self: flex-end;
+//  font-weight: 300;
+//  font-size: .75rem;
+//}
+//
+//.stat-left {
+//  display: flex;
+//  flex: 2;
+//  justify-content: flex-start;
+//}
+//
+//.stat-right {
+//  display: flex;
+//  flex: 1;
+//  justify-content: flex-end;
+//}
+//
+//.stat-chart {
+//  align-items: center;
+//}
+
+
+
+//.stat-text {
+//  align-self: flex-end;
+//  flex: 1;
+//  font-size: 1.75rem;
+//  font-weight: 600;
+//  margin: 0;
+//  padding-top: 0;
+//  text-align: right;
+//
+//  .sub {
+//    font-size: 1rem;
+//  }
+//}
+
+// EVENT CARD STATS
+
+//.stat-progress {
+//  display: flex;
+//  flex-direction: column;
+//  flex: 1;
+//  list-style: none;
+//  padding: 2px 0;
+//
+//  .stat-progress-label {
+//    font-size: .75rem;
+//  }
+//}
+
+
+//FOR USERS VIEWS
+.progress {
+
+  height: 8px;
+  margin-bottom: 0;
+  width: 100%;
+
+  .progress-bar {
+    &.last24 {
+      background-color: #5FA920;
+    }
+
+    &.last48 {
+      background-color: #E4D925;
+    }
+
+    &.notlast48 {
+      background-color: #F7A81C;
+    }
+
+    &.neverposted {
+      background-color: #D0021B;
+    }
+
+    &.neversignedin {
+      background-color: #999999;
+    }
+  }
+}
+
+//.progress {
+//    &.last24 {
+//      background-color: #5FA920;
+//    }
+//
+//    &.last48 {
+//      background-color: #E4D925;
+//    }
+//
+//    &.notlast48 {
+//      background-color: #F7A81C;
+//    }
+//
+//    &.neverposted {
+//      background-color: #D0021B;
+//    }
+//
+//    &.neversignedin {
+//      background-color: #999999;
+//    }
+//}
+
+// Card layout with two columns
+
+//.event-card-wrapper {
+//  display: flex;
+//  flex-direction: column;
+//  flex: 1 0 auto;
+//  min-height: 0;
+//  min-width: 0;
+//
+//  @include media-breakpoint-down(sm) {
+//    flex-direction: column;
+//  }
+//
+//  .event-stats-wrapper {
+//    @extend .flex-base;
+//
+//    @include media-breakpoint-down(sm) {
+//      flex-direction: column;
+//    }
+//  }
+//
+//  .card-column {
+//    border-bottom: 0;
+//    display: flex;
+//    flex: 1 0 50%;
+//    flex-direction: column;
+//    margin: 0;
+//    margin-top: .75rem;
+//    padding: 0 0 0 10px ;
+//
+//    @include media-breakpoint-down(sm) {
+//      flex: 1 0 auto;
+//    }
+//
+//    &:first-child {
+//      @include media-breakpoint-down(sm) {
+//        border-bottom: 1px solid $card-border-color;
+//        border-right: 0;
+//        padding-bottom: .5rem;
+//      }
+//
+//      border-right: 1px solid $card-border-color;
+//      padding-left: 0;
+//      padding-right: 5px;
+//    }
+//
+//    .stat-container {
+//
+//      &:last-child {
+//        border-bottom: 0px;
+//      }
+//    }
+//  }
+//
+//
+//  .stat-container {
+//    border-bottom: 1px solid $card-border-color;
+//    border-right: 0;
+//    padding: 10px 0;
+//
+//
+//    &:first-child {
+//      padding-top: 0;
+//    }
+//
+//    &:last-child {
+//      padding-bottom: 0;
+//    }
+//
+//  }
+//
+//}
+
+
+// Stat Styles for the Moderator Tools sidebar
+.mod-tools-stats {
+  //background-color: lighten($left-panel-bg, 2%);
+  border-bottom: 1px solid lighten($left-panel-bg, 20%);
+  padding: $card-spacing;
+
+
+  .card-stats-row {
+    border-color: rgba(255,255,255, .3);
+
+    .stat-container {
+      border-color: rgba(255,255,255, .3);
+      color: rgba(255,255,255, .9);
+
+
+      .fake-bar-chart {
+        background-color: rgba(255,255,255, .2);
+        //border: 1px solid rgba(255,255,255, .2);
+
+        &:before {
+          background-color: rgba(255,255,255, .45);
+
+        }
+
+        &:after {
+          background-color: rgba(255,255,255, .8);
+          left: 21%;
+        }
+      }
+
+      .stat-block {
+        background-color: rgba(255,255,255, .15);
+        //color: rgba(255,255,255, .7);
+      }
+
+    }
+
+  }
+}

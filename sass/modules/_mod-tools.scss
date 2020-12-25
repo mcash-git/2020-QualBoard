@@ -1,0 +1,55 @@
+.left-panel {
+
+  .tab-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    //@include gradient-y($left-panel-bg-light, $left-panel-bg, 60%, 100%);
+
+    .tab-pane.active {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+  }
+}
+
+
+.mod-tools-header {
+  background-color: lighten($gray-dark, 5%);
+  color: #fff;
+  //flex: 0 0 auto;
+  padding: .5rem;
+
+}
+
+.mod-tools-header-row {
+  @extend.flex-row;
+  justify-content: space-between;
+}
+
+.mod-tools-title {
+  font-weight: 300;
+}
+
+.mod-tools-filter {
+  background-color: transparent;
+  border-color: transparent;
+  font-size: 1.4rem;
+
+  &:hover {
+    color: rgba(255,255,255, .8);
+  }
+
+  &:focus {
+    color: #fff;
+    outline: 0;
+  }
+}
+
+.scroll-container {
+  overflow: hidden;
+  width: auto;
+  height: 100vh;
+}
+

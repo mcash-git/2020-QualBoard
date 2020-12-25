@@ -1,0 +1,28 @@
+version: '2'
+services:
+  qualboard-web:
+    cpu_shares: 20
+    environment:
+      ANALYTICS_URL: https://analytics.2020ip.io
+      API_URL: https://qb4.qualboard.com/api/
+      API_BASE_URL: https://qb4.qualboard.com
+      GOOGLE_TRACKING_ID: UA-2111137-21
+      IDENTITY_CLIENTID: 1483116405.apps.2020identity.com
+      IDENTITY_URL: https://2020identity.com
+      LOG_LEVEL: '4'
+      MEDIA_AWS_KEY: AKIAIKEMUAMJDWJHE25A
+      MEDIA_AWS_URL: https://s3.amazonaws.com
+      MEDIA_BUCKET: twentytwenty.us-east-1.prod
+      MEDIA_URL: https://media.2020ip.io
+      MEDIA_IMAGE_URI_BASE: https://media.2020ip.io
+      MEDIA_URL_ROUTE: /api/amazon/sign
+      MESSAGING_APPLICATION_ID: f10c5b04-6292-4987-8fa0-310fa439a9e5
+      MESSAGING_URL: https://messaging.2020ip.io
+      POSTLOGOUT_REDIRECT_URI: https://qb4.qualboard.com/
+      REDIRECT_URI: https://qb4.qualboard.com/#/oidc/#
+      SILENT_REDIRECT_URI: https://qb4.qualboard.com/#/oidc-silent/#
+      URL: https://qb4.qualboard.com/
+      VERSION: 4.0.1820
+    image: 979246834305.dkr.ecr.us-east-1.amazonaws.com/2020ip/qualboard-web:4.0.2577
+    ports:
+    - '35000:80'

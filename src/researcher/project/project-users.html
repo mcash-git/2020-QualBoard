@@ -1,0 +1,26 @@
+<template>
+
+  <require from="./users/project-user-menu"></require>
+  <require from="./users/cards/project-user-card"></require>
+
+<div class="tt_qb_content-padding">
+  <div id="users-view">
+    <div if.bind="!filtered || filtered.length === 0" class="default-content">
+                      <span>This project has no ${selectedRole.friendly.toLowerCase() || 'user' & oneWay}s.&nbsp; <a
+                        click.delegate="importUsersButtonClick()"
+                        href="#">Click here</a>&nbsp;to add some.</span>
+      </div>
+      <div class="card-row scroll-padding" group-tags-visibility-change.delegate="updateGroupTagsToggleState()">
+        <project-user-card class="card-grid-user"
+                           class.bind="user.isDeactivated ? ' disabled' : ''"
+                           if.bind="filtered && filtered.length"
+                           repeat.for="user of filtered"
+                           selected-users.bind="selectedUsers"
+                           view-model.ref="cardViewModels[$index]"
+                           fade-in="duration: 0.15s; delay.bind: ($index * 0.025) + 's'"
+                           user.bind="user">
+        </project-user-card>
+      </div>
+    </div>
+  </div>
+</template>

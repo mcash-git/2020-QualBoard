@@ -1,0 +1,352 @@
+// TODO:  I don't know that any of these styles are still in use anywhere.
+// We need to detect and clean up if not
+.navbar {
+  .nav-item {
+    a.dropdown-toggle {
+      display: flex;
+      align-items: center;
+      padding-right: .5rem;
+      color: $app-head-color;
+
+      .avatar {
+        padding-right: .5rem;
+      }
+
+      .dropdown-toggle-user-title {
+        @extend %truncate-text;
+        height: 1rem;
+        max-width: 250px;
+      }
+
+      @include media-breakpoint-down(sm) {
+        .avatar {
+          padding-right: 0;
+        }
+
+        .dropdown-toggle-user-title {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+.dropdown-menu {
+  font-size: $font-size-xs;
+  a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+  }
+}
+
+.dropdown-item-icon {
+  font-size: 1.2rem;
+}
+
+.material-dropdown-menu.dropdown-menu {
+  background: #fff;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  display: none;
+  filter: alpha(opacity=0);
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  padding: 0 .5rem;
+  position: absolute;
+  right: -10px;
+  text-align: left;
+  text-transform: uppercase;
+  top: 0;
+  transition: all 450ms;
+  transition-timing-function: cubic-bezier(.23,1,.32,1);
+  width: 191px;
+
+
+  &.app-header-dropdown {
+    top: -5px;
+  }
+
+  .dropdown-item {
+    font-size: .8rem;
+    padding: .3rem 10px;
+    color: $brand-primary;
+
+    &:not(:disabled):not(.disabled):hover {
+      background-color: $brand-primary-lightest;
+      color: $brand-primary;
+    }
+  }
+}
+
+.open .material-dropdown-menu.dropdown-menu {
+  box-shadow: 0 0 1px rgba(76,86,103,.25),0 2px 18px rgba(31,37,50,.32);
+  display: block !important;
+  filter: alpha(opacity=100);
+  max-height: 500px;
+  opacity: 1;
+  padding-bottom: 27px;
+  padding-top: 27px;
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.show {
+  .material-dropdown-menu.dropdown-menu {
+    box-shadow: 0 0 1px rgba(76,86,103,.25),0 2px 18px rgba(31,37,50,.32);
+    display: block!important;
+    filter: alpha(opacity=100);
+    max-height: 500px;
+    opacity: 1;
+    padding-bottom: 27px;
+    padding-top: 27px;
+
+    a {
+      text-decoration: none;
+    }
+  }
+}
+
+.card-dropdown {
+  @extend.dropdown-menu;
+  @extend.material-dropdown-menu;
+  @extend.dropdown-menu-right;
+  right: -10px;
+
+}
+
+
+// Dropdown for the user nav in the app header
+
+.user-nav {
+  padding-left: 1rem;
+  display: flex;
+  flex: 1 auto;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100%;
+  list-style: none;
+  margin-bottom: 0rem;
+  text-align: right;
+  text-transform: uppercase;
+
+  @include media-breakpoint-down(sm) {
+    margin-bottom: 0;
+  }
+
+  .nav-item {
+    display: flex;
+    padding: 0;
+    height: 100%;
+    width: auto;
+    border-left: $border-gray-transparent;
+    align-items: center;
+    justify-content: center;
+
+    .nav-link {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 40px;
+      width: 100%;
+      transition: 300ms ease all;
+      color: $app-head-color;
+      padding: .5rem;
+
+      .help-text {
+        padding-left: .25rem;
+        height: 1rem;
+      }
+
+      @include hover-focus {
+
+        background-color: rgba(0,0,0, .05);
+      }
+
+    }
+
+    @include media-breakpoint-down(sm) {
+      .help-text {
+        display: none;
+      }
+    }
+
+    &:last-child {
+      padding-left: 1rem;
+      height: 40px;
+      width: auto;
+      &:hover {
+        background-color: rgba(0,0,0, .05);
+      }
+    }
+
+    i {
+      display: flex;
+      font-size: 1.2rem;
+    }
+  }
+
+  //Aligns User dropdown to the right
+  .dropdown-menu {
+    left: auto;
+    right: 0;
+
+
+  }
+  .user {
+    padding-right: .5rem;
+  }
+  .avatar {
+    @include avatar-size(22px, 0px);
+
+    img {
+      border: 0;
+    }
+  }
+}
+
+// Dropdown for the project nav in the app header
+.secondary-nav {
+
+  .nav-item {
+    .nav-link.dropdown-toggle {
+      color: $app-head-color !important;
+    }
+  }
+  .dropdown {
+
+    .material-dropdown-menu.dropdown-menu {
+      left: -40px;
+      padding-top: 5px;
+      top: -10px;
+      width: 200px;
+
+      &:before {
+        color: $brand-primary;
+        content: 'Project Menu';
+        font-size: .8rem;
+        padding: 3px 20px;
+      }
+    }
+  }
+}
+
+// Breadcrumb Dropdown
+
+.material-dropdown-menu.breadcrumb-dropdown.dropdown-menu {
+  top: 32px;
+  text-transform: none;
+  padding: 1rem;
+  width: 220px;
+
+  .dropdown-item {
+    padding: .3rem;
+    color: $link-color;
+
+    i {
+      padding-right: .5rem;
+    }
+  }
+}
+
+// Dropdown for action rows
+
+.action-drop-link {
+  @extend.dropdown;
+  padding: 0 1rem;
+
+  a, a:active, a:visited {
+    color: $gray-dark;
+    text-decoration: none;
+
+    i {
+      font-size: 1.75rem;
+    }
+  }
+}
+
+.dropdown-menu {
+  .dropdown-item {
+    &:not(:disabled):not(.disabled):hover {
+      background-color: $brand-primary-lightest;
+    }
+
+    &.dropdown-separator {
+      background-color: #f0f0f0;
+      color: #6a848b;
+      border-top: 1px solid $transparent-gray-lighter;
+      border-bottom: 1px solid $transparent-gray-lighter;
+      cursor: default;
+      font-style: italic;
+    }
+
+    &:disabled, &.disabled {
+      cursor: default;
+    }
+  }
+}
+
+.select-all-dropdown {
+  .dropdown-toggle {
+    @extend %unbutton;
+    background-color: transparent;
+    color: inherit;
+    padding: .5rem 1.75rem .5rem .25rem;
+    position: relative;
+    cursor: pointer;
+    border-radius: 0;
+    // .btn-secondary:not([disabled]):not(.disabled):active, .btn-secondary:not([disabled]):not(.disabled).active, .show > .btn-secondary.dropdown-toggle
+    &:not([disabled]):not(.disabled):active, &:not([disabled]):not(.disabled):focus {
+      box-shadow: none !important;
+      color: inherit !important;
+      background-color: transparent !important;
+    }
+
+    &::after {
+      display: inline-block;
+      content: "\F123";
+      border-top: none;
+      border-bottom: none;
+      border-right: none;
+      border-left: none;
+      font-family: 'icomoon' !important;
+      font-size: 1rem;
+      position: absolute;
+      right: 1rem;
+      top: .5rem;
+    }
+
+    .dropdown-button-content {
+      display: inline-block;
+
+      .badge {
+        width: 24px;
+        margin-right: .5rem;
+        position: relative;
+        bottom: 2px;
+      }
+
+      .dropdown-button-text {
+        margin-right: .5rem;
+      }
+    }
+  }
+
+  .dropdown-title {
+    padding: .25rem 20px;
+    font-weight: 600;
+  }
+
+  .dropdown-item {
+    cursor: pointer;
+
+    &.active, &:active {
+      background-color: darken(#f0f9fc, 10%);
+      color: darken(#67b8d8, 10%);
+    }
+  }
+}

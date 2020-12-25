@@ -1,0 +1,18 @@
+<template>
+  <span>
+    ${title}: <span class="required-label" if.bind="isRequired">*</span>
+  </span>
+  <tag-input
+    source-items.bind="availableTags"
+    display-property="name"
+    autocomplete-search-fields.one-way="['name']"
+    autocomplete-sort-fields="name"
+    autocomplete-min-chars="0"
+    autocomplete-sort-direct="asc"
+    should-allow-add.bind="false"
+    changed.call="changedTag()"
+    placeholder-text="Filter on group tags"
+    value.bind="chosenTags"
+  >
+  </tag-input>
+</template>

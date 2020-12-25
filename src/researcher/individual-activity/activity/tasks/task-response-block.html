@@ -1,0 +1,41 @@
+<template>
+  <require from="shared/components/task-responses/moderator-view-task-response"></require>
+  <li>
+    <!--User Response Header contains the user avatar, name and how many completes the user has for this task. Completes link acts as a toggle for the users response block-->
+    <header class="user-response-header" click.trigger="toggleResponses()">
+      <div class="user">
+        <!-- TODO: correct this typo rampant in the code base -->
+        <a class="avatar">
+          <avatar user-id.bind="summary.user.userId" size.bind="22"></avatar>
+        </a>
+        <span>${summary.user.displayName}</span>
+      </div>
+
+      <!-- TODO: wire up the total number - whatever that is... -->
+      <div class="user-completes">
+        <!--Displays how many times the user has completed this task. When complete we add a class to turn the checkmark and stats green-->
+        <span class="completes ${summary.isComplete ? 'is-complete': ''}">
+          <i class="icon-ion-checkmark-circled"></i>
+          ${summary.count}
+        </span>
+
+        <!--<i class="complete-marker icon-ion-ios-checkmark" if.bind="summary.isComplete"></i>-->
+        <a class="user-completes-toggle">
+          <i class=" icon-ion-chevron-${showResponses ? 'up' : 'down'}"></i>
+        </a>
+      </div>
+
+    </header>
+    <ul class="user-response-list visible"
+        if.bind="userTaskResponses && userTaskResponses.length > 0"
+        show.bind="showResponses">
+      <moderator-view-task-response
+        repeat.for="response of userTaskResponses"
+        task.bind="task"
+        response.bind="response"
+        expand-to.bind="expandTo"
+        class="user-response"
+      ></moderator-view-task-response>
+    </ul>
+  </li>
+</template>

@@ -1,0 +1,189 @@
+[{
+    "@context": "http://www.w3.org/ns/anno.jsonld",
+    "type": "Annotation",
+    "targetResourceIri": "qb:/projects/project/video/video-asset",
+    "target": [{
+        "type": "SpecificResource",
+        "selector": [{
+            "type": "FragmentSelector",
+            "value": "t=0,3.46",
+            "conformsTo": "http://www.w3.org/TR/media-frags/",
+            "refinedBy": null,
+            "id": "annotation-1-target-selector"
+        }],
+        "source": "qb:/projects/project/video/video-asset",
+        "name": "Snapchat-6541919124411499847.mp4",
+        "format": null,
+        "language": null,
+        "processingLanguage": null,
+        "textDirection": "ltr",
+        "created": "2017-10-12T22:40:00.00128Z",
+        "generated": "2017-10-12T22:39:59.886Z",
+        "modified": null,
+        "creator": null,
+        "generator": {
+            "name": null,
+            "nickname": null,
+            "email": null,
+            "emailSha1": null,
+            "homepage": null,
+            "type": "Software",
+            "id": null
+        },
+        "canonical": null,
+        "via": null,
+        "id": "annotation-1-target"
+    }],
+    "body": [{
+        "type": "TextualBody",
+        "value": "assdddffff",
+        "purpose": null,
+        "format": "text/plain",
+        "language": null,
+        "processingLanguage": null,
+        "textDirection": "ltr",
+        "created": "2017-10-12T22:40:00.001315Z",
+        "generated": "2017-10-12T22:39:59.886Z",
+        "modified": null,
+        "creator": {
+            "name": "Modfirst Modlast",
+            "nickname": "moderator-user",
+            "email": "mod@mod.mod",
+            "emailSha1": "kE4Fh2vdi7pD/s6gXa1w6M6grUI=",
+            "homepage": null,
+            "type": "Person",
+            "id": "urn:uuid:moderator"
+        },
+        "generator": {
+            "name": null,
+            "nickname": null,
+            "email": null,
+            "emailSha1": null,
+            "homepage": null,
+            "type": "Software",
+            "id": null
+        },
+        "canonical": null,
+        "via": null,
+        "id": "annotation-1-body"
+    }],
+    "created": "2017-10-12T22:40:00.001247Z",
+    "generated": "2017-10-12T22:39:59.886Z",
+    "modified": "2017-10-12T22:40:00.001315Z",
+    "creator": {
+        "name": "Modfirst Modlast",
+        "nickname": "",
+        "email": "mod@mod.mod",
+        "emailSha1": "kE4Fh2vdi7pD/s6gXa1w6M6grUI=",
+        "homepage": null,
+        "type": "Person",
+        "id": "urn:uuid:moderator"
+    },
+    "generator": {
+        "name": null,
+        "nickname": null,
+        "email": null,
+        "emailSha1": null,
+        "homepage": null,
+        "type": "Software",
+        "id": null
+    },
+    "canonical": null,
+    "via": null,
+    "version": 0,
+    "id": "annotation-1"
+}, {
+    "@context": "http://www.w3.org/ns/anno.jsonld",
+    "type": "Annotation",
+    "targetResourceIri": "qb:/projects/project/video/video-asset",
+    "target": [{
+        "type": "SpecificResource",
+        "selector": [{
+            "type": "FragmentSelector",
+            "value": "t=0,22.447",
+            "conformsTo": "http://www.w3.org/TR/media-frags/",
+            "refinedBy": null,
+            "id": "annotation-2-target-selector"
+        }],
+        "source": "qb:/projects/project/video/video-asset",
+        "name": "1202161847a.mp4",
+        "format": null,
+        "language": null,
+        "processingLanguage": null,
+        "textDirection": "ltr",
+        "created": "2017-10-12T22:58:10.707757Z",
+        "generated": "2017-10-12T22:58:10.604Z",
+        "modified": null,
+        "creator": null,
+        "generator": {
+            "name": null,
+            "nickname": null,
+            "email": null,
+            "emailSha1": null,
+            "homepage": null,
+            "type": "Software",
+            "id": null
+        },
+        "canonical": null,
+        "via": null,
+        "id": "annotation-2-target"
+    }],
+    "body": [{
+        "type": "TextualBody",
+        "value": "test",
+        "purpose": null,
+        "format": "text/plain",
+        "language": null,
+        "processingLanguage": null,
+        "textDirection": "ltr",
+        "created": "2017-10-12T22:58:10.707786Z",
+        "generated": "2017-10-12T22:58:10.604Z",
+        "modified": null,
+        "creator": {
+            "name": "Modfirst Modlast",
+            "nickname": "moderator-user",
+            "email": "mod@mod.mod",
+            "emailSha1": "kE4Fh2vdi7pD/s6gXa1w6M6grUI=",
+            "homepage": null,
+            "type": "Person",
+            "id": "urn:uuid:moderator"
+        },
+        "generator": {
+            "name": null,
+            "nickname": null,
+            "email": null,
+            "emailSha1": null,
+            "homepage": null,
+            "type": "Software",
+            "id": null
+        },
+        "canonical": null,
+        "via": null,
+        "id": "annotation-2-body"
+    }],
+    "created": "2017-10-12T22:58:10.707738Z",
+    "generated": "2017-10-12T22:58:10.604Z",
+    "modified": "2017-10-12T22:58:10.707786Z",
+    "creator": {
+        "name": "Modfirst Modlast",
+        "nickname": "",
+        "email": "mod@mod.mod",
+        "emailSha1": "kE4Fh2vdi7pD/s6gXa1w6M6grUI=",
+        "homepage": null,
+        "type": "Person",
+        "id": "urn:uuid:moderator"
+    },
+    "generator": {
+        "name": null,
+        "nickname": null,
+        "email": null,
+        "emailSha1": null,
+        "homepage": null,
+        "type": "Software",
+        "id": null
+    },
+    "canonical": null,
+    "via": null,
+    "version": 0,
+    "id": "annotation-2"
+}]

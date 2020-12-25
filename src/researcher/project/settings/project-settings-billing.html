@@ -1,0 +1,47 @@
+<template>
+  <div class="title">
+    <i class="icon-billing"></i>
+    <span>Project Billing</span>
+  </div>
+  <div class="body">
+    <div class="form-saved" show.bind="!isEditing">
+      <div class="form-group">
+        <div class="label">Closeout ID:</div>
+        <div>${project.closeoutId || '--'}</div>
+      </div>
+    </div>
+    <div class="form-edit" show.bind="isEditing">
+      <div class="form-group">
+        <div class="label">Closeout ID:</div>
+        <input
+          type="text"
+          class="form-control"
+          id="closeout-id"
+          value.bind="edit.closeoutId">
+      </div>
+    </div>
+  </div>
+  <div class="edit">
+    <button
+      class="btn btn-primary btn-sm btn-form-edit"
+      click.delegate="editClick()"
+      if.bind="!project.editing"
+    >
+      Edit
+    </button>
+    <button
+      class="btn btn-sm btn-outline-secondary btn-form-save"
+      click.delegate="cancelClick()"
+      if.bind="isEditing"
+    >
+      Cancel
+    </button>
+    <button
+      class="btn btn-sm btn-primary btn-form-save"
+      click.delegate="saveClick()"
+      if.bind="isEditing"
+    >
+      Save
+    </button>
+  </div>
+</template>

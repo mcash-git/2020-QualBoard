@@ -1,0 +1,37 @@
+<template>
+  <require from="./clips-actions"></require>
+
+  <!--Left section of the gallery action bar-->
+  <div class="media-action-bar-content">
+    <div class="action-bar-container">
+      <div class="action-bar-section">
+        <div class="num-media-selected">
+          <span class="badge selected">${numSelectedInsights}</span>
+          <span class="badge-description">selected</span>
+        </div>
+        <div class="select-all${isSelectAllDisabled ? ' disabled' : ''}" click.delegate="model.onSelectAllLabelClick()">
+          <div class="checker">
+            <label class="custom-control custom-checkbox">
+              <input
+                class="custom-control-input"
+                type="checkbox"
+                change.delegate="model.onSelectAllChecked($event)"
+                checked.one-way="model.state.selectAll"
+                disabled.bind="isSelectAllDisabled"
+              />
+              <span class="custom-control-indicator"></span>
+            </label>
+          </div>
+          <span class="select-all-label">${model.state.selectAll ? 'Deselect' : 'Select'} All</span>
+        </div>
+      </div>
+    </div>
+    <!--Right side the the gallery action bar-->
+    <clips-actions
+      class="action-bar-container action-bar-right"
+      insights.bind="model.state.selectedInsights"
+      export-insights.bind="exportInsights"
+      delete-insights.bind="deleteInsights"
+    ></clips-actions>
+  </div>
+</template>

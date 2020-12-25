@@ -1,0 +1,14 @@
+<template>
+  <tag-input
+    source-items.bind="subject.availableGroupTags"
+    display-property="name"
+    autocomplete-search-fields.one-way="['name']"
+    autocomplete-sort-field="name"
+    autocomplete-min-chars="0"
+    autocomplete-sort-direction="asc"
+    should-allow-add="true"
+    placeholder-text="${subject.availableGroupTags.length > 0 ? 'Choose' : 'Add'} some tags"
+    value.bind="subject.groupTags"
+    mini.bind="true"
+  ></tag-input>
+</template>

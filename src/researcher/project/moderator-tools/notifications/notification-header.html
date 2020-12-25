@@ -1,0 +1,26 @@
+<template>
+  <require from="shared/search"></require>
+  <require from="researcher/project/moderator-tools/notifications/notification-drop-filters"></require>
+  <require from="researcher/project/moderator-tools/notifications/notification-group-button-filter"></require>
+
+  <header class="notifications-header">
+    <h5 class="notifications-title">
+      <div class="notifications-title-content"> <i class="icon-ion-android-notifications"></i>
+      Notifications
+      </div>
+      <a class="sidebar-toggle" href="" click.delegate="hide()"><i class="icon-close"></i></a>
+      <!--<button class="icon-ion-funnel mod-tools-filter" data-toggle="popover" data-placement="bottom"-->
+      <!--data-animation="true" data-trigger="focus" data-content="Click anywhere to dismiss this popover"></button>-->
+    </h5>
+    <div class="notifications-search-container">
+      <div class="notifications-search-row">
+        <div class="search-notifications">
+          <search execute.call="doSearch(query)" delay.bind="400" containerless></search>
+        </div>
+        <notification-drop-filters applied-filters.bind="appliedFilters"></notification-drop-filters>
+      </div>
+      <notification-group-button-filter applied-filters.bind="appliedFilters"></notification-group-button-filter>
+    </div>
+  </header>
+
+</template>

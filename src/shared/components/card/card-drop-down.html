@@ -1,0 +1,10 @@
+<template>
+  <div class="header-btn secondary-button" click.trigger="openMenu($event)" ref="menu">
+    <span id="dLabel" tabindex="0" class="card-more-btn">
+      <i class="icon-ion-android-more-horizontal"></i>
+    </span>
+    <div class="card-dropdown">
+      <a class="dropdown-item" click.trigger="navigate(item.href)" repeat.for="item of dropDownItems">${item.text}</a>
+    </div>
+  </div>
+</template>

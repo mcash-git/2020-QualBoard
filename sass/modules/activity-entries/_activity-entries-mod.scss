@@ -1,0 +1,9 @@
+@import "./_activity-entries-sidebar";
+@import "./_activity-entries-tasks";
+@import "./_activity-entries-matrix-grid";
+
+// overall style for the moderator entries container for both sidebar and right frame
+.entries-wrapper {
+  display: flex;
+  height: 100%;
+}

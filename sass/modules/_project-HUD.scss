@@ -1,0 +1,30 @@
+.project-hud {
+  @extend.app-subnav;
+
+  .hud-stats {
+    //background-color: green;
+    @include media-breakpoint-down(xs) {
+      flex-direction: column;
+    }
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    .hud-stat-container {
+      //background-color: blue;
+      border-right: 1px solid rgba(255, 255, 255, .2);
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      padding: 5px 10px 0 10px;
+
+      &:last-child {
+        border-right: 0;
+      }
+    }
+  }
+
+}

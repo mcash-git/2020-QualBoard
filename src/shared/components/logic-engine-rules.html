@@ -1,0 +1,12 @@
+<template>
+  <require from="./logic-engine/logic-engine-rule"></require>
+  <div class="sidebar-section">
+    <h6 class="sidebar-section-title">
+      <span>${title}</span><i if.bind="helpText" class="icon-help help-hover" tooltip="text.bind: helpText"></i>
+    </h6>
+    <div class="sidebar-settings-column" remove-logic-engine-rule.delegate="handleRemove($event)">
+      <logic-engine-rule class="card" repeat.for="rule of rules" rule.bind="rule"></logic-engine-rule>
+      <button click.delegate="addRule()" class="btn btn-primary"><i class="icon-add"></i>Add</button>
+    </div>
+  </div>
+</template>

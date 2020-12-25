@@ -1,0 +1,46 @@
+[{
+  "id": "group-tag-1",
+  "projectId": "project",
+  "name": "Smoker",
+  "color": null
+}, {
+  "id": "group-tag-2",
+  "projectId": "project",
+  "name": "Heavy Smoker",
+  "color": "#bababa"
+}, {
+  "id": "group-tag-3",
+  "projectId": "project",
+  "name": "Non-Smoker",
+  "color": "#123456"
+}, {
+  "id": "group-tag-4",
+  "projectId": "project",
+  "name": "Health Nut",
+  "color": "#acdc69"
+}, {
+  "id": "group-tag-5",
+  "projectId": "project",
+  "name": "Spam (canned meat) Enthusiast",
+  "color": "#badfad"
+}, {
+  "id": "group-tag-6",
+  "projectId": "project",
+  "name": "Coffee Drinker",
+  "color": "#abadab"
+}, {
+  "id": "group-tag-7",
+  "projectId": "project",
+  "name": "Royal Blood",
+  "color": "#404808"
+}, {
+  "id": "group-tag-8",
+  "projectId": "project",
+  "name": "Ironborn",
+  "color": "#019283"
+}, {
+  "id": "group-tag-9",
+  "projectId": "project",
+  "name": "Doctors HATE Him!",
+  "color": "#fff150"
+}]

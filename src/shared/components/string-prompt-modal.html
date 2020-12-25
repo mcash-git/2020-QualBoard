@@ -1,0 +1,29 @@
+<template>
+  <div class="custom-modal modal">
+    <div class="c-modal-title">
+      <h3 class="modal-title-text">${title}</h3>
+      <div class="modal-close" click.delegate="cancel()"><i class="icon-close"></i></div>
+    </div>
+    <div class="c-modal-body">
+      ${promptText}
+      <div class="form-section">
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            id="public-name"
+            value.bind="value"
+            attach-focus="true"
+            keyup.delegate="handleKeyup($event)"
+            autocomplete="off"
+            placeholder.bind="placeholder || ''"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="c-modal-footer">
+      <button type="button" class="btn btn-lg btn-primary" click.delegate="ok()">Ok</button>
+      <button type="button" class="btn btn-lg btn-secondary" click.delegate="cancel()">Cancel</button>
+    </div>
+  </div>
+</template>

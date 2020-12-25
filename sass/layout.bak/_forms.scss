@@ -1,0 +1,207 @@
+.form-section {
+  margin-bottom: 25px;
+  h2,h3,h4,h5 {
+    font-weight: bold;
+    font-size: .865rem;
+    margin-bottom: .5rem;
+  }
+
+  label {
+    font-size: .875rem;
+    font-weight: 600;
+    margin-bottom: .5rem;
+    color: $gray-dark;
+  }
+}
+
+
+.form-2col-modal {
+@extend .form-inline;
+  @include media-breakpoint-up(sm) {
+    .input-group {
+      width: 50%;
+      padding-right: .5rem;
+      margin-bottom: 1rem;
+
+      &:last-of-type {
+        padding-right: 0;
+      }
+    }
+  }
+}
+
+.input-button-group {
+  input {
+    display: table-cell;
+  }
+  span {
+    display: table-cell;
+  }
+}
+
+// Form styles used for select settings siews
+
+.view-form {
+
+  .form-section {
+    display: flex;
+    flex-direction: row;
+    padding: $grid-gutter-width / 2;
+    border-bottom: 1px solid $card-border-color;
+    transition: background-color 0.1s ease-in-out;
+    margin-bottom: 0;
+
+    &.section-active {
+      background-color: rgba(0,0,0,.03);
+    }
+  }
+
+  .section-name-block {
+    flex: 1;
+    h1,h2,h3,h4,h5 {
+      font-size: 1.375rem;
+      color: lighten($body-color, 25%);
+    }
+  }
+
+  .form-field-block {
+    flex: 2;
+
+    .default-content {
+      margin-top: 0;
+      text-align: left;
+      max-width: 100%;
+    }
+  }
+
+  .form-form-builder-saved-layout {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .form-builder-saved-field {
+    flex: 1 0 50%;
+  }
+  .form-block  {
+    display: flex;
+    padding-bottom: 15px;
+    &:last-child {
+      padding-bottom: 0;
+    }
+    div {
+      padding-right: 20px;
+      &:last-child {
+        padding-right: 0;
+      }
+    }
+  }
+
+  .form-edit-block {
+    flex: 1;
+    text-align: right;
+
+    button {
+      margin-left: .5rem;
+      float: left;
+    }
+  }
+
+  .form-title {
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: 300;
+    color: lighten($body-color, 25%);
+    padding-bottom: 5px;
+  }
+
+  .form-saved-content {
+    font-size: .875rem;
+  }
+
+.form-builder-row {
+
+  &.field-enabled {
+    .form-builder-fields {
+      opacity: 0.8;
+      -moz-transform: scale(1.07);
+      -webkit-transform: scale(1.07);
+      -o-transform: scale(1.07);
+      -ms-transform: scale(1.07);
+      transform: scale(1.07);
+    }
+    input, textarea, select {
+
+
+    }
+  }
+
+  display: flex;
+  justify-content: space-between;
+
+  .form-control:disabled {
+    background-color: #fff;
+  }
+
+  .form-builder-fields {
+    flex: 2;
+    opacity: .5;
+    transition: all 0.2s ease-in-out;
+
+    .checkbox-inline > label {
+      display: flex;
+      align-items: center;
+      input[type=checkbox] {
+        margin-top: 0;
+      }
+    }
+
+    .social-account {
+      font-size: 2rem;
+    }
+  }
+  .form-builder-options {
+    display: flex;
+    flex: 1;
+    padding: 0 0 0 10px;
+    margin-bottom: 1rem;
+    justify-content: flex-end;
+    //align-items: center;
+
+    & > * {
+      display: flex;
+      flex: 1;
+      justify-content: center;
+    }
+
+    .form-builder-required {
+      .checkbox {
+        margin-bottom: 0;
+      }
+
+    }
+  }
+
+}
+
+}
+
+
+//Form Helper Classes
+.form-group-no-margin {
+  margin-bottom: 0;
+}
+
+.has-danger {
+  .fr-toolbar.fr-top, .fr-box.fr-basic.fr-top .fr-wrapper {
+    border-top-color: #d9534f;
+    box-shadow: 0 1px 3px rgba(217, 83, 79, 0.24), 0 1px 1px 1px rgba(217, 83, 72, 0.32);
+  }
+}
+
+input.form-control.has-danger {
+  border-color: #d9534f;
+}
+// Color style for asterisk required labels
+.required-label {
+  color: $brand-danger;
+}

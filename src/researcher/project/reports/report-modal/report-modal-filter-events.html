@@ -1,0 +1,18 @@
+<template>
+  <div class="report-modal-events" >
+    <div class="report-modal-step-title">
+      <span>2.</span> Events
+    </div>
+    <div class="event-labels">
+      <div>Individual Activities</div>
+    </div>
+    <div class="event-category">
+      <compose
+        if.bind="filterActivitiesModel"
+        view-model="shared/components/participant-filters/filter-tasks.js"
+        view="shared/components/participant-filters/filter-tasks-no-accordian.html"
+        model.bind="filterActivitiesModel">
+      </compose>
+    </div>
+  </div>
+</template>

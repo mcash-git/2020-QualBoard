@@ -1,0 +1,108 @@
+<template>
+  <require from="./media-item-thumbnail"></require>
+  <require from="./insights/video-insights-panel"></require>
+  <require from="./insights/image-insights-panel"></require>
+  <div class="custom-modal media-item-modal fs" >
+      <div class="media-modal-content-wrapper">
+        <!-- [[contextmenu.delegate="return false"]] disables right-click context-menu. -->
+        <div class="media-item-modal-content" contextmenu.delegate="return false">
+          <div class="modal-close" click.trigger="close()"><i class="icon-close"></i></div>
+          <video-player
+            if.bind="mediaItem.type === 2"
+            view-model.ref="player"
+            is-annotations-enabled.bind="canAddInsights"
+            media-item.bind="mediaItem"
+          ></video-player>
+          <asset-thumbnail
+            if.bind="mediaItem.asset && mediaItem.asset.type === 1"
+            asset.bind="mediaItem.asset"
+          ></asset-thumbnail>
+          <media-item-thumbnail
+            if.bind="!mediaItem.asset && mediaItem.type === 1"
+            media-item.bind="mediaItem"
+          ></media-item-thumbnail>
+        </div>
+        <video-insights-panel
+          view-model.ref="mediaInsightsPanel"
+          if.bind="canAddInsights && mediaItem.type === 2"
+          media-item.bind="mediaItem"
+          project-id.bind="projectId"
+          video-player.bind="player"
+          is-open.bind="isInsightsPanelOpen"
+        ></video-insights-panel>
+        <!-- <image-insights-panel
+          view-model.ref="mediaInsightsPanel"
+          if.bind="canAddInsights && mediaItem.type === 1"
+          media-item.bind="mediaItem"
+          project-id.bind="projectId"
+          is-open.bind="isInsightsPanelOpen"
+        ></image-insights-panel> -->
+      </div>
+      <div class="media-modal-footer">
+        <div class="media-item-details" if.bind="!isEditing">
+          <div class="media-item-title">
+            <span>${titleText}&nbsp;</span>
+            <i if.bind="canEdit" class="icon-ion-compose" click.trigger="enterEditMode()"></i>
+          </div>
+          <div class="media-item-desc">${descriptionText}</div>
+        </div>
+        <div class="media-item-details edit" if.bind="isEditing">
+          <div class="media-item-details-row">
+            <input
+              type="text"
+              class="form-control media-modal-title"
+              placeholder="Add a title"
+              value.bind="editTitle"
+            />
+            <button class="btn btn-outline-secondary" click.trigger="stopEditing()">Cancel</button>
+          </div>
+          <div class="media-item-details-row">
+            <input
+              class="form-control media-modal-description"
+              placeholder="Add a description"
+              value.bind="editDescription"
+            />
+            <button class="btn btn-primary" click.trigger="saveChanges()">Save</button>
+          </div>
+        </div>
+        <div class="media-item-actions">
+          <button
+            class="circle-border-icon"
+            if.bind="canAddInsights && canAddInsight && currentUserIsModerator"
+            click.trigger="addInsight()"
+          >
+            <i class="icon-Insight-Add"></i>
+          </button>
+          <!-- alert super users if they aren't moderators on the project -->
+          <span
+            tooltip="text: Psst, hey super user!  You are not a moderator on this project!"
+            if.bind="!currentUserIsModerator"
+          >
+            <button
+              class="circle-border-icon"
+              if.bind="canAddInsights && canAddInsight"
+              disabled
+            >
+              <i class="icon-Insight-Add"></i>
+            </button>
+          </span>
+          <div class="media-prev-next-container">
+            <button
+              class="circle-border-icon"
+              disabled.bind="isPrevNextDisabled"
+              click.trigger="previous()"
+            >
+              <i class="icon-ion-chevron-left"></i>
+            </button>
+            <button
+              class="circle-border-icon"
+              disabled.bind="isPrevNextDisabled"
+              click.trigger="next()"
+            >
+              <i class="icon-ion-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+  </div>
+</template>

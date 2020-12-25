@@ -1,0 +1,12 @@
+<template>
+  <a ref="anchorElement"
+     href="#"
+     click.trigger="handleAnchorClick()">
+    ${cellText}
+  </a>
+  <div class="drop-body drop-tags" ref="dropBody">
+    <div class="tags-row">
+      <div class="tag tag-default" repeat.for="tag of cellGroupTags.groupTagObjects">${tag.name & oneWay}</div>
+    </div>
+  </div>
+</template>

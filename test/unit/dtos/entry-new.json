@@ -1,0 +1,32 @@
+{
+    "id": "entry-new",
+    "completionStatus": 1,
+    "isLastTask": false,
+    "completedTasks": [],
+    "nextTask": {
+        "id": "task-1",
+        "projectId": "project",
+        "individualActivityId": "individual-activity",
+        "sortOrder": 0,
+        "title": "Welcome!",
+        "text": "<p>You are ready to begin the activity.</p><p>Click \"OK\" to begin!</p>",
+        "plainText": "You are ready to begin the activity. Click \"OK\" to begin!",
+        "type": 1,
+        "platformLimit": 0,
+        "responseTextRequired": false,
+        "mediaRequired": false,
+        "isActive": true,
+        "autoWrapOptions": false,
+        "minimumOptionsRequired": 1,
+        "maximumOptionsLimit": null,
+        "projectUserLogicRules": [],
+        "taskLogicRules": [],
+        "media": [],
+        "options": [],
+        "matrixColumns": [],
+        "matrixRows": [],
+        "matrixGroupTags": [],
+        "taskResponses": []
+    },
+  "intervalClosesOn": "2018-01-01T05:59:00Z"
+}

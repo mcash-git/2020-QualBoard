@@ -1,0 +1,55 @@
+<template>
+  <div class="action-bar-container">
+    <div class="action-bar-section">
+      <div class="select-container">
+        <div class="select-all${model.isSelectAllDisabled ? ' disabled' : ''}">
+          <div class="checker" click.delegate="model.selectAllLabelClick()">
+            <label class="custom-control custom-checkbox">
+              <input class="custom-control-input"
+                     type="checkbox"
+                     change.delegate="model.selectAllChecked($event)"
+                     disabled.bind="model.isSelectAllDisabled"
+                     checked.bind="model.selectAll">
+              <span class="custom-control-indicator"></span>
+
+            </label>
+          </div>
+          <span click.delegate="model.selectAllLabelClick()"
+                class="select-all-label">${model.selectAll ? 'Deselect' : 'Select'} All</span>
+
+        </div>
+      </div>
+    </div>
+    <div class="action-bar-section">
+        <a href="" class="all-groups-toggle" click.delegate="model.toggleAllGroups()">
+          <i class="icon-people"></i>
+          <span>${model.toggleGroupsText} all groups</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="action-bar-buttons">
+       <button
+         type="button"
+         class="btn btn-outline-secondary"
+         click.trigger = "model.downloadParticipationReport()"
+         disabled.bind = "model.selectedUsers.length > 0"
+      >
+        Export Users
+      </button>
+      <div class="btn-group dropdown-btn">
+        <button type="button" class="btn btn-primary" click.delegate="model.importUsersButtonClick()">
+          Add Users
+        </button>
+        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+          <div class="chevron"><i class="icon-ion-chevron-down"></i></div>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-right">
+          <li><a class="dropdown-item" click.delegate="model.importUsersButtonClick()">Bulk Import Users</a></li>
+          <li><a class="dropdown-item" click.delegate="model.addUsersButtonClick()" if.bind="model.projectUsers && model.projectUsers.length > 0">Invite from Project Users</a></li>
+          <li><a class="dropdown-item" click.delegate="model.createUserButtonClick()">Add Single User</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</template>

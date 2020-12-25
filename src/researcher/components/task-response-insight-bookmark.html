@@ -1,0 +1,16 @@
+<template>
+  <require from="./task-response-insight-bookmark-read"></require>
+  <require from="./task-response-insight-bookmark-write"></require>
+  <task-response-insight-bookmark-read
+    if.bind="viewMode === viewModes.read"
+    insight.bind="insightBag.readModel"
+    edit.delegate="handleTryEdit()"
+    remove.delegate="handleTryRemove()"
+  ></task-response-insight-bookmark-read>
+  <task-response-insight-bookmark-write
+    if.bind="viewMode === viewModes.write"
+    insight.bind="insightBag.writeModel"
+    cancel.delegate="handleCancel()"
+    save.delegate="handleSave()"
+  ></task-response-insight-bookmark-write>
+</template>

@@ -1,0 +1,35 @@
+<template>
+  <require from="./import-users-merge-strategy-picker"></require>
+  <import-users-merge-strategy-picker merge-strategy.two-way="service.bulkImportModel.mergeStrategy"
+                                      class="bulk-import-merge-strategy-container"
+                                      if.bind="service.counts.existingProjectUserCount > 0">
+  </import-users-merge-strategy-picker>
+  <hr />
+  <div class="bulk-import-summary-container">
+    <h5>Summary of your Changes:</h5>
+    <div class="bulk-import-summary-item">
+      <div class="bulk-import-summary-name">
+        New Project Users:
+      </div>
+      <div class="bulk-import-summary-value">
+        ${service.counts.newProjectUserCount}
+      </div>
+    </div>
+    <div class="bulk-import-summary-item">
+      <div class="bulk-import-summary-name">
+        Existing Project Users:
+      </div>
+      <div class="bulk-import-summary-value">
+        ${existingProjectUserText}
+      </div>
+    </div>
+    <div class="bulk-import-summary-item">
+      <div class="bulk-import-summary-name">
+        New Tags:
+      </div>
+      <div class="bulk-import-summary-value">
+        ${service.counts.newTagCount}
+      </div>
+    </div>
+  </div>
+</template>

@@ -1,0 +1,30 @@
+<template>
+  <div class="groups-sidebar-container">
+    <div class="sidebar-header-wrapper">
+      <div class="icon"
+        css="background-color: ${model.tag.color}"
+      >
+        <i class="icon-label"></i>
+      </div>
+      <div class="text">${model.tag.name}</div>
+      <div class="number-bubble">${model.tag.participants.length}</div>
+      <div class="close" click.delegate="close()"><i class="icon-close"></i></div>
+    </div>
+
+    <div class="ptp-container">
+      <div if.bind="model.tag.participants.length < 1" class="no-ptps">
+        <div class="icon-container">
+          <i class="icon-user-gray icon"></i>
+        </div>
+        <div class="notice-text">
+          This group tag does not have any assigned participants.
+        </div>
+      </div>
+      <div class="ptp-row" repeat.for="participant of model.tag.participants" if.bind="model.tag.participants.length > 0">
+        <avatar class="avatar" user-id.bind="participant.userId" size.bind="22"></avatar>
+        <div class="name">${participant.displayName}</div>
+        <div class="icon" click.delegate="removeParticipant(participant)"><i class="icon-remove_circle_outline"></i></div>
+      </div>
+    </div>
+  </div>
+</template>

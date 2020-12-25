@@ -1,0 +1,43 @@
+<template>
+  <require from="./sidebar/event-builder-sidebar"></require>
+  <require from="./insert-row"></require>
+  <require from="./tasks/task"></require>
+    <div class="tt_qb_content-padding"
+         edit.delegate="handleEdit($event)"
+         cancel.delegate="handleCancel($event)"
+         save.delegate="handleSave($event)"
+         save-and-new.delegate="handleSaveAddNew($event)"
+         save-and-duplicate.delegate="handleSaveAndDuplicate($event)"
+         insert-after.delegate="handleInsert($event)"
+         delete.delegate="handleDelete($event)"
+         duplicate.delegate="handleDuplicate($event)"
+         ref="scroller">
+      <ul class="eb task-list ia ia-moderator">
+        <insert-row if.bind="canAddAndEdit" class="insert-at-start-container"></insert-row>
+        <li class="event-item eb-item-created"
+            class.bind="task.isBeingEdited ? 'edit' : editState.taskBeingEdited ? 'eb-item-inactive' : 'saved-mode'"
+            repeat.for="task of tasks"
+            ref="liElements[task.id]"
+            fade-in="duration: 0.15s; delay.bind: (($index + 1) * 0.05) + 's'">
+          <task class="card-block"
+                task.bind="task"
+                available-group-tags.bind="availableGroupTags"
+                editing-task.bind="editState.taskBeingEdited">
+          </task>
+          <insert-row if.bind="canAddAndEdit" task.bind="task"></insert-row>
+        </li>
+
+        <!-- Add Task default state-- when no tasks are in the builder -->
+        <li class="event-item default-task"
+            if.bind="!tasks || tasks.length === 0"
+            click.delegate="addTaskToEnd()"
+            fade-in="duration: 0.15s; delay: 0.05s">
+          <div class="card-block">
+            <div class="intro-default-task-msg">
+              <i class="icon-ion-plus"></i>Add a task.
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+</template>

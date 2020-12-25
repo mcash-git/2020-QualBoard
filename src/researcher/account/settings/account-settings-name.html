@@ -1,0 +1,47 @@
+<!-- TODO: create a component that wraps this accordion section and reuse it. -->
+<template>
+  <div class="title">
+    <i class="icon-Account"></i>
+    <span>Account</span>
+  </div>
+  <div class="body">
+    <div class="form-saved" show.bind="!isEditing">
+      <div class="label">Name:</div>
+      <div>${account.name}</div>
+    </div>
+    <div class="form-edit" show.bind="isEditing">
+      <div class="form-group" validation-state="validator.bind: validator; property: edit.name">
+        <div class="label">Name:</div>
+        <input type="text"
+               class="form-control"
+               id="name"
+               validate="validator.bind: validator; property: edit.name"
+               value.bind="edit.name"
+               placeholder="Name">
+      </div>
+    </div>
+  </div>
+  <div class="edit">
+    <button
+      class="btn btn-primary btn-sm btn-form-edit"
+      click.delegate="editClick()"
+      if.bind="!editing"
+    >
+      Edit
+    </button>
+    <button
+      class="btn btn-sm btn-outline-secondary btn-form-save"
+      if.bind="isEditing"
+      click.delegate="cancelClick()"
+    >
+      Cancel
+    </button>
+    <button
+      class="btn btn-sm btn-primary btn-form-save"
+      if.bind="isEditing"
+      click.delegate="saveClick()"
+    >
+      Save
+    </button>
+  </div>
+</template>

@@ -1,0 +1,415 @@
+// scss-lint:disable QualifyingElement
+
+//
+// Base styles
+//
+
+.btn {
+  font-weight: 300;
+  line-height: $btn-line-height;
+  text-align: center;
+  white-space: nowrap;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+  text-transform: uppercase;
+  border: $input-btn-border-width solid transparent;
+  font-family: "Open Sans";
+  @include button-size($btn-padding-y, $btn-padding-x, $btn-fontsize-base, $btn-border-radius);
+  @include transition(all .2s ease-in-out);
+
+  &,
+  &:active,
+  &.active {
+    &:focus,
+    &.focus {
+      outline: 0;
+    }
+  }
+
+  @include hover-focus {
+    text-decoration: none;
+  }
+  &.focus {
+    text-decoration: none;
+  }
+
+  &:active,
+  &.active {
+    background-image: none;
+    outline: 0;
+    @include box-shadow($btn-active-box-shadow);
+  }
+
+  &.disabled,
+  &:disabled {
+    cursor: $cursor-disabled;
+    opacity: .50;
+    @include box-shadow(none);
+  }
+
+  .btn-icon {
+    &:first-child {
+      padding: 0 .4rem;
+    }
+  }
+
+  &.btn-gigas {
+    padding: 6rem 4rem;
+    font-size: 2.5rem;
+    border-radius: 3rem;
+    margin-right: 1rem;
+    margin-left: 1rem;
+    text-decoration: none;
+  }
+}
+//
+//// Future-proof disabling of clicks on `<a>` elements
+a.btn.disabled,
+fieldset[disabled] a.btn {
+  pointer-events: none;
+}
+
+
+//
+// Alternate buttons
+//
+
+.btn-primary {
+  @include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
+}
+.btn-secondary {
+  @include button-variant($btn-secondary-color, $btn-secondary-bg, $btn-secondary-border);
+}
+.btn-info {
+  @include button-variant($btn-info-color, $btn-info-bg, $btn-info-border);
+}
+.btn-success {
+  @include button-variant($btn-success-color, $btn-success-bg, $btn-success-border);
+}
+.btn-warning {
+  @include button-variant($btn-warning-color, $btn-warning-bg, $btn-warning-border);
+}
+.btn-danger {
+  @include button-variant($btn-danger-color, $btn-danger-bg, $btn-danger-border);
+}
+
+
+.btn-opaque {
+  @include button-variant($gray, rgba(255,255,255,.9), rgba(255,255,255,.9));
+  box-shadow: none;
+}
+
+// Remove all backgrounds
+.btn-default-outline {
+  @include button-outline-variant($gray-light);
+}
+.btn-outline-primary {
+  @include button-outline-variant($btn-primary-bg);
+}
+.btn-outline-secondary {
+  position: relative;
+  @include button-outline-variant($btn-secondary-bg);
+}
+.btn-outline-info {
+  @include button-outline-variant($btn-info-bg);
+}
+.btn-outline-success {
+  @include button-outline-variant($btn-success-bg);
+}
+.btn-outline-warning {
+  @include button-outline-variant($btn-warning-bg);
+}
+.btn-outline-danger {
+  @include button-outline-variant($btn-danger-bg);
+}
+.btn-outline-white {
+  @include button-outline-variant(rgba(255,255,255,.8));
+  &:hover {
+    color: $gray;
+  }
+}
+
+.btn-outline-notifications {
+  @include button-outline-variant($brand-identity);
+  &:hover {
+    color: $gray;
+  }
+}
+
+
+
+
+// CUSTOM BUTONS
+
+.btn-default {
+  @include button-variant($gray, #fff, $gray-lighter);
+}
+
+//Styles for action row filter buttons
+.btn-filter {
+  @include button-variant($btn-secondary-color, $gray-light, $btn-secondary-border);
+  text-transform: none;
+  font-size: .75rem;
+  position: relative;
+  //padding: .5rem;
+
+  &:focus {
+    outline: 0 !important;
+  }
+}
+
+.btn-message {
+  @include button-variant(#fff, $btn-secondary-bg, $btn-secondary-border);
+  border-radius: 0;
+  border: 0;
+  border-left: 1px solid $btn-secondary-border;
+}
+
+.btn-followup {
+  @include button-variant($btn-primary-color, $probe-bg, darken($probe-bg, 4%));
+}
+
+.btn-eb-item {
+  @include button-variant($btn-primary-color, darken($brand-primary, 40%), darken($brand-primary, 45%));
+}
+
+.btn-md {
+  // line-height: ensure proper height of button next to small input
+  @include button-size($btn-padding-y-md, $btn-padding-x-md, $font-size-sm, $btn-border-radius-lg);
+}
+
+.btn-round {
+  @include btn-round(100px, 2rem, 2rem);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  i {
+    position: absolute;
+  }
+}
+
+
+//
+// Link buttons
+//
+
+// Make a button look and behave like a link
+.btn-link {
+  font-weight: normal;
+  color: $link-color;
+  border-radius: 0;
+
+  &,
+  &:active,
+  &.active,
+  &:disabled {
+    background-color: transparent;
+    @include box-shadow(none);
+  }
+  &,
+  &:focus,
+  &:active {
+    border-color: transparent;
+  }
+  @include hover {
+    border-color: transparent;
+  }
+  @include hover-focus {
+    color: $link-hover-color;
+    text-decoration: none;
+    background-color: transparent;
+  }
+  &:disabled {
+    @include hover-focus {
+      color: $btn-link-disabled-color;
+      text-decoration: none;
+    }
+  }
+}
+
+.btn-link-followup {
+  font-weight: normal;
+  color: $link-color;
+  border-radius: 0;
+  padding: 0;
+  margin-top: .5rem;
+  font-size: .75rem;
+  display: flex;
+  align-items: center;
+
+  i {
+    font-size: 1.125rem;
+    padding-right: .3rem;
+  }
+
+  &,
+  &:active,
+  &.active,
+  &:disabled {
+    background-color: transparent;
+    @include box-shadow(none);
+    text-decoration: none;
+  }
+  &,
+  &:focus,
+  &:active {
+    border-color: transparent;
+  }
+  @include hover {
+    border-color: transparent;
+    text-decoration: none;
+  }
+  @include hover-focus {
+    color: $link-hover-color;
+    text-decoration: $link-hover-decoration;
+    background-color: transparent;
+    text-decoration: none;
+  }
+  &:disabled {
+    @include hover-focus {
+      color: $btn-link-disabled-color;
+      text-decoration: none;
+      border-radius: 69px;
+    }
+  }
+}
+
+// Buttons Pill (Filter Buttons)
+  .btn-group {
+    &.btn-pill > .btn {
+      margin-right: .5rem;
+      border-radius: 100px !important;
+      padding: .1rem .5rem;
+      line-height: .75rem;
+      font-weight: 400;
+      text-transform: none;
+
+      &:focus {
+        box-shadow: none;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+    }
+
+    &:not(.btn-pill):not(.dropdown-btn) > .btn {
+      border-radius: 3px;
+      text-transform: none;
+    }
+  }
+
+//
+// Button Sizes
+//
+
+.btn-lg {
+  // line-height: ensure even-numbered height of button next to large input
+  @include button-size($btn-padding-y-lg, $btn-padding-x-lg, $font-size-sm, $btn-border-radius-sm);
+}
+.btn-sm {
+  // line-height: ensure proper height of button next to small input
+  @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $font-size-xxs, $btn-border-radius-sm);
+
+  position: relative;
+  &.btn {
+    .btn-icon {
+      position: absolute;
+      height: 100%;
+      padding-top: 1px;
+    }
+  }
+}
+
+.btn-xs {
+  // line-height: ensure proper height of button next to small input
+  @include button-size($btn-padding-y-xs, $btn-padding-x-xs, $font-size-xxs, $btn-border-radius-sm);
+}
+
+.btn-sm-group {
+  // line-height: ensure proper height of button next to small input
+  @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $font-size-xxs, $btn-border-radius-sm);
+}
+
+.btn-xs-group {
+  // line-height: ensure proper height of button next to small input
+  @include button-size($btn-padding-y-xs, $btn-padding-x-xs, $font-size-xxs, $btn-border-radius-sm);
+}
+
+
+//
+// Block button
+//
+
+.btn-block {
+  display: block;
+  width: 100%;
+}
+
+// Vertically space out multiple block buttons
+.btn-block + .btn-block {
+  margin-top: $btn-block-spacing-y;
+}
+
+// Specificity overrides
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  &.btn-block {
+    width: 100%;
+  }
+}
+
+
+a {
+  &:not([disabled],.disabled) {
+    cursor: pointer;
+  }
+
+  &[disabled], &.disabled {
+    cursor: not-allowed;
+  }
+}
+
+.card-tile .btn.btn-sm {
+  font-size: .75rem;
+
+  i {
+    color: #fff;
+  }
+}
+
+a.disabled {
+  pointer-events: none;
+}
+
+.btn-loader {
+  position: absolute;
+}
+
+.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  .btn-loader {
+    display: none;
+  }
+
+  &.working {
+    .btn-loader {
+      display: block;
+      height: 30px;
+    }
+
+    .btn-text {
+      visibility: hidden;
+    }
+  }
+}

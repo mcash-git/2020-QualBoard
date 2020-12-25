@@ -1,0 +1,98 @@
+<template>
+  <div class="title">
+    <i class="icon-branding"></i>
+    <span>Project Branding</span>
+  </div>
+  <div class="body">
+    <div class="form-saved" show.bind="!isEditing">
+      <div class="group-label">Logos</div>
+      <div class="form-group">
+        <div class="label-container">
+          <div class="label">Splash: (530 x 150px)</div>
+          <i class="icon-help help-hover" tooltip="text: This is the logo that will be displayed on the login page of the application. Please choose a .png file with a transparent background for best results."></i>
+        </div>
+        <div class="logo-container">
+          <img src="/images/logo-qb-maintenance-green.png" />
+        </div>
+
+        <div class="label-container">
+          <div class="label">Application: (115 x 25px)</div>
+          <i class="icon-help help-hover" tooltip="text: This is the logo that will display in the top left of the main navigation bar. Please choose a .png file with a transparent background for best results."></i>
+        </div>
+        <div class="logo-container">
+          <img src="/images/logo-qb-maintenance-green.png" />
+        </div>
+
+        <div class="label-container">
+          <div class="label">Mobile: (40 x 40px)</div>
+          <i class="icon-help help-hover" tooltip="text: This is the logo that will be displayed on smaller screen sizes and mobile users. Please choose a .png file with a transparent background for best results."></i>
+        </div>
+        <div class="logo-container">
+          <img src="/images/logo-qb-header-thumb.png" />
+        </div>
+      </div>
+
+      <div class="group-label">Colors</div>
+      <div class="color-group-container">
+        <div class="color-group">
+          <div class="label">Header Background</div>
+          <div class="color-box-container">
+            <div class="color-box" style="background-color: #fff;"></div>
+            <div class="color-label">#FFFFFF</div>
+          </div>
+        </div>
+
+        <div class="color-group">
+          <div class="label">Header Font Color</div>
+          <div class="color-box-container">
+            <div class="color-box" style="background-color: #96C03B;"></div>
+            <div class="color-label">#96C03B</div>
+          </div>
+        </div>
+
+        <div class="color-group">
+          <div class="label">Primary Color</div>
+          <div class="color-box-container">
+            <div class="color-box" style="background-color: #96C03B;"></div>
+            <div class="color-label">#96C03B</div>
+          </div>
+        </div>
+
+        <div class="color-group">
+          <div class="label">Accent Color</div>
+          <div class="color-box-container">
+            <div class="color-box" style="background-color: #53AFD3;"></div>
+            <div class="color-label">#53AFD3</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-edit" show.bind="isEditing">
+      <div class="form-group">
+        ...
+      </div>
+    </div>
+  </div>
+  <div class="edit">
+    <button
+      class="btn btn-primary btn-sm btn-form-edit"
+      if.bind="!project.editing"
+    >
+      Edit
+    </button>
+    <button
+      class="btn btn-sm btn-outline-secondary btn-form-save"
+      if.bind="isEditing"
+      href="#" click.delegate="cancelClick()"
+    >
+      Cancel
+    </button>
+    <button
+      class="btn btn-sm btn-primary btn-form-save"
+      if.bind="isEditing"
+      click.delegate="saveClick()"
+    >
+      Save
+    </button>
+  </div>
+</template>

@@ -1,0 +1,185 @@
+.event-card {
+  color: $body-color;
+  .card {
+  }
+
+  .card-row-icon {
+    font-size: 1.2rem;
+    align-items: flex-start;
+    color: $body-color;
+    padding-right: .5rem;
+  }
+
+  .card-header {
+    background-color: transparent;
+    @include gradient-y($transparent-gray-lightest, $transparent-gray-lighter, 0%, 100%);
+    padding: 0;
+    color: $brand-primary;
+  }
+
+  .card-block {
+    padding-top: 0;
+  }
+
+  // Right action buttons in the card header
+  .card-header-btn-container {
+    display: flex;
+
+    .header-btn {
+      transition: all .2s ease-in-out;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      padding: .5rem 1.2rem;
+
+    }
+    .primary-button {
+      font-size: 1.8rem;
+      border-left: 0;
+      background-color: $brand-primary;
+      color: $brand-identity;
+
+      &:hover {
+        background-color: darken($brand-primary, 5%);
+      }
+    }
+    .secondary-button {
+      font-size: 1.4rem;
+      color: $brand-primary;
+      border-left: 1px solid rgba(0,0,0,.2);
+
+      &:hover {
+        //color: $brand-primary;
+        background-color: lighten($brand-primary, 63%);
+      }
+    }
+  }
+
+  // Left icon in the header
+  .card-icon {
+    align-items: center;
+    display: flex;
+    flex: 0;
+    padding: .5rem 1rem;
+    border-right: 1px solid rgba(0,0,0,.2);
+
+    i {
+      font-size: 2rem;
+      color: $brand-primary;
+    }
+  }
+
+//  Styles for stats in the event card
+
+  .schedule-card-stats-row {
+    border-bottom: 1px solid $separator-color;
+  }
+
+  .schedule-container {
+    align-items: flex-start;
+  }
+  .event-card-stats-row {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: row;
+    padding: .3rem 0;
+    list-style: none;
+    margin: 0;
+    border-bottom: 1px solid $separator-color;
+
+    .stat-title-wrapper {
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .stat-title {
+      display: flex;
+      align-items: center;
+    }
+
+    .card-row-cell {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      flex-wrap: wrap;
+      padding-left: .5rem;
+
+      &:first-of-type {
+        border-right: 1px solid $separator-color;
+        padding-left: 0;
+      }
+
+    }
+
+
+    //.stat-row {
+    //  display: flex;
+    //  flex: 1 1 auto;
+    //  justify-content: space-between;
+    //}
+    //
+    //.stat-col {
+    //  display: flex;
+    //  flex-direction: column;
+    //}
+
+    &:last-of-type {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    &.last-row {
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+
+  }
+
+  .event-stat-container {
+    display: flex;
+    flex: 1;
+    align-items: flex-end;
+    justify-content: flex-end;
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 .5rem;
+    text-align: center;
+  }
+
+  .stat-title {
+    font-size: .75rem;
+    padding: 0;
+  }
+
+  .stat-label {
+    font-size: .625rem;
+    padding: 0;
+    text-transform: uppercase;
+  }
+
+  .stat-num {
+    color: $brand-primary;
+  }
+
+  .stat-main {
+    font-weight: 600;
+    .stat-num {
+      font-size: 1.4rem;
+    }
+
+  }
+
+  .stat-secondary {
+    font-weight: 600;
+    .stat-num {
+      font-size: .875rem;
+    }
+  }
+
+
+}

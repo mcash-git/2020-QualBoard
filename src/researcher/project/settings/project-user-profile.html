@@ -1,0 +1,618 @@
+<template>
+  <div class="section-name-block">
+      <h5>User Profile Setup</h5>
+  </div>
+  <div class="form-field-block">
+    <div id="proj_name-saved" class="form-saved">
+      <p>
+          These form fields that will be a part of this projects user profile. Click edit
+          to add additional fields.
+      </p>
+      <div class="form-form-builder-saved-layout">
+        <div class="form-title form-builder-saved-field">Display Name:</div>
+        <div class="form-title form-builder-saved-field">Email:</div>
+        <div class="form-title form-builder-saved-field">Social Networks:</div>
+        <div class="form-title form-builder-saved-field">Profile Notes:</div>
+        <div class="form-title form-builder-saved-field">Job Title:</div>
+        <div class="form-title form-builder-saved-field">Address:</div>
+        <div class="form-title form-builder-saved-field">County:</div>
+        <div class="form-title form-builder-saved-field">SMS:</div>
+        <div class="form-title form-builder-saved-field">Age:</div>
+        <div class="form-title form-builder-saved-field">Income:</div>
+        <div class="form-title form-builder-saved-field">Gender:</div>
+        <div class="form-title form-builder-saved-field">Marital Status:</div>
+        <div class="form-title form-builder-saved-field">Ethnicity:</div>
+        <div class="form-title form-builder-saved-field">Education:</div>
+        <div class="form-title form-builder-saved-field">Xbox or PS4:</div>
+      </div>
+    </div>
+    <div id="demographics" class="collapse form-edit">
+      <div class="form-builder-row">
+        <div class="form-builder-fields">
+          <span class="form-title">Demographic fields</span>
+        </div>
+        <div class="form-builder-options">
+          <div class="form-builder-enabled">
+            <span class="form-title">Enable</span>
+          </div>
+          <div class="form-builder-required">
+            <span class="form-title">Required</span>
+          </div>
+        </div>
+      </div>
+
+      <!--Display Name-->
+      <div class="form-builder-row">
+        <div class="form-builder-fields">
+          <div class="form-group">
+            <input type="text" class="form-control" id="display-name"
+                   placeholder="Display Name" disabled="disabled">
+          </div>
+        </div>
+        <div class="form-builder-options">
+          <div class="form-builder-enabled">
+            <div class="onoffswitch">
+              <input type="checkbox" name="onoffswitch"
+                     class="onoffswitch-checkbox" id="switch1">
+              <label class="onoffswitch-label" for="switch1"></label>
+            </div>
+          </div>
+          <div class="form-builder-required">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox"
+                       class="form-builder-required-checkbox"
+                       disabled="disabled">
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--Email-->
+      <div class="form-builder-row">
+        <div class="form-builder-fields">
+          <div class="form-group">
+            <input type="text" class="form-control" id="email"
+                   placeholder="Email" disabled="disabled">
+          </div>
+        </div>
+        <div class="form-builder-options">
+          <div class="form-builder-enabled">
+            <div class="onoffswitch">
+              <input type="checkbox" name="onoffswitch"
+                     class="onoffswitch-checkbox" id="switch2">
+              <label class="onoffswitch-label" for="switch2"></label>
+            </div>
+          </div>
+          <div class="form-builder-required">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox"
+                       class="form-builder-required-checkbox"
+                       disabled="disabled">
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+        <!--Social Media Accounts-->
+      <div class="form-builder-row">
+        <div class="form-builder-fields">
+          <div class="checkbox-inline">
+            <label>
+              <input type="checkbox" disabled="disabled">
+              <i class="social-account icon-ion-social-twitter"></i>
+            </label>
+          </div>
+          <div class="checkbox-inline">
+            <label>
+              <input type="checkbox" disabled="disabled">
+              <i class="social-account icon-ion-social-facebook"></i>
+            </label>
+          </div>
+          <div class="checkbox-inline">
+            <label>
+              <input type="checkbox" disabled="disabled">
+              <i class="social-account icon-ion-social-linkedin"></i>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-builder-options">
+          <div class="form-builder-enabled">
+            <div class="onoffswitch">
+              <input type="checkbox" name="onoffswitch"
+                     class="onoffswitch-checkbox" id="switch3">
+              <label class="onoffswitch-label" for="switch3"></label>
+            </div>
+          </div>
+          <div class="form-builder-required">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox"
+                       class="form-builder-required-checkbox"
+                       disabled="disabled">
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--Profile Notes-->
+      <div class="form-builder-row">
+        <div class="form-builder-fields">
+          <div class="form-group">
+            <textarea type="text" class="form-control" id="profile-notes"
+                      placeholder="Profile Notes"
+                      disabled="disabled"></textarea>
+          </div>
+        </div>
+        <div class="form-builder-options">
+          <div class="form-builder-enabled">
+            <div class="onoffswitch">
+              <input type="checkbox" name="onoffswitch"
+                     class="onoffswitch-checkbox" id="switch4">
+              <label class="onoffswitch-label" for="switch4"></label>
+            </div>
+          </div>
+          <div class="form-builder-required">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox"
+                       class="form-builder-required-checkbox"
+                       disabled="disabled">
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--Job Title-->
+      <div class="form-builder-row">
+        <div class="form-builder-fields">
+          <div class="form-group">
+            <input type="text" class="form-control" id="job-title"
+                   placeholder="Job Title" disabled="disabled">
+          </div>
+        </div>
+
+        <div class="form-builder-options">
+          <div class="form-builder-enabled">
+            <div class="onoffswitch">
+              <input type="checkbox" name="onoffswitch"
+                   class="onoffswitch-checkbox" id="switch5">
+              <label class="onoffswitch-label" for="switch5"></label>
+            </div>
+          </div>
+          <div class="form-builder-required">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox"
+                       class="form-builder-required-checkbox"
+                       disabled="disabled">
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Address-->
+      <div class="form-builder-row">
+        <div class="form-builder-fields">
+          <div class="form-group">
+            <input type="text" class="form-control" id="street-address"
+                   placeholder="Address" disabled="disabled">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" id="city"
+                   placeholder="City" disabled="disabled">
+          </div>
+          <div class="form-group">
+            <select class="c-select" disabled="disabled">
+              <option selected="">State</option>
+              <option value="1">State 1</option>
+              <option value="2">State 2</option>
+              <option value="3">State 3</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" id="postal"
+                   placeholder="Postal" disabled="disabled">
+          </div>
+        </div>
+        <div class="form-builder-options">
+            <div class="form-builder-enabled">
+                <div class="onoffswitch">
+                    <input type="checkbox" name="onoffswitch"
+                           class="onoffswitch-checkbox" id="switch6">
+                    <label class="onoffswitch-label" for="switch6"></label>
+                </div>
+            </div>
+            <div class="form-builder-required">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox"
+                               class="form-builder-required-checkbox"
+                               disabled="disabled">
+                    </label>
+                </div>
+            </div>
+        </div>
+      </div>
+
+      <!--Country-->
+      <div class="form-builder-row">
+        <div class="form-builder-fields">
+          <div class="form-group">
+            <select class="c-select" disabled="disabled">
+              <option selected="">Country</option>
+              <option value="1">Country 1</option>
+              <option value="2">County 2</option>
+              <option value="3">Country 3</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-builder-options">
+          <div class="form-builder-enabled">
+            <div class="onoffswitch">
+              <input type="checkbox" name="onoffswitch"
+                     class="onoffswitch-checkbox" id="switch7">
+              <label class="onoffswitch-label" for="switch7"></label>
+            </div>
+          </div>
+          <div class="form-builder-required">
+            <div class="checkbox">
+              <label>
+                  <input type="checkbox"
+                         class="form-builder-required-checkbox"
+                         disabled="disabled">
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--Phone-->
+      <div class="form-builder-row">
+        <div class="form-builder-fields">
+          <div class="form-group">
+            <input type="text" class="form-control" id="phone"
+                   placeholder="Phone" disabled="disabled">
+          </div>
+        </div>
+        <div class="form-builder-options">
+          <div class="form-builder-enabled">
+            <div class="onoffswitch">
+              <input type="checkbox" name="onoffswitch"
+                     class="onoffswitch-checkbox" id="switch8">
+              <label class="onoffswitch-label" for="switch8"></label>
+            </div>
+          </div>
+          <div class="form-builder-required">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox"
+                       class="form-builder-required-checkbox"
+                       disabled="disabled">
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--SMS-->
+      <div class="form-builder-row">
+        <div class="form-builder-fields">
+          <div class="form-group">
+            <input type="text" class="form-control" id="sms"
+                   placeholder="SMS" disabled="disabled">
+          </div>
+        </div>
+        <div class="form-builder-options">
+          <div class="form-builder-enabled">
+            <div class="onoffswitch">
+              <input type="checkbox" name="onoffswitch"
+                     class="onoffswitch-checkbox" id="switch9">
+              <label class="onoffswitch-label" for="switch9"></label>
+            </div>
+          </div>
+          <div class="form-builder-required">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox"
+                       class="form-builder-required-checkbox"
+                       disabled="disabled">
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--Age-->
+      <div class="form-builder-row">
+        <div class="form-builder-fields">
+          <div class="form-group">
+            <input type="text" class="form-control" id="age"
+                   placeholder="Age" disabled="disabled">
+          </div>
+        </div>
+        <div class="form-builder-options">
+          <div class="form-builder-enabled">
+            <div class="onoffswitch">
+              <input type="checkbox" name="onoffswitch"
+                     class="onoffswitch-checkbox" id="switch10">
+              <label class="onoffswitch-label" for="switch10"></label>
+            </div>
+          </div>
+          <div class="form-builder-required">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox"
+                       class="form-builder-required-checkbox"
+                       disabled="disabled">
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--Income-->
+      <div class="form-builder-row">
+        <div class="form-builder-fields">
+          <div class="form-group">
+            <input type="text" class="form-control" id="income"
+                   placeholder="Income" disabled="disabled">
+          </div>
+        </div>
+        <div class="form-builder-options">
+          <div class="form-builder-enabled">
+            <div class="onoffswitch">
+              <input type="checkbox" name="onoffswitch"
+                     class="onoffswitch-checkbox" id="switch11">
+              <label class="onoffswitch-label" for="switch11"></label>
+            </div>
+          </div>
+          <div class="form-builder-required">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox"
+                       class="form-builder-required-checkbox"
+                       disabled="disabled">
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--Gender-->
+      <div class="form-builder-row">
+        <div class="form-builder-fields">
+          <div class="form-title">Gender:</div>
+          <div class="form-group">
+            <div class="radio-inline">
+              <label>
+                <input type="radio" name="optionsRadios"
+                       id="male" value="Male" checked=""
+                       disabled="disabled">
+                Male
+              </label>
+            </div>
+            <div class="radio-inline">
+              <label>
+                <input type="radio" name="optionsRadios"
+                       id="female" value="Female" disabled="disabled">
+                Female
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="form-builder-options">
+          <div class="form-builder-enabled">
+            <div class="onoffswitch">
+              <input type="checkbox" name="onoffswitch"
+                     class="onoffswitch-checkbox" id="switch12">
+              <label class="onoffswitch-label" for="switch12"></label>
+            </div>
+          </div>
+          <div class="form-builder-required">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox"
+                       class="form-builder-required-checkbox"
+                       disabled="disabled">
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--Marital Status-->
+      <div class="form-builder-row">
+        <div class="form-builder-fields">
+          <div class="form-title">Martial Status:</div>
+          <div class="form-group">
+            <div class="radio-inline">
+              <label>
+                <input type="radio" name="optionsRadios"
+                       id="married" value="Married" checked=""
+                       disabled="disabled">
+                Married
+              </label>
+            </div>
+            <div class="radio-inline">
+              <label>
+                <input type="radio" name="optionsRadios"
+                       id="single" value="Single" disabled="disabled">
+                Single
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="form-builder-options">
+          <div class="form-builder-enabled">
+            <div class="onoffswitch">
+              <input type="checkbox" name="onoffswitch"
+                     class="onoffswitch-checkbox" id="switch13">
+              <label class="onoffswitch-label" for="switch13"></label>
+            </div>
+          </div>
+          <div class="form-builder-required">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox"
+                       class="form-builder-required-checkbox"
+                       disabled="disabled">
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--Employment-->
+      <div class="form-builder-row">
+        <div class="form-builder-fields">
+          <div class="form-title">Employment:</div>
+          <div class="form-group">
+            <div class="radio-inline">
+              <label>
+                <input type="radio" name="optionsRadios"
+                       id="employed" value="Employed" checked=""
+                       disabled="disabled">
+                Employed
+              </label>
+            </div>
+            <div class="radio-inline">
+              <label>
+                <input type="radio" name="optionsRadios"
+                       id="unemployed" value="Unemployed"
+                       disabled="disabled">
+                Unemployed
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="form-builder-options">
+          <div class="form-builder-enabled">
+            <div class="onoffswitch">
+              <input type="checkbox" name="onoffswitch"
+                     class="onoffswitch-checkbox" id="switch14">
+              <label class="onoffswitch-label" for="switch14"></label>
+            </div>
+          </div>
+          <div class="form-builder-required">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox"
+                       class="form-builder-required-checkbox"
+                       disabled="disabled">
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--Ethnicity-->
+      <div class="form-builder-row">
+        <div class="form-builder-fields">
+          <div class="form-group">
+            <input type="text" class="form-control" id="ethnicity"
+                   placeholder="Ethnicity" disabled="disabled">
+          </div>
+        </div>
+        <div class="form-builder-options">
+          <div class="form-builder-enabled">
+            <div class="onoffswitch">
+              <input type="checkbox" name="onoffswitch"
+                     class="onoffswitch-checkbox" id="switch15">
+              <label class="onoffswitch-label" for="switch15"></label>
+            </div>
+          </div>
+          <div class="form-builder-required">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox"
+                       class="form-builder-required-checkbox"
+                       disabled="disabled">
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--Education-->
+      <div class="form-builder-row">
+        <div class="form-builder-fields">
+          <div class="form-group">
+            <select class="c-select" disabled="disabled">
+              <option selected="">Education Level</option>
+              <option value="1">Not Graduated</option>
+              <option value="2">GED</option>
+              <option value="3">High School</option>
+              <option value="4">Bachelor</option>
+              <option value="5">Masters</option>
+              <option value="6">Doctorate</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-builder-options">
+          <div class="form-builder-enabled">
+            <div class="onoffswitch">
+              <input type="checkbox" name="onoffswitch"
+                     class="onoffswitch-checkbox" id="switch16">
+              <label class="onoffswitch-label" for="switch16"></label>
+            </div>
+          </div>
+          <div class="form-builder-required">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox"
+                       class="form-builder-required-checkbox"
+                       disabled="disabled">
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--Custom Field 1-->
+      <div class="form-builder-row">
+        <div class="form-builder-fields">
+          <div class="form-group">
+            <input type="text" class="form-control custom-field"
+                   id="Custom 1"
+                   placeholder="Enter your custom field name"
+                   disabled="disabled">
+          </div>
+        </div>
+        <div class="form-builder-options">
+          <div class="form-builder-enabled">
+            <div class="onoffswitch">
+              <input type="checkbox" name="onoffswitch"
+                     class="onoffswitch-checkbox" id="switch17">
+              <label class="onoffswitch-label" for="switch17"></label>
+            </div>
+          </div>
+          <div class="form-builder-required">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox"
+                       class="form-builder-required-checkbox"
+                       disabled="disabled">
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="form-edit-block">
+    <button class="btn btn-primary btn-sm btn-form-edit" if.bind="!project.editing"
+            href="#" click.delegate="editClick()" >Edit</button>
+    <button class="btn btn-sm btn-secondary btn-form-save" click.delegate="cancelClick()"
+            href="#" if.bind="project.editing === 'project-user-profile'">Cancel</button>
+    <button class="btn btn-sm btn-primary btn-form-save" click.delegate="saveClick()"
+            href="#" if.bind="project.editing === 'project-user-profile'">Save</button>
+  </div>
+</template>

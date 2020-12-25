@@ -1,0 +1,23 @@
+<template>
+  <require from="./card-drop-down"></require>
+  <div class="card-header">
+    <div class="card-icon"><i class.bind="card.header.icon"></i></div>
+    <div class="card-title">
+      <h5 class="card-title-main">
+        <div class="truncate-ellipsis">
+          <span>${card.header.title}</span>
+        </div>
+      </h5>
+      <h6 class="card-title-sub">
+        <div class="truncate-ellipsis">
+          <span>${card.header.subtitle}</span>
+        </div>
+      </h6>
+    </div>
+    <div class="card-header-btn-container">
+      <!-- TODO: componentize this menu... -->
+      <card-drop-down drop-down-items.bind="card.header.dropDownItems"></card-drop-down>
+      <div class="header-btn primary-button"><i class="icon-noun_356786"></i></div>
+    </div>
+  </div>
+</template>

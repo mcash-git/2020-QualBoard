@@ -1,0 +1,101 @@
+<template>
+  <require from="researcher/project/moderator-tools/notifications/notification-header"></require>
+  <require from="researcher/project/moderator-tools/notifications/card/notification-card"></require>
+
+  <notification-header applied-filters.bind="appliedFilters"></notification-header>
+  <!-- Tab panes -->
+  <div class="outer-content">
+    <div class="inner-content-div">
+      <div show.bind="isProcessing" class="modtools-loader">
+        <img src="/images/sidebar-loader-white.svg" alt="">
+      </div>
+      <div class="notification-list ${ notices.items.length < 1 ? 'empty' : '' }" show.bind="!isProcessing">
+        <div class="n-default-message">
+          <div class="n-icon-placeholder">
+            <i class="icon-ion-android-notifications"></i>
+          </div>
+          <span class="n-default-message-text">There are no current notifications</span>
+        </div>
+
+        <!-- start today -->
+        <div class="notification-section-title" data-toggle="collapse" data-target="#collapseToday"
+             show.bind="notices.intervals.today.isVisible">
+          Today
+          <div class="notification-section-title-right">
+            <span class="note-unread">${notices.intervals.today.unreadCount} unread</span>
+            <i class="notification-arrow-toggle icon-ion-chevron-up"></i>
+          </div>
+        </div>
+        <div id="collapseToday" class="collapse show">
+          <!--Notification New Message-->
+          <!--New notifications get the class .notification-showing until loaded. Once loaded they get the class notification shown.
+          This prevents existing notifications from displaying the loading animation on refresh or reload-->
+          <div repeat.for="n of noticeCards"
+               class="notification-wrapper notification-shown"
+               if.bind="n.isToday"
+               click.delegate="handleSelect(notification, n)"
+               ref="notification">
+            <notification-card card.bind="n"></notification-card>
+          </div>
+        </div>
+
+        <!--start yesterday -->
+        <div class="notification-section-title" data-toggle="collapse" data-target="#collapseYesterday"
+             show.bind="notices.intervals.yesterday.isVisible">
+          Yesterday
+          <div class="notification-section-title-right">
+            <span class="note-unread">${notices.intervals.yesterday.unreadCount} unread</span>
+            <i class="notification-arrow-toggle icon-ion-chevron-up"></i>
+          </div>
+        </div>
+        <div id="collapseYesterday" class="collapse show">
+          <div repeat.for="n of noticeCards"
+               class="notification-wrapper notification-shown"
+               if.bind="n.isYesterday"
+               click.delegate="handleSelect(notification, n)"
+               ref="notification">
+            <notification-card card.bind="n"></notification-card>
+          </div>
+        </div>
+
+        <!-- start week -->
+        <div class="notification-section-title" data-toggle="collapse" data-target="#collapseWeek"
+             show.bind="notices.intervals.thisWeek.isVisible">
+          This Week
+          <div class="notification-section-title-right">
+            <span class="note-unread">${notices.intervals.thisWeek.unreadCount} unread</span>
+            <i class="notification-arrow-toggle icon-ion-chevron-up"></i>
+          </div>
+        </div>
+        <div id="collapseWeek" class="collapse show">
+          <div repeat.for="n of noticeCards"
+               class="notification-wrapper notification-shown"
+               if.bind="n.isWeek"
+               click.delegate="handleSelect(notification, n)"
+               ref="notification">
+            <notification-card card.bind="n"></notification-card>
+          </div>
+        </div>
+
+        <!-- start older -->
+        <div class="notification-section-title" data-toggle="collapse" data-target="#collapseOlder"
+             show.bind="notices.intervals.older.isVisible">
+          Older
+          <div class="notification-section-title-right">
+            <span class="note-unread">${notices.intervals.older.unreadCount} unread</span>
+            <i class="notification-arrow-toggle icon-ion-chevron-up"></i>
+          </div>
+        </div>
+        <div id="collapseOlder" class="collapse show">
+          <div repeat.for="n of noticeCards"
+               class="notification-wrapper notification-shown"
+               if.bind="n.isOlder"
+               click.delegate="handleSelect(notification, n)"
+               ref="notification">
+            <notification-card card.bind="n"></notification-card>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

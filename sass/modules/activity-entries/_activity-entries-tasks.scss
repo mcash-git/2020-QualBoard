@@ -1,0 +1,586 @@
+@import "../../base/QB4-variables";
+
+$entry-background: #EFF8FB;
+$check-color: #86BF54;
+$ptp-bg: #FCFCFC;
+
+.entries-wrapper {
+  .entry-header {
+    @extend .card-header;
+
+    height: 50px;
+    width: 100%;
+    background-color: $entry-background;
+    color: $gray-light;
+    padding: 0.40rem .50rem;
+    font-size: .875rem;
+    line-height: 21px;
+    border: $border-gray-transparent;
+
+    .left {
+      width: 75%;
+      .avatar {
+        border-radius: 25px;
+        border: 0px;
+      }
+      .name-entry {
+        font-size: 12px;
+        padding-left: .50rem;
+        padding-top: .50rem;
+      }
+    }
+    .right {
+      width: 25%;
+      text-align: right;
+      font-size: 12px;
+      padding-top: .50rem;
+    }
+  }
+  .entry-task {
+    .response-green-bar {
+      height: 30px;
+      background-color: $light-green;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      border-right: 0;
+      .response-dark-green-bar {
+        margin-left: -3px;
+        width: 180px;
+        height: 100%;
+        background-color: $dark-green;
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.35);
+        position: relative;
+        &:after {
+          content: '';
+          position: absolute;
+          left: 180px;
+          top: -1px;
+          width: 0;
+          height: 0;
+          border: 0 solid transparent;
+          border-top-width: 15px;
+          border-bottom-width: 15px;
+          border-left: 15px solid $dark-green;
+        }
+        .left {
+          float: left;
+          padding-left: 25px;
+          padding-top: 2px;
+          .check {
+            color: $check-color;
+            font-size: 24px;
+          }
+        }
+        .right {
+          float: left;
+          margin-top: 3px;
+          .response-date {
+            padding-left: 8px;
+            color: $gray-light;
+            font-size: 12px;
+            line-height: 0px;
+          }
+        }
+      }
+    }
+    .event-item {
+      cursor: default;
+
+      &:first-child {
+        border-top: none;
+      }
+      margin-bottom: 0px;
+      box-shadow: none;
+      .card-block {
+        padding: 0.7rem 1rem 0.5rem 2.5rem;
+
+      }
+      .event-item-icon {
+        margin-left: -1.6rem;
+      }
+    }
+    .table-wrapper {
+      margin-bottom: .5rem;
+    }
+  }
+  .ia.task-list {
+    .event-item.answered {
+      .user-resp-actions {
+        display: block;
+
+        .post-btns {
+          margin-bottom: 0;
+        }
+        li {
+          padding: 0px 0px;
+        }
+      }
+    }
+    .answered {
+      .task-response-control {
+        border-radius: $border-radius-lg;
+        background-color: rgba(0, 0, 0, .02);
+        border: $border-gray-light;
+        padding: .5rem;
+      }
+      .user-resp-info {
+        display: flex;
+        .answered-icon {
+          opacity: 1;
+          transform: scale(1.7, 1.7);
+        }
+      }
+    }
+    .answered-icon {
+      transition: all .2s ease-in-out;
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: .75rem;
+      height: .75rem;
+      background-color: #fff;
+      border-radius: 100px;
+      top: 8px;
+      left: -2.1rem;
+      z-index: 2;
+      opacity: 0;
+      i {
+        color: $brand-success;
+        font-size: 1.1rem;
+      }
+    }
+    .event-item.task-hidden {
+      height: 0;
+      opacity: 0;
+    }
+    // The task-segments purpose was to transition in each step of the task that a ptp will need to complete. Should not be used for spacing
+    .task-segment {
+      transition: all .2s ease-in-out;
+      &:last-child {
+        padding-bottom: 0;
+      }
+    }
+    .task-segment.task-hidden {
+      height: 0;
+      opacity: 0;
+    }
+    .mcma-options-row {
+      display: flex;
+      flex: 1;
+      flex-direction: row;
+      min-height: 0;
+      min-width: 0;
+      @include media-breakpoint-down(md) {
+        flex-direction: column;
+      }
+    }
+    // This class should be applied by the scroll framework to obscure previously answered tasks
+    .event-item.inactive {
+      opacity: .4;
+    }
+    .event-item.drag-over {
+      transform: scale(1.02);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.36);
+      .drag-over-shade {
+        opacity: 1;
+        z-index: 99;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 0 0;
+      }
+    }
+    .item-header {
+      border-bottom: 0;
+      padding-bottom: 0px;
+      margin-bottom: 0px;
+    }
+    .orig-item-text {
+      padding-left: 15px;
+    }
+    .comment-block-activity {
+      .comment-list {
+        padding-top: 0px;
+      }
+    }
+    .response-block {
+      padding-left: 15px;
+      margin: -3px 0 0 0;
+    }
+    .saved-response {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      font-weight: 300;
+
+      &.task-response-insight-hover {
+        > .insight-marker {
+          @include hoverDarkenBackground($new-accent-1);
+          transition-property: background-color;
+        }
+      }
+
+      .insight-marker {
+        @include hoverDarkenBackground($new-accent-2);
+        transition-property: background-color, transform;
+        cursor: pointer;
+        border: 1px solid rgba(0,0,0,0.15);
+        height: 30px;
+        font-size: .875rem;
+        width: 30px;
+        color: #fff;
+        text-align: center;
+        font-weight: 600;
+        line-height: 1;
+        position: absolute;
+        right: -28px;
+        top: 0;
+        display: none;
+      }
+
+      .attachments-grid-thumb {
+        &.media-item-insight-hover {
+          .insight-marker {
+            @include hoverDarkenBackground($new-accent-1);
+            transition-property: background-color;
+          }
+        }
+        .insight-marker {
+          top: -.5rem;
+          right: -.5rem;
+          z-index: 5;
+        }
+      }
+
+      li {
+        padding-left: 0;
+      }
+      p {
+        font-size: 12px;
+        margin-bottom: 0;
+      }
+      .text-response {
+        margin-top: -10px;
+        background-color: transparent;
+        font-size: 12px;
+        line-height: 17px;
+        font-weight: 400;
+      }
+    }
+
+    .highlight-saved-response {
+      z-index: 1;
+      position: relative;
+      background-color: transparent;
+      &:before {
+        content: '';
+        top:0;
+        left: 0;
+        right: 0;
+        z-index: -1;
+        position: absolute;
+        margin-left: -55px;
+        margin-right: -16px;
+        background-color: $reply-answer-bg;
+        height: 100%;
+      }
+      .mcma-options-list {
+
+        margin-bottom: 0;
+        .mcma-option {
+          flex: 1 0 auto;
+        }
+      }
+      .user-resp-text {
+        position: relative;
+        font-weight: 400;
+        font-size: .875rem;
+        font-style: italic;
+        border-radius: $border-radius;
+        i {
+          position: absolute;
+          font-size: 1.3rem;
+          top: 0px;
+          left: 5px;
+          color: rgba(0, 0, 0, .2);
+        }
+      }
+      .comment-saved {
+        position: relative;
+        background-color: rgba(55, 58, 60, 0.10);
+        border: 1px solid rgba(55, 58, 60, 0.15);
+        padding: 1.5rem;
+        border-radius: 3px;
+        i {
+          font-size: 1.3rem;
+          &.left {
+            position: absolute;
+            top: .5rem;
+            left: .5rem;
+          }
+          &.right {
+            position: absolute;
+            bottom: .5rem;
+            right: .5rem;
+            transform: rotate(-180deg);
+          }
+        }
+      }
+      .comment-text {
+        margin: 0;
+        font-style: italic;
+        font-size: .875rem;
+      }
+      .media-uploaded {
+        width: 300px;
+        background-color: rgba(0, 0, 0, .07);
+        padding: .5rem;
+        img {
+          width: 100%;
+        }
+      }
+    }
+    .activity-btn-row {
+      @extend .flex-row;
+      flex: 0 0 auto;
+      button {
+        margin-right: .5rem;
+      }
+      button {
+        &:last-of-type {
+          margin-right: 0rem;
+        }
+      }
+    }
+    .btn-activity {
+      width: 7rem;
+      font-size: .875rem;
+      padding: .75rem;
+      span {
+        width: 100%;
+      }
+      .activity-btn-wrapper {
+        display: flex;
+        flex-direction: row;
+        .ok {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex: 1;
+          font-size: 1rem;
+          i {
+            font-size: 2rem;
+            padding-right: 5px;
+          }
+        }
+      }
+    }
+  }
+  //ACTIONS BAR AT THE TOP OF PTP EVENT VIEWS THAT DISPLAYS THE REPETITION NEXT TASK AND DONE BUTTONS.
+  .activity-action-menu {
+    @extend .actions-row;
+    @extend .no-margin;
+    padding: .5rem;
+    z-index: 20;
+    flex: 1;
+    justify-content: flex-end;
+    .btn {
+      margin: 0 1rem;
+      &:first-of-type {
+        margin-left: 0;
+      }
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+  }
+  .mobile-back-btn {
+    display: flex;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: $brand-primary;
+    padding: 0 1rem 0 .5rem;
+    border-right: 1px solid darken($separator-color, 5%);
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  .rep-info {
+    display: flex;
+  }
+  .ptp-panel-toggle {
+    width: 28px;
+    border-right: 1px solid rgba(0, 0, 0, .2);
+    font-size: 1.3rem;
+  }
+  .rep-title {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    padding: 0 .5rem;
+    button {
+      i {
+        font-size: 1rem;
+      }
+    }
+  }
+  // STYLES FOR PTP NOTIFICATIONS
+  .proj-checklist-btn-group {
+    width: 100%;
+    button {
+      width: 50%;
+    }
+  }
+}
+
+.right-sidebar-active .entries-wrapper .ia.task-list .saved-response .insight-marker {
+  display: flex;
+}
+
+.response-buttons {
+  display: flex;
+  justify-content: space-between;
+
+  .secondary {
+    .btn-link-followup {
+      @include hoverDarkenColor($gray);
+    }
+  }
+
+  .btn-link-followup {
+    text-transform: none;
+    font-weight: 600;
+
+    &:focus {
+      box-shadow: none;
+    }
+  }
+}
+
+.comment {
+  >li {
+    // followup (probing)
+    &.is-responding-to {
+      position: relative;
+      z-index: 1;
+      &:before {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        right: 0;
+        margin-left: -47px;
+        margin-right: -16px;
+        height: 100%;
+      }
+      .comment-body {
+        box-shadow: none;
+      }
+    }
+    &.mod-comment {
+      .followup-stripe {
+        display: block;
+      }
+      .comment-body {
+        border-radius: 8px;
+        &:before {
+          content: '';
+          position: absolute;
+          left: -11px;
+          top: 9px;
+          width: 0;
+          height: 0;
+          border: 0 solid transparent;
+          border-top-width: 10px;
+          border-bottom-width: 10px;
+          border-right: 11px solid #986dad;
+        }
+        &:after {
+          content: '';
+          position: absolute;
+          left: -10px;
+          top: 9px;
+          width: 0;
+          height: 0;
+          border: 0 solid transparent;
+          border-top-width: 10px;
+          border-bottom-width: 10px;
+          border-right: 11px solid $mod-purple;
+        }
+        .comment-indicator {
+          background-color: $brand-primary;
+        }
+      }
+    }
+
+    &.ptp-comment {
+      .comment-body {
+        border-radius: 8px;
+        &:before {
+          content: '';
+          position: absolute;
+          left: -11px;
+          top: 9px;
+          width: 0;
+          height: 0;
+          border: 0 solid transparent;
+          border-top-width: 10px;
+          border-bottom-width: 10px;
+          border-right: 11px solid; //@include arrow(left, #B17FC9, 10px);
+          border-right-color: inherit;
+        }
+        &:after {
+          content: '';
+          position: absolute;
+          left: -10px;
+          top: 9px;
+          width: 0;
+          height: 0;
+          border: 0 solid transparent;
+          border-top-width: 10px;
+          border-bottom-width: 10px;
+          border-right: 11px solid #fff;
+        }
+        .comment-indicator {
+          border-top-left-radius: 6px;
+          border-bottom-left-radius: 6px;
+          background-color: transparent;
+        }
+        .post-btns {
+          button {
+            color: $comment-ptp-link;
+            &:hover {
+              color: darken($comment-ptp-link, 5%);
+            }
+          }
+        }
+        .resp-reply-info {
+          color: $comment-ptp-link;
+          &:hover {
+            color: darken($comment-ptp-link, 5%);
+          }
+        }
+        .post-atributes {
+          color: $comment-ptp-link;
+          &:hover {
+            color: darken($comment-ptp-link, 5%);
+          }
+        }
+      }
+    }
+
+    .followup-stripe {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: $mod-purple;
+      height: 100%;
+      width: 6px;
+      border-top-left-radius: 6px;
+      border-bottom-left-radius: 6px;
+    }
+  }
+}

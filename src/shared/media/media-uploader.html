@@ -1,0 +1,11 @@
+<template>
+  <input type="file"
+         id="files"
+         files.bind="files"
+         multiple.bind="multiple"
+         show.oneWay="false"
+         ref="fileInputElement"
+         accept.bind="accept"
+         asset-scope.bind="assetScope"
+         change.delegate="handleFileInputChange()" />
+</template>

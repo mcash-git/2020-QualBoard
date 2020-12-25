@@ -1,0 +1,17 @@
+<template>
+  <div class="task-segment">
+    <div class="mcma-options-row">
+      <ul class="mcma-options-list">
+        <li class="mcma-option disabled" repeat.for="option of response.responseOptions">
+          <label class="custom-control custom-radio disabled">
+            <input type="radio" class="custom-control-input" checked disabled>
+            <div class="custom-control-indicator"></div>
+            <p>
+              ${option.text}
+            </p>
+          </label>
+        </li>
+      </ul>
+    </div>
+  </div>
+</template>

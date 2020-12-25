@@ -1,0 +1,20 @@
+<template>
+  <div class="tag-input-tag user" ref="liElement">
+    <span class="avatar" ref="avatarElement">
+      <avatar user-id.bind="user.userId" size="18"></avatar>
+    </span>
+    <span class="tag-input-tag-content">${user.displayName}</span>
+    <span
+      class="tag-input-tag-remove-button"
+      click.delegate="remove()"
+    >
+      <span class="tag-input-tag-remove-button-default"><i class="icon-close"></i></span>
+    </span>
+    <div class="drop-body" ref="dropBody">
+      <div class="avatar">
+        <avatar user-id.bind="user.userId" size="100"></avatar>
+      </div>
+      <span>${user.displayName}</span>
+    </div>
+  </div>
+</template>

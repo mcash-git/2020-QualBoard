@@ -1,0 +1,110 @@
+<template>
+  <require from="shared/components/time-zone-picker"></require>
+  <require from="shared/value-converters/date-format"></require>
+  <div class="title">
+    <i class="icon-schedule"></i>
+    <span>Project Schedule</span>
+  </div>
+  <div class="body">
+    <div class="form-saved" show.bind="!isEditing">
+      <div class="form-group">
+        <div class="label">Time Zone:</div>
+        <div>${project.timeZone.text}</div>
+      </div>
+
+      <div class="settings-schedule-section">
+        <div class="left">
+          <div class="label">Open Date:</div>
+          <div>${project.open.dateTimeText | dateTimeFormat:'M/D/YYYY'}</div>
+        </div>
+        <div>
+          <div class="label">Open Time:</div>
+          <div>${project.open.dateTimeText | dateTimeFormat:'h:mm A'}</div>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="settings-schedule-section">
+        <div class="left">
+          <div class="label">Close Date:</div>
+          <div>${project.close.dateTimeText | dateTimeFormat:'M/D/YYYY'}</div>
+        </div>
+        <div>
+          <div class="label">Close Time:</div>
+          <div>${project.close.dateTimeText | dateTimeFormat:'h:mm A'}</div>
+        </div>
+        <div class="clear"></div>
+      </div>
+    </div>
+    <div class="form-edit" show.bind="isEditing">
+      <!-- have response can't edit open date/time -->
+      <div class="settings-schedule-section" if.bind="project.totalResponseCount && project.totalResponseCount > 0">
+        <div class="form-group">
+          <div class="label">Time Zone:</div>
+          <div>${project.timeZone.text}</div>
+        </div>
+        <div class="left">
+          <div class="label">Open Date:</div>
+          <div>${project.open.dateTimeText | dateTimeFormat:'M/D/YYYY'}</div>
+        </div>
+        <div>
+          <div class="label">Open Time:</div>
+          <div>${project.open.dateTimeText | dateTimeFormat:'h:mm A'}</div>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <!-- do NOT have response can edit open date/time -->
+      <div if.bind="!project.totalResponseCount && project.totalResponseCount <= 0">
+        <div class="form-group" validation-state="validator.bind: validator; property: edit.timeZone">
+          <div class="label">Time Zone:</div>
+          <time-zone-picker validator.bind="validator"
+                            validation-property="edit.timeZone"
+                            selected-time-zone.bind="edit.timeZone"></time-zone-picker>
+        </div>
+        <div class="form-inline-custom">
+          <div class="label">Open Date:</div>
+          <date-time-picker model.bind="edit.open"
+                            validator.bind="validator"
+                            validate-on="manual"
+                            date-property="edit.open.date"
+                            time-property="edit.open.time"></date-time-picker>
+        </div>
+      </div>
+      <div class="form-inline-custom">
+        <div class="label">Close Date:</div>
+        <date-time-picker model.bind="edit.close"
+                          validator.bind="validator"
+                          validate-on="manual"
+                          date-property="edit.close.date"
+                          time-property="edit.close.time"></date-time-picker>
+      </div>
+    </div>
+  </div>
+  <div class="duration-summary">
+    <span class="label">Project Duration:</span>
+    <div class="duration-summary-value">${numDaysText}</div>
+    <div class="clear"></div>
+  </div>
+  <div class="edit" >
+    <button
+      class="btn btn-primary btn-sm btn-form-edit"
+      click.delegate="editClick()"
+      if.bind="!project.editing"
+    >
+      Edit
+    </button>
+    <button
+      class="btn btn-sm btn-outline-secondary btn-form-save"
+      if.bind="isEditing"
+      click.delegate="cancelClick()"
+    >
+      Cancel
+    </button>
+    <button
+      class="btn btn-sm btn-primary btn-form-save"
+      if.bind="isEditing"
+      click.delegate="saveClick()"
+    >
+      Save
+    </button>
+  </div>
+</template>

@@ -1,0 +1,293 @@
+.group-tag-view-wrapper {
+  @extend .tabs-section;
+  border-top: 1px solid $separator-color;
+}
+#group-tag-view {
+  @extend.flex-row;
+  position: relative;
+  overflow: hidden;
+
+  .group-tag-container {
+    @extend .flex-column;
+    flex: 1;
+    min-width: 350px;
+    max-width: 450px;
+    background-color: $side-panel-bg;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+    margin-left: -1rem;
+    overflow-y: auto;
+
+    .subtitle-row {
+      padding: .5rem;
+    }
+  }
+
+  .group-tag-users-container {
+    @extend .flex-column;
+    border-left: 1px solid $separator-color;
+    transition: all .2s ease-in-out;
+    margin-right: -1rem;
+
+    &.open {
+      //margin-right: 0;
+    }
+
+    .subtitle-row {
+      padding: 0;
+    }
+
+    .data-list-header {
+      justify-content: flex-start;
+      padding-left: 0;
+    }
+
+    .container-block {
+      overflow-y: scroll;
+    }
+  }
+
+  .user-cards-content-panel {
+    @extend .content-panel;
+    width: 100%;
+  }
+
+
+
+//  STYLES FOR THE GROUP TAGS
+  .tag-alphabet {
+    padding: 0;
+    flex: 1;
+    margin: 0;
+    list-style: none;
+
+    li {
+
+      font-size: .75rem;
+
+      span {
+        display: flex;
+        background: rgba(0, 0, 0, 0.1);
+        padding: 0 .5rem;
+        font-weight: bold;
+        color: $gray;
+        //border-bottom: 1px solid $separator-color;
+      }
+
+    }
+  }
+  // List of tags within an alpha character
+  .tags-list {
+    padding: 0;
+    list-style: none;
+
+    // Describes the tag
+    li {
+      position: relative;
+      transition: all .2s ease-in-out;
+      display: flex;
+      align-items: center;
+      flex: 1;
+      padding: .5rem;
+      margin: 0;
+      justify-content: space-between;
+      border-bottom: 1px solid $card-border-color;
+      background-color: #fff;
+
+      &:last-of-type {
+        border-bottom: 0;
+      }
+
+      // Describes the selected tag and its elements
+      &.selected {
+        background-color: $new-accent-1;
+        color: #fff;
+
+        &:hover {
+          background-color: $new-accent-1;
+        }
+
+        .badge.filter {
+          background-color: rgba(255,255,255,.9);
+          color: $new-accent-1;
+          font-weight: 600;
+        }
+
+        .group-icon {
+          background-color: rgba(0,0,0,.3);
+        }
+
+      }
+
+      &.editing {
+        .group-actions {
+          opacity: 1 !important;
+        }
+        .badge {
+          opacity: 0;
+        }
+      }
+
+      &:hover {
+        background-color: lighten($new-accent-1, 40%);
+        cursor: pointer;
+
+        .group-actions {
+          opacity: 1;
+        }
+
+        .badge {
+          opacity: 0;
+        }
+      }
+
+      &.group-all-users {
+
+        &:hover {
+
+          .badge {
+            opacity: 1 !important;
+          }
+        }
+      }
+    }
+
+    .badge {
+      position: absolute;
+      right: 15px;
+      top: 14px;
+    }
+  }
+
+  .group-info {
+    display: flex;
+    align-items: center;
+    flex: 3;
+  }
+
+  .group-actions {
+    transition: all .2s ease-in-out;
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+    opacity: 0;
+    color: rgba(0,0,0,.6);
+  }
+
+  .group-action-link {
+    display: flex;
+    font-size: 1.1rem;
+    padding: 0 .5rem;
+    color: rgba(0,0,0,.4);
+
+    i {
+      font-size: 1.4rem;
+    }
+
+    &:hover {
+      color: rgba(0,0,0,.6);
+      z-index: 2;
+    }
+  }
+
+  .group-icon {
+    position: relative;
+    display: flex;
+    flex: 0 auto;
+    justify-content: center;
+    align-items: center;
+    margin-right: .4rem;
+    color: #fff;
+    background-color: rgba(0,0,0,.6);
+    //border: $border-gray-light;
+    padding: .3rem;
+    border-radius: 100px;
+    min-height: 30px;
+    min-width: 30px;
+    height: 30px;
+    width: 30px;
+
+    i {
+      font-size: 1.2rem;
+      //color: #EC1B6C;
+    }
+  }
+
+  .add-tag-row {
+    padding: .5rem;
+    border-bottom: 1px solid $separator-color;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.2);
+    z-index: 10;
+  }
+
+  .add-tag-control {
+    position: relative;
+    display: flex;
+    flex: 1 100%;
+
+    input {
+      //padding-left: 2rem;
+    }
+
+    i {
+      position: absolute;
+      left: .6rem;
+      top: calc(50% - .6rem);
+      font-size: 1.2rem;
+      color: rgba(0,0,0,.4);
+    }
+  }
+
+}
+
+.groups-context-menu {
+  transition: all .2s ease-in-out;
+  @extend .flex-base;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  padding: 1.5rem;
+  bottom: -5.5rem;
+  left: 0;
+  width: 100%;
+  background-color: rgba(255,255,255,1);
+  //color: $action-row-color;
+  box-shadow: 0 -1px 0 rgba(76,86,103,.2),0 -2px 35px rgba(31,37,50,.14);
+  //z-index: 10;
+
+  &.users-selected {
+    position: fixed;
+    bottom: 0;
+  }
+
+  a {
+    cursor: pointer;
+    font-size: 1.5rem;
+    padding: .5rem;
+
+  }
+
+  .groups-context-users {
+    display: flex;
+    align-items: center;
+    font-size: .75rem;
+
+
+    > div:first-child {
+      margin-right: .5rem;
+    }
+
+  }
+
+  .group-users-badge {
+    position: initial !important;
+  }
+
+  .groups-context-icons {
+    color: $action-row-color;
+  }
+
+  .groups-context-menu-close {
+    padding: .5rem 0rem .5rem .5rem;
+  }
+
+}

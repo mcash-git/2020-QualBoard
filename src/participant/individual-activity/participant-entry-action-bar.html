@@ -1,0 +1,30 @@
+<template>
+  <!-- NOTE THE WITH.BIND HERE -->
+  <div class="activity-action-menu" with.bind="model">
+    <div class="rep-info">
+      <div class="rep-title">
+        <div class="eb-task-type-selector">
+          <button class="btn btn-followup"
+                  if.bind="hasUnansweredRequiredFollowups"
+                  click.delegate="goToNextFollowup()">
+            <i class="icon-required-followup"></i> next followup
+          </button>
+          <button type="button"
+                  class="btn btn-sm btn-default dropdown-toggle"
+                  data-toggle="dropdown">
+            <i class="icon-history"></i>
+            <div class="eb-task-type-selector-label">${entry | entryOverview}</div>
+          </button>
+
+          <div class="dropdown-menu dropdown-menu-right">
+            <a class="dropdown-item"
+               repeat.for="e of entries"
+               click.delegate="navigateToEntry(e.id)">
+              ${e | entryOverview}
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

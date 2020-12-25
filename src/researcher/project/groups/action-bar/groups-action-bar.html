@@ -1,0 +1,21 @@
+<template>
+  <div class="action-bar-container">
+    <div class="action-bar-section">
+    </div>
+    <div class="action-bar-buttons">
+      <form submit.delegate="addGroupTag()">
+        <div class="input-group">
+          <input
+            type="text"
+            class="form-control ${isTagError ? 'error' : ''}"
+            placeholder="Create New Group Tag"
+            value.bind="tagName"
+            />
+          <span class="input-group-addon" click.delegate="addGroupTag()">
+            <i class="icon-ion-plus"></i>
+          </span>
+        </div>
+      </form>
+    </div>
+  </div>
+</template>

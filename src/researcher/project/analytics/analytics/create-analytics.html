@@ -1,0 +1,166 @@
+<template>
+  <require
+    from="shared/components/participant-filters/accordion-item"></require>
+  <require from="shared/components/participant-filters/filter-dates"></require>
+  <require
+    from="shared/components/participant-filters/filter-media-types"></require>
+  <require from="shared/components/participant-filters/filter-tasks"></require>
+  <require
+    from="shared/components/participant-filters/filter-logic-engine"></require>
+  <!--Contains Concept Filters Sidebar and a Concept Cue to display generated Concept Reports-->
+    <!--Concept Analysis Filters-->
+    <div class="analytics-split-wrapper">
+      <div class="tt_qb_create-analytics flex-column">
+        <section class="action-bar filter-action-bar">
+          <h5 class="app-subtitle">Create Your Concept Analysis</h5>
+          <button click.delegate="clear()" class="btn btn-xs btn-link btn-default">
+            <i class="btn-icon icon-clear_all"></i>clear all
+          </button>
+        </section>
+        <!--Default message and hide filters if there are not enough responses to create a concept -->
+        <div class="gallery-filters-default" style="display: none">
+          <div class="filter-default-message">
+            <i class="icon-info"></i>
+            This project does not have enough responses to create a concept
+            analysis yet. Please try again when there has
+            been more activity.
+          </div>
+
+        </div>
+        <div class="filter-block"
+              validation-state="validator.bind: validator; property: settingsModel.name">
+          <input type="text"
+                  class="form-control"
+                  id="report-name"
+                  value.bind="settingsModel.name"
+                  validate="validator.bind: validator; property: settingsModel.name"
+                  attach-focus="true"
+                  autocomplete="off"
+                  placeholder="Your Analysis Name">
+        </div>
+        <div class="filters-sec">
+          <div class="gallery-filters-list">
+            <div class="inner-content-div">
+              <div>
+
+                <div class="filter-accordion">
+                  <!-- TODO:  Componentize these settings and throw them in a custom element <analytics-settings>
+                  <!--No of Concepts-->
+                  <accordion-item
+                                  title="Number of Concepts"
+                                  is-required.bind="true"
+                                  expanded-session-storage-key="${clientStorageKeyBase}:is-concepts-expanded">
+                    <select class="form-control" id="concept-number"
+                            value.bind="settingsModel.conceptCount">
+                      <option repeat.for="number of numberOfConceptsChoices"
+                              model.bind="number">${number}
+                      </option>
+                    </select>
+                  </accordion-item>
+                  <!--No of Keywords-->
+                  <accordion-item
+                                  title="Number of Keywords"
+                                  is-required.bind="true"
+                                  expanded-session-storage-key="${clientStorageKeyBase}:is-keywords-expanded">
+                    <select class="form-control" id="keyword-number"
+                            value.bind="settingsModel.keywordCount">
+                      <option repeat.for="number of numberOfKeywordsChoices"
+                              model.bind="number">${number}
+                      </option>
+                    </select>
+                  </accordion-item>
+                  <filter-dates
+                                title="Response Date"
+                                validator.bind="validator"
+                                placeholder-start="Start..."
+                                placeholder-end="End..."
+                                label-start="Filter by response date:"
+                                label-end="and:"
+                                expanded-session-storage-key="${clientStorageKeyBase}:is-dates-expanded"
+                                start-date.bind="settingsModel.startAt"
+                                end-date.bind="settingsModel.endAt"
+                                start-date-validation-property="settingsModel.startAt"
+                                end-date-validation-property="settingsModel.endAt">
+                  </filter-dates>
+                  <filter-tasks
+                                title="Individual Activities / Tasks"
+                                task-ids.bind="settingsModel.promptIds"
+                                individual-activities.bind="individualActivities"
+                                expanded-session-storage-key="${clientStorageKeyBase}:is-tasks-expanded">
+                  </filter-tasks>
+                  <filter-logic-engine
+                                        rules.bind="settingsModel.projectUserLogicRules"
+                                        available-group-tags.bind="availableGroupTags"
+                                        logic-engine-rules-changed.delegate="handleLogicEngineRulesChange()"
+                                        expanded-session-storage-key="${clientStorageKeyBase}:is-logic-engine-expanded"
+                                        participants.bind="participants">
+                  </filter-logic-engine>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="gallery-filters-action">
+          <button class="btn btn-lg btn-primary"
+                  click.delegate="createAnalysisClick()">
+            <span>Create Analysis</span></button>
+        </div>
+      </div>
+      <div class="flex-column">
+        <!--Alert that appears if there are not enough verbatims to create a concept after the user has hit submit-->
+        <div class="alert alert-danger alert-dismissible" role="alert" if.bind="shouldShowAlert">
+          <button type="button" class="close" data-dismiss="alert"
+                  aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h4 class="alert-heading">Oops!</h4>
+          <p>${alertMessage}</p>
+        </div>
+
+        <!--Default View if there are no concept analysis reports-->
+        <div class="concept-cue-panel-default" if.bind="jobs.length === 0">
+          <div class="concept-cue-default-message default-content">
+            <i class="icon-noun_356772"></i>
+            You do not have a concept analysis to view. Use the concept filters on
+            the left to define and create a
+            concept analysis.
+          </div>
+        </div>
+
+        <!--Contains a table with a list of concept analysis reports. This should eventually be a data table-->
+        <div class="concept-cue-panel" if.bind="jobs.length > 0">
+
+          <!--Data Table that displays a list of Concept Analysis Reports-->
+          <div class="dataTables_wrapper">
+            <h5 class="card-title">Concept Analysis</h5>
+
+            <table class="table table-striped table-bordered concept-table">
+              <!--<th>Id</th>-->
+              <th>Name</th>
+              <th>Created On</th>
+              <th>Completed On</th>
+              <th>Status</th>
+              <tr repeat.for="job of jobs">
+                <!--<td>${job.id}</td>-->
+                <td>${job.name}</td>
+                <td>${job.createdOn | dateFormat}</td>
+                <td>${job.completedOn | dateFormat}</td>
+                <td class="concept-status">
+                  <!--If a concept analysis is processing we show a spinner-->
+                  <div if.bind="!job.completedOn" class="concept-status-icon">
+                    <div class="loading"></div>
+                  </div>
+                  <!--When a concept analysis is ready to view we display an action indicator-->
+                  <div if.bind="job.completedOn">
+                    <a class="concept-status-icon" href.bind="baseExploreUrl + '/' + job.id">
+                      <i class="icon-noun_356786"></i>
+                    </a>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    <div>
+</template>

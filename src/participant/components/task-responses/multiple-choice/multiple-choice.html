@@ -1,0 +1,17 @@
+<template>
+  <div class="task-segment">
+    <div class="item-content-label">Select one:</div>
+    <ul class="mcma-options-list" class.bind="task.autoWrapOptions ? 'wrap' : ''">
+      <li class="mcma-option" repeat.for="option of task.availableOptions">
+        <label class="custom-control custom-radio">
+          <input type="radio"
+                 class="custom-control-input"
+                 model.bind="option"
+                 checked.bind="selectedOption">
+          <span class="custom-control-indicator"></span>
+          <span>${option.text}</span>
+        </label>
+      </li>
+    </ul>
+  </div>
+</template>

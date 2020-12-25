@@ -1,0 +1,25 @@
+.loading-indicator {
+  font-size: 3rem;
+  padding: 0;
+  animation: rotate360 0.75s linear infinite;
+}
+
+.modal-view-media {
+  media-item-thumbnail .loading-indicator,
+  asset-thumbnail .loading-indicator {
+    font-size: 5rem;
+    padding-right: 5px;
+  }
+}
+
+media-grid {
+  media-item-thumbnail .loading-indicator,
+  asset-thumbnail .loading-indicator {
+    font-size: 1.5rem;
+    padding-right: 1px;
+  }
+}
+
+.modal-media asset-thumbnail .loading-indicator {
+  padding-right: 3px;
+}

@@ -1,0 +1,70 @@
+{
+    "id": 3,
+    "projectId": "ebab4a1f-bc28-48df-a34a-fdf11168043d",
+    "publicName": "Bronn of the Blackwater",
+    "openDateTime": "2017-08-09T12:00:00Z",
+    "closeDateTime": "2018-01-01T05:59:00Z",
+    "repeatUnit": 1,
+    "defaultModeratorUserId": "00a2cfb7-c640-4817-fa81-08d41e21a1a3",
+    "requiredFollowups": [{
+        "id": "bcc4b6cb-627f-4717-b931-3d3be98d2ec9",
+        "taskPromptId": "623cc527-2823-433e-a4be-9063e06fd248",
+        "individualActivityId": "767499fa-24a5-492d-be83-567c451c827b",
+        "projectId": "ebab4a1f-bc28-48df-a34a-fdf11168043d",
+        "userId": "00a2cfb7-c640-4817-fa81-08d41e21a1a3",
+        "repetitionId": "b3526462-c3f7-4a18-bf54-ac541c11d921",
+        "parentResponseId": "9d311785-8c99-4c47-b41d-61525a62ce0f",
+        "parentUserId": "6bd918c1-b5f7-4a4f-6b5f-08d41f672922",
+        "rootUserId": "6bd918c1-b5f7-4a4f-6b5f-08d41f672922",
+        "rootResponseId": "abc48620-48f8-4582-939a-db6b4022e8de",
+        "responseTimeStamp": "2017-08-09T16:06:30.060737Z",
+        "taskType": 0,
+        "text": "boop boop de doop",
+        "plainText": "boop boop de doop",
+        "responseOptions": [],
+        "matrixResponses": [],
+        "isProbe": true,
+        "isActive": true,
+        "media": []
+    }, {
+        "id": "7bd8a410-20d6-481b-9aef-eb45456b97e2",
+        "taskPromptId": "623cc527-2823-433e-a4be-9063e06fd248",
+        "individualActivityId": "767499fa-24a5-492d-be83-567c451c827b",
+        "projectId": "ebab4a1f-bc28-48df-a34a-fdf11168043d",
+        "userId": "00a2cfb7-c640-4817-fa81-08d41e21a1a3",
+        "repetitionId": "b3526462-c3f7-4a18-bf54-ac541c11d921",
+        "parentResponseId": "f041bea0-505d-410c-ab31-24ddb1621980",
+        "parentUserId": "6bd918c1-b5f7-4a4f-6b5f-08d41f672922",
+        "rootUserId": "6bd918c1-b5f7-4a4f-6b5f-08d41f672922",
+        "rootResponseId": "abc48620-48f8-4582-939a-db6b4022e8de",
+        "responseTimeStamp": "2017-08-09T16:06:03.669459Z",
+        "taskType": 0,
+        "text": "asdfasdfasdf",
+        "plainText": "asdfasdfasdf",
+        "responseOptions": [],
+        "matrixResponses": [],
+        "isProbe": true,
+        "isActive": true,
+        "media": []
+    }],
+    "activeEntryId": "d94da4d1-dcd6-48cc-89de-3e23c72e5535",
+    "entries": [{
+        "id": "b3526462-c3f7-4a18-bf54-ac541c11d921",
+        "repetitionIndex": 1,
+        "intervalIndex": 1,
+        "repeatUnit": 1,
+        "status": 3
+    }, {
+        "id": "12ecc41b-7313-474b-8530-23f751a55803",
+        "repetitionIndex": 2,
+        "intervalIndex": 2,
+        "repeatUnit": 1,
+        "status": 3
+    }, {
+        "id": "d94da4d1-dcd6-48cc-89de-3e23c72e5535",
+        "repetitionIndex": 3,
+        "intervalIndex": 3,
+        "repeatUnit": 1,
+        "status": 1
+    }]
+}

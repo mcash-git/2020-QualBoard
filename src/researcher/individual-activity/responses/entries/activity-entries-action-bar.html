@@ -1,0 +1,18 @@
+<template>
+  <span></span>
+  <div class="action-bar-section">
+    <a
+      if.bind="model.shouldEnableInsightsPanel"
+      class="action-bar-link"
+      click.delegate="model.toggleSidebar()"
+    >
+      <i class="icon-lightbulb_outline"></i>
+      <div
+        class="badge badge-insights"
+        if.bind="model.insightBags.length"
+      >
+        ${model.insightBags.length}
+      </div>
+    </a>
+  </div>
+</template>

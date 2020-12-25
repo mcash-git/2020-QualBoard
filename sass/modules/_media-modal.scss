@@ -1,0 +1,411 @@
+// when the media modal is shared with asset modal, delete this entire block.
+.modal-media {
+  padding: 5px;
+  position: relative; // Required to use position: absolute for close button
+
+  .media-labeling {
+    .form-section {
+      margin: 0 45px;
+    }
+
+    .form-group {
+      width: 100%;
+      overflow: hidden;
+    }
+  }
+
+  .media-content {
+    asset-thumbnail img {
+      max-height: calc(100vh - 150px);
+      max-width:  calc(100vw - 50px);
+    }
+
+    .video-js {
+      max-height: calc(100vh - 150px);
+      max-width:  calc(100vw - 50px);
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  .c-modal-footer {
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+  }
+}
+
+// when the media modal is shared with asset modal, delete this entire block.
+// Styles for the media labeling form ...title and description
+.media-labeling {
+  border-bottom: 1px solid $separator-color;
+  margin-bottom: 1rem;
+
+  .form-section {
+    align-items: center;
+  }
+
+  .form-group {
+    width: 40%;
+
+    //&:first-of-type {
+    //  margin-bottom: 0;
+    //}
+  }
+
+  input {
+    text-align: center;
+    border: 0;
+    border-bottom: 1px dashed $input-border-color;
+    width: 100%;
+
+    &:focus {
+      border-style: solid;
+    }
+
+    &[placeholder]:focus::-webkit-input-placeholder {
+      transition: opacity 0.08s 0.08s ease;
+      opacity: 0;
+    }
+  }
+
+  textarea {
+    text-align: center;
+
+    &.media-modal-description {
+      font-size: .875rem;
+      font-style: italic;
+    }
+
+    &[placeholder]:focus::-webkit-input-placeholder {
+      transition: opacity 0.08s 0.08s ease;
+      opacity: 0;
+    }
+  }
+
+  .media-modal-title {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .media-modal-description {
+    font-size: .875rem;
+    font-style: italic;
+    text-align: center;
+  }
+}
+
+// when the media modal is shared with asset modal, delete this entire block.
+.media-skip-buttons {
+  button {
+    display: inline-block;
+  }
+}
+.custom-modal.media-item-modal, .clip-modal {
+
+  // Content block that holds the large version of the media image
+  .media-modal-content {
+    display: flex;
+    flex-direction: row;
+
+    $media-max-height: 360px;
+    $media-max-height-fs: 80vh;
+
+    media-item-thumbnail, asset-thumbnail {
+      min-height: $media-max-height;
+      width: 100%;
+      display: flex;
+      margin-top: auto;
+      margin-bottom: auto;
+      height: auto;
+
+      img {
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: auto;
+        margin-top: auto;
+        display: block;
+        max-height: $media-max-height;
+        max-width: 100%;
+      }
+    }
+
+    .video-js {
+      height: $media-max-height;
+      width: 100%;
+
+      .vjs-big-play-button {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
+
+  .c-modal-body {
+    display: block;
+    padding-top: 3.5rem;
+    position: relative;
+  }
+
+  .media-modal-content-wrapper {
+    flex: 1;
+    display: flex;
+    align-items: stretch;
+
+    .media-item-modal-content {
+      flex: 1;
+      position: relative;
+      padding: 1rem;
+      padding-top: 3.5rem;
+
+      .video-player {
+        display: block;
+        width: 100%;
+
+        .video-js {
+          width: 100%;
+        }
+      }
+    }
+
+    .media-insights-panel {
+      width: 45px;
+      border-left: $border-gray-transparent;
+      background-color: $transparent-gray-lightest;
+      transition: width .1s ease-in-out;
+
+      .media-insights-panel-header {
+        height: 45px;
+        background-color: #eff8fb;
+        border-bottom: $border-gray-transparent;
+        padding-top: 10px;
+        color: $gray-light;
+        overflow: hidden;
+
+        .toggle-collapse {
+          float: left;
+          @include hoverDarkenColor($transparent-gray-dark, 10%);
+          padding: 10px;
+          padding-top: 0;
+
+          &:hover {
+            color: $transparent-gray-darker;
+          }
+        }
+
+        i {
+          font-size: 1.5rem;
+        }
+
+        .media-insights-panel-title {
+          padding-left: 1.5rem;
+          position: static;
+          line-height: 1.5;
+          float: left;
+          left: -.25rem;
+        }
+      }
+
+      .insight-bookmarks {
+        visibility: hidden;
+      }
+
+      .badge.badge-insights {
+        position: absolute;
+        top: .25rem;
+        right: .25rem;
+        pointer-events: none;
+        font-size: .675rem;
+        height: 14px;
+        width: 20px;
+        line-height: 12px;
+      }
+
+      &.active {
+        width: $right-sidebar-width;
+
+        .media-insights-panel-header {
+
+          .media-insights-panel-title {
+            position: relative;
+
+            i {
+              position: absolute;
+              left: 0;
+            }
+          }
+        }
+
+        .insight-bookmarks {
+          visibility: visible;
+        }
+
+        .badge.badge-insights {
+          margin-left: .5rem;
+          bottom: 2px;
+          top: initial;
+          right: initial;
+          position: relative;
+        }
+      }
+    }
+  }
+
+  .media-modal-footer {
+    height: 100px;
+    border-top: $border-gray-light;
+    background-color: lighten($gray-lightest, 7%);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: $gray;
+    padding: .75rem 1rem;
+    width: 100%;
+
+    .media-item-details {
+      .media-item-title {
+        display: flex;
+        align-items: center;
+        font-weight: bold;
+      }
+
+      i {
+        font-size: 1.25rem;
+      }
+
+      &.edit {
+        margin: -.25rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 75%;
+
+        .media-item-details-row {
+          display: flex;
+          align-items: center;
+
+          .btn {
+            width: 100px;
+          }
+
+          .form-control {
+            width: initial;
+            flex: 1;
+            margin-right: 1rem;
+          }
+        }
+      }
+    }
+
+    .media-item-actions {
+      display: flex;
+      align-items: center;
+
+      button {
+        &:active, &:focus {
+          outline: none;
+        }
+
+        &:not(:disabled) {
+          &.circle-border-icon {
+            @include hoverDarkenColor($brand-primary, 10%);
+            @include hoverDarkenBorderColor($brand-primary, 10%);
+          }
+        }
+
+        &:disabled {
+          &.circle-border-icon {
+            color: $brand-primary;
+            border-color: $brand-primary;
+          }
+          opacity: .3;
+        }
+
+        &.circle-border-icon {
+          border-width: 2px;
+          width: 45px;
+          height: 45px;
+          background-color: transparent;
+          font-size: 2rem;
+        }
+      }
+
+      .media-prev-next-container {
+        margin-left: 2rem;
+
+        button {
+          background-color: $gray;
+          float: left;
+          border: none;
+          border-radius: $btn-border-radius;
+          width: 45px;
+          height: 45px;
+          margin-left: 1rem;
+
+          &:not(:disabled) {
+            @include hoverDarkenBackground($gray, 10%);
+          }
+
+          &:focus {
+            outline: none;
+          }
+
+          &:first-child i {
+            right: 2px;
+          }
+
+          &:last-child i {
+            left: 2px;
+          }
+
+          i {
+            position: relative;
+            color: #fff;
+            font-size: 1.875rem;
+          }
+        }
+      }
+
+      i {
+        font-size: 1.5rem;
+      }
+    }
+
+    .btn.btn-sm {
+      @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $font-size-xxs, $btn-border-radius-sm)
+    }
+  }
+}
+
+.clip-modal .media-insights-panel-title {
+  margin-left: 1rem;
+}
+
+.vjs-annotation-marker > svg > g {
+  transition: stroke .2s ease-in-out;
+
+  > g {
+    transition: fill .2s ease-in-out;
+  }
+}
+
+.vjs-annotation.highlight {
+  .vjs-annotation-marker > svg > g {
+    stroke: darken($new-accent-1, 30%);
+
+    > g {
+      fill: $new-accent-1;
+    }
+  }
+}
+
+
+
+.video-js {
+  .vjs-control-bar {
+    .vjs-control:focus {
+      outline: none;
+    }
+  }
+}

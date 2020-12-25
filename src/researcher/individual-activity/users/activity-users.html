@@ -1,0 +1,37 @@
+<template>
+
+  <require from="researcher/project/users/cards/project-user-card"></require>
+  <div class="tt_qb_content-padding ">
+    <div if.bind="!hasProjectParticipants" class="default-content">
+      <span>Your project has no users.&nbsp;
+        <a href="#" click.delegate="importUsersButtonClick()">Import some</a>&nbsp;or&nbsp;
+        <a href="#" click.delegate="createUserButtonClick()">add one at a time</a>.</span>
+    </div>
+    <div if.bind="!hasEventParticipants && hasProjectParticipants" class="default-content">
+      <span>This activity has no users. You may&nbsp;
+        <a href="#" click.delegate="importUsersButtonClick()">bulk import</a>&nbsp;a list of users,&nbsp;<a
+          click.delegate="addUsersButtonClick()" href="#">invite them from project users</a>, or&nbsp;<a
+          href="#" click.delegate="createUserButtonClick()">add a single user</a>.
+      </span>
+    </div>
+    <div class="card-row" group-tags-visibility-change.delegate="updateGroupTagsToggleState()">
+      <project-user-card class="card-grid-user"
+                         class.bind="user.isDeactivated ? ' disabled' : ''"
+                         if.bind="filtered && filtered.length"
+                         repeat.for="user of filtered"
+                         selected-users.bind="selectedUsers"
+                         view-model.ref="cardViewModels[$index]"
+                         fade-in="duration: 0.15s; delay.bind: ($index * 0.025) + 's'"
+                         user.bind="user">
+      </project-user-card>
+    </div>
+  </div>
+
+  <activity-user-menu users.bind="selectedUsers"
+                      project-id.bind="projectId"
+                      ia-id.bind="iaId"
+                      account-id.bind="accountId"
+                      group-tags.bind="groupTags"
+                      containerless>
+  </activity-user-menu>
+</template>

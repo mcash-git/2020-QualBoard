@@ -1,0 +1,15 @@
+.tt_qb_tabs-actions.responses-action-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .btn-group .btn {
+    font-size: 14px;
+    width: 110px;
+  }
+
+  .sub-action-bar {
+    position: absolute;
+    right: 0;
+  }
+}

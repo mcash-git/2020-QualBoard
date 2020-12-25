@@ -1,0 +1,13 @@
+<template>
+  <require from="./participant-project-dashboard-events"></require>
+  <participant-project-dashboard-events
+    state.bind="state"
+    project-id.bind="projectId"
+    user-id.bind="userId"
+    event-filter.bind="eventFilter"
+    status.bind="status"
+    project-instructions.bind="instructions"
+    subscribe-to-entry-created.bind="subscribeToEntryCreated"
+    containerless
+  ></participant-project-dashboard-events>
+</template>

@@ -1,0 +1,178 @@
+$settings-padding: 8px;
+$icon-size: 30px;
+$icon-margin-right: 4px;
+$body-margin-left: $icon-margin-right + $icon-size;
+$body-margin-right: 20px;
+
+.settings {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  .settings-column {
+    width: 462px;
+    margin: 0 .5rem;
+
+    .settings-card {
+      display: block;
+      padding: $settings-padding;
+      margin-bottom: 11px;
+      box-shadow: 0 1px 3px 0 rgba(0,0,0,0.25);
+      background: #fff;
+      color: #6D7273;
+      // Facilitate absolute positioning of .edit child
+      position: relative;
+
+      .title {
+        font-weight: 600;
+        height: 30px;
+        font-size: 1rem;
+        margin-bottom: 4px;
+        display: flex;
+        align-items: center;
+
+        i {
+          font-size: $icon-size;
+          margin-right: $icon-margin-right;
+        }
+      }
+
+      .body {
+        font-size: .875rem;
+        margin-left: $body-margin-left;
+        margin-right: $body-margin-right;
+
+        &.analytics-section {
+          .analytics-select-container {
+            width: 200px;
+          }
+        }
+
+        .analytics-select-label {
+          margin-bottom: 4px;
+        }
+
+        .group-label {
+          text-transform: uppercase;
+        }
+
+        .label-container {
+          display: flex;
+          justify-content: space-between;
+        }
+
+        .label {
+          font-weight: 600;
+          font-size: .875rem;
+        }
+
+        .form-group {
+          min-height: 2.5rem;
+          margin: .5rem 0;
+
+          // Specific only to branding
+          .logo-container {
+            height: 60px;
+            background-color: rgba(0,0,0,0.02);
+            margin: 3px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            img {
+              max-height: 70%;
+              max-width: 70%;
+            }
+          }
+        }
+
+        // Multi-column containers
+        .form-group-container {
+          display: flex;
+
+          .form-group {
+            width: calc(50% - 10px);
+            margin-right: 10px;
+          }
+        }
+
+        .color-group-container {
+          display: flex;
+          flex-wrap: wrap;
+
+          .color-group {
+            width: calc(50% - 10px);
+            height: 60px;
+            margin-right: 10px;
+
+            .color-box-container {
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              margin-top: 3px;
+
+              .color-box {
+                height: 31px;
+                width: 31px;
+                border: 2px solid rgba(0,0,0,0.15);
+                border-radius: 3px;
+              }
+
+              .color-label {
+                margin-left: 8px;
+                font-size: .8rem;
+                color: #939899;
+              }
+            }
+          }
+        }
+
+        .default-content {
+          max-width: 100%;
+          margin-top: 0;
+          font-size: 1.2rem;
+          padding-top: 0;
+        }
+      }
+
+      .edit {
+        position: absolute;
+        top: $settings-padding;
+        right: $settings-padding;
+
+        button {
+          margin-left: 8px;
+          width: 80px;
+
+        }
+      }
+    }
+  }
+
+  ::placeholder {
+    font-size: .875rem;
+  }
+}
+
+.settings-schedule-section {
+  margin-bottom: .5rem;
+
+  .left {
+    float: left;
+    width: 50%;
+  }
+}
+
+.duration-summary {
+  background-color: $gray-light;
+  color: #fff;
+  padding: 12px 10px;
+  font-size: .875rem;
+  font-weight: 600;
+
+  .duration-summary-value {
+    float: right;
+    font-size: 1rem;
+    font-weight: bold;
+  }
+}

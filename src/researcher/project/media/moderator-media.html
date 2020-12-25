@@ -1,0 +1,30 @@
+<template>
+  <require from="./moderator/moderator-media-actions"></require>
+  <require from="shared/media/media-upload-area"></require>
+  <require from="shared/media/media-pagination"></require>
+  <!--Gallery Content Panel-->
+  <section class="media-drop-zone"
+           select-page.delegate="handleSelectPage($event)"
+           delete-asset.delegate="handleDeleteAsset($event)"
+           class.bind="showFilters ? 'settings-panel' : ''">
+    <div class="content-padding">
+      <!--Scroll Container-->
+      <media-upload-area
+        class="media-upload-area"
+        view-model.ref="mediaUploadArea"
+        asset-scope.bind="assetScope"
+        selected-assets.bind="selectedAssets"
+        can-select-multiple.bind="true"
+        can-click-to-upload.bind="false"
+        mode.bind="isSelecting ? 'select' : 'view'"
+        current-page.bind="currentPage"
+        project-id.bind="projectId"
+        account-id.bind="accountId"
+      ></media-upload-area>
+    </div>
+    <!--Pagination row aligns to the bottom of the gallery container-->
+    <section class="gallery-pagination-row" if.bind="currentPage.totalPages > 1">
+      <media-pagination page-summary.bind="currentPage"></media-pagination>
+    </section>
+  </section>
+</template>

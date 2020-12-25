@@ -1,0 +1,38 @@
+<template>
+  <require from="shared/media/asset-details"></require>
+  <require from="./media-uploader"></require>
+  <section class="media-drop-zone"
+           click.trigger="handleClick($event)"
+           dragover.trigger="handleDragOver($event)"
+           dragleave.trigger="handleDragLeave($event)"
+           drop.delegate="handleDrop($event)">
+    <div ref="scrollElement" class="inner-content-div inner-content-padding">
+          <!--Default state message for the media picker when no media is present-->
+      <div class="no-media-msg" if.bind="currentPage.totalItems === 0">
+        <i class="icon-ion-android-image"></i>
+        Drag images or video clips here to upload
+      </div>
+      <div class="idk" if.bind="currentPage.totalItems > 0">
+          <div class="media-picker-thumb-container" class.bind="mode === 'select' ? 'is-selecting' : ''">
+            <asset-details class="asset-details"
+                           fade-in="duration: 0.15s; delay.bind: ($index * 0.025) + 's'"
+                           repeat.for="asset of currentPage.items"
+                           click.trigger="assetClicked($event, asset)"
+                           selected-assets.bind="selectedAssets"
+                           asset.bind="asset">
+            </asset-details>
+          </div>
+        </div>
+
+    </div>
+  </section>
+  <media-uploader
+    view-model.ref="mediaUploader"
+    multiple.one-way="true"
+    asset-scope.bind="assetScope"
+    on-before-upload.call="handleBeforeUpload(fileList)"
+    on-upload-started.call="handleUploadStarted(assets)"
+    project-id.bind="projectId"
+    account-id.bind="accountId"
+  ></media-uploader>
+</template>

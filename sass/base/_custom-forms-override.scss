@@ -1,0 +1,178 @@
+// custom control overrides (BS4 inputs)
+.custom-control {
+  cursor: pointer;
+  line-height: 18px;
+
+  .custom-control-indicator {
+    top: initial;
+  }
+}
+
+.custom-control .custom-control-input:checked ~ .custom-control-indicator {
+  background-color: $blue;
+}
+
+.custom-checkbox .custom-control-input {
+  &:indeterminate ~ .custom-control-indicator {
+    background-color: $blue;
+  }
+
+  &:checked ~ .custom-control-indicator {
+    background-color: $blue;
+  }
+
+  &:not(:checked):disabled ~ .custom-control-indicator {
+    background-color: #f0f0f0;
+  }
+}
+
+.custom-control-input {
+  &:focus ~ .custom-control-indicator {
+    box-shadow: none !important;
+  }
+}
+
+
+.form-control-sm {
+  font-size: .975rem;
+  line-height: 1.25;
+}
+
+.form-control:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.btn.active, .btn-outline-secondary.active {
+  &:not(:disabled):not(.disabled) {
+    box-shadow: none;
+  }
+
+  box-shadow: none;
+}
+
+.has-danger {
+  .form-control {
+    border-color: $brand-danger;
+  }
+
+  .input-group-addon {
+    color: $brand-danger;
+    border-color: $brand-danger;
+  }
+}
+
+.input-group-addon {
+  justify-content: center;
+}
+
+.checker {
+  display: flex;
+  height: 1.4rem;
+  //position: absolute;
+  //top: 5px;
+  width: 1.4rem;
+
+  .custom-control {
+    position: relative;
+    display: inline;
+    padding-left: $custom-control-gutter;
+    cursor: pointer;
+    margin-bottom: 0;
+
+    + .custom-control {
+      margin-left: $custom-control-spacer-x;
+    }
+  }
+
+  .custom-control-indicator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 1.4rem !important;
+    height: 1.4rem;
+    font-size: 65%;
+    line-height: 1.4rem;
+    color: #eee;
+    text-align: center;
+    user-select: none;
+    //background-color: rgba(0,0,0,.02);
+    background-color: #fff;
+    border: 1px solid rgba(0,0,0,.2);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 50% 50%;
+    @include box-shadow(inset 0 .125rem .125rem rgba(0,0,0,.1));
+  }
+
+  .custom-control-input {
+    padding-left: 0;
+    left: 0;
+
+    &:focus {
+      box-shadow: none !important;
+      outline: none;
+    }
+  }
+
+  .custom-checkbox {
+    .custom-control-indicator {
+      border-radius: 100rem;
+    }
+
+    input:checked ~ .custom-control-indicator {
+      background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNy4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgOCA4IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA4IDgiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHBhdGggZmlsbD0iI0ZGRkZGRiIgZD0iTTYuNCwxTDUuNywxLjdMMi45LDQuNUwyLjEsMy43TDEuNCwzTDAsNC40bDAuNywwLjdsMS41LDEuNWwwLjcsMC43bDAuNy0wLjdsMy41LTMuNWwwLjctMC43TDYuNCwxTDYuNCwxeiINCgkvPg0KPC9zdmc+DQo=);
+      box-shadow: none !important;
+    }
+
+    input:indeterminate ~ .custom-control-indicator {
+      background-color: #52cccc;
+      background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPjxzdmcgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMjYiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAyNiAzMiI+PHBhdGggZD0iTTEzIDNjNy4xODggMCAxMyA1LjgxMyAxMyAxM3MtNS44MTMgMTMtMTMgMTMtMTMtNS44MTMtMTMtMTMgNS44MTMtMTMgMTMtMTN6TTEzIDI3LjkzOGM2LjU2MyAwIDExLjkzOC01LjM3NSAxMS45MzgtMTEuOTM4cy01LjM3NS0xMS45MzgtMTEuOTM4LTExLjkzOC0xMS45MzggNS4zNzUtMTEuOTM4IDExLjkzOCA1LjM3NSAxMS45MzggMTEuOTM4IDExLjkzOHoiPjwvcGF0aD48L3N2Zz4=);
+
+      @include box-shadow(none);
+    }
+  }
+}
+
+
+
+// Custom form styles for participant activities
+#participant-individual-activity-view {
+  //.mcma-options-list {
+  //  display: flex;
+  //  flex-direction: column;
+  //
+  //}
+    border-radius: .25rem;
+  }
+
+  .c-checkbox, .c-radio {
+
+  }
+
+
+
+//Defines the base style of a group control for group tag input
+
+.groups-control {
+  display: flex;
+  flex: 1;
+  margin-bottom: 0;
+  width: 100%;
+}
+
+.groups-input {
+  display: flex;
+  font-size: .75rem;
+  text-align: left;
+  margin: .5rem 0 0 0;
+}
+
+
+
+select.form-control.form-control-sm {
+  padding-top: 1px;
+  vertical-align: middle;
+  line-height: 1.8125rem;
+}

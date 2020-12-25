@@ -1,0 +1,65 @@
+.full-screen-modal {
+  .modal-container {
+    &.add-users {
+      .modal-subview {
+        .modal-title-text {
+          //margin-bottom: .5rem;
+        }
+        .c-modal-action-bar {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          width: 100%;
+          padding: .5rem;
+          background-color: lighten($gray-lightest, 5%);
+          font-size: .75rem;
+        }
+        .c-modal-body {
+          align-items: center;
+          padding: .5rem;
+
+          .card-grid-user.group-user {
+            .card {
+              padding: .3rem;
+              margin-bottom: 0px;
+              border-radius: 0;
+              box-shadow: none;
+              border-bottom: 1px solid $separator-color;
+
+              &:hover {
+                cursor: pointer;
+                background-color: lighten($gray-lightest, 8%);
+              }
+            }
+            .card-user-row {
+              padding: 0;
+            }
+
+            &:last-of-type {
+              margin-bottom: 0;
+              .card {
+                border-bottom: 0;
+              }
+            }
+          }
+        }
+        .c-modal-footer {
+          padding: .5rem 0;
+          border-top: 1px solid $separator-color;
+
+          .c-modal-btn-row {
+            display: flex;
+            justify-content: flex-end;
+
+            button {
+              margin-right: .5rem;
+              &:last-of-type {
+                margin-right: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

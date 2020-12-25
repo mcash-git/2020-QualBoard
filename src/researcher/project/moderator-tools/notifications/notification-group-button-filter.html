@@ -1,0 +1,19 @@
+<template>
+  <div class="notifications-btn-group-row">
+    <div class="btn-group">
+      <label repeat.for="o of options"
+             if.bind="o.isVisible"
+             class="btn btn-outline-notifications ${o === appliedFilters.group ? 'active' : ''}">
+        <input  name="options"
+                style="opacity: 0"
+                type="radio"
+                model.bind="o"
+                checked.bind="$parent.appliedFilters.group"
+                change.delegate="onChangeOpt(o)">${o.text} </input>
+        <div class="badge selected" if.bind="o.type === 'all' && totalUnread > 0">${totalUnread}</div>
+        <div class="badge selected" if.bind="o.type === 'project' && totalProjectUnread > 0">${totalProjectUnread}</div>
+        <div class="badge selected" if.bind="o.type === 'event' && totalEventUnread > 0">${totalEventUnread}</div>
+      </label>
+    </div>
+  </div>
+</template>

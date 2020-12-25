@@ -1,0 +1,10 @@
+<template>
+  <ul class="filter-category">
+    <li class="filter-category-item default-content-slim" if.bind="!iaCheckboxTrees">
+      This project does not contain any ${title}
+    </li>
+    <li class="filter-category-item checkbox-trees" repeat.for="ia of iaCheckboxTrees">
+      <checkbox-tree checked.bind="taskIds" model.bind="ia"></checkbox-tree>
+    </li>
+  </ul>
+</template>

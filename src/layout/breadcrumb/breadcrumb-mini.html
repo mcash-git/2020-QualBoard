@@ -1,0 +1,50 @@
+<template>
+  <require from="shared/value-converters/crumb-name"></require>
+
+  <div data-popover="route-drop">
+    <span if.bind="routes[0].config.settings.breadIcon">
+      <h5 class="">
+        <span class="nav-link drop-target" ref="dropTarget">
+          <i class.bind="routes[0].config.settings.breadIcon"></i>
+        </span>
+        &nbsp;
+        <span class="truncate-ellipsis">
+         <span>${routes[0].config.name | crumbName}</span>
+        </span>
+      </h5>
+    </span>
+
+    <span if.bind="showDash && !routes[0].config.settings.breadIcon">
+      <h5 class="">
+        <span class="nav-link drop-target" ref="dropTarget">
+          <i class="icon-home"></i>
+        </span>
+        &nbsp;
+        <span class="truncate-ellipsis">
+         <span>Dashboard</span>
+        </span>
+      </h5>
+    </span>
+
+    <div class="drop-body" ref="dropBody">
+      <div if.bind="routes.length > 1" repeat.for="r of routes">
+        <div class="drop-link" if.bind="!$first" >
+          <i class.bind="r.config.settings.breadIcon"></i>
+          &nbsp;
+          <a href="#" class="breadcrumb-link" if.bind="r.config.settings.breadName" click.delegate="navigate(r)" click.trigger="closeDrop()">${r.config.settings.breadName}</a>
+          <a href="#" class="breadcrumb-link" if.bind="!r.config.settings.breadName" click.delegate="navigate(r)" click.trigger="closeDrop()">${r.config.name | crumbName}</a>
+        </div>
+      </div>
+
+      <div class="drop-link" if.bind="showDash">
+        <a class="breadcrumb-drop-btn">
+          <i class="icon-home"></i>
+        </a>
+        &nbsp;
+        <a href="#" class="breadcrumb-link" click.delegate="goHome()">Dashboard</a>
+        </li>
+      </div>
+
+    </div>
+  </div>
+</template>

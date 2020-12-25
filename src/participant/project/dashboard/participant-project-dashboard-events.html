@@ -1,0 +1,23 @@
+<template>
+  <!-- TODO: when we have other kinds of project events besides just IA's, we will want
+  to compose these cards: -->
+  <require from="./participant-project-dashboard-individual-activity-card"></require>
+  <require from="shared/components/project-instructions/project-instructions"></require>
+  <!--Add the class event-not-open to the below card-element class to display an overlay with an event pending messaging-->
+  <div class="tiles tiles-lg" if.bind="!isRetrieving && !noEvents">
+    <project-instructions
+      class="participant-project-instructions"
+      project-instructions.bind="projectInstructions"
+      if.bind="shouldShowProjectInstructions"
+    ></project-instructions>
+    <participant-project-dashboard-individual-activity-card
+      repeat.for="e of events"
+      event.bind="e"
+      fade-in="duration: 0.15s; delay.bind: ($index * 0.025) + 's'"
+      subscribe-to-entry-created.bind="subscribeToEntryCreated"
+    ></participant-project-dashboard-individual-activity-card>
+  </div>
+  <div if.bind="noEvents" class="default-content">
+    <span>${noEventsText}</span>
+  </div>
+</template>

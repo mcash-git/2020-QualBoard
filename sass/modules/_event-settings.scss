@@ -1,0 +1,39 @@
+.default-mod {
+  display: inline-flex;
+  align-items: center;
+
+  .moderator-name {
+    font-size: 1rem;
+  }
+}
+
+.default-mod.default-mod-select {
+  flex-direction: row;
+}
+
+.default-mod-selector.eb-task-type-selector {
+  .btn.btn-default.dropdown-toggle {
+    padding: 4px;
+    text-transform: none;
+
+    .moderator-name {
+      color: $gray;
+    }
+  }
+
+  .dropdown-item {
+    color: $gray;
+  }
+
+  .dropdown-menu {
+    margin-top: 0;
+  }
+}
+
+individual-activity-settings-schedule .duration-summary {
+  margin-top: 1rem;
+}
+
+individual-activity-settings-default-moderator .body {
+  margin-bottom: .5rem;
+}

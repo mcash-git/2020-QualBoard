@@ -1,0 +1,59 @@
+<template>
+  <require from="shared/components/time-zone-picker"></require>
+  <require from="shared/components/date-time-picker"></require>
+  <form id="create-project">
+    <div class="custom-modal create-project">
+      <div class="c-modal-title">
+        <h3 class="modal-title-text">New Project</h3>
+        <div class="modal-close" click.delegate="cancelButtonClick()"><i class="icon-close"></i></div>
+      </div>
+      <div class="c-modal-body">
+        <div class="form-section">
+          <h5>Name Your Project</h5>
+          <div class="form-group" validation-state="validator.bind: validator; property: createCommand.publicName">
+            <input type="text"
+                   class="form-control"
+                   id="public-name"
+                   value.bind="createCommand.publicName"
+                   validate="validator.bind: validator; property: createCommand.publicName"
+                   attach-focus="true"
+                   autocomplete="off"
+                   placeholder="Public Name" />
+          </div>
+          <div class="form-group" validation-state="validator.bind: validator; property: createCommand.privateName">
+            <input type="text"
+                   class="form-control"
+                   id="private-name"
+                   value.bind="createCommand.privateName"
+                   validate="validator.bind: validator; property: createCommand.privateName"
+                   autocomplete="off"
+                   placeholder="Private Name">
+          </div>
+        </div>
+        <div class="form-section">
+          <h5>Schedule Your Project</h5>
+          <div class="form-group" validation-state="validator.bind: validator; property: createCommand.timeZone">
+            <time-zone-picker validator.bind="validator"
+                              validation-property="createCommand.timeZone"
+                              selected-time-zone.two-way="createCommand.timeZone">
+            </time-zone-picker>
+          </div>
+          <date-time-picker model.bind="createCommand.open"
+                            validator.bind="validator"
+                            validate-on="manual"
+                            date-property="createCommand.open.date"
+                            time-property="createCommand.open.time"></date-time-picker>
+          <date-time-picker model.bind="createCommand.close"
+                            validator.bind="validator"
+                            validate-on="manual"
+                            date-property="createCommand.close.date"
+                            time-property="createCommand.close.time"></date-time-picker>
+        </div>
+
+      </div>
+      <div class="c-modal-footer">
+        <button type="button" class="btn btn-lg btn-primary" click.delegate="save()">Create Project</button>
+      </div>
+    </div>
+  </form>
+</template>

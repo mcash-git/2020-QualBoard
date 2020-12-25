@@ -1,0 +1,411 @@
+$text-color: $gray;
+
+.groups-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .default-content {
+    margin-top: 5rem;
+    max-width: 70%;
+    color: $gray;
+    .icon {
+      font-size: 94px;
+    }
+    .notice {
+      height: 66px;
+      font-size: 24px;
+      line-height: 33px;
+      text-align: center;
+    }
+  }
+
+  .groups-list-wrapper {
+    border: 1px solid $gray-lighter;
+    width: 650px;
+    @media only screen and (max-width: 650px) {
+      min-width: 485px;
+      width: 100%;
+    }
+
+    .header-wrapper {
+      background-color: #EFF8FB;
+      height: 50px;
+      color: $gray;
+
+      .header {
+        padding-left: 10px;
+        padding-top: 15px;
+        line-height: 22px;
+
+        .icon {
+          font-size: 22px;
+          float: left;
+        }
+
+        .text {
+          float: left;
+          font-size: 16px;
+          margin-left: 5px;
+        }
+      }
+    }
+
+    .group-row {
+      cursor: pointer;
+      height: 45px;
+      border-top: 1px solid $gray-lighter;
+      padding-top: 8px;
+      padding-left: 15px;
+      color: $gray;
+      background-color: #fff;
+
+      .tag-wrapper {
+        font-size: 22px;
+        float: left;
+        padding: 0;
+        margin: 0;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+
+        .tag {
+          border-radius: 25px;
+          height: 30px;
+          width: 30px;
+          align-items: center;
+          justify-content: center;
+          color: #fff;
+          background-color: $gray;
+          position: relative;
+        }
+
+        .icon {
+          position: absolute;
+          z-index: 10;
+          background: none;
+          color: #fff;
+          top: calc(50% - 11px);
+          left: calc(50% - 10px);
+        }
+
+        .tag::before {
+          position: absolute;
+          content: '';
+          height: 30px;
+          width: 30px;
+          border-radius: 25px;
+          top: 0;
+          left: 0;
+          box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
+          background: linear-gradient(180deg, rgba(255,255,255,0.02) 0%, rgba(0,0,0,0.03) 100%);
+        }
+      }
+
+      .tag-title {
+        float: left;
+        width: 60%;
+        padding-top: 3px;
+        padding-left: 5px;
+        font-size: .875rem;
+        @extend %truncate-text;
+      }
+
+      .tag-title-edit {
+        float: left;
+        width: 58%;
+        padding-left: 5px;
+
+        .input {
+          border-radius: 2px;
+          height: 31px;
+          border: 1px solid #CCCCCC;
+          box-shadow: 0 0 1px 0 rgba(0,0,0,0.08);
+          color: $gray;
+          font-size: .875rem;
+        }
+      }
+
+      .tag-actions {
+        float: left;
+        width: 100px;
+        font-size: 22px;
+
+        .edit-pad {
+          padding: 0px 10px 0px 10px;
+        }
+
+        .edit-btn {
+          @extend %unbutton;
+          cursor: pointer;
+          color: $gray;
+          padding: 0;
+        }
+
+        .delete-btn {
+          @extend %unbutton;
+          cursor: pointer;
+          color: $gray;
+          padding: 0;
+        }
+      }
+
+      .tag-actions-edit {
+        float: left;
+        width: 102px;
+        font-size: 14px;
+        padding-top: 5px;
+
+        .cancel-btn {
+          @extend %unbutton;
+          cursor: pointer;
+          padding: 0;
+          color: #fff;
+        }
+
+        .save-btn {
+          @extend %unbutton;
+          cursor: pointer;
+          padding-left: 8px;
+          color: #fff;
+        }
+      }
+
+      .right-actions {
+        float: right;
+        margin-right: 10px;
+
+        .number-bubble {
+          color: #ffffff;
+          background-color: $new-accent-1;
+          border-radius: 40px;
+          float: left;
+          width:25px;
+          height: 16px;
+          text-align: center;
+          margin-top: 7.3px;
+          font-size: 10px;
+          margin-right: 10px;
+        }
+
+        .arrow {
+          float: left;
+          font-size: 18px;
+          padding-top: 3px;
+          color: $gray-lighter;
+        }
+      }
+    }
+
+    .group-row-active {
+      background-color: $new-accent-1;
+      color: #ffffff;
+
+      .tag-actions {
+        .edit-btn {
+          color: #fff;
+        }
+
+        .delete-btn {
+          color: #fff;
+        }
+      }
+
+      .right-actions {
+        .number-bubble {
+          color: $new-accent-1;
+          background-color: #fff;
+        }
+      }
+    }
+  }
+}
+
+.groups-sidebar-container {
+  .sidebar-header-wrapper {
+    border-bottom: 1px solid rgba(51,51,51,0.2);
+    background-color: #EFF8FB;
+    height: 46px;
+    color: $gray;
+    padding-top: 10px;
+    padding-left: 10px;
+
+    .icon {
+      font-size: 20px;
+      float:left;
+      color: #fff;
+      background-color: $gray;
+      border-radius: 25px;
+      height: 30px;
+      width: 30px;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+    }
+
+    .text {
+      font-size: 16px;
+      width: 243px;
+      float: left;
+      padding-left: 5px;
+      padding-top: 2px;
+      @extend %truncate-text;
+    }
+
+    .number-bubble {
+      color: #ffffff;
+      background-color: $new-accent-1;
+      border-radius: 40px;
+      float: left;
+      width: 29px;
+      height: 20px;
+      text-align: center;
+      margin-top: 4px;
+      font-size: 12px;
+      margin-right: 10px;
+      line-height: 19px;
+    }
+
+    .close {
+      font-size: 25px;
+      color: $gray-light;
+      margin-top: -1px;
+    }
+  }
+
+  .ptp-container {
+    .ptp-row {
+      height: 28px;
+      padding-left: 8.5px;
+      margin-top: 5px;
+
+      .avatar {
+        float: left;
+        margin-right: 13px;
+      }
+
+      .name {
+        font-size: 12px;
+        padding-top: 5px;
+        color: #5C6061;
+        float: left;
+      }
+
+      .icon {
+        font-size: 18px;
+        padding-top: 4px;
+        padding-right: 20px;
+        float: right;
+        color: #E54F4C;
+        cursor: pointer;
+        display: none;
+      }
+    }
+    .ptp-row:hover {
+      background-color: #F7F9FA;
+      .icon {
+        display: inline;
+      }
+    }
+
+    .notice-text {
+      color: $gray-light;
+      font-size: 18px;
+      line-height: 24px;
+      text-align: center;
+    }
+
+    .icon-container{
+      padding: 55px 0px 15px 135px;
+      .icon {
+        color: $gray-lighter;
+        font-size: 65px;
+        text-align: center;
+      }
+    }
+  }
+}
+
+.action-bar-container {
+  .input-group {
+    height: 35px;
+    input {
+      color: $gray;
+    }
+    .form-control {
+      width: 214px;
+      font-size: 14px;
+    }
+    .error {
+      border: 1px solid #E64D4A;
+    }
+
+    .input-group-addon {
+      background-color: #53AFD3;
+      color: #fff;
+      cursor: pointer;
+      width: 48px;
+    }
+  }
+}
+
+.color-drop {
+  height: 150px;
+
+  .header {
+    .text {
+      color: #5C6061;
+      font-family: "Open Sans";
+      height: 17px;
+      width: 130px;
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 17px;
+    }
+    .line {
+      box-sizing: border-box;
+      height: 2px;
+      width: 178px;
+      border: 1px solid rgba(0,0,0,0.15);
+    }
+  }
+  .color-picker {
+    padding-top: 5px;
+    padding-left: 11px;
+    .row {
+      padding-top: 5px;
+      .circle {
+        height: 25px;
+        width: 25px;
+        border: 1px solid rgba(0,0,0,0.15);
+        border-radius: 25px;
+        float: left;
+        margin-left: 5px;
+        cursor: pointer;
+        position: relative;
+      }
+      .circle[data-selected="1"] {
+        border: 2px solid $new-accent-1;
+      }
+      .circle::before {
+        position: absolute;
+        content: '';
+        height: 23px;
+        width: 23px;
+        border-radius: 25px;
+        top: 0;
+        left: 0;
+        background: linear-gradient(180deg, rgba(255,255,255,0.2) 0%, rgba(0,0,0,0.2) 100%);
+      }
+    }
+  }
+  .apply-button-row {
+    padding-top: 10px;
+    clear:both;
+    .button-container {
+      float: right;
+      .button-style {
+      }
+    }
+  }
+}

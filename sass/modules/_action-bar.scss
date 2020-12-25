@@ -1,0 +1,210 @@
+//Styles for the action row below/associated with tabs
+%action-bar-btn {
+  .btn {
+    min-width: 150px;
+
+    @include media-breakpoint-down(sm) {
+      min-width: initial;
+    }
+
+    &:not(:last-child) {
+      margin-right: 0.5rem;
+    }
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+
+    ~ .btn-group {
+      margin-left: .5rem;
+    }
+  }
+}
+
+.btn-group.dropdown-btn {
+  .btn {
+    &:not(.dropdown-toggle) {
+      margin-right: 0;
+      padding-right: .5rem;
+      border-right: 2px solid rgba(0,0,0,0.2);
+      min-width: 100px;
+    }
+
+    &:focus {
+      box-shadow: none;
+    }
+
+    &.dropdown-toggle {
+      min-width: 0;
+      padding-left: .5rem;
+      padding-right: .75rem;
+
+      &::after {
+        content: none;
+      }
+
+      &.btn-sm {
+        .chevron {
+          padding-top: 2px;
+        }
+      }
+
+      .chevron {
+        position: relative;
+        height: 10px;
+
+        i {
+          font-size: .75rem;
+        }
+      }
+    }
+  }
+}
+
+.tt_qb_tabs-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-left: -65px;
+  margin-right: -1rem;
+  min-height: 42px;
+  height: $action-bar-height;
+  padding:.3rem;
+  background-color: $content-header-tabs-actions-bg;
+  border-bottom: 1px solid rgba(0,0,0,.1);
+
+  @include media-breakpoint-down(sm) {
+    margin-left: 0;
+  }
+
+  .select-all {
+    color: $body-color;
+  }
+
+  .custom-select {
+    height: auto;
+    background:   $custom-select-indicator no-repeat right $custom-select-padding-x center;
+    background-color: rgba(255,255,255,1);
+    background-size: 8px 10px;
+    //border: none;
+    font-size: .75rem;
+    //color: $brand-primary;
+    cursor: pointer;
+    margin-right: .5rem;
+    border: 1px solid rgba(0,0,0,.2);
+
+    &:hover {
+    }
+  }
+}
+
+.action-bar-buttons {
+  flex-grow: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 1rem;
+
+  @extend %action-bar-btn;
+}
+
+.action-bar-container {
+  flex-grow: 1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  //border-left: 1px solid rgba(0, 0, 0, 0.2);
+
+  &.action-bar-left {
+    justify-content: flex-start;
+    border-left: none;
+
+    @extend %action-bar-btn;
+  }
+
+  &.action-bar-right {
+    justify-content: flex-end;
+    border-left: none;
+
+    .toggle-filters-button {
+      color: rgba(0, 0, 0, 0.71);
+    }
+
+    @extend %action-bar-btn;
+  }
+
+  .filter-toggle {
+    margin-left: 1rem;
+    border-left: 1px solid rgba(0, 0, 0, 0.2);
+    padding-left: 1rem;
+  }
+
+  .select-all {
+    font-size: .75rem;
+    padding-left: .5rem;
+  }
+
+  .btn i {
+    font-size: medium;
+  }
+
+  i {
+    font-size: 1.5rem;
+  }
+
+  .search {
+    i {
+      font-size: initial;
+    }
+  }
+
+  .media-actions {
+    display: flex;
+    border-left: 1px solid rgba(0,0,0,.2);
+    margin-left: 1rem;
+  }
+}
+
+.action-bar-section {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding-left: 1rem;
+  margin-left: 1rem;
+  border-left: 1px solid $separator-color;
+
+  &:first-of-type {
+    padding-left: 0;
+    border-left: 0;
+    margin-left: 0;
+  }
+
+  .all-groups-toggle {
+    display: flex;
+    align-items: center;
+    font-size: .75rem;
+
+    &:hover, &:visited, &:focus, &:active {
+      text-decoration: none;
+    }
+    i {
+      font-size: 1rem;
+      padding-right: .2rem;
+    }
+  }
+}
+
+.action-bar-link {
+  padding: 0 1rem;
+  border-left: 1px solid $separator-color;
+
+  &:first-of-type {
+    margin-left: 1rem;
+  }
+
+  &.disabled {
+    i {
+      opacity: .50;
+    }
+  }
+}
+

@@ -1,0 +1,21 @@
+<template>
+  <require from="./video-insight-bookmark-read"></require>
+  <require from="./video-insight-bookmark-write"></require>
+  <video-insight-bookmark-read
+    if.bind="!insightBag.isEditing"
+    insight.bind="insightBag.readModel"
+    is-looping.bind="isLooping"
+    can-edit.bind="canEdit"
+    edit.delegate="handleTryEdit()"
+    remove.delegate="handleTryRemove()"
+    toggle-play.delegate="handleTogglePlay()"
+  ></video-insight-bookmark-read>
+  <video-insight-bookmark-write
+    if.bind="insightBag.isEditing"
+    insight.bind="insightBag.writeModel"
+    is-looping.bind="isLooping"
+    cancel.delegate="handleCancel()"
+    save.delegate="handleSave()"
+    toggle-play.delegate="handleTogglePlay()"
+  ></video-insight-bookmark-write>
+</template>

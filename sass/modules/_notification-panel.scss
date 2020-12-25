@@ -1,0 +1,274 @@
+.left-panel {
+  height: 100%;
+
+  .tab-content {
+    //flex: 1;
+    //display: flex;
+    //flex-direction: column;
+    //@include gradient-y($left-panel-bg-light, $left-panel-bg, 60%, 100%);
+
+    .tab-pane.active {
+      //display: flex;
+      //flex-direction: column;
+      //flex: 1;
+    }
+  }
+  .outer-content {
+    display: block;
+    flex: 0;
+    height: 100%;
+  }
+  .inner-conntent-div {
+    display: block;
+    flex: 0;
+    height: 100%;
+    overflow: auto;
+  }
+}
+
+.notification-list {
+  @extend .flex-column;
+  height: 100%;
+
+  &.empty {
+    justify-content: center;
+
+    .n-default-message {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: $gray;
+      flex: 1 auto;
+      height: 100%;
+      opacity: .5;
+    }
+  }
+
+  //.collapse:last-of-type {
+  //  padding-bottom: 500px;
+  //}
+}
+
+moderator-tools {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  color: rgba(0,0,0,0.56);
+
+  .form-control {
+    background-color: rgba(65,66,66,0.03);
+    color: $gray-light;
+
+    &:focus {
+      background-color: rgba(255,255,255,.2);
+      color: $gray-light;
+    }
+  }
+}
+
+notifications {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.notifications-title {
+  @extend.flex-row;
+  padding: 1rem .5rem .5rem;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0;
+  font-size: 1.125rem;
+  color: $brand-identity;
+
+  .notifications-title-content {
+    display: flex;
+    align-items: center;
+
+    .icon-ion-android-notifications{
+      font-size: 22px; 
+      padding-right: 6px;
+    }
+  }
+
+  i {
+    transition: all .2s ease-in-out;
+    font-size: 1.5rem;
+  }
+  .icon-close {
+    color: $gray;
+  }
+  a {
+    transition: all .2s ease-in-out;
+    padding: .2rem;
+    border-radius: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover {
+      text-decoration: none;
+      opacity: .8;
+    }
+  }
+}
+
+.notifications-search-container {
+  padding: .5rem;
+  border-bottom: 1px solid $separator-color;
+}
+
+.notifications-btn-group-row {
+  @extend .flex-row;
+  justify-content: space-between;
+  padding-top: 1rem;
+  font-size: .75rem;
+
+  div {
+    display: flex;
+    align-items: center;
+  }
+
+  i {
+    font-size: 1.2rem;
+  }
+
+  .btn-group {
+    flex: 1 auto;
+
+    .btn {
+      position: relative;
+      flex: 1 auto;
+
+      .badge {
+        position: absolute;
+        top: -8px;
+        right: -4px;
+        z-index: 10;
+      }
+    }
+
+    .btn-outline-notifications {
+      border-radius: 0px;
+      input {
+        display: none;
+      }
+      &:hover {
+        background-color: #EAF2D8;
+        color: $brand-identity;
+      }
+      &:active {
+        background-color: rgba(255,255,255,.4) !important;
+      }
+      &:focus {
+        background-color: rgba(255,255,255,.3);
+      }
+      &.active {
+        background-color: $brand-identity;
+        color: #FFFFFF;
+      }
+    }
+  }
+}
+
+// Container for Moderator Tools Loader
+.modtools-loader {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    height: 75px;
+  }
+}
+
+//Default placeholder if no notifications are visible
+.n-default-message {
+  display: none;
+
+
+  .n-icon-placeholder {
+    display: flex;
+    width: 112px;
+    height: 112px;
+    background-color: transparent;
+    border: 2px solid #fff;
+    border-radius: 100px;
+    align-items: center;
+    justify-content: center;
+
+    i {
+      font-size: 5rem;
+    }
+  }
+
+  .n-default-message-text {
+    font-size: .875rem;
+    margin-top: .5rem;
+  }
+
+}
+
+// Notification Title - Denotes notifiations that occur within the stated time period
+.notification-section-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #EAF2D8;
+  color: #86AB35;
+  font-size: .6875rem;
+  text-transform: uppercase;
+  padding: .3rem;
+  border-bottom: $border-gray-light;
+  min-height: 30px;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  .notification-section-title-right {
+    display: flex;
+    align-items: center;
+  }
+
+  .note-unread {
+    text-transform: none;
+    font-size: .6875rem;
+    padding-right: .5rem;
+  }
+}
+
+.notifications-search-row {
+  @extend .flex-row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.notification-options, .notification-filters {
+  position: relative;
+  color: $brand-identity;
+
+  i {
+    font-size: 1.5rem;
+  }
+
+  .badge {
+    position: absolute;
+    top: -8px;
+    right: -5px;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.scroll-container {
+  overflow: hidden;
+  width: auto;
+  height: 100vh;
+}

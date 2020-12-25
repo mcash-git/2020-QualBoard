@@ -1,0 +1,155 @@
+<template>
+  <require from="shared/media/media-grid"></require>
+  <require from="shared/media/media-uploader"></require>
+  <!-- TODO:  When removing the green overlay when there is an active probe, this class binding is where it's at -->
+   <div
+    class.bind="taskClass"
+    data-annotator-targetable="SpecificResource:qb:/projects/${task.projectId}/task-responses/${task.response.id}"
+  >
+    <div class="card-block">
+      <div class="item-header">
+        <div class="item-title-container">
+          <div class="event-item-icon">
+            <i class.bind="iconClass"></i>
+          </div>
+          <h5 class="event-item-title eb-saved">${task.title}</h5>
+        </div>
+      </div>
+      <div class="item-content">
+        <div class="item-content-row">
+          <div class="orig-item-text" innerhtml.bind="task.text | sanitize"></div>
+        </div>
+        <!-- STIM / MODERATOR-UPLOADED MEDIA -->
+        <media-grid
+          class="media-grid"
+          can-edit.bind="false"
+          media-items.bind="task.mediaItems"
+          if.bind="task.mediaItems.length > 0">
+        </media-grid>
+      </div>
+    </div>
+     <template if.bind="task.type.value !== 'Notice'">
+       <!-- this is where the green bar will begin -->
+       <div class="response-green-bar">
+         <div class="response-dark-green-bar">
+           <div class="left">
+          <span>
+            <i class="fa fa-check-circle check"></i>
+          </span>
+           </div>
+           <div class="right">
+          <span class="response-date">
+            ${task.response.respondedOn | momentFormat:currentUser.timeZone}
+          </span>
+           </div>
+         </div>
+       </div>
+       <div class="card-block">
+         <div class="item-content">
+           <!-- READONLY / RESPONSE BIT -->
+           <div class="item-content-row">
+             <div
+               class="response-block"
+             >
+            <div
+              class="saved-response ${isResponding ? 'highlight-saved-response' : ''}"
+              id="${task.response.id}"
+              ref="responseBlockElement"
+            >
+                 <div class="item-content-row">
+                   <compose
+                     if.bind="task.type.value !== 'Text'"
+                     view-model.bind="viewModel"
+                     model.bind="{task: task, response: task.response}"
+                   ></compose>
+                 </div>
+                 <div class="item-content-row" if.bind="task.response.text">
+                   <div class="text-response" data-annotator-selectable="JSONPath:$['text']">
+                     <p
+                       innerhtml.bind="task.response.text | sanitize"
+                       data-annotator-selectable="Text"
+                     ></p>
+                   </div>
+                 </div>
+
+                 <div class="item-content-row" if.bind="task.response.mediaItems.length > 0">
+                   <media-grid
+                     class="media-grid"
+                     can-edit.bind="false"
+                     media-items.bind="task.response.mediaItems"
+                     can-add-insights.bind="true"
+                     project-id.bind="projectId"
+                   ></media-grid>
+                 </div>
+                 <div
+                   class="circle-border-icon insight-marker"
+                   if.bind="numFullResponseInsights"
+                   click.delegate="highlightInsights()"
+                 >
+                   ${numFullResponseInsights}
+                 </div>
+               </div>
+
+               <div class="item-content-row">
+                 <div class="user-resp-actions">
+                   <div class="response-buttons" if.bind="shouldButtonsShow">
+                     <div class="primary">
+                       <span
+                         tooltip="text.bind: followupButtonTooltip"
+                       >
+                         <button
+                           class="btn btn-link-followup"
+                           click.trigger="followUp()"
+                           disabled.bind="isFollowupDisabled"
+                         >
+                           <i class="icon-ion-reply"></i> <span>Follow Up</span>
+                         </button>
+                       </span>
+                     </div>
+                     <div class="secondary">
+                       <span
+                         tooltip="text.bind: addInsightButtonTooltip"
+                       >
+                         <button
+                           class="btn btn-link-followup"
+                           click.trigger="addResponseInsight()"
+                           disabled.bind="isAddInsightDisabled"
+                         >
+                           <i class="icon-lightbulb_outline"></i> <span>Add Insight</span>
+                         </button>
+                       </span>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+               <!--PROBE BLOCK-->
+               <div class="comment-block-activity " repeat.for="probe of task.response.responses">
+                 <h5 class="followups-title">
+                   <div>
+                     <i class="icon-followup"></i>
+                     Followups
+                   </div>
+                 </h5>
+                 <ul class="comment-list">
+                   <compose
+                     class="comment top-level"
+                     view="shared/components/task-responses/moderator-view-task-response-comment.html"
+                     view-model="shared/components/task-responses/moderator-view-task-response.js"
+                     model.bind="{response: probe, isActivityOpen: isActivityOpen}"
+                   ></compose>
+                   <compose
+                     class="comment"
+                     view="shared/components/task-responses/moderator-view-task-response-comment.html"
+                     repeat.for="res of probe.responses"
+                     view-model="shared/components/task-responses/moderator-view-task-response.js"
+                     model.bind="{response: res, isActivityOpen: isActivityOpen}"
+                   ></compose>
+                 </ul>
+               </div>
+             </div>
+           </div>
+         </div>
+       </div>
+     </template>
+  </div>
+</template>

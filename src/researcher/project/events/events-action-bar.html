@@ -1,0 +1,22 @@
+<template>
+  <div class="action-bar-container">
+    <div class="action-bar-section">
+      <div class="search">
+        <input
+          ref="searchElement"
+          type="text"
+          value.bind="model.searchText"
+          class="form-control"
+          class.bind="!!model.searchText ? 'has-text' : ''"
+          placeholder="Filter events..."
+        />
+        <i class="icon-search"></i>
+      </div>
+    </div>
+    <div class="action-bar-buttons">
+      <button type="button" class="btn btn-primary" click.delegate="model.addIndividualActivityClick()">
+        <span>Add Individual Activity</span>
+      </button>
+    </div>
+  </div>
+</template>

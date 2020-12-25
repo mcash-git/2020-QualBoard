@@ -1,0 +1,49 @@
+<template>
+    <div class="title">
+      <i class="icon-options"></i>
+      <span>Project Options</span>
+    </div>
+  <div class="body analytics-section">
+    <div class="form-saved" show.bind="!isEditing">
+      <div class="form-group">
+        <div class="label">Analytics Service Tier:</div>
+        <div>${currentTier.friendly}</div>
+      </div>
+    </div>
+    <div class="form-edit" show.bind="isEditing">
+      <div class="form-group">
+        <div class="label analytics-select-label">Analytics Service Tier:</div>
+        <div class="analytics-select-container">
+          <select class="form-control" value.bind="selectedTier">
+            <option repeat.for="tier of tiers" model.bind="tier.int">
+              ${tier.friendly}
+            </option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="edit">
+    <button
+      class="btn btn-primary btn-sm btn-form-edit"
+      click.delegate="editClick()"
+      if.bind="!project.editing"
+    >
+      Edit
+    </button>
+    <button
+      class="btn btn-sm btn-outline-secondary btn-form-save"
+      if.bind="isEditing"
+      click.delegate="cancelClick()"
+    >
+      Cancel
+    </button>
+    <button
+      class="btn btn-sm btn-primary btn-form-save"
+      if.bind="isEditing"
+      click.delegate="saveClick()"
+    >
+      Save
+    </button>
+  </div>
+</template>

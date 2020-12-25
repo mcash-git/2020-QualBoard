@@ -1,0 +1,38 @@
+
+
+.table.grid-table {
+  // removing the border entirely causes some weirdness.  m4d h4x s0n
+  border: 1px solid transparent;
+
+  thead {
+    background-color: #fff;
+    color: $gray;
+
+    th {
+      border: none;
+      border-bottom: 2px solid $transparent-gray-lighter;
+    }
+  }
+
+  tbody {
+    tr {
+      td {
+        border-left: none;
+        border-right: none;
+        border-color: $transparent-gray-lighter;
+      }
+    }
+
+  }
+
+  .row-hidden {
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 20px;
+  }
+  td {
+    .custom-control {
+      background-color: transparent;
+    }
+  }
+}

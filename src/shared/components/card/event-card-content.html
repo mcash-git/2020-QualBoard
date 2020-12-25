@@ -1,0 +1,39 @@
+<template>
+  <div class="event-card-stats-row">
+      <div class="card-row-cell">
+        <div class="stat-title-wrapper">
+          <h5 class="stat-title">
+            <i class="icon-person"></i>&nbsp;Event&nbsp;Users
+          </h5>
+        </div>
+
+        <div class="event-stat-container">
+          <div class="stat stat-main">
+            <div class="stat-num">${card.eventParticipantCount}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-row-cell">
+        <div class="stat-title-wrapper">
+          <h5 class="stat-title">
+            <i class="icon-ion-chatbubble"></i>&nbsp;Posts
+          </h5>
+        </div>
+        <div class="event-stat-container">
+          <div class="stat stat-secondary">
+            <div class="stat-num">${card.past48HourResponseCount}</div>
+            <div class="stat-label">Last 48hrs</div>
+          </div>
+          <div class="stat stat-secondary">
+            <div class="stat-num">${card.past24HourResponseCount}</div>
+            <div class="stat-label">Last 24hrs</div>
+          </div>
+          <div class="stat stat-main">
+            <div class="stat-num">${card.totalResponseCount}</div>
+            <div class="stat-label">Total</div>
+          </div>
+        </div>
+      </div>
+    </div>
+</template>

@@ -1,0 +1,18 @@
+export const events = {
+  cancelEdit: 'insights:cancel-edit',
+  edit: 'insights:edit',
+  endHighlightAnimation: 'insights:end-highlight-animation',
+  highlightByResponseId: 'insights:highlight-by-response-id',
+  delete: 'insights:remove',
+  deleted: 'insights:removed',
+  save: 'insights:save',
+  saved: 'insights:saved',
+  scrollTo: 'insights:scroll-to',
+  scrollToResponse: 'insights:scroll-to-response',
+  scrollToTop: 'insights:scroll-to-top',
+  tryAdd: 'insights:try-add',
+  tryRemove: 'insights:try-remove',
+  tryEdit: 'insights:try-edit',
+  update: 'insights:update',
+  updated: 'insights:updated',
+};

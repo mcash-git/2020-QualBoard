@@ -1,0 +1,61 @@
+<template>
+  <div class="title">
+    <i class="icon-activity"></i>
+    <span>Activity</span>
+  </div>
+  <div class="body">
+    <div class="form-saved" show.bind="!isEditing">
+      <div class="form-group">
+        <div class="label">Public Name:</div>
+        <div>${ia.publicName}</div>
+      </div>
+      <div class="form-group">
+        <div class="label">Private Name:</div>
+        <div>${ia.privateName}</div>
+      </div>
+    </div>
+    <div class="form-edit" show.bind="isEditing">
+      <div class="form-group" validation-state="validator.bind: validator; property: edit.publicName">
+        <div class="label">Public Name:</div>
+        <input type="text"
+               class="form-control"
+               id="public-name"
+               validate="validator.bind: validator; property: edit.publicName"
+               value.bind="edit.publicName"
+               placeholder="Public Name">
+      </div>
+      <div class="form-group" validation-state="validator.bind: validator; property: edit.privateName">
+        <div class="label">Private Name:</div>
+        <input type="text"
+               class="form-control"
+               id="private-name"
+               validate="validator.bind: validator; property: edit.privateName"
+               value.bind="edit.privateName"
+               placeholder="Private Name">
+      </div>
+    </div>
+  </div>
+  <div class="edit">
+    <button
+      class="btn btn-primary btn-sm btn-form-edit"
+      click.delegate="editClick()"
+      if.bind="!ia.editing"
+    >
+      Edit
+    </button>
+    <button
+      class="btn btn-sm btn-outline-secondary btn-form-save"
+      if.bind="isEditing"
+      click.delegate="cancelClick()"
+    >
+      Cancel
+    </button>
+    <button
+      class="btn btn-sm btn-primary btn-form-save"
+      if.bind="isEditing"
+      click.delegate="saveClick()"
+    >
+      Save
+    </button>
+  </div>
+</template>

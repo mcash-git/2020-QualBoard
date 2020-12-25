@@ -1,0 +1,58 @@
+.reorder-task {
+  transition: background-color .1s ease-in-out;
+  display: flex;
+  padding: .75rem 0;
+  border-top: $border-gray-light;
+  border-bottom: $border-gray-light;
+  cursor: move;
+  margin-bottom: -1px;
+
+  &:hover {
+    background-color: $new-brand-primary-lightest;
+  }
+
+  &:first-child {
+  }
+
+  .reorder-task-icon {
+    height: 30px;
+    width: 30px;
+    background-color: $new-brand-primary;
+    border-radius: 100rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 .5rem;
+
+    i {
+      color: #fff;
+    }
+  }
+
+  .reorder-task-content {
+    flex: 1;
+    @extend %flex-child-truncate-child-text;
+
+    .reorder-task-title {
+      font-weight: 600;
+      font-size: 1rem;
+      margin-bottom: 0;
+      @extend %truncate-text;
+    }
+
+    .reorder-task-text {
+      @extend %truncate-text;
+    }
+  }
+
+  .reorder-task-handle {
+    padding: 0 .5rem;
+    display: flex;
+    align-items: center;
+
+    i {
+      color: $new-brand-primary;
+      font-size: 1.5rem;
+    }
+  }
+}

@@ -1,0 +1,41 @@
+.checkbox-tree, checkbox-tree {
+  position: relative;
+  font-size: .75rem;
+  line-height: 1;
+
+  .checkbox-tree-expander {
+    position: absolute;
+    top: 4px;
+    cursor: pointer;
+    font-size: 0.5rem;
+    font-weight: bold;
+    padding: 0;
+    left: 0;
+
+    &:active {
+      i {
+        background-color: #84c6ff;
+      }
+    }
+
+    i {
+      border: 1px solid rgba(0, 0, 0, 0.3);
+      border-radius: 2px;
+      padding: 4px 5px;
+    }
+  }
+
+  .custom-control.custom-checkbox {
+    margin-left: 24px;
+    margin-bottom: 0;
+  }
+
+  .checkbox-tree-children {
+    list-style: none;
+    padding-left: 16px;
+
+    .checkbox-tree-child {
+      padding-left: 0;
+    }
+  }
+}

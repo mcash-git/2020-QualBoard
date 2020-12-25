@@ -1,0 +1,66 @@
+<template>
+  <require from="shared/components/time-zone-picker"></require>
+  <require from="shared/components/date-time-picker"></require>
+  <require from="researcher/components/individual-activity-schedule-form"></require>
+  <form id="create-individual-activity">
+    <div class="custom-modal create-individual-activity">
+      <div class="c-modal-title">
+        <h3 class="modal-title-text">New Individual Activity</h3>
+        <div class="modal-close" click.delegate="cancelButtonClick()"><i class="icon-close"></i></div>
+      </div>
+      <div class="c-modal-body">
+        <!--Activity Name-->
+        <div class="form-section">
+          <h5>Name your activity:</h5>
+          <div class="form-group" validation-state="validator.bind: validator; property: createCommand.publicName">
+            <input
+              class="form-control"
+              id="public-name"
+              value.bind="createCommand.publicName"
+              attach-focus="true"
+              autocomplete="off"
+              validate="validator.bind: validator; property: createCommand.publicName;"
+              placeholder="Public Name"
+            />
+          </div>
+          <div class="form-group" validation-state="validator.bind: validator; property: createCommand.privateName">
+            <input
+              class="form-control"
+              id="private-name"
+              value.bind="createCommand.privateName"
+              autocomplete="off"
+              validate="validator.bind: validator; property: createCommand.privateName;"
+              placeholder="Private Name"
+            />
+          </div>
+          <hr class="modal-form-separator"/>
+        </div>
+        <individual-activity-schedule-form
+          open.bind="createCommand.open"
+          open-date-property="createCommand.open.date"
+          open-time-property="createCommand.open.time"
+          close.bind="createCommand.close"
+          close-date-property="createCommand.close.date"
+          close-time-property="createCommand.close.time"
+          time-zone.bind="createCommand.timeZone"
+          time-zone-property="createCommand.timeZone"
+          repeat-minimum.bind="createCommand.repeatMinimum"
+          repeat-minimum-property="createCommand.repeatMinimum"
+          repeat-maximum.bind="createCommand.repeatMaximum"
+          repeat-maximum-property="createCommand.repeatMaximum"
+          repeat-unit.bind="createCommand.repeatUnit"
+          number-of-repetitions.bind="createCommand.numberOfRepetitions"
+          number-of-repetitions-property="createCommand.numberOfRepetitions"
+          total-response-count.one-time="0"
+          validator.bind="validator"
+          containerless
+        ></individual-activity-schedule-form>
+      </div>
+      <div class="c-modal-footer">
+        <div class="form-group">
+          <button type="button" class="btn btn-lg btn-primary" click.delegate="save()">Create Activity</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</template>

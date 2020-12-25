@@ -1,0 +1,20 @@
+<template>
+  <nav>
+    <div class="pagination">
+      <div class="page-item" css="visibility:${hasPreviousPage ? 'visible' : 'hidden'}">
+        <a class="page-link" href="#" aria-label="Previous" click.delegate="selectPage(currentPage - 1)">
+          <i class="icon-ion-ios-arrow-back"></i>
+        </a>
+      </div>
+      <div class="page-item${currentPage === n ? ' active' : ''}" repeat.for="n of pageNumbers">
+        <a class="page-link" href="#" click.delegate="selectPage(n)">${n}</a>
+      </div>
+
+      <div class="page-item" css="visibility:${hasNextPage ? 'visible' : 'hidden'}">
+        <a class="page-link" href="#" aria-label="Next" click.delegate="selectPage(currentPage + 1)">
+          <i class="icon-ion-ios-arrow-forward"></i>
+        </a>
+      </div>
+    </div>
+  </nav>
+</template>

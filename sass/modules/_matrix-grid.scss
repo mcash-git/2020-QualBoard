@@ -1,0 +1,170 @@
+.grid-table {
+  font-size: .875rem;
+  @media screen and (max-width: 600px) {
+    border: 0;
+    background-color: #fff;
+  }
+  thead {
+    background-color: $gray-light;
+    color: #fff;
+    @media screen and (max-width: 600px) {
+      display: none;
+    }
+  }
+  th {
+    text-align: center;
+    padding: .2rem;
+  }
+  tr {
+    @media screen and (max-width: 600px) {
+      margin-bottom: 10px;
+      display: block;
+      border-bottom: 2px solid #ddd;
+      background-color: #f9f9f9;
+    }
+  }
+  td {
+    padding: 0;
+    text-align: left;
+    vertical-align: middle;
+    line-height: 1.1rem;
+    @media screen and (max-width: 600px) {
+      display: block;
+      text-align: right;
+      font-size: 13px;
+      border-bottom: 1px dotted #ccc;
+      padding: 10px;
+      &:last-child {
+        border-bottom: 0;
+      }
+      &:before {
+        content: attr(data-label);
+        float: left;
+        text-transform: uppercase;
+        font-weight: bold;
+      }
+    }
+    &>* {
+      @media screen and (max-width: 600px) {
+        padding: 0;
+      }
+    }
+    .custom-control {
+      transition: all .2s ease-in-out;
+      background-color: transparent;
+      border: 0;
+      display: flex;
+      margin: 0px;
+      padding: .3rem;
+      justify-content: center;
+      align-items: center;
+      vertical-align: middle;
+      box-shadow: none;
+      @media screen and (max-width: 600px) {
+        justify-content: flex-end;
+        padding: 0;
+        background-color: transparent;
+        width: auto;
+      }
+      .custom-control-indicator {
+        position: relative;
+        background-color: rgba(0, 0, 0, .1);
+        width: 1.3rem;
+        height: 1.3rem;
+        box-shadow: none;
+        margin-right: 0;
+      }
+      input:checked~.custom-control-indicator {
+        background-color: $new-accent-1;
+        background-size: 75%;
+      }
+    }
+  }
+  .row-hidden {
+    font-weight: 600;
+    @media screen and (max-width: 600px) {
+      background-color: $gray-dark;
+      color: $gray-lighter;
+      &:hover {
+        background-color: $gray-dark;
+      }
+    }
+    .row-value {
+      padding: 0 1rem;
+      @media screen and (max-width: 600px) {
+        opacity: 0;
+      }
+    }
+  }
+}
+
+// Styles for adding group tags to a matrix question
+.tags-matrix {
+  .table-wrapper {
+    .grid-table {
+      tbody {
+        td {
+          &:not(:first-child) {
+            text-align: center;
+            a {
+              display: block;
+              padding: 0.5rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.entry-task {
+  .custom-control {
+
+    &:hover {
+      background-color: rgba(0, 0, 0, .1);
+    }
+
+    &.disabled {
+      background-color: rgba(0, 0, 0, 0.06);
+    }
+  }
+
+  .matrix .custom-control .custom-control-indicator {
+    margin-right: 0;
+  }
+
+  .answered {
+    .custom-control {
+      pointer-events: none;
+    }
+
+    .matrix .custom-control.disabled {
+      background-color: inherit;
+    }
+  }
+}
+
+
+
+.event-item .matrix .custom-control .custom-control-indicator {
+  margin-right: 0;
+}
+
+.drop-tags {
+  .tags-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 500px;
+    .tag {
+      margin: 0.25rem;
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+  }
+}
+
+.ia-participant .grid-table {
+  @extend .table-bordered;
+}

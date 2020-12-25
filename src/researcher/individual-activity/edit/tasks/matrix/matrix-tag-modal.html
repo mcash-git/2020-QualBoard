@@ -1,0 +1,30 @@
+<template>
+  <div class="custom-modal modal-large">
+    <div class="c-modal-title">
+      <h3 class="modal-title-text">Group Tags</h3>
+      <div class="modal-close" click.delegate="modalController.close()"><i class="icon-close"></i></div>
+    </div>
+    <div class="c-modal-body">
+      <div class="form-section">
+        <h5>${header}</h5>
+        <div class="form-group" style="height:500px;">
+          <tag-input source-items.bind="availableGroupTags"
+                     display-property="name"
+                     autocomplete-search-fields.one-way="['name']"
+                     autocomplete-sort-field="name"
+                     autocomplete-min-chars="0"
+                     autocomplete-sort-direction="asc"
+                     should-allow-add="true"
+                     placeholder-text="Tags to apply to participants who answer this..."
+                     should-focus.bind="true"
+                     value.bind="editGroupTags">
+          </tag-input>
+        </div>
+      </div>
+
+    </div>
+    <div class="c-modal-footer">
+      <button type="button" class="btn btn-lg btn-primary" click.delegate="apply()">Apply</button>
+    </div>
+  </div>
+</template>

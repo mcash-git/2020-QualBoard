@@ -1,0 +1,201 @@
+// Base search styles
+.search {
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+
+  form {
+    flex: 1 0 auto;
+    position: relative;
+
+  }
+
+  i {
+    font-size: 1.3rem;
+    left: 8px;
+    position: absolute;
+    top: 6px;
+  }
+
+  input {
+    height: 30px;
+    padding: 0 0 0 30px;
+    color: $gray-light;
+    transition: width .3s ease,border-color .3s ease;
+
+    &:hover {
+      opacity: 1;
+      width: 100%;
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: none;
+    }
+
+    &.has-text {
+      @extend %yellow-throb;
+    }
+  }
+}
+
+// Search bar inside of an action row or view
+.search-view {
+  //@extend .search;
+  display: flex;
+  justify-content: flex-end;
+
+  &.right {
+
+    form i {
+      left: auto;
+      right: 8px;
+    }
+
+    input {
+      padding: 0 2rem 0 0;
+      margin-left: 0;
+
+      &:hover, &:focus, &:valid {
+        padding: 0 1.5rem 0 0;
+      }
+    }
+
+    &:hover {
+      margin-left: 1rem;
+    }
+  }
+
+  form {
+    flex: 1;
+    position: relative;
+
+    i {
+      font-size: 1.5rem;
+      left: 8px;
+      position: absolute;
+      top: 8px;
+    }
+  }
+
+  input {
+    border: 0;
+    background: 0 0;
+    font-size: 14px;
+    -webkit-font-smoothing: antialiased;
+    border-bottom: 1px solid transparent;
+    border-radius: 0;
+    line-height: 40px;
+    padding: 0 1rem 0;
+    z-index: 1;
+    position: relative;
+    box-shadow: none;
+    cursor: pointer;
+    width: 0px;
+    margin-right: 1rem;
+    -webkit-transition: width .3s ease,border-color .3s ease;
+    transition: width .3s ease,border-color .3s ease;
+    height: 40px;
+    color: $gray-light;
+    &::-webkit-input-placeholder {
+      color:    transparent;
+    }
+    &:-moz-placeholder {
+      color:    transparent;
+    }
+    &::-moz-placeholder {
+      color:    transparent;
+    }
+    &:-ms-input-placeholder {
+      color:    transparent;
+    }
+
+    &:hover, &:valid {
+      border-color: $separator-color;
+      width: 220px;
+      color: $gray-dark;
+      padding: 0 2rem 0;
+
+      &::-webkit-input-placeholder {
+        color:    $gray-light;
+      }
+      &:-moz-placeholder {
+        color:    $gray-light;
+      }
+      &::-moz-placeholder {
+        color:    $gray-light;
+      }
+      &:-ms-input-placeholder {
+        color:    $gray-light;
+      }
+    }
+
+    &:focus, &:valid {
+      background-color: transparent;
+      width: 220px;
+      padding: 0 2rem 0;
+      border-color: $separator-color;
+    }
+
+  }
+
+}
+
+// Search input for notifications panel
+.search-notifications {
+
+  @extend .search;
+  display: flex;
+  flex: 1 auto;
+  justify-content: space-between;
+  padding-right: .5rem;
+
+  form {
+
+    input {
+      //background-color: rgba(255, 255, 255, .1);
+      //border: 1px solid rgba(255, 255, 255, .2);
+      //border-radius: 0;
+      color: $gray-light;
+      height: 30px;
+      padding-left: 30px;
+      transition: width .3s ease,border-color .3s ease;
+
+      &:hover {
+        //background-color: rgba(255, 255, 255, .15);
+        //border: 1px solid rgba(255, 255, 255, .4);
+        opacity: 1;
+        width: 100%;
+      }
+
+      &:focus {
+        //background-color: rgba(255, 255, 255, .15);
+        //border-color: rgba(255, 255, 255, .4);
+        border-width: 2px;
+        outline: none;
+      }
+    }
+  }
+}
+
+.search-side-panel {
+
+  @extend .search;
+
+  form {
+
+    input {
+      background-color: #fafafa;
+      color: $gray-light;
+      height: 30px;
+      padding-left: 30px;
+      transition: width .3s ease,border-color .3s ease;
+      font-size: .875rem;
+    }
+  }
+}
+
+.search-highlight {
+  font-style: normal;
+  background-color: lighten($accent-2, 27%);
+}

@@ -1,0 +1,28 @@
+<template>
+  <require from="./tasks/activity-task"></require>
+  <require from="shared/components/response-drawer"></require>
+
+  <div if.bind="!tasks || tasks.length === 0" class="default-content">
+    <span>This activity has no tasks.&nbsp; <a href.bind="builderUrl">&nbsp;Add some tasks here.</a></span>
+  </div>
+
+  <div class="tt_qb_content-padding">
+    <ul class="ia-mod task-list" respond.delegate="openResponseDrawer($event)" if.bind="tasks && tasks.length">
+      <activity-task
+        repeat.for="task of tasks"
+        task.bind="task"
+        project-id.bind="projectId"
+        fade-in="duration: 0.15s; delay.bind: ($index * 0.025) + 's'"
+        moderator-id.bind="moderatorId"
+        expand-to.bind="expandTo"
+      ></activity-task>
+    </ul>
+  </div>
+
+  <div scroll-to-response.delegate="handleScrollToResponse($event)">
+    <response-drawer
+      view-model.ref="responseDrawer"
+      project-id.bind="projectId"
+    ></response-drawer>
+  </div>
+</template>

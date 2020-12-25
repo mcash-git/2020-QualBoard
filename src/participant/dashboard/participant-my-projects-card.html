@@ -1,0 +1,34 @@
+<template>
+  <div class="card" click.delegate="handleCardClick()">
+    <div class="card-header">
+      <div class="card-title-container">
+        <div class="card-icon">
+          <i class="icon-ion-folder"></i>
+        </div>
+        <div class="card-title">${project.name}</div>
+      </div>
+    </div>
+    <div class="card-block">
+      <div class="flex-column">
+        <h5 class="stat-title">
+          <i class="icon-ion-ios-clock"></i>
+          <span>Schedule</span>
+        </h5>
+        <div class="schedule-container">
+          <div class="schedule-module">
+            <div class="open-time">
+              <strong>Open:&nbsp;</strong><span>${project.openTime | dateFormat}</span>
+            </div>
+            <div class="close-time">
+              <strong>Close:&nbsp;</strong><span>${project.closeTime | dateFormat}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <i class="icon-ion-chevron-right"></i>
+        <a class="footer-link">View</a>
+      </div>
+    </div>
+  </div>
+</template>

@@ -1,0 +1,9 @@
+.icon-btn {
+  @extend %unbutton;
+  cursor: pointer;
+  font-family: inherit !important;
+
+  & > i {
+    margin-right: .25rem;
+  }
+}

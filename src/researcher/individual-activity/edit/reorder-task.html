@@ -1,0 +1,14 @@
+<template bindable="task">
+  <div class="reorder-task-icon">
+    <i class.bind="task.iconClass"></i>
+  </div>
+  <div class="reorder-task-content">
+    <h5 class="reorder-task-title">${task.title}</h5>
+    <div class="reorder-task-text">
+      ${task.text | stripHtml}
+    </div>
+  </div>
+  <div class="reorder-task-handle">
+    <i class="icon-drag_handle"></i>
+  </div>
+</template>

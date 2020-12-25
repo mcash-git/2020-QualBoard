@@ -1,0 +1,1442 @@
+[
+  {
+    "id": "5ad58a7e-9f06-49e6-aa9e-f04664d7eab6",
+    "projectId": "b36bc1ca-f40a-4a90-b090-f4895299264d",
+    "isEvent": true,
+    "privateName": "Southwest Study A",
+    "publicName": "Southwest Flights",
+    "openTime": "2016-05-26T18:25:43.511Z",
+    "closeTime": "2016-10-31T18:25:43.511Z",
+    "type": 0,
+    "users": {
+      "total": "100",
+      "engagement": {
+        "last24": "10",
+        "last48": "30",
+        "greater48": "40",
+        "neverPosted": "15",
+        "neverSigned": "5"
+      }
+    },
+    "posts": {
+      "total": "200",
+      "last24": "15",
+      "last48": "60"
+    },
+    "backroom": {
+      "total": "4",
+      "last24": "2",
+      "last48": "1"
+    }
+  },
+  {
+    "id": "56d3ab5a-f448-471b-81fd-35d7736ab4e7",
+    "projectId": "b36bc1ca-f40a-4a90-b090-f4895299264d",
+    "isEvent": true,
+    "privateName": "Southwest Study B",
+    "publicName": "Southwest Flights",
+    "openTime": "2016-05-13T16:02:53Z",
+    "closeTime": "2017-02-25T06:44:05Z",
+    "type": 0,
+    "users": {
+      "total": "100",
+      "engagement": {
+        "last24": "10",
+        "last48": "30",
+        "greater48": "40",
+        "neverPosted": "15",
+        "neverSigned": "5"
+      }
+    },
+    "posts": {
+      "total": "200",
+      "last24": "15",
+      "last48": "60"
+    },
+    "backroom": {
+      "total": "4",
+      "last24": "2",
+      "last48": "1"
+    }
+  },
+  {
+    "id": "d69612fb-9c8b-4bda-b5f8-fe4de947a20a",
+    "projectId": "b36bc1ca-f40a-4a90-b090-f4895299264d",
+    "isEvent": true,
+    "privateName": "Southwest Study C",
+    "publicName": "Southwest Flights",
+    "openTime": "2016-05-15T04:52:47Z",
+    "closeTime": "2016-11-20T06:37:07Z",
+    "type": 0,
+    "users": {
+      "total": "100",
+      "engagement": {
+        "last24": "10",
+        "last48": "30",
+        "greater48": "40",
+        "neverPosted": "15",
+        "neverSigned": "5"
+      }
+    },
+    "posts": {
+      "total": "200",
+      "last24": "15",
+      "last48": "60"
+    },
+    "backroom": {
+      "total": "4",
+      "last24": "2",
+      "last48": "1"
+    }
+  },
+  {
+    "id": "bc38bb57-74a7-4b50-9157-d09b6dc1cba1",
+    "projectId": "b36bc1ca-f40a-4a90-b090-f4895299264d",
+    "isEvent": true,
+    "privateName": "Southwest Study D",
+    "publicName": "Southwest Flights",
+    "openTime": "2016-05-27T06:17:19Z",
+    "closeTime": "2016-10-12T08:31:29Z",
+    "type": 0,
+    "users": {
+      "total": "100",
+      "engagement": {
+        "last24": "10",
+        "last48": "30",
+        "greater48": "40",
+        "neverPosted": "15",
+        "neverSigned": "5"
+      }
+    },
+    "posts": {
+      "total": "200",
+      "last24": "15",
+      "last48": "60"
+    },
+    "backroom": {
+      "total": "4",
+      "last24": "2",
+      "last48": "1"
+    }
+  },
+  {
+    "id": "80a9b7e1-4bd4-4daa-a80f-b871f615f2f7",
+    "projectId": "b36bc1ca-f40a-4a90-b090-f4895299264d",
+    "isEvent": true,
+    "privateName": "Southwest Study E",
+    "publicName": "Southwest Flights",
+    "openTime": "2016-05-03T20:08:03Z",
+    "closeTime": "2016-12-30T01:16:21Z",
+    "type": 0,
+    "users": {
+      "total": "100",
+      "engagement": {
+        "last24": "10",
+        "last48": "30",
+        "greater48": "40",
+        "neverPosted": "15",
+        "neverSigned": "5"
+      }
+    },
+    "posts": {
+      "total": "200",
+      "last24": "15",
+      "last48": "60"
+    },
+    "backroom": {
+      "total": "4",
+      "last24": "2",
+      "last48": "1"
+    }
+  },
+  {
+    "id": "27383eb7-5453-469c-a136-598a034d085b",
+    "projectId": "b36bc1ca-f40a-4a90-b090-f4895299264d",
+    "isEvent": true,
+    "privateName": "Southwest Study F",
+    "publicName": "Southwest Flights",
+    "openTime": "2016-05-10T17:19:43Z",
+    "closeTime": "2016-11-02T18:42:10Z",
+    "type": 0,
+    "users": {
+      "total": "100",
+      "engagement": {
+        "last24": "10",
+        "last48": "30",
+        "greater48": "40",
+        "neverPosted": "15",
+        "neverSigned": "5"
+      }
+    },
+    "posts": {
+      "total": "200",
+      "last24": "15",
+      "last48": "60"
+    },
+    "backroom": {
+      "total": "4",
+      "last24": "2",
+      "last48": "1"
+    }
+  },
+  {
+    "id": "5ad58a7e-9f06-49e6-aa9e-f04664d7eab6",
+    "projectId": "5969898b-adc6-4c23-892b-10bda764522a",
+    "isEvent": true,
+    "privateName": "Southwest Study A",
+    "publicName": "Southwest Flights",
+    "openTime": "2016-05-26T18:25:43.511Z",
+    "closeTime": "2016-10-31T18:25:43.511Z",
+    "type": 0,
+    "users": {
+      "total": "100",
+      "engagement": {
+        "last24": "10",
+        "last48": "30",
+        "greater48": "40",
+        "neverPosted": "15",
+        "neverSigned": "5"
+      }
+    },
+    "posts": {
+      "total": "200",
+      "last24": "15",
+      "last48": "60"
+    },
+    "backroom": {
+      "total": "4",
+      "last24": "2",
+      "last48": "1"
+    }
+  },
+  {
+    "id": "56d3ab5a-f448-471b-81fd-35d7736ab4e7",
+    "projectId": "5969898b-adc6-4c23-892b-10bda764522a",
+    "isEvent": true,
+    "privateName": "Southwest Study B",
+    "publicName": "Southwest Flights",
+    "openTime": "2016-05-13T16:02:53Z",
+    "closeTime": "2017-02-25T06:44:05Z",
+    "type": 0,
+    "users": {
+      "total": "100",
+      "engagement": {
+        "last24": "10",
+        "last48": "30",
+        "greater48": "40",
+        "neverPosted": "15",
+        "neverSigned": "5"
+      }
+    },
+    "posts": {
+      "total": "200",
+      "last24": "15",
+      "last48": "60"
+    },
+    "backroom": {
+      "total": "4",
+      "last24": "2",
+      "last48": "1"
+    }
+  },
+  {
+    "id": "d69612fb-9c8b-4bda-b5f8-fe4de947a20a",
+    "projectId": "5969898b-adc6-4c23-892b-10bda764522a",
+    "isEvent": true,
+    "privateName": "Southwest Study C",
+    "publicName": "Southwest Flights",
+    "openTime": "2016-05-15T04:52:47Z",
+    "closeTime": "2016-11-20T06:37:07Z",
+    "type": 0,
+    "users": {
+      "total": "100",
+      "engagement": {
+        "last24": "10",
+        "last48": "30",
+        "greater48": "40",
+        "neverPosted": "15",
+        "neverSigned": "5"
+      }
+    },
+    "posts": {
+      "total": "200",
+      "last24": "15",
+      "last48": "60"
+    },
+    "backroom": {
+      "total": "4",
+      "last24": "2",
+      "last48": "1"
+    }
+  },
+  {
+    "id": "bc38bb57-74a7-4b50-9157-d09b6dc1cba1",
+    "projectId": "5969898b-adc6-4c23-892b-10bda764522a",
+    "isEvent": true,
+    "privateName": "Southwest Study D",
+    "publicName": "Southwest Flights",
+    "openTime": "2016-05-27T06:17:19Z",
+    "closeTime": "2016-10-12T08:31:29Z",
+    "type": 0,
+    "users": {
+      "total": "100",
+      "engagement": {
+        "last24": "10",
+        "last48": "30",
+        "greater48": "40",
+        "neverPosted": "15",
+        "neverSigned": "5"
+      }
+    },
+    "posts": {
+      "total": "200",
+      "last24": "15",
+      "last48": "60"
+    },
+    "backroom": {
+      "total": "4",
+      "last24": "2",
+      "last48": "1"
+    }
+  },
+  {
+    "id": "80a9b7e1-4bd4-4daa-a80f-b871f615f2f7",
+    "projectId": "5969898b-adc6-4c23-892b-10bda764522a",
+    "isEvent": true,
+    "privateName": "Southwest Study E",
+    "publicName": "Southwest Flights",
+    "openTime": "2016-05-03T20:08:03Z",
+    "closeTime": "2016-12-30T01:16:21Z",
+    "type": 0,
+    "users": {
+      "total": "100",
+      "engagement": {
+        "last24": "10",
+        "last48": "30",
+        "greater48": "40",
+        "neverPosted": "15",
+        "neverSigned": "5"
+      }
+    },
+    "posts": {
+      "total": "200",
+      "last24": "15",
+      "last48": "60"
+    },
+    "backroom": {
+      "total": "4",
+      "last24": "2",
+      "last48": "1"
+    }
+  },
+  {
+    "id": "27383eb7-5453-469c-a136-598a034d085b",
+    "projectId": "5969898b-adc6-4c23-892b-10bda764522a",
+    "isEvent": true,
+    "privateName": "Southwest Study F",
+    "publicName": "Southwest Flights",
+    "openTime": "2016-05-10T17:19:43Z",
+    "closeTime": "2016-11-02T18:42:10Z",
+    "type": 0,
+    "users": {
+      "total": "100",
+      "engagement": {
+        "last24": "10",
+        "last48": "30",
+        "greater48": "40",
+        "neverPosted": "15",
+        "neverSigned": "5"
+      }
+    },
+    "posts": {
+      "total": "200",
+      "last24": "15",
+      "last48": "60"
+    },
+    "backroom": {
+      "total": "4",
+      "last24": "2",
+      "last48": "1"
+    }
+  },
+  {
+    "id": "5ad58a7e-9f06-49e6-aa9e-f04664d7eab6",
+    "projectId": "7b7f0b39-cf98-4089-85a1-1d4c0db53ee3",
+    "isEvent": true,
+    "privateName": "Southwest Study A",
+    "publicName": "Southwest Flights",
+    "openTime": "2016-05-26T18:25:43.511Z",
+    "closeTime": "2016-10-31T18:25:43.511Z",
+    "type": 0,
+    "users": {
+      "total": "100",
+      "engagement": {
+        "last24": "10",
+        "last48": "30",
+        "greater48": "40",
+        "neverPosted": "15",
+        "neverSigned": "5"
+      }
+    },
+    "posts": {
+      "total": "200",
+      "last24": "15",
+      "last48": "60"
+    },
+    "backroom": {
+      "total": "4",
+      "last24": "2",
+      "last48": "1"
+    }
+  },
+  {
+    "id": "56d3ab5a-f448-471b-81fd-35d7736ab4e7",
+    "projectId": "7b7f0b39-cf98-4089-85a1-1d4c0db53ee3",
+    "isEvent": true,
+    "privateName": "Southwest Study B",
+    "publicName": "Southwest Flights",
+    "openTime": "2016-05-13T16:02:53Z",
+    "closeTime": "2017-02-25T06:44:05Z",
+    "type": 0,
+    "users": {
+      "total": "100",
+      "engagement": {
+        "last24": "10",
+        "last48": "30",
+        "greater48": "40",
+        "neverPosted": "15",
+        "neverSigned": "5"
+      }
+    },
+    "posts": {
+      "total": "200",
+      "last24": "15",
+      "last48": "60"
+    },
+    "backroom": {
+      "total": "4",
+      "last24": "2",
+      "last48": "1"
+    }
+  },
+  {
+    "id": "d69612fb-9c8b-4bda-b5f8-fe4de947a20a",
+    "projectId": "7b7f0b39-cf98-4089-85a1-1d4c0db53ee3",
+    "isEvent": true,
+    "privateName": "Southwest Study C",
+    "publicName": "Southwest Flights",
+    "openTime": "2016-05-15T04:52:47Z",
+    "closeTime": "2016-11-20T06:37:07Z",
+    "type": 0,
+    "users": {
+      "total": "100",
+      "engagement": {
+        "last24": "10",
+        "last48": "30",
+        "greater48": "40",
+        "neverPosted": "15",
+        "neverSigned": "5"
+      }
+    },
+    "posts": {
+      "total": "200",
+      "last24": "15",
+      "last48": "60"
+    },
+    "backroom": {
+      "total": "4",
+      "last24": "2",
+      "last48": "1"
+    }
+  },
+  {
+    "id": "bc38bb57-74a7-4b50-9157-d09b6dc1cba1",
+    "projectId": "7b7f0b39-cf98-4089-85a1-1d4c0db53ee3",
+    "isEvent": true,
+    "privateName": "Southwest Study D",
+    "publicName": "Southwest Flights",
+    "openTime": "2016-05-27T06:17:19Z",
+    "closeTime": "2016-10-12T08:31:29Z",
+    "type": 0,
+    "users": {
+      "total": "100",
+      "engagement": {
+        "last24": "10",
+        "last48": "30",
+        "greater48": "40",
+        "neverPosted": "15",
+        "neverSigned": "5"
+      }
+    },
+    "posts": {
+      "total": "200",
+      "last24": "15",
+      "last48": "60"
+    },
+    "backroom": {
+      "total": "4",
+      "last24": "2",
+      "last48": "1"
+    }
+  },
+  {
+    "id": "80a9b7e1-4bd4-4daa-a80f-b871f615f2f7",
+    "projectId": "7b7f0b39-cf98-4089-85a1-1d4c0db53ee3",
+    "isEvent": true,
+    "privateName": "Southwest Study E",
+    "publicName": "Southwest Flights",
+    "openTime": "2016-05-03T20:08:03Z",
+    "closeTime": "2016-12-30T01:16:21Z",
+    "type": 0,
+    "users": {
+      "total": "100",
+      "engagement": {
+        "last24": "10",
+        "last48": "30",
+        "greater48": "40",
+        "neverPosted": "15",
+        "neverSigned": "5"
+      }
+    },
+    "posts": {
+      "total": "200",
+      "last24": "15",
+      "last48": "60"
+    },
+    "backroom": {
+      "total": "4",
+      "last24": "2",
+      "last48": "1"
+    }
+  },
+  {
+    "id": "27383eb7-5453-469c-a136-598a034d085b",
+    "projectId": "7b7f0b39-cf98-4089-85a1-1d4c0db53ee3",
+    "isEvent": true,
+    "privateName": "Southwest Study F",
+    "publicName": "Southwest Flights",
+    "openTime": "2016-05-10T17:19:43Z",
+    "closeTime": "2016-11-02T18:42:10Z",
+    "type": 0,
+    "users": {
+      "total": "100",
+      "engagement": {
+        "last24": "10",
+        "last48": "30",
+        "greater48": "40",
+        "neverPosted": "15",
+        "neverSigned": "5"
+      }
+    },
+    "posts": {
+      "total": "200",
+      "last24": "15",
+      "last48": "60"
+    },
+    "backroom": {
+      "total": "4",
+      "last24": "2",
+      "last48": "1"
+    }
+  },
+  {
+    "id": "5ad58a7e-9f06-49e6-aa9e-f04664d7eab6",
+    "projectId": "1b5bb37f-9073-49fa-a106-77cd3e88b166",
+    "isEvent": true,
+    "privateName": "Southwest Study A",
+    "publicName": "Southwest Flights",
+    "openTime": "2016-05-26T18:25:43.511Z",
+    "closeTime": "2016-10-31T18:25:43.511Z",
+    "type": 0,
+    "users": {
+      "total": "100",
+      "engagement": {
+        "last24": "10",
+        "last48": "30",
+        "greater48": "40",
+        "neverPosted": "15",
+        "neverSigned": "5"
+      }
+    },
+    "posts": {
+      "total": "200",
+      "last24": "15",
+      "last48": "60"
+    },
+    "backroom": {
+      "total": "4",
+      "last24": "2",
+      "last48": "1"
+    }
+  },
+  {
+    "id": "56d3ab5a-f448-471b-81fd-35d7736ab4e7",
+    "projectId": "1b5bb37f-9073-49fa-a106-77cd3e88b166",
+    "isEvent": true,
+    "privateName": "Southwest Study B",
+    "publicName": "Southwest Flights",
+    "openTime": "2016-05-13T16:02:53Z",
+    "closeTime": "2017-02-25T06:44:05Z",
+    "type": 0,
+    "users": {
+      "total": "100",
+      "engagement": {
+        "last24": "10",
+        "last48": "30",
+        "greater48": "40",
+        "neverPosted": "15",
+        "neverSigned": "5"
+      }
+    },
+    "posts": {
+      "total": "200",
+      "last24": "15",
+      "last48": "60"
+    },
+    "backroom": {
+      "total": "4",
+      "last24": "2",
+      "last48": "1"
+    }
+  },
+  {
+    "id": "d69612fb-9c8b-4bda-b5f8-fe4de947a20a",
+    "projectId": "1b5bb37f-9073-49fa-a106-77cd3e88b166",
+    "isEvent": true,
+    "privateName": "Southwest Study C",
+    "publicName": "Southwest Flights",
+    "openTime": "2016-05-15T04:52:47Z",
+    "closeTime": "2016-11-20T06:37:07Z",
+    "type": 0,
+    "users": {
+      "total": "100",
+      "engagement": {
+        "last24": "10",
+        "last48": "30",
+        "greater48": "40",
+        "neverPosted": "15",
+        "neverSigned": "5"
+      }
+    },
+    "posts": {
+      "total": "200",
+      "last24": "15",
+      "last48": "60"
+    },
+    "backroom": {
+      "total": "4",
+      "last24": "2",
+      "last48": "1"
+    }
+  },
+  {
+    "id": "bc38bb57-74a7-4b50-9157-d09b6dc1cba1",
+    "projectId": "1b5bb37f-9073-49fa-a106-77cd3e88b166",
+    "isEvent": true,
+    "privateName": "Southwest Study D",
+    "publicName": "Southwest Flights",
+    "openTime": "2016-05-27T06:17:19Z",
+    "closeTime": "2016-10-12T08:31:29Z",
+    "type": 0,
+    "users": {
+      "total": "100",
+      "engagement": {
+        "last24": "10",
+        "last48": "30",
+        "greater48": "40",
+        "neverPosted": "15",
+        "neverSigned": "5"
+      }
+    },
+    "posts": {
+      "total": "200",
+      "last24": "15",
+      "last48": "60"
+    },
+    "backroom": {
+      "total": "4",
+      "last24": "2",
+      "last48": "1"
+    }
+  },
+  {
+    "id": "80a9b7e1-4bd4-4daa-a80f-b871f615f2f7",
+    "projectId": "1b5bb37f-9073-49fa-a106-77cd3e88b166",
+    "isEvent": true,
+    "privateName": "Southwest Study E",
+    "publicName": "Southwest Flights",
+    "openTime": "2016-05-03T20:08:03Z",
+    "closeTime": "2016-12-30T01:16:21Z",
+    "type": 0,
+    "users": {
+      "total": "100",
+      "engagement": {
+        "last24": "10",
+        "last48": "30",
+        "greater48": "40",
+        "neverPosted": "15",
+        "neverSigned": "5"
+      }
+    },
+    "posts": {
+      "total": "200",
+      "last24": "15",
+      "last48": "60"
+    },
+    "backroom": {
+      "total": "4",
+      "last24": "2",
+      "last48": "1"
+    }
+  },
+  {
+    "id": "27383eb7-5453-469c-a136-598a034d085b",
+    "projectId": "1b5bb37f-9073-49fa-a106-77cd3e88b166",
+    "isEvent": true,
+    "privateName": "Southwest Study F",
+    "publicName": "Southwest Flights",
+    "openTime": "2016-05-10T17:19:43Z",
+    "closeTime": "2016-11-02T18:42:10Z",
+    "type": 0,
+    "users": {
+      "total": "100",
+      "engagement": {
+        "last24": "10",
+        "last48": "30",
+        "greater48": "40",
+        "neverPosted": "15",
+        "neverSigned": "5"
+      }
+    },
+    "posts": {
+      "total": "200",
+      "last24": "15",
+      "last48": "60"
+    },
+    "backroom": {
+      "total": "4",
+      "last24": "2",
+      "last48": "1"
+    }
+  },
+  {
+    "id": "5ad58a7e-9f06-49e6-aa9e-f04664d7eab6",
+    "projectId": "b36bc1ca-f40a-4a90-b090-f48952990987",
+    "isEvent": true,
+    "privateName": "Southwest Study A",
+    "publicName": "Southwest Flights",
+    "openTime": "2016-05-26T18:25:43.511Z",
+    "closeTime": "2016-10-31T18:25:43.511Z",
+    "type": 0,
+    "users": {
+      "total": "100",
+      "engagement": {
+        "last24": "10",
+        "last48": "30",
+        "greater48": "40",
+        "neverPosted": "15",
+        "neverSigned": "5"
+      }
+    },
+    "posts": {
+      "total": "200",
+      "last24": "15",
+      "last48": "60"
+    },
+    "backroom": {
+      "total": "4",
+      "last24": "2",
+      "last48": "1"
+    }
+  },
+  {
+    "id": "56d3ab5a-f448-471b-81fd-35d7736ab4e7",
+    "projectId": "b36bc1ca-f40a-4a90-b090-f48952990987",
+    "isEvent": true,
+    "privateName": "Southwest Study B",
+    "publicName": "Southwest Flights",
+    "openTime": "2016-05-13T16:02:53Z",
+    "closeTime": "2017-02-25T06:44:05Z",
+    "type": 0,
+    "users": {
+      "total": "100",
+      "engagement": {
+        "last24": "10",
+        "last48": "30",
+        "greater48": "40",
+        "neverPosted": "15",
+        "neverSigned": "5"
+      }
+    },
+    "posts": {
+      "total": "200",
+      "last24": "15",
+      "last48": "60"
+    },
+    "backroom": {
+      "total": "4",
+      "last24": "2",
+      "last48": "1"
+    }
+  },
+  {
+    "id": "d69612fb-9c8b-4bda-b5f8-fe4de947a20a",
+    "projectId": "b36bc1ca-f40a-4a90-b090-f48952990987",
+    "isEvent": true,
+    "privateName": "Southwest Study C",
+    "publicName": "Southwest Flights",
+    "openTime": "2016-05-15T04:52:47Z",
+    "closeTime": "2016-11-20T06:37:07Z",
+    "type": 0,
+    "users": {
+      "total": "100",
+      "engagement": {
+        "last24": "10",
+        "last48": "30",
+        "greater48": "40",
+        "neverPosted": "15",
+        "neverSigned": "5"
+      }
+    },
+    "posts": {
+      "total": "200",
+      "last24": "15",
+      "last48": "60"
+    },
+    "backroom": {
+      "total": "4",
+      "last24": "2",
+      "last48": "1"
+    }
+  },
+  {
+    "id": "bc38bb57-74a7-4b50-9157-d09b6dc1cba1",
+    "projectId": "b36bc1ca-f40a-4a90-b090-f48952990987",
+    "isEvent": true,
+    "privateName": "Southwest Study D",
+    "publicName": "Southwest Flights",
+    "openTime": "2016-05-27T06:17:19Z",
+    "closeTime": "2016-10-12T08:31:29Z",
+    "type": 0,
+    "users": {
+      "total": "100",
+      "engagement": {
+        "last24": "10",
+        "last48": "30",
+        "greater48": "40",
+        "neverPosted": "15",
+        "neverSigned": "5"
+      }
+    },
+    "posts": {
+      "total": "200",
+      "last24": "15",
+      "last48": "60"
+    },
+    "backroom": {
+      "total": "4",
+      "last24": "2",
+      "last48": "1"
+    }
+  },
+  {
+    "id": "80a9b7e1-4bd4-4daa-a80f-b871f615f2f7",
+    "projectId": "b36bc1ca-f40a-4a90-b090-f48952990987",
+    "isEvent": true,
+    "privateName": "Southwest Study E",
+    "publicName": "Southwest Flights",
+    "openTime": "2016-05-03T20:08:03Z",
+    "closeTime": "2016-12-30T01:16:21Z",
+    "type": 0,
+    "users": {
+      "total": "100",
+      "engagement": {
+        "last24": "10",
+        "last48": "30",
+        "greater48": "40",
+        "neverPosted": "15",
+        "neverSigned": "5"
+      }
+    },
+    "posts": {
+      "total": "200",
+      "last24": "15",
+      "last48": "60"
+    },
+    "backroom": {
+      "total": "4",
+      "last24": "2",
+      "last48": "1"
+    }
+  },
+  {
+    "id": "27383eb7-5453-469c-a136-598a034d085b",
+    "projectId": "b36bc1ca-f40a-4a90-b090-f48952990987",
+    "isEvent": true,
+    "privateName": "Southwest Study F",
+    "publicName": "Southwest Flights",
+    "openTime": "2016-05-10T17:19:43Z",
+    "closeTime": "2016-11-02T18:42:10Z",
+    "type": 0,
+    "users": {
+      "total": "100",
+      "engagement": {
+        "last24": "10",
+        "last48": "30",
+        "greater48": "40",
+        "neverPosted": "15",
+        "neverSigned": "5"
+      }
+    },
+    "posts": {
+      "total": "200",
+      "last24": "15",
+      "last48": "60"
+    },
+    "backroom": {
+      "total": "4",
+      "last24": "2",
+      "last48": "1"
+    }
+  },
+  {
+    "id": "5ad58a7e-9f06-49e6-aa9e-f04664d7eab6",
+    "projectId": "5969898b-adc6-4c23-892b-10bda7640987",
+    "isEvent": true,
+    "privateName": "Southwest Study A",
+    "publicName": "Southwest Flights",
+    "openTime": "2016-05-26T18:25:43.511Z",
+    "closeTime": "2016-10-31T18:25:43.511Z",
+    "type": 0,
+    "users": {
+      "total": "100",
+      "engagement": {
+        "last24": "10",
+        "last48": "30",
+        "greater48": "40",
+        "neverPosted": "15",
+        "neverSigned": "5"
+      }
+    },
+    "posts": {
+      "total": "200",
+      "last24": "15",
+      "last48": "60"
+    },
+    "backroom": {
+      "total": "4",
+      "last24": "2",
+      "last48": "1"
+    }
+  },
+  {
+    "id": "56d3ab5a-f448-471b-81fd-35d7736ab4e7",
+    "projectId": "5969898b-adc6-4c23-892b-10bda7640987",
+    "isEvent": true,
+    "privateName": "Southwest Study B",
+    "publicName": "Southwest Flights",
+    "openTime": "2016-05-13T16:02:53Z",
+    "closeTime": "2017-02-25T06:44:05Z",
+    "type": 0,
+    "users": {
+      "total": "100",
+      "engagement": {
+        "last24": "10",
+        "last48": "30",
+        "greater48": "40",
+        "neverPosted": "15",
+        "neverSigned": "5"
+      }
+    },
+    "posts": {
+      "total": "200",
+      "last24": "15",
+      "last48": "60"
+    },
+    "backroom": {
+      "total": "4",
+      "last24": "2",
+      "last48": "1"
+    }
+  },
+  {
+    "id": "d69612fb-9c8b-4bda-b5f8-fe4de947a20a",
+    "projectId": "5969898b-adc6-4c23-892b-10bda7640987",
+    "isEvent": true,
+    "privateName": "Southwest Study C",
+    "publicName": "Southwest Flights",
+    "openTime": "2016-05-15T04:52:47Z",
+    "closeTime": "2016-11-20T06:37:07Z",
+    "type": 0,
+    "users": {
+      "total": "100",
+      "engagement": {
+        "last24": "10",
+        "last48": "30",
+        "greater48": "40",
+        "neverPosted": "15",
+        "neverSigned": "5"
+      }
+    },
+    "posts": {
+      "total": "200",
+      "last24": "15",
+      "last48": "60"
+    },
+    "backroom": {
+      "total": "4",
+      "last24": "2",
+      "last48": "1"
+    }
+  },
+  {
+    "id": "bc38bb57-74a7-4b50-9157-d09b6dc1cba1",
+    "projectId": "5969898b-adc6-4c23-892b-10bda7640987",
+    "isEvent": true,
+    "privateName": "Southwest Study D",
+    "publicName": "Southwest Flights",
+    "openTime": "2016-05-27T06:17:19Z",
+    "closeTime": "2016-10-12T08:31:29Z",
+    "type": 0,
+    "users": {
+      "total": "100",
+      "engagement": {
+        "last24": "10",
+        "last48": "30",
+        "greater48": "40",
+        "neverPosted": "15",
+        "neverSigned": "5"
+      }
+    },
+    "posts": {
+      "total": "200",
+      "last24": "15",
+      "last48": "60"
+    },
+    "backroom": {
+      "total": "4",
+      "last24": "2",
+      "last48": "1"
+    }
+  },
+  {
+    "id": "80a9b7e1-4bd4-4daa-a80f-b871f615f2f7",
+    "projectId": "5969898b-adc6-4c23-892b-10bda7640987",
+    "isEvent": true,
+    "privateName": "Southwest Study E",
+    "publicName": "Southwest Flights",
+    "openTime": "2016-05-03T20:08:03Z",
+    "closeTime": "2016-12-30T01:16:21Z",
+    "type": 0,
+    "users": {
+      "total": "100",
+      "engagement": {
+        "last24": "10",
+        "last48": "30",
+        "greater48": "40",
+        "neverPosted": "15",
+        "neverSigned": "5"
+      }
+    },
+    "posts": {
+      "total": "200",
+      "last24": "15",
+      "last48": "60"
+    },
+    "backroom": {
+      "total": "4",
+      "last24": "2",
+      "last48": "1"
+    }
+  },
+  {
+    "id": "27383eb7-5453-469c-a136-598a034d085b",
+    "projectId": "5969898b-adc6-4c23-892b-10bda7640987",
+    "isEvent": true,
+    "privateName": "Southwest Study F",
+    "publicName": "Southwest Flights",
+    "openTime": "2016-05-10T17:19:43Z",
+    "closeTime": "2016-11-02T18:42:10Z",
+    "type": 0,
+    "users": {
+      "total": "100",
+      "engagement": {
+        "last24": "10",
+        "last48": "30",
+        "greater48": "40",
+        "neverPosted": "15",
+        "neverSigned": "5"
+      }
+    },
+    "posts": {
+      "total": "200",
+      "last24": "15",
+      "last48": "60"
+    },
+    "backroom": {
+      "total": "4",
+      "last24": "2",
+      "last48": "1"
+    }
+  },
+  {
+    "id": "5ad58a7e-9f06-49e6-aa9e-f04664d7eab6",
+    "projectId": "7b7f0b39-cf98-4089-85a1-1d4c0db50987",
+    "isEvent": true,
+    "privateName": "Southwest Study A",
+    "publicName": "Southwest Flights",
+    "openTime": "2016-05-26T18:25:43.511Z",
+    "closeTime": "2016-10-31T18:25:43.511Z",
+    "type": 0,
+    "users": {
+      "total": "100",
+      "engagement": {
+        "last24": "10",
+        "last48": "30",
+        "greater48": "40",
+        "neverPosted": "15",
+        "neverSigned": "5"
+      }
+    },
+    "posts": {
+      "total": "200",
+      "last24": "15",
+      "last48": "60"
+    },
+    "backroom": {
+      "total": "4",
+      "last24": "2",
+      "last48": "1"
+    }
+  },
+  {
+    "id": "56d3ab5a-f448-471b-81fd-35d7736ab4e7",
+    "projectId": "7b7f0b39-cf98-4089-85a1-1d4c0db50987",
+    "isEvent": true,
+    "privateName": "Southwest Study B",
+    "publicName": "Southwest Flights",
+    "openTime": "2016-05-13T16:02:53Z",
+    "closeTime": "2017-02-25T06:44:05Z",
+    "type": 0,
+    "users": {
+      "total": "100",
+      "engagement": {
+        "last24": "10",
+        "last48": "30",
+        "greater48": "40",
+        "neverPosted": "15",
+        "neverSigned": "5"
+      }
+    },
+    "posts": {
+      "total": "200",
+      "last24": "15",
+      "last48": "60"
+    },
+    "backroom": {
+      "total": "4",
+      "last24": "2",
+      "last48": "1"
+    }
+  },
+  {
+    "id": "d69612fb-9c8b-4bda-b5f8-fe4de947a20a",
+    "projectId": "7b7f0b39-cf98-4089-85a1-1d4c0db50987",
+    "isEvent": true,
+    "privateName": "Southwest Study C",
+    "publicName": "Southwest Flights",
+    "openTime": "2016-05-15T04:52:47Z",
+    "closeTime": "2016-11-20T06:37:07Z",
+    "type": 0,
+    "users": {
+      "total": "100",
+      "engagement": {
+        "last24": "10",
+        "last48": "30",
+        "greater48": "40",
+        "neverPosted": "15",
+        "neverSigned": "5"
+      }
+    },
+    "posts": {
+      "total": "200",
+      "last24": "15",
+      "last48": "60"
+    },
+    "backroom": {
+      "total": "4",
+      "last24": "2",
+      "last48": "1"
+    }
+  },
+  {
+    "id": "bc38bb57-74a7-4b50-9157-d09b6dc1cba1",
+    "projectId": "7b7f0b39-cf98-4089-85a1-1d4c0db50987",
+    "isEvent": true,
+    "privateName": "Southwest Study D",
+    "publicName": "Southwest Flights",
+    "openTime": "2016-05-27T06:17:19Z",
+    "closeTime": "2016-10-12T08:31:29Z",
+    "type": 0,
+    "users": {
+      "total": "100",
+      "engagement": {
+        "last24": "10",
+        "last48": "30",
+        "greater48": "40",
+        "neverPosted": "15",
+        "neverSigned": "5"
+      }
+    },
+    "posts": {
+      "total": "200",
+      "last24": "15",
+      "last48": "60"
+    },
+    "backroom": {
+      "total": "4",
+      "last24": "2",
+      "last48": "1"
+    }
+  },
+  {
+    "id": "80a9b7e1-4bd4-4daa-a80f-b871f615f2f7",
+    "projectId": "7b7f0b39-cf98-4089-85a1-1d4c0db50987",
+    "isEvent": true,
+    "privateName": "Southwest Study E",
+    "publicName": "Southwest Flights",
+    "openTime": "2016-05-03T20:08:03Z",
+    "closeTime": "2016-12-30T01:16:21Z",
+    "type": 0,
+    "users": {
+      "total": "100",
+      "engagement": {
+        "last24": "10",
+        "last48": "30",
+        "greater48": "40",
+        "neverPosted": "15",
+        "neverSigned": "5"
+      }
+    },
+    "posts": {
+      "total": "200",
+      "last24": "15",
+      "last48": "60"
+    },
+    "backroom": {
+      "total": "4",
+      "last24": "2",
+      "last48": "1"
+    }
+  },
+  {
+    "id": "27383eb7-5453-469c-a136-598a034d085b",
+    "projectId": "7b7f0b39-cf98-4089-85a1-1d4c0db50987",
+    "isEvent": true,
+    "privateName": "Southwest Study F",
+    "publicName": "Southwest Flights",
+    "openTime": "2016-05-10T17:19:43Z",
+    "closeTime": "2016-11-02T18:42:10Z",
+    "type": 0,
+    "users": {
+      "total": "100",
+      "engagement": {
+        "last24": "10",
+        "last48": "30",
+        "greater48": "40",
+        "neverPosted": "15",
+        "neverSigned": "5"
+      }
+    },
+    "posts": {
+      "total": "200",
+      "last24": "15",
+      "last48": "60"
+    },
+    "backroom": {
+      "total": "4",
+      "last24": "2",
+      "last48": "1"
+    }
+  },
+  {
+    "id": "5ad58a7e-9f06-49e6-aa9e-f04664d7eab6",
+    "projectId": "1b5bb37f-9073-49fa-a106-77cd3e880987",
+    "isEvent": true,
+    "privateName": "Southwest Study A",
+    "publicName": "Southwest Flights",
+    "openTime": "2016-05-26T18:25:43.511Z",
+    "closeTime": "2016-10-31T18:25:43.511Z",
+    "type": 0,
+    "users": {
+      "total": "100",
+      "engagement": {
+        "last24": "10",
+        "last48": "30",
+        "greater48": "40",
+        "neverPosted": "15",
+        "neverSigned": "5"
+      }
+    },
+    "posts": {
+      "total": "200",
+      "last24": "15",
+      "last48": "60"
+    },
+    "backroom": {
+      "total": "4",
+      "last24": "2",
+      "last48": "1"
+    }
+  },
+  {
+    "id": "56d3ab5a-f448-471b-81fd-35d7736ab4e7",
+    "projectId": "1b5bb37f-9073-49fa-a106-77cd3e880987",
+    "isEvent": true,
+    "privateName": "Southwest Study B",
+    "publicName": "Southwest Flights",
+    "openTime": "2016-05-13T16:02:53Z",
+    "closeTime": "2017-02-25T06:44:05Z",
+    "type": 0,
+    "users": {
+      "total": "100",
+      "engagement": {
+        "last24": "10",
+        "last48": "30",
+        "greater48": "40",
+        "neverPosted": "15",
+        "neverSigned": "5"
+      }
+    },
+    "posts": {
+      "total": "200",
+      "last24": "15",
+      "last48": "60"
+    },
+    "backroom": {
+      "total": "4",
+      "last24": "2",
+      "last48": "1"
+    }
+  },
+  {
+    "id": "d69612fb-9c8b-4bda-b5f8-fe4de947a20a",
+    "projectId": "1b5bb37f-9073-49fa-a106-77cd3e880987",
+    "isEvent": true,
+    "privateName": "Southwest Study C",
+    "publicName": "Southwest Flights",
+    "openTime": "2016-05-15T04:52:47Z",
+    "closeTime": "2016-11-20T06:37:07Z",
+    "type": 0,
+    "users": {
+      "total": "100",
+      "engagement": {
+        "last24": "10",
+        "last48": "30",
+        "greater48": "40",
+        "neverPosted": "15",
+        "neverSigned": "5"
+      }
+    },
+    "posts": {
+      "total": "200",
+      "last24": "15",
+      "last48": "60"
+    },
+    "backroom": {
+      "total": "4",
+      "last24": "2",
+      "last48": "1"
+    }
+  },
+  {
+    "id": "bc38bb57-74a7-4b50-9157-d09b6dc1cba1",
+    "projectId": "1b5bb37f-9073-49fa-a106-77cd3e880987",
+    "isEvent": true,
+    "privateName": "Southwest Study D",
+    "publicName": "Southwest Flights",
+    "openTime": "2016-05-27T06:17:19Z",
+    "closeTime": "2016-10-12T08:31:29Z",
+    "type": 0,
+    "users": {
+      "total": "100",
+      "engagement": {
+        "last24": "10",
+        "last48": "30",
+        "greater48": "40",
+        "neverPosted": "15",
+        "neverSigned": "5"
+      }
+    },
+    "posts": {
+      "total": "200",
+      "last24": "15",
+      "last48": "60"
+    },
+    "backroom": {
+      "total": "4",
+      "last24": "2",
+      "last48": "1"
+    }
+  },
+  {
+    "id": "80a9b7e1-4bd4-4daa-a80f-b871f615f2f7",
+    "projectId": "1b5bb37f-9073-49fa-a106-77cd3e880987",
+    "isEvent": true,
+    "privateName": "Southwest Study E",
+    "publicName": "Southwest Flights",
+    "openTime": "2016-05-03T20:08:03Z",
+    "closeTime": "2016-12-30T01:16:21Z",
+    "type": 0,
+    "users": {
+      "total": "100",
+      "engagement": {
+        "last24": "10",
+        "last48": "30",
+        "greater48": "40",
+        "neverPosted": "15",
+        "neverSigned": "5"
+      }
+    },
+    "posts": {
+      "total": "200",
+      "last24": "15",
+      "last48": "60"
+    },
+    "backroom": {
+      "total": "4",
+      "last24": "2",
+      "last48": "1"
+    }
+  },
+  {
+    "id": "27383eb7-5453-469c-a136-598a034d085b",
+    "projectId": "1b5bb37f-9073-49fa-a106-77cd3e880987",
+    "isEvent": true,
+    "privateName": "Southwest Study F",
+    "publicName": "Southwest Flights",
+    "openTime": "2016-05-10T17:19:43Z",
+    "closeTime": "2016-11-02T18:42:10Z",
+    "type": 0,
+    "users": {
+      "total": "100",
+      "engagement": {
+        "last24": "10",
+        "last48": "30",
+        "greater48": "40",
+        "neverPosted": "15",
+        "neverSigned": "5"
+      }
+    },
+    "posts": {
+      "total": "200",
+      "last24": "15",
+      "last48": "60"
+    },
+    "backroom": {
+      "total": "4",
+      "last24": "2",
+      "last48": "1"
+    }
+  }
+]

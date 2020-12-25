@@ -1,0 +1,19 @@
+/*
+Global styles are ones which affect critical DOM elements or numerous DOM elements. These css rules
+often do not check element hierarchy. These rules often do pertain to standardizing elements'
+appearance or fixing browser-specific defects in a convenient, global way.
+ */
+
+button {
+  &:focus {
+    outline: none;
+  }
+}
+
+:focus {outline:none;}
+::-moz-focus-inner {border:0;}
+
+select:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 $gray;
+}

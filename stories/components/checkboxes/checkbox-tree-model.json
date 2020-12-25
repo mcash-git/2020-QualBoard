@@ -1,0 +1,34 @@
+[{
+  "text": "Parent 1",
+  "childNodes": [{
+    "text": "Leaf 1",
+    "value": 1
+  }, {
+    "text": "Parent 2",
+    "childNodes": [{
+      "text": "Leaf 2",
+      "value": 2
+    }, {
+      "text": "Leaf 3",
+      "value": 3
+    }]
+  }, {
+    "text": "Parent 3",
+    "childNodes": [{
+      "text": "Leaf 4",
+      "value": 4
+    }, {
+      "text": "Leaf 5",
+      "value": 5
+    }, {
+      "text": "Parent 2",
+      "childNodes": [{
+        "text": "Leaf 6",
+        "value": 6
+      }, {
+        "text": "Leaf 7",
+        "value": 7
+      }]
+    }]
+  }]
+}]

@@ -1,0 +1,122 @@
+<template>
+  <require from="researcher/components/individual-activity-schedule-form"></require>
+  <require from="shared/value-converters/date-format"></require>
+
+  <div class="title">
+    <i class="icon-schedule"></i>
+    <span>Activity Schedule</span>
+  </div>
+  <div class="body">
+    <div
+      id="schedule-saved"
+      class="form-saved"
+      show.bind="!isEditing"
+    >
+      <div class="form-group">
+        <div class="label">Time Zone:</div>
+        <div>${ia.timeZone.text}</div>
+      </div>
+
+      <div class="settings-schedule-section">
+        <div class="left">
+          <div class="label">Open Date:</div>
+          <div>${ia.open.dateTimeText | dateTimeFormat:'M/D/YYYY'}</div>
+        </div>
+        <div>
+          <div class="label">Open Time:</div>
+          <div>${ia.open.dateTimeText | dateTimeFormat:'h:mm A'}</div>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="settings-schedule-section">
+        <div class="left">
+          <div class="label">Close Date:</div>
+          <div>${ia.close.dateTimeText | dateTimeFormat:'M/D/YYYY'}</div>
+        </div>
+        <div>
+          <div class="label">Close Time:</div>
+          <div>${ia.close.dateTimeText | dateTimeFormat:'h:mm A'}</div>
+        </div>
+        <div class="clear"></div>
+      </div>
+
+      <div class="form-group">
+        <div class="label">Type:</div>
+        <div>${ia.repeat.friendly}</div>
+      </div>
+
+      <div class="form-group-container" if.bind="ia.repeatUnit !== 0">
+        <div class="form-group">
+          <div class="label">Minimum:</div>
+          <div>${ia.repeatMinimum || 'Not Set'}</div>
+        </div>
+        <div class="form-group">
+          <div class="label">Maximum:</div>
+          <div>${ia.repeatMaximum || 'No Limit'}</div>
+        </div>
+      </div>
+
+      <div class="form-group" if.bind="shouldShowRepetitions">
+        <div class="label">Repetitions:</div>
+        <div>${ia.numberOfRepetitions}</div>
+      </div>
+    </div>
+
+    <div
+      id="schedule-edit"
+      class="form-edit c-modal-body"
+      show.bind="isEditing"
+    >
+      <individual-activity-schedule-form
+        view-model.ref="scheduleFormViewModel"
+        total-response-count.bind="ia.totalResponseCount"
+        open.bind="edit.open"
+        open-date-property="edit.open.date"
+        open-time-property="edit.open.time"
+        close.bind="edit.close"
+        close-date-property="edit.close.date"
+        close-time-property="edit.close.time"
+        time-zone.bind="edit.timeZone"
+        time-zone-property="edit.timeZone"
+        repeat-minimum.bind="edit.repeatMinimum"
+        repeat-minimum-property="edit.repeatMinimum"
+        repeat-maximum.bind="edit.repeatMaximum"
+        repeat-maximum-property="edit.repeatMaximum"
+        repeat-unit.bind="edit.repeat"
+        number-of-repetitions.bind="edit.numberOfRepetitions"
+        number-of-repetitions-property="edit.numberOfRepetitions"
+        validator.bind="validator"
+        containerless
+        should-show-duration-summary.bind="false"
+      ></individual-activity-schedule-form>
+    </div>
+  </div>
+  <div class="duration-summary">
+    <span class="label">Activity Duration:</span>
+    <div class="duration-summary-value">${numDaysText}</div>
+    <div class="clear"></div>
+  </div>
+  <div class="edit">
+    <button
+      class="btn btn-primary btn-sm btn-form-edit"
+      if.bind="!ia.editing"
+      click.delegate="editClick()"
+    >
+      Edit
+    </button>
+    <button
+      class="btn btn-sm btn-outline-secondary btn-form-save"
+      if.bind="ia.editing === 'schedule'"
+      click.delegate="cancelClick()"
+    >
+      Cancel
+    </button>
+    <button
+      class="btn btn-sm btn-primary btn-form-save"
+      if.bind="ia.editing === 'schedule'"
+      click.delegate="saveClick()"
+    >
+      Save
+    </button>
+  </div>
+</template>

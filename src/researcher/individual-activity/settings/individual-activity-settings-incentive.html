@@ -1,0 +1,48 @@
+<template>
+  <div class="title">
+    <i class="icon-incentive"></i>
+    <span>Activity Incentive</span>
+  </div>
+  <div class="body">
+    <div class="form-saved" show.bind="!isEditing">
+      <div class="form-group">
+        <div class="label">Incentive Amount:</div>
+        <div>$${ia.incentiveAmount}</div>
+      </div>
+    </div>
+    <div class="form-edit" show.bind="isEditing">
+      <div class="form-group" validation-state="validator.bind: validator; property: edit.incentiveAmount">
+          <div class="label">Incentive Amount:</div>
+        <input type="text"
+               class="form-control"
+               id="incentive-amount"
+               validate="validator.bind: validator; property: edit.incentiveAmount"
+               value.bind="edit.incentiveAmount"
+               placeholder="Incentive Amount">
+      </div>
+    </div>
+  </div>
+  <div class="edit">
+    <button
+      class="btn btn-primary btn-sm btn-form-edit"
+      click.delegate="editClick()"
+      if.bind="!ia.editing"
+    >
+      Edit
+    </button>
+    <button
+      class="btn btn-sm btn-outline-secondary btn-form-save"
+      if.bind="isEditing"
+      click.delegate="cancelClick()"
+    >
+      Cancel
+    </button>
+    <button
+      class="btn btn-sm btn-primary btn-form-save"
+      if.bind="isEditing"
+      click.delegate="saveClick()"
+    >
+      Save
+    </button>
+  </div>
+</template>

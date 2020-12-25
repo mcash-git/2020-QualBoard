@@ -1,0 +1,98 @@
+<template>
+  <div class="card">
+    <!--Checkbox that allows you to select multiple users. -->
+    <div class="checker-container">
+      <div class="checker">
+        <label class="custom-control custom-checkbox">
+          <input class="custom-control-input" type="checkbox" checked.bind="selectedUsers" model.bind="user">
+          <span class="custom-control-indicator"></span>
+
+        </label>
+      </div>
+    </div>
+    <div class="card-user-row last-48" with.bind="user" click.delegate="$parent.handleClick()">
+      <!--Card Header-->
+      <div class="card-header">
+        <div class="user">
+          <div class="disabled-icon">
+            <i class="icon-ion-locked"></i>
+          </div>
+          <div class="avatar">
+            <avatar user-id.bind="userId" size.bind="50"></avatar>
+          </div>
+        </div>
+
+        <div class="proj-user-info">
+          <div class="user-name">
+            <strong class="proj-user-info-title">Display Name:</strong>
+            <span>${displayName}</span>
+          </div>
+
+          <div class="user-email">
+            <strong class="proj-user-info-title">Email:</strong>
+            <span>${email}</span>
+          </div>
+        </div>
+
+      </div>
+      <!--Stats about the users engagement in the project or event-->
+      <div class="user-stats">
+        <div class="user-stats-container">
+          <!--Required Activities-->
+          <div class="proj-user-stat">
+            <div class="user-stat-row">
+              <div class="truncate-ellipsis">
+                <h5 class="user-stat-title">
+                  Required Activities
+                </h5>
+              </div>
+            </div>
+            <div class="user-stat-row">
+              <div class="stat-text">
+                <!--${engagement.participation.total || '-'}% / ${engagement.participation.required-->
+                <!--||-->
+                <!--'-'}%-->
+                ${completionPercentage}%
+              </div>
+            </div>
+            <div class="user-stat-row footer">
+              &nbsp;
+            </div>
+          </div>
+          <!--Group Tags Stat/Toggle-->
+          <!--The storted class is applied to a stat that has been sorted/ordered-->
+          <div class="proj-user-stat stat-groups sorted">
+            <div class="user-stat-row">
+              <div class="truncate-ellipsis">
+                <h5 class="user-stat-title">
+                  Groups
+                </h5>
+              </div>
+            </div>
+            <div class="user-stat-row">
+              <div class="stat-text">${groupTags.length}</div>
+            </div>
+            <div class="user-stat-row footer">
+              <div class="btn-stat-toggle">${groupTags.length > 0 ? 'view' : 'add'}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="user-groups-container">
+      <div class="proj-user-stat groups-detail">
+        <h5 class="user-stat-title">
+          Groups
+        </h5>
+        <!--Actual User Groups List-->
+        <!--<div class="group-tags">${groups || '-'}</div>-->
+        <div class="group-tags">
+          <div class="form-group">
+            <input type="text" class="form-control form-control-sm" id="exampleInputPassword1"
+                   placeholder="Tag this user as part of a group">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

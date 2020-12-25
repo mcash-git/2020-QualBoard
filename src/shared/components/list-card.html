@@ -1,0 +1,24 @@
+<template>
+  <require from="./list-card-stat-item"></require>
+  <div class="list-card" with.bind="cardModel">
+    <div class="list-card-icon">
+      <div class="circle-border-icon">
+        <i class="${iconClass}"></i>
+      </div>
+    </div>
+    <div class="list-card-title-container">
+      <div class="list-card-title">${title}</div>
+      <div class="list-card-subtitle">${subtitle}</div>
+    </div>
+    <div class="list-card-stats">
+      <list-card-stat-item
+        repeat.for="item of detailItems"
+        item.bind="item"
+      >
+      </list-card-stat-item>
+    </div>
+    <div class="list-card-button-container">
+      <compose view-model.bind="button.viewModel" model.bind="button"></compose>
+    </div>
+  </div>
+</template>

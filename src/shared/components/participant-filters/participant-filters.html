@@ -1,0 +1,50 @@
+<template>
+  <require from="./filter-dates"></require>
+  <require from="./filter-media-types"></require>
+  <require from="./filter-tasks"></require>
+  <require from="./filter-logic-engine"></require>
+  <section class="sidebar-header">
+    <div class="sidebar-header-right">
+      <h5 class="title">Select Filters</h5>
+      <button class="btn btn-xs btn-link btn-default" click.delegate="clear()"><i class="btn-icon icon-clear_all"></i>clear
+        filters
+      </button>
+    </div>
+  </section>
+  <div class="outer-content">
+    <div class="inner-content-div hide-scroll">
+      <div class="filter-accordion">
+        <filter-dates class="card"
+                      title="Date Uploaded"
+                      validator.bind="validator"
+                      placeholder-start="After..."
+                      placeholder-end="Before..."
+                      label-start="Filter by date uploaded:"
+                      label-end="and:"
+                      expanded-session-storage-key="${clientStorageKeyBase}:is-dates-expanded"
+                      start-date-validation-property="filterModel.createdAfter"
+                      end-date-validation-property="filterModel.createdBefore"
+                      start-date.bind="filterModel.createdAfter"
+                      end-date.bind="filterModel.createdBefore">
+        </filter-dates>
+        <filter-media-types class="card"
+                            asset-types.bind="filterModel.assetTypes"
+                            expanded-session-storage-key="${clientStorageKeyBase}:is-media-types-expanded">
+        </filter-media-types>
+        <filter-tasks class="card"
+                      task-ids.bind="filterModel.taskIds"
+                      individual-activities.bind="individualActivities"
+                      expanded-session-storage-key="${clientStorageKeyBase}:is-tasks-expanded">
+        </filter-tasks>
+        <filter-logic-engine class="card"
+                             rules.bind="filterModel.projectUserLogicRules"
+                             available-group-tags.bind="availableGroupTags"
+                             logic-engine-rules-changed.delegate="signalUpdatedFilters()"
+                             expanded-session-storage-key="${clientStorageKeyBase}:is-logic-engine-expanded"
+                             participants.bind="participants">
+        </filter-logic-engine>
+      </div>
+    </div>
+  </div>
+
+</template>

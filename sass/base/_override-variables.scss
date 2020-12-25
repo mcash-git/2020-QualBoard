@@ -1,0 +1,10 @@
+$enable-rounded:            false !default;
+$btn-border-radius-custom:  2px;
+
+// Tables
+//
+// Customizes the `.table` component with basic values, each used across all table variations.
+$table-bg:                      #fff !default;
+
+// Pixel value used to responsively scale all typography. Applied to the `<html>` element.
+$font-size-base:             0.875rem !default;

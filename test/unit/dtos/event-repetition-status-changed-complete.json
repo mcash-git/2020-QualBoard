@@ -1,0 +1,10 @@
+{
+  "id": "individual-activity",
+  "issuingUserId": "participant",
+  "repetitionId": "entry-new",
+  "projectId": "project",
+  "userId": "participant",
+  "status": 3,
+  "eventType": 0,
+  "completedOn": null
+}

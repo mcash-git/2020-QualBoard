@@ -1,0 +1,109 @@
+<template>
+  <form>
+    <div class="custom-modal message-modal">
+      <div class="modal-close" click.delegate="modalController.cancel()">
+        <i class="icon-close"></i>
+      </div>
+      <!-- TODO:  Evalute the need for this header bar now that the button has been moved: -->
+      <!--Message Button Bar-->
+      <div class="c-modal-title">
+        <h5>New Message</h5>
+        <div class="button-container"></div>
+      </div>
+      <div class="c-modal-body">
+        <div class="message-config-section">
+          <div class="message-config-container from">
+            <span class="message-label">From:</span>
+            <div class="message-input-wrapper">
+              <select class="form-control form-control-sm" value.bind="fromDisplay">
+                <option model.bind="defaultSenderQualboard">QualBoard</option>
+                <option repeat.for="mod of moderators" model.bind="mod">
+                  ${mod.firstName} ${mod.lastName}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="message-config-container to">
+            <span class="message-label">To:</span>
+            <div class="message-input">
+              <tag-input
+                if.bind="allUsers.length > 0"
+                source-items.bind="allUsers"
+                tag-view-model="shared/components/user-tag-input-item"
+                autocomplete-search-fields.one-way="['displayName', 'firstName', 'lastName', 'email']"
+                autocomplete-sort-field="displayName"
+                autocomplete-min-chars="0"
+                autocomplete-sort-direction="asc"
+                should-allow-add.bind="false"
+                placeholder-text="Choose some users..."
+                value.bind="users"
+                mini.bind="true"
+                display-property="displayName"
+              ></tag-input></div>
+          </div>
+          <div
+            class="message-config-container subject-container"
+            click.delegate="subjectElement.focus()"
+          >
+            <span class="message-label">Subject:</span>
+            <input
+              ref="subjectElement"
+              type="text"
+              class="message-input"
+              value.bind="model.subject"
+            />
+          </div>
+          <div class="message-config-container">
+            <span class="message-label">Template:</span>
+            <div class="message-input-wrapper">
+              <select
+                class="form-control form-control-sm"
+                value.bind="template"
+                disabled.bind="!templates || templates.length === 0"
+              >
+                <option model.bind="defaultTemplate">(none)</option>
+                <option repeat.for="template of templates" model.bind="template">
+                  ${template.title}
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="message-body">
+          <div class="tabs-title-nav">
+            <div class="title-nav-right">
+              <ul class="tabs">
+                <li class="nav-item${selectedTab === tab ? ' open' : ''}" repeat.for="tab of tabs">
+                  <a class="nav-link" click.delegate="selectTab(tab)">${tab}</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="form-group" show.bind="selectedTab === 'Write'">
+            <froala value.two-way="messageText"
+                    config.bind="{ placeholderText: 'Enter your message here', height: 400 }">
+            </froala>
+          </div>
+          <div class="message-preview" show.bind="selectedTab === 'Preview'">
+            <iframe srcdoc.one-way="previewHtml"></iframe>
+          </div>
+        </div>
+      </div>
+      <div class="c-modal-footer">
+        <label class="custom-control custom-checkbox">
+          <input type="checkbox" class="custom-control-input" checked.bind="model.addLogin">
+          <span class="custom-control-indicator"></span>
+          <span
+            class="custom-control-description truncate-ellipsis"><span>Append user login instructions</span></span>
+        </label>
+        <button click.delegate="modalController.cancel()" class="btn btn-lg btn-outline-secondary">
+          <span>Cancel</span>
+        </button>
+        <button click.delegate="send()" class="btn btn-lg btn-primary send">
+          <i class="btn-icon icon-send"></i>
+          <span>Send</span>
+        </button>
+      </div>
+    </div>
+  </form>
+</template>

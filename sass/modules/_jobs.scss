@@ -1,0 +1,179 @@
+.job-title {
+  @extend %truncate-text;
+  color: $gray;
+  display: inline-block;
+  width: 225px;
+  font-size: 12px;
+  line-height: 1;
+  min-height: 20px;
+  padding-top: 7px;
+}
+
+.jobs {
+  button {
+    outline: none;
+    border: none;
+    cursor: pointer;
+    background-color: #fff;
+
+  }
+
+  .badge {
+    position: absolute;
+    bottom: 19px;
+    right: 80px;
+    background-color: #0074d9;
+    &.hidden {
+      display: none;
+    }
+  }
+
+  .icon {
+    font-size: 1.5rem !important;
+  }
+
+  .nav-link {
+    padding: 0.6rem !important;
+    position: relative;
+
+    .downloads-text {
+      font-weight: 300;
+      padding-left: .1875rem;
+    }
+  }
+  @include media-breakpoint-down(sm) {
+    .downloads-text {
+      display: none;
+    }
+  }
+}
+
+.popper {
+  width: 274px;
+
+  .popper-header {
+    background-color: #fff;
+    padding-left: 10px;
+    border-bottom: 0;
+    margin-bottom: -10px;
+
+    .title {
+      color: $gray;
+      font-size: .75rem;
+      font-weight: 600;
+      border-bottom: 1px solid rgba(0,0,0,0.15);
+      padding-bottom: 5px;
+    }
+  }
+
+  .popper-body {
+    padding-left: 10px;
+
+    .no-jobs {
+      text-align: center;
+      font-size: 12px;
+      line-height: 17px;
+      color: $gray-light;
+      padding-bottom: 10px;
+      padding-top: 5px;
+    }
+
+    .has-jobs {
+      .header {
+        background-color: #eff8fb;
+        font-size: 12px;
+        color: rgba(0,0,0,0.46);
+        padding: 2px 5px;
+      }
+
+      .job-running-line {
+        color: $gray;
+        font-size: 12px;
+        line-height: 17px;
+
+        .job-title {
+          width: 172px;
+          margin-right: 5px;
+          padding-bottom: 4px;
+        }
+
+        .job-progress {
+          display: inline-block;
+          padding-bottom: 11px;
+          width: 70px;
+        }
+
+        .cancel {
+          display: inline-block;
+          padding-left: 5px;
+          font-size: 19px;
+
+          .icon {
+            top: 3px;
+            left: 2px;
+            position: relative;
+            color: $gray-lighter;
+          }
+        }
+      }
+
+      .job-error {
+        line-height: 17px;
+        .error {
+          display: inline-block;
+          font-size: 19px;
+          .icon {
+            top: 3px;
+            left: 2px;
+            position: relative;
+            color: #E54F4C;
+          }
+        }
+      }
+
+      .job-success {
+        line-height: 17px;
+        .success {
+          display: inline-block;
+          font-size: 19px;
+          .icon {
+            top: 3px;
+            left: 2px;
+            position: relative;
+            color: #5FA920;
+          }
+        }
+      }
+
+      .job-download {
+        @extend %unbutton;
+        width: 100%;
+        display: flex;
+        text-align: left;
+        justify-content: space-between;
+        padding: 0 5px;
+        cursor: pointer;
+
+        .download {
+          display: inline-block;
+          font-size: 19px;
+          .icon {
+            top: 3px;
+            left: 2px;
+            position: relative;
+            color: $new-accent-1;
+          }
+        }
+        &:hover {
+          background-color: rgba(0,0,0,.05);
+        }
+
+        &:active {
+          background-color: rgba(0,0,0,.1);
+        }
+      }
+    }
+  }
+}
+
+

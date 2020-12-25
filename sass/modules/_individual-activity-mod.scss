@@ -1,0 +1,418 @@
+.ia-moderator {
+
+  > :last-child {
+    margin-bottom: 60vh;
+  }
+
+  .event-item {
+    @extend .card-hover;
+  }
+}
+
+
+.ia-mod.task-list {
+
+  .event-item:not(.notice) {
+    cursor: pointer;
+  }
+
+  .item-header {
+    //border-bottom: 0;
+  }
+
+  .item-content {
+
+    p {
+      margin-bottom: 0;
+    }
+  }
+
+  .event-item-icon {
+    //margin-left: -3rem;
+  }
+  .event-options-bar {
+    display: flex;
+
+      .response-count.badge {
+        position: absolute;
+        top: -8px;
+        right: -10px;
+      }
+
+    a {
+      position: relative;
+      display: flex;
+      padding: 0 10px;
+      cursor: pointer;
+      //border-right: 1px solid darken($card-border-color, 5%);
+
+      &:last-child {
+        border-right: 0;
+        padding-right: 0;
+      }
+
+      i {
+        font-size: 1.5rem;
+
+        &.icon-ion-ios-chatbubble {
+          font-size: 1.3rem;
+        }
+      }
+    }
+  }
+
+  // This is the area of each task that contains responses from each respondent. This block is collapsable
+  .activity-response-container {
+    @extend .flex-column;
+    cursor: default;
+    transition: all .2s ease-in-out;
+    padding: 0;
+    height: auto;
+    overflow: hidden;
+  }
+
+  // The response block contains grouped responses from one respondent. If they complete the task more than one time, the responses are grouped in this block
+  .activity-response-block {
+
+    > li {
+      list-style: none;
+      border-bottom: 1px solid $separator-color;
+      position: relative;
+      margin: 0 1rem;
+      padding: .5rem 0;
+
+      &:before {
+        content: '';
+        position: absolute;
+        width: 6px;
+        height: calc(100% - 50px);
+        background-color: rgba(0,0,0,.2);
+        top: 40px;
+        left: 15px;
+      }
+
+    }
+
+    &:last-of-type > li {
+      margin-bottom: 0;
+      //padding-bottom: 0;
+      border-bottom: 0;
+    }
+  }
+
+  .response-title {
+    transition: all .2s ease-in-out;
+    display: flex;
+    justify-content: space-between;
+    background-color: lighten($brand-primary, 53%);
+    position: relative;
+    text-transform: uppercase;
+    font-weight: 300;
+    padding: .5rem 1rem;
+    margin-bottom: 0;
+    color: $link-color;
+    font-size: .75rem;
+    border-left: 2px solid transparent;
+    border-right: 2px solid transparent;
+
+    div {
+      display: flex;
+      align-items: center;
+    }
+
+    i {
+      font-size: 1rem;
+      padding-right: .2rem;
+    }
+  }
+
+  // This is the header of the block of responses belonging to one user on a task
+  // Contains the users avatar name and a toggle link that details how many times this user completed the activity
+  .user-response-header {
+    @extend.flex-row;
+    transition: all .2s ease-in-out;
+    font-size: .875rem;
+    cursor: pointer;
+    justify-content: space-between;
+    align-items: center;
+    //padding: .5rem;
+    position: relative;
+    color: rgba(0, 0, 0, 0.5);
+
+    &:hover {
+      color: $link-hover-color;
+
+    }
+
+    .complete-marker {
+      position: absolute;
+      top: .1rem;
+      left: -1.5rem;
+      font-size: 1.2rem;
+      color: #ffffff;
+    }
+
+    .avatar {
+      @include avatar-size(35px, .5rem);
+    }
+
+    .user {
+      @extend.flex-row;
+      align-items: center;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .user-completes {
+      display: flex;
+      align-items: center;
+      font-size: .75rem;
+
+      i {
+        font-size: 1.1rem;
+      }
+    }
+
+    .completes, .posts {
+      display: flex;
+      align-items: center;
+      padding-right: 10px;
+
+      i {
+        padding-right: 5px;
+      }
+    }
+    .user-completes-toggle i {
+      font-size: 1.3rem;
+    }
+  }
+
+  .user-completes-toggle {
+    display: flex;
+    align-items: center;
+    position: relative;
+    color: $link-color;
+
+    i {
+      padding-right: 5px;
+    }
+  }
+
+
+  // The ul that contains one users task responses
+  .user-response-list {
+    @extend.card;
+
+    height: 0px;
+    padding-left: 3rem;
+    //padding-right: 1rem;
+    margin-bottom: .5rem;
+    border: 0;
+    border-radius: 0;
+    background-color: transparent;
+
+    &.visible {
+      height: auto;
+      display: block;
+
+    }
+  }
+
+  moderator-view-task-response {
+    position: relative;
+    display: block;
+    //background-color: rgba(0,0,0,.02);
+    //border: 1px solid rgba(0,0,0,.05);
+    margin-bottom: 1rem;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .rep-completed {
+      position: absolute;
+      background-color: #fff;
+      color: #96C03B;
+      font-size: 30px;
+      color: $brand-success;
+      left: -2.7rem;
+      top: .6rem;
+    }
+
+    .table-wrapper {
+      padding-bottom: .5rem;
+    }
+  }
+
+  // A users response
+  .user-response {
+
+    .user-resp-actions {
+      padding-bottom: 0;
+    }
+
+    > li {
+      transition: all .2s ease-in-out;
+      @extend .flex-column;
+      border-bottom: 1px solid $separator-color;
+      padding: .5rem;
+      position: relative;
+      border-radius: $border-radius;
+      background-color: rgba(0,0,0,.02);
+      border: $border-gray-light;
+      padding-left: 3rem;
+
+      .ptp-comment .comment-body {
+        &:after {
+          border-right-color: #fff;
+        }
+      }
+    }
+
+    &:last-of-type > li {
+      margin-bottom: 0px;
+      //border-bottom: 0;
+
+      .user-resp-actions {
+        border-bottom: 0;
+        padding-bottom: 0;
+      }
+    }
+  }
+
+  .response-number {
+    position: absolute;
+    left: -24px;
+    background: gray;
+    border-radius: 50px;
+    height: 20px;
+    width: 20px;
+    display: flex;
+    justify-content: center;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    align-items: center;
+  }
+
+  // Date and time of the response as well as how many likes the response has.
+  .user-resp-info {
+    @extend.flex-row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: .75rem;
+    font-weight: 600;
+
+    .user {
+      display: flex;
+      align-items: center;
+    }
+
+    .avatar {
+      @include avatar-size(30px, .5rem);
+      margin-left: -2.5rem;
+    }
+  }
+
+  //.user-resp-left .user-resp-right {
+  //  display: flex;
+  //  align-items: center;
+  //}
+
+  .resp-reply-info {
+    padding-left: .5rem;
+  }
+
+
+  // Response text
+  .user-resp-text {
+    position: relative;
+    font-weight: 400;
+    font-size: .875rem;
+    border-radius: $border-radius;
+
+    i {
+      position: absolute;
+      font-size: 1.3rem;
+      top: 2px;
+      left: 5px;
+      color: rgba(0,0,0,.4);
+    }
+  }
+
+  .post-atributes {
+    display: flex;
+    padding: 0px;
+    list-style: none;
+    color: rgba(0,0,0,.5);
+
+    li {
+      padding: 0 .5rem;
+    }
+
+    a {
+      display: flex;
+      align-items: center;
+    }
+
+    i {
+      font-size: 1rem;
+
+      &.icon-noun-globe {
+        font-size: .875rem;
+      }
+    }
+
+    span {
+      padding-left: 5px;
+    }
+  }
+
+  .post-btns {
+    display: flex;
+    padding: 0px;
+    list-style: none;
+  }
+
+
+  // Styles for MCMA Options
+  .mcma-options-list {
+
+  }
+
+  //Mod Styles for Matrix Tables
+
+    .custom-control {
+      //padding: .1rem .2rem;
+
+    .custom-control-indicator {
+        width: 1rem;
+        height: 1rem;
+      }
+    }
+
+}
+
+.individual-activity-settings {
+  .inner-content-div {
+    height: calc(100% - 95px);
+  }
+}
+
+
+//.highlight-throb {
+//  animation: highlightAndThrob 1s infinite;
+//}
+//
+//@keyframes highlightAndThrob {
+//  0%, 100% {
+//    box-shadow: none;
+//  }
+//
+//  50% {
+//    box-shadow: 0px 0px 3px 4px #00aaff;
+//  }
+//
+//}

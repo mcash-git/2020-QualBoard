@@ -1,0 +1,6 @@
+<template bindable="moderator">
+  <div class="avatar">
+    <avatar size="22" user-id.bind="moderator.userId"></avatar>
+  </div>
+  <span class="moderator-name">&nbsp;${moderator.displayName || '(n/a)'}</span>
+</template>

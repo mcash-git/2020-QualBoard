@@ -1,0 +1,221 @@
+@import '../../base/custom-variables.scss';
+@import "../../base/QB4-variables";
+@import '../../mixins/mixins.scss';
+@import '../../base/custom-mixins.scss';
+@import '../../base/custom-placeholders.scss';
+
+$ptp-bg: #FCFCFC;
+$response-header-height: 36px;
+$response-comment-border-color: rgba(0,0,0,.14);
+
+.prompt {
+  // grid
+  display: grid;
+  grid-template-columns: minmax(35px, 35px) 1fr;
+  grid-gap: 5px;
+
+  // overall
+  color: $gray;
+  border: 1px solid rgba(0,0,0,.19);
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.3);
+  padding: 0.5rem;
+  background-color: #fff;
+
+  .prompt-header {
+   padding: 5px 0; // because icon is a tad taller than content
+  }
+
+  .media-items-wrapper,
+  .mcma-prompt-wrapper,
+  .matrix-wrapper,
+  .prompt-response-content,
+  .response-buttons,
+  .prompt-comments {
+    grid-column: 2/3;
+  }
+
+  .prompt-response-header {
+    grid-column: 1/3;
+
+    margin-left: -12px;
+    margin-right: -8px;
+  }
+
+  .prompt-response-content {
+    padding-top: 2px;
+    font-size: 12px;
+  }
+}
+
+// TODO: I didn't wire up resposne but I am guessing these
+// are going to go just like above.
+.prompt-response-header {
+  background-color: #EFF7E9;
+  height: $response-header-height;
+
+  .avatar {
+    margin-right: .25rem;
+  }
+}
+
+.prompt-response-header-label {
+  @include arrowWithTail('right', $dark-green, $response-header-height);
+  height: 100%;
+  display: inline-flex;
+  filter: drop-shadow(0px 1px 1px rgba(0, 0, 0, 0.35));
+  font-weight: 600;
+  padding-left: .25rem;
+  padding-right: .25rem;
+  align-items: center;
+
+  .label-display-name, .label-response-date {
+    @extend %truncate-text;
+    width: 140px;
+  }
+
+  .label-display-name {
+    font-size: .75rem;
+    line-height: 17px;
+  }
+
+  .label-response-date {
+    font-size: .625rem;
+    line-height: 14px;
+  }
+}
+
+.response-comment {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+
+  &.followup {
+    .response-comment-content {
+      &:before {
+        border-right-color: #986dad;
+      }
+
+      &:after {
+        border-right-color: $mod-purple;
+      }
+    }
+
+    .response-comment-header::after, .response-comment-reply-to::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: $mod-purple;
+      height: 100%;
+      width: 6px;
+      border-top-left-radius: 6px;
+      border-bottom-left-radius: 6px;
+    }
+  }
+
+  &.user-is-responding {
+    .response-comment-content {
+      background-color: $reply-answer-bg;
+
+      &:after {
+        border-right-color: $reply-answer-bg;
+      }
+    }
+  }
+
+  .avatar-wrapper {
+    padding-top: 4px;
+  }
+}
+
+.response-comment-content {
+  position: relative;
+  margin-left: 12px;
+  border-radius: 6px;
+  padding: .3rem .3rem .3rem 1rem;
+  border: 1px solid $response-comment-border-color;
+  color: rgba(0, 0, 0, 0.53);
+  background-color: $ptp-bg;
+  font-size: .75rem;
+  flex: 1;
+
+  &:before {
+    content: '';
+    position: absolute;
+    left: -11px;
+    top: 9px;
+    width: 0;
+    height: 0;
+    border: 0 solid transparent;
+    border-top-width: 10px;
+    border-bottom-width: 10px;
+    border-right: 11px solid rgba(0,0,0,.18);
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    left: -10px;
+    top: 9px;
+    width: 0;
+    height: 0;
+    border: 0 solid transparent;
+    border-top-width: 10px;
+    border-bottom-width: 10px;
+    border-right: 11px solid $ptp-bg;
+  }
+
+  &.user-is-responding {
+    background-color: $reply-answer-bg;
+  }
+}
+
+.response-comment-header {
+  font-weight: 600;
+
+  .label-response-date {
+    margin-left: 1rem;
+  }
+}
+
+.matrix-wrapper {
+  margin-bottom: 8px;
+
+  // HACK:  Right now, the table cells are slightly out of alignment; this doesn't quite
+  // fix it, but it at least ensures a bottom border at the end of the table.
+  // REMOVE THIS WHEN FIXING THE OFF-ALIGNMENT OF THE TABLE CELLS IN MATRIX TASKS
+  padding-bottom: 1px;
+}
+
+.response-comment-reply-to {
+  display: flex;
+  align-items: center;
+  margin-bottom: .5rem;
+
+  & > * {
+    margin-right: .25rem;
+  }
+
+  .reply-to {
+    font-weight: 600;
+    margin-right: .75rem;
+  }
+
+  .icon {
+    font-size: 1.125rem;
+  }
+}
+
+.reply-buttons {
+  display: flex;
+  justify-content: flex-end;
+  margin: .5rem 0;
+
+  .btn {
+    margin-left: .5rem;
+  }
+}
+
+.top-level-comment-wrapper > .response-comment:not(:first-child) {
+  margin-left: 24px;
+}

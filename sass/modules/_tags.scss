@@ -1,0 +1,367 @@
+.Select.Select--multi .Select-control {
+  display: flex;
+  align-items: center;
+  height: auto;
+
+  .Select-multi-value-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+    min-height: 37px;
+    max-width: calc(100% - 25px);
+
+    .Select-input {
+      height: auto;
+    }
+  }
+
+  &.has-value {
+    .Select-multi-value-wrapper {
+      max-width: calc(100% - 50px);
+    }
+  }
+}
+
+.group-tag {
+  display: inline-flex;
+  margin-top: 8px;
+  margin-left: 5px;
+  align-items: center;
+  justify-content: center;
+  background-color: $gray-lightest;
+  padding-bottom: 2px;
+  border: $border-gray-light;
+  border-radius: 50px;
+  color: $gray;
+  position: relative;
+  height: 22px;
+  max-width: 100%;
+}
+
+.Select-menu .group-tag {
+  margin-top: 0;
+  margin-left: 0;
+}
+
+.Select-option.group-tag-option:not(:first-child) {
+  border-top: 1px solid rgba(0,0,0,0.1);
+}
+
+.group-tag-color {
+  display: inline-block;
+  padding: 0 .25rem;
+  position: relative;
+  top: 4px;
+
+  .icon-label {
+    font-size: 1.1rem;
+    color: $accent-3;
+  }
+}
+
+.group-tag-name {
+  @extend %truncate-text;
+  display: inline-block;
+  padding-right: 6px;
+  position: relative;
+  top: 1px;
+}
+
+@-moz-document url-prefix() {
+  .group-tag {
+    padding-bottom: 3px;
+  }
+}
+
+.icon-btn.group-tag-remove-button {
+  padding-right: 0;
+  padding-left: 0;
+
+  .icon-close {
+    color: $gray;
+    border-left: 1px solid rgba(0,0,0,.3);
+    padding-left: 3px;
+    position: relative;
+    top: 2px;
+  }
+}
+
+.Select-option.group-tag-option {
+  @extend %unbutton;
+  display: flex;
+  width: 100%;
+  text-align: left;
+}
+
+tag-input {
+  width: 100%;
+
+  .tag-input-wrapper.mini {
+    height: 29px;
+
+    &.has-focus {
+      height: auto;
+      .tag-input-tags {
+        height: auto;
+        overflow: visible;
+      }
+    }
+
+    &.has-tags {
+      .tag-input-text {
+        top: -2px;
+      }
+    }
+
+    .tag-input-tags:not(.tag-input-summary) {
+      top: -1px;
+      margin-top: 0;
+      height: 100%;
+      overflow: hidden;
+
+      .tag-input-tag {
+
+        &.user {
+          height: 22px;
+
+          .avatar {
+
+            img {
+              left: 2px;
+              top: 2px;
+              width: 16px;
+              height: 16px;
+            }
+          }
+
+          .avatar ~ .tag-input-tag-content {
+            margin-left: 18px;
+          }
+        }
+
+        .tag-input-color {
+          width: 0.9rem;
+
+          i {
+            font-size: 0.75rem;
+            top: 0;
+          }
+        }
+
+        .tag-input-tag-content {
+          font-size: 0.75rem;
+        }
+
+        .tag-input-tag-remove-button {
+          font-size: 0.75rem;
+        }
+      }
+    }
+
+    .tag-input-placeholder-text {
+      top: 4px;
+    }
+
+    .tag-input-text {
+      height: 20px;
+      font-size: 0.8rem;
+      position: relative;
+      top: 4px;
+    }
+  }
+}
+
+.tag-input-wrapper {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0 0.75rem;
+  font-size: .875rem;
+  line-height: 1.25;
+  color: #55595c;
+  background-color: #fff;
+  background-image: none;
+  background-clip: padding-box;
+  border: $border-gray-light;
+  border-radius: 0.15rem;
+  cursor: text;
+
+  &.disabled {
+    cursor: default;
+    background-color: rgba(0, 0, 0, 0.07);
+
+    .tag-input-text {
+      cursor: default;
+    }
+
+    .tag-input-tags {
+
+      > .tag-input-tag {
+        background-color: rgba(0, 0, 0, 0.14);
+        border: 1px solid rgba(0, 0, 0, 0.28);
+        color: rgba(0, 0, 0, 0.28);
+
+        &.user {
+
+        }
+
+        > .tag-input-tag-remove-button {
+          cursor: default;
+          border-right: 1px solid rgba(0, 0, 0, 0.28);
+
+          &:hover {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+
+  .tag-input-placeholder-text {
+    @extend %truncate-text;
+    position: absolute;
+    left: 0.75rem;
+    top: 10px;
+    color: $gray-light;
+    max-width: 70%;
+  }
+
+  .tag-input-search-results, .tag-input-tags {
+    list-style: none;
+    padding: 0;
+  }
+
+  .tag-input-tags {
+    display: inline-block;
+    margin-bottom: 0;
+    line-height: 2rem;
+    position: relative;
+    top: 2px;
+
+    > .tag-input-tag {
+      display: inline-flex;
+      background-color: $gray-lightest;
+      border-radius: 50px;
+      border: $border-gray-light;
+      margin-right: 4px;
+      cursor: default;
+      padding: .2rem .2rem .2rem .2rem;
+      color: $gray;
+      font-size: .875rem;
+      line-height: .675rem;
+
+      &.user {
+        position: relative;
+
+        .avatar {
+
+          img {
+            border: none;
+            position: absolute;
+            left: 1px;
+            top: 1px;
+          }
+        }
+
+        .avatar ~ .tag-input-tag-content {
+          margin-left: 24px;
+        }
+      }
+
+      > .tag-input-color {
+        display: inline-flex;
+        align-items: center;
+        padding-right: .3rem;
+        position: relative;
+        width: 1.3rem;
+
+        i {
+          position: absolute;
+          top: -1px;
+          left: 0;
+          font-size: 1.1rem;
+          color: $accent-3;
+        }
+        .tag-color-indicator {
+          height: 14px;
+          width: 14px;
+          background-color: $accent-3;
+          border-radius: 100px;
+          border: 1px solid rgba(0, 0, 0, .2);
+        }
+      }
+
+      > .tag-input-tag-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      > .tag-input-tag-remove-button {
+        padding-left: .3rem;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        &:hover {
+          color: darken($gray, 5%);
+        }
+
+        .tag-input-tag-remove-button-default {
+          border-left: 1px solid rgba(0, 0, 0, .3);
+          padding-left: .2rem;
+        }
+      }
+    }
+  }
+
+  .tag-input-text {
+    border: 0 none !important;
+    background: none !important;
+    line-height: 2rem;
+    max-width: 100%;
+    width: 100%;
+    outline: none;
+    min-width: 10px;
+  }
+
+  .tag-input-select {
+    display: none !important;
+  }
+
+  .tag-input-search-results {
+    position: absolute;
+    z-index: 10;
+    left: 0;
+    background-color: #FFF;
+    margin-top: -1px;
+    border: 1px solid $input-border-color;
+    border-top: 0 none;
+    border-radius: 0 0 3px 3px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    overflow-y: auto;
+    max-height: 320px;
+
+    .tag-input-search-result {
+      cursor: pointer;
+      padding: .3rem .5rem;
+
+      &:first-child {
+        border-top: none;
+      }
+
+      &:hover, &.active {
+        background-color: $dropdown-link-hover-bg;
+      }
+    }
+  }
+
+  .badge {
+    position: absolute;
+    right: -8px;
+    top: -8px;
+    cursor: default;
+  }
+}

@@ -1,0 +1,23 @@
+<template>
+  <div class="logic-engine-rule-options">
+    <select class="custom-select" value.bind="rule.operator" change.delegate="signalChange()">
+      <option repeat.for="operator of ruleOperators" model.bind="operator.int">
+        ${operator | userIdLogicEngineRuleOperator}
+      </option>
+    </select>
+    <span>of the following users:</span>
+  </div>
+  <tag-input
+    tag-view-model="shared/components/user-tag-input-item"
+    source-items.bind="rule.availableUsers"
+    display-property="displayName"
+    autocomplete-search-fields.one-way="['displayName', 'firstName', 'lastName', 'email']"
+    autocomplete-sort-field="displayName"
+    autocomplete-min-chars="0"
+    autocomplete-sort-direction="asc"
+    should-allow-add.bind="false"
+    changed.call="signalChange()"
+    placeholder-text="Filter on specific users"
+    value.bind="rule.users">
+  </tag-input>
+</template>

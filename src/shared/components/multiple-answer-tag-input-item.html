@@ -1,0 +1,17 @@
+<template>
+  <div class="tag-input-tag multiple-answer" ref="liElement">
+    <span class="tag-input-color">
+      <label class="custom-control custom-checkbox disabled grid-checked">
+        <input class="custom-control-input" type="checkbox" checked>
+        <span class="custom-control-indicator"></span>
+      </label>
+    </span>
+    <span class="tag-input-tag-content">${option.text}</span>
+    <span
+      class="tag-input-tag-remove-button"
+      click.delegate="remove()"
+    >
+      <span class="tag-input-tag-remove-button-default"><i class="icon-close"></i></span>
+    </span>
+  </div>
+</template>

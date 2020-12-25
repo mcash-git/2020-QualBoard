@@ -1,0 +1,15 @@
+<template>
+  <h5>Choose what happens to project users you are importing that already exist in the project:</h5>
+  <div class="bulk-import-merge-strategy-choices">
+    <div class="form-group" repeat.for="strategy of importOverwriteBehaviors">
+      <label class="custom-control custom-radio">
+        <input type="radio"
+               checked.bind="mergeStrategy"
+               model.bind="strategy.int"
+               class="custom-control-input" />
+        <span class="custom-control-indicator"></span>
+        <span class="custom-control-description">${descriptionLookup[strategy.int] & oneTime}</span>
+      </label>
+    </div>
+  </div>
+</template>

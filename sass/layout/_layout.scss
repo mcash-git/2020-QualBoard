@@ -1,0 +1,158 @@
+@import "./_media.scss";
+@import "./_site.scss";
+@import "./_right-sidebar.scss";
+@import "./_globals.scss";
+// These must be edited in conjunction with view-state.js
+$left-sidebar-width: 350px;
+$right-sidebar-width: 350px;
+$app-header-height: 40px;
+$sticky-height-short: 40px;
+$sticky-height-tall: 85px;
+$action-bar-height: 42px;
+$layout-transition-time: 0.1s;
+
+.tt_qb_application-wrapper {
+
+  .tt_qb_app-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: $app-header-height;
+  }
+
+  .tt_qb_sidebar-wrapper {
+    overflow: hidden;
+    position: fixed;
+    top: $app-header-height;
+    bottom: 0;
+    z-index: 200;
+    transition:
+      left $layout-transition-time,
+      right $layout-transition-time;
+
+    &.left {
+      top: 0;
+    }
+
+    > compose {
+      display: block;
+      height: 100%;
+    }
+  }
+
+  .tt_qb_sidebar-wrapper.left {
+    width: $left-sidebar-width;
+    left: -1 * $left-sidebar-width;
+    z-index: $zindex-modal;
+  }
+
+  .tt_qb_sidebar-wrapper.right {
+    width: $right-sidebar-width;
+    right: -1 * $right-sidebar-width;
+  }
+
+  .tt_qb_content-wrapper {
+    margin-top: $app-header-height;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    transition:
+      margin-left $layout-transition-time,
+      margin-right $layout-transition-time;
+  }
+
+  .tt_qb_content-padding {
+    float: left;
+    width: 100%;
+    padding: 1rem;
+  }
+}
+
+.tt_qb_modal-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: $zindex-modal-bg;
+  background-color: fade-out(#2a2b2d, 0.05);
+
+
+  .tt_qb_modal-body {
+    background: white;
+    z-index: $zindex-modal;
+    max-width: 100%;
+    max-height: 100%;
+    overflow: auto;
+  }
+}
+
+.tt_qb_application-wrapper.left-sidebar-active {
+  .tt_qb_sidebar-wrapper.left {
+    left: 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,.66);
+  }
+
+  .tt_qb_modal-wrapper {
+    background-color: fade-out(#2a2b2d, .15);
+  }
+}
+
+.tt_qb_application-wrapper.right-sidebar-active {
+  .tt_qb_sidebar-wrapper.right {
+    right: 0;
+  }
+
+  .tt_qb_content-wrapper {
+    margin-right: $right-sidebar-width;
+  }
+}
+
+.tt_qb_application-wrapper.sticky-active {
+  .tt_qb_content-wrapper {
+    margin-top: $app-header-height + $sticky-height-short;
+  }
+
+  .tt_qb_sticky {
+    position: fixed;
+    top: $app-header-height;
+    right: 0;
+    left: 0;
+    z-index: 199;
+    background: url("/images/content-header-bg2.png"), $brand-identity;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: right;
+  }
+
+  .tt_qb_tabs {
+    min-height: $sticky-height-short;
+    position: relative;
+  }
+
+  &.left-sidebar-active {
+    .tt_qb_sticky {
+      left: $left-sidebar-width;
+    }
+  }
+
+  &.right-sidebar-active {
+    .tt_qb_sticky {
+      right: $right-sidebar-width;
+    }
+  }
+
+  &.sticky-tall {
+    .tt_qb_content-wrapper {
+      margin-top: $app-header-height + $sticky-height-tall;
+    }
+  }
+}
+
+h1 {
+  margin: .67em 0;
+}

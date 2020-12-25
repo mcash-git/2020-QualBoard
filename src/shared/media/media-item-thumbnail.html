@@ -1,0 +1,14 @@
+<template>
+  <img
+    show.bind="thumbnailType === 'image'"
+    src.bind="src"
+    error.trigger="handleError()"
+    load.trigger="handleLoad()"
+
+    draggable="false"
+    ondragstart="return false;"
+  />
+  <i class="icon-ion-alert-circled" if.bind="thumbnailType === 'error'"></i>
+  <i class="icon-insert_drive_file" if.bind="thumbnailType === 'download'"></i>
+  <img src="/images/media-loader.svg" alt="" show.bind="thumbnailType === 'loading'">
+</template>

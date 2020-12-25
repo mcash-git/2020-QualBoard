@@ -1,0 +1,79 @@
+<template>
+  <div
+    class.bind="classes"
+    ref="wrapperElement"
+    click.trigger="handleWrapperClick($event)"
+  >
+    <div ref="placeholderTextElement"
+         class="tag-input-placeholder-text"
+         if.bind="!isFocused && (!value || value.length === 0) && !textInput">
+      ${placeholderText}
+    </div>
+    <div
+      class="tag-input-tags"
+      ref="tagsDisplayElement"
+      remove-tag.delegate="handleRemoveTag($event)"
+    >
+      <compose
+        repeat.for="item of value"
+        view-model.bind="tagViewModel"
+        model.bind="{ item: item, displayItem: displayItem }"
+        containerless
+      ></compose>
+      <input
+        class="tag-input-text"
+        type="text"
+        value.bind="textInput"
+        focus.one-time="shouldFocus"
+        keydown.delegate="handleKeyup($event)"
+        keypress.delegate="eatCommandKeys($event)"
+        keyup.delegate="eatCommandKeys($event)"
+        focus.trigger="handleFocus($event)"
+        disabled.bind="disabled"
+        ref="textInputElement"
+      />
+    </div>
+    <select class="tag-input-select" value.bind="value" multiple>
+      <option repeat.for="item of sourceItems" model.bind="item">${displayItem(item) & oneTime}</option>
+    </select>
+    <!-- TODO:  style.bind and be adaptive; place the ul on whichever side has more room, and fill the space with a
+    max-width -->
+    <!-- TODO:  disable/d.bind -->
+    <ul class="tag-input-search-results"
+        if.bind="shouldShowAutocompleteSearchResults"
+        ref="searchResultsElement"
+        wheel.delegate="handleMouseWheel($event)"
+        css="width: ${searchResultsWidth & throttle:1000}; top: ${searchResultsPositionTop & throttle:1000};">
+      <li class="tag-input-search-result${selectedAutocompleteItemIndex === -1 ? ' active' : ''}"
+          ref="autocompleteSearchItems[-1]"
+          show.bind="shouldShowAddOption"
+          click.delegate="addNewTag()">
+        ${addNewTagTextComputed}
+      </li>
+      <li class="tag-input-search-result${selectedAutocompleteItemIndex === $index ? ' active' : ''}"
+          ref="autocompleteSearchItems[$index]"
+          if.bind="searchResults"
+          repeat.for="item of searchResults"
+          click.delegate="selectItem(item)">
+        ${displayItem(item) & oneTime}
+      </li>
+    </ul>
+    <div
+      class="badge"
+      show.bind="isTruncated && !isFocused"
+      ref="truncatedIndicatorElement"
+    >
+      ${value.length}
+    </div>
+    <div class.bind="classes" ref="summaryElement">
+      <div class="tag-input-summary tag-input-tags">
+        <compose
+          repeat.for="item of value"
+          view-model.bind="tagViewModel"
+          model.bind="{ item: item, displayItem: displayItem }"
+          containerless
+        ></compose>
+      </div>
+    </div>
+  </div>
+</template>
